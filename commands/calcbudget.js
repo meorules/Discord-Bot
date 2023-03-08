@@ -30,18 +30,18 @@ function getStadiumProfits(stadiumSize, place) {
 
     stadiumRevenue = multiplier * 19;
     profit = stadiumRevenue - cost;
-    if (place > 10) {
-        placeMultiplier = 1;
-    } else if (place <= 10 && place < 3) {
-        placeMultiplier = 1.15;
-    } else if (place == 3 | place == 2) {
-        placeMultiplier = 1.25;
-    } else {
-        placeMultiplier = 1.5;
-    }
+    // if (place > 10) {
+    //     placeMultiplier = 1;
+    // } else if (place <= 10 && place < 3) {
+    //     placeMultiplier = 1.15;
+    // } else if (place == 3 | place == 2) {
+    //     placeMultiplier = 1.25;
+    // } else {
+    //     placeMultiplier = 1.5;
+    // }
 
-    finalProfit = profit * placeMultiplier;
-    return finalProfit;
+    // finalProfit = profit * placeMultiplier;
+    return profit;
 
 }
 
@@ -144,8 +144,25 @@ function staffUpKeep(tftier, academytier, hoyd, neg, tclvls, snlvls) {
 
 }
 
-function finalProfits(stadiumProfits, seasonPerformanceProfit, merchProfit, staffupKeep) {
-    return stadiumProfits + seasonPerformanceProfit + merchProfit - staffupKeep;
+function getPlayerWages(averagerating, clubTier) {
+    // 3, 3.5, 4, 4.5, 5
+    if (clubTier == "Title") {
+        divisor = 2;
+    } else if (clubTier == "Euro") {
+        divisor = 2.5;
+    } else if (clubTier == "Upper Mid") {
+        divisor = 4;
+    } else if (clubTier == "Lower Mid") {
+        divisor = 5;
+    } else if (clubTier == "Relegation") {
+        divisor = 6;
+    }
+
+    return averagerating / divisor;
+}
+
+function finalProfits(stadiumProfits, seasonPerformanceProfit, merchProfit, staffupKeep, playerWages) {
+    return stadiumProfits + seasonPerformanceProfit + merchProfit - staffupKeep - playerWages;
 }
 
 module.exports = {
@@ -162,6 +179,8 @@ module.exports = {
         .addStringOption(option => option.setName('academytier').setDescription('Academy Level ( ex. Poor, Average, Good, Great or Elite)'))
         .addIntegerOption(option => option.setName('hoyd').setDescription('HOYD Staff Tier ( ex. 0,1,2,3 or 4)'))
         .addIntegerOption(option => option.setName('negotiator').setDescription('Negotiator Staff Tier ( ex. 1,2,3 or 4)'))
+        .addIntegerOption(option => option.setName('averagerating').setDescription('Your Starting XI & Subs Average Rating'))
+        .addStringOption(option => option.setName('clubtier').setDescription('Club Tier,(ex. Title, Euro, Upper Mid, Lower Mid,Relegation)'))
         .addStringOption(option => option.setName('tacticscoaches').setDescription('Both Tactics Coach levels, seperated by comma. ( ex. 1,0 or 1,1 or 1,2 etc.)'))
         .addStringOption(option => option.setName('scoutnetwork').setDescription('Both Scouting Network Staff Member levels, seperated by comma. ( ex. 1,0 or 1,1 or 1,2 etc.)')),
     async execute(interaction) {
@@ -170,7 +189,8 @@ module.exports = {
         seasonalPerformanceProfit = getSeasonPerformanceProfits(place, interaction.options.getInteger('wins'), interaction.options.getInteger('draws'));
         merchProfit = getMerchProfit(interaction.options.getInteger('merchtier'), place, interaction.options.getInteger('starplayer'));
         staffUpkeep = staffUpKeep(interaction.options.getInteger('trainingtier'), interaction.options.getString('academytier'), interaction.options.getInteger('hoyd'), interaction.options.getInteger('negotiator'), interaction.options.getString('tacticscoaches'), interaction.options.getString('scoutnetwork'));
-        overallProfit = finalProfits(stadiumProfit, seasonalPerformanceProfit, merchProfit, staffUpkeep);
-        await interaction.reply({ content: `Overall Profit of \`${overallProfit}\`m.` });
+        playerWages = getPlayerWages(interaction.options.getInteger('averagerating'), interaction.options.getString('clubtier'));
+        overallProfit = finalProfits(stadiumProfit, seasonalPerformanceProfit, merchProfit, staffUpkeep, playerWages);
+        await interaction.reply({ content: `Stadium Profit of \`${stadiumProfit}\`m,Performance Based Profits of \`${seasonalPerformanceProfit}\`m,Merch Profits of \`${merchProfit}\`m, Staff Upkeep of \`${staffUpkeep}\`m, Player Wages of \`${playerWages}\`m, Overall Profit of \`${overallProfit}\`m` });
     },
 };
