@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const keepAlive = require("./server.js")
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const config = require("./config.json");
 
@@ -27,11 +28,24 @@ client.once(Events.ClientReady, c => {
     console.log(`Ready! Logged in as ${c.user.tag}`);
 });
 
-client.login(config.BOT_TOKEN);
 
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
-    console.log(interaction);
+
+    try {
+        fs.writeFileSync('log.txt', "Username: " + interaction.user.username + ",", { flag: 'a+' });
+        fs.writeFileSync('log.txt', "Command Used: " + interaction.commandName + ",", { flag: 'a+' });
+        console.log(interaction.options);
+        for (option in interaction.options._hoistedOptions) {
+            fs.writeFileSync('log.txt', "Option " + interaction.options._hoistedOptions[option].name + ":" + interaction.options._hoistedOptions[option].value + ",", { flag: 'a+' });
+        }
+        fs.writeFileSync('log.txt', "\n", { flag: 'a+' });
+
+        // file written successfully
+    } catch (err) {
+        console.error(err);
+    }
+
 
     const command = interaction.client.commands.get(interaction.commandName);
 
@@ -52,3 +66,8 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
 });
+
+
+keepAlive()
+
+client.login(config.BOT_TOKEN);
