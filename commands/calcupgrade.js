@@ -186,11 +186,13 @@ module.exports = {
     .addIntegerOption(option => option.setName('potential').setDescription("The player's potential rating before boosts"))
     .addStringOption(option => option.setName('position').setDescription("The player's position during the sim, such as LW, RW, ST, CF, CAM, etc"))
     .addIntegerOption(option => option.setName('averagerating').setDescription("The average rating of the player before positional modifiers, but with training added. ex. 76 or 68"))
-    .addIntegerOption(option => option.setName('age').setDescription('The age of the player)')),
+    .addIntegerOption(option => option.setName('age').setDescription('The age of the player)'))
+    .addStringOption(option => option.setName('name').setDescription("The player's name so I can print it nicely :) ")),
   async execute(interaction) {
     overall = interaction.options.getInteger('overall');
     potential = interaction.options.getInteger('potential');
     position = interaction.options.getString('position');
+    playerName = interaction.options.getString('name');
     age = interaction.options.getInteger('age');
 
 
@@ -207,11 +209,9 @@ module.exports = {
       finalOverall = overallAddition + overall;
 
       if (age <= 23 && (potential - finalOverall) <= 3 && potential <= 90) {
-        console.log(potential)
 
         potential = potential + dynamicPotential(positionAverage);
 
-        console.log(potential)
       }
       if (interaction.options.getBoolean('tots') == true) {
         potential = potential + calcTOTSUpgrade(finalOverall)
@@ -234,6 +234,6 @@ module.exports = {
 
     age = age + 1;
 
-    await interaction.reply({ content: `Name? \`${position}\` \`${finalOverall}\`/\`${potential}\` \`${age}\`` });
+    await interaction.reply({ content: `\`${playerName}\` \`${position}\` \`${finalOverall}\`/\`${potential}\` \`${age}\`` });
   },
 };
