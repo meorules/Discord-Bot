@@ -23,12 +23,12 @@ const rest = new REST({ version: '10' }).setToken(BOT_TOKEN);
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
         // The put method is used to fully refresh all commands in the guild with the current set
-        // const data = await rest.put(
-        //     Routes.applicationGuildCommands(APP_ID, GUILD_ID), { body: commands },
-        // );
         const data = await rest.put(
-            Routes.applicationGuildCommands(APP_ID, FD_SERVER_ID), { body: commands },
+            Routes.applicationGuildCommands(APP_ID, GUILD_ID), { body: commands },
         );
+        // const data = await rest.put(
+        //     Routes.applicationGuildCommands(APP_ID, FD_SERVER_ID), { body: commands },
+        // );
 
         console.log(`Successfully reloaded ${data.length} application (/) commands.`);
     } catch (error) {
