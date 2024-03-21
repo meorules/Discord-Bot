@@ -1,5 +1,6 @@
 hidden = [".config", "package-lock.json"]
 run = "node index.js"
+modules = ["nodejs-20:v8-20230920-bd784b9"]
 
 [[hints]]
 regex = "Error \\[ERR_REQUIRE_ESM\\]"
@@ -83,3 +84,7 @@ start = "typescript-language-server --stdio"
 
 [deployment]
 run = ["sh", "-c", "node index.js"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
