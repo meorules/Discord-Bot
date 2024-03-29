@@ -6,7 +6,10 @@ const {
 const playerArrays = require('../readInPlayers.js')
 randomizerGKArray = playerArrays.randomizerGKArray;
 randomizerPlayerArray = playerArrays.randomizerPlayerArray;
-
+randomizerNonSpecialElite = playerArrays.randomizerNonSpecialElite;
+randomizerGKNonSpecialElite = playerArrays.randomizerGKNonSpecialElite;
+randomizerGKPromoElites = playerArrays.randomizerGKPromoElites;
+randomizerPromoElites = playerArrays.randomizerPromoElites;
 // 53 and below	1-585	1-51
 // 54	1-231	1-49
 // 55	1-250	1-65
@@ -233,11 +236,40 @@ function generateEliteGold(gk) {
 }
 
 function generateNonSpecialElite() {
-    position = generateRandomNumber(1, 11);
-    if (position == 1) {
-        //generate GK
+    if (randomizerGKNonSpecialElite.length == 0) {
+        //No GKs, only rng players
+        rng = generateRandomNumber(1, randomizerNonSpecialElite.length);
+        return randomizerNonSpecialElite[rng - 1];
     } else {
-        //generateOutfielder
+        position = generateRandomNumber(1, 11);
+        if (position == 1) {
+            //generate GK
+            rng = generateRandomNumber(1, randomizerGKNonSpecialElite.length);
+            return randomizerGKNonSpecialElite[rng - 1];
+        } else {
+            //generateOutfielder
+            rng = generateRandomNumber(1, randomizerNonSpecialElite.length);
+            return randomizerNonSpecialElite[rng - 1];
+        }
+    }
+}
+
+function generatePromoPlayer() {
+    if (randomizerGKPromoElites.length == 0) {
+        //No GKs, only rng players
+        rng = generateRandomNumber(1, randomizerPromoElites.length);
+        return randomizerPromoElites[rng - 1];
+    } else {
+        position = generateRandomNumber(1, 11);
+        if (position == 1) {
+            //generate GK
+            rng = generateRandomNumber(1, randomizerGKPromoElites.length);
+            return randomizerGKPromoElites[rng - 1];
+        } else {
+            //generateOutfielder
+            rng = generateRandomNumber(1, randomizerPromoElites.length);
+            return randomizerPromoElites[rng - 1];
+        }
     }
 }
 
@@ -307,12 +339,7 @@ function generateElite(promoInPacks) {
             //Gold RNG
             return generateEliteGold(positionRNG);
         } else if (rng > 60 && rng < 85) {
-            //Promo
-            if (positionRNG == 1) {
-                return [0, "Promo", 0, 0, "Promo GK", ""];
-            } else {
-                return [0, "Promo", 0, 0, "Promo Player", ""];
-            }
+            return generatePromoPlayer();
         } else if (rng > 85 && rng < 97) {
             //Hero
             return generateHero(positionRNG);
@@ -376,13 +403,7 @@ function openJumboPremiumGoldPack(promoInPacks) {
         } else if (numbers[i] > 93 && numbers[i] <= 96) {
             players.push(generatePlayer(84));
         } else if (numbers[i] > 96 && numbers[i] <= 98) {
-            //Add option for non special elite
-            positionRNG = generateRandomNumber(1, 11);
-            if (positionRNG == 1) {
-                players.push([0, "Promo", 0, 0, "Non Special Elite GK", ""]);
-            } else {
-                players.push([0, "Promo", 0, 0, "Non Special Elite", ""]);
-            }
+            players.push(generateNonSpecialElite());
         } else if (numbers[i] > 98 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }

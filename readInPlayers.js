@@ -1,3 +1,26 @@
+exports.randomizerNonSpecialElite = [
+    [1, "Independiente2023 ~ 2024", 84, 1, "Isla RB RWB", "International Icon"],
+    [2, "Real Betis2017 ~ 2024", 84, 2, "Guardado DM CM", "International Icon"]
+]
+
+exports.randomizerGKNonSpecialElite = []
+
+exports.randomizerPromoElites = [
+    [1, "Anderlecht2022 ~ 2024", 89, "1", "Vertonghen CB", "International Icon"],
+    [2, "Milan2020 ~ 2024", 87, "2", "Kjaer CB", "International Icon"],
+    [3, "Tottenham Hotspur2022 ~ 2024", 88, "3", "Perisic LB LWB LM LW", "International Icon"],
+    [4, "Inter Miami2023 ~ 2025", 90, "4", "Busquets DM CM", "International Icon"],
+    [5, "FSV Mainz 052021 ~ 2026", 86, "5", "Lee Jae-Sung CM CF CAM", "International Icon"],
+    [6, "Chelsea2022 ~ 2027", 88, "6", "Sterling LW RW ST", "International Icon"],
+    [7, "Benfica2023 ~ 2024", 90, "7", "Di Maria CF RW RM", "International Icon"],
+    [8, "Al Nassr2023 ~ 2025", 92, "8", "Ronaldo ST LW", "International Icon"],
+    [9, "Icon", 90, "9", "Thuram RB CB", ""]
+]
+
+exports.randomizerGKPromoElites = [
+    [1, "Salernitana2023 ~ 2025", 88, "1 (GK)", "Ochoa GK", "International Icon"]
+]
+
 exports.randomizerPlayerArray = [
     [1, "Icon", 95, 1, "Pele CAM CF ST", ""],
     [2, "Icon", 94, 2, "Zidane CAM CM", "Gives +2 heading to his teams midfielders (CDM, CM, CAM)"],
