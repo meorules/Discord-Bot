@@ -560,7 +560,6 @@ function openPacks(pack, count, promoInPacks) {
 }
 
 function stringifyPlayer(player) {
-    //    [2, "Icon", 94, 2, "Zidane CAM CM", "Gives +2 heading to his teams midfielders (CDM, CM, CAM)"],
     if (player == null) {
         throw new Error('Some invalid player was generated???');
     }
