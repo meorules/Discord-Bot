@@ -370,11 +370,73 @@ function openSilverPack() {
 }
 
 function openGoldPack(promoInPacks) {
-    return null;
+    numbers = generateRandomNumbers(3, 1, 200);
+    players = [];
+
+    for (let i = 0; i < 3; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 50) {
+            players.push(generatePlayer(75));
+        } else if (numbers[i] > 51 && numbers[i] <= 80) {
+            players.push(generatePlayer(76));
+        } else if (numbers[i] > 80 && numbers[i] <= 110) {
+            players.push(generatePlayer(77));
+        } else if (numbers[i] > 110 && numbers[i] <= 145) {
+            players.push(generatePlayer(78));
+        } else if (numbers[i] > 145 && numbers[i] <= 165) {
+            players.push(generatePlayer(79));
+        } else if (numbers[i] > 165 && numbers[i] <= 175) {
+            players.push(generatePlayer(80));
+        } else if (numbers[i] > 175 && numbers[i] <= 185) {
+            players.push(generatePlayer(81));
+        } else if (numbers[i] > 185 && numbers[i] <= 193) {
+            players.push(generatePlayer(82));
+        } else if (numbers[i] > 193 && numbers[i] <= 197) {
+            players.push(generatePlayer(83));
+        } else if (numbers[i] > 197 && numbers[i] <= 198) {
+            players.push(generatePlayer(84));
+        } else if (numbers[i] > 198 && numbers[i] <= 199) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 199 && numbers[i] <= 200) {
+            players.push(generateElite(promoInPacks));
+        }
+    }
+
+    return players;
 }
 
 function openPremiumGoldPack(promoInPacks) {
-    return null;
+    numbers = generateRandomNumbers(3, 1, 100);
+    players = [];
+
+    for (let i = 0; i < 3; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 24) {
+            players.push(generatePlayer(75));
+        } else if (numbers[i] > 24 && numbers[i] <= 44) {
+            players.push(generatePlayer(76));
+        } else if (numbers[i] > 44 && numbers[i] <= 58) {
+            players.push(generatePlayer(77));
+        } else if (numbers[i] > 58 && numbers[i] <= 68) {
+            players.push(generatePlayer(78));
+        } else if (numbers[i] > 68 && numbers[i] <= 77) {
+            players.push(generatePlayer(79));
+        } else if (numbers[i] > 77 && numbers[i] <= 84) {
+            players.push(generatePlayer(80));
+        } else if (numbers[i] > 84 && numbers[i] <= 89) {
+            players.push(generatePlayer(81));
+        } else if (numbers[i] > 89 && numbers[i] <= 94) {
+            players.push(generatePlayer(82));
+        } else if (numbers[i] > 94 && numbers[i] <= 97) {
+            players.push(generatePlayer(83));
+        } else if (numbers[i] > 97 && numbers[i] <= 98) {
+            players.push(generatePlayer(84));
+        } else if (numbers[i] > 98 && numbers[i] <= 99) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 99 && numbers[i] <= 100) {
+            players.push(generateElite(promoInPacks));
+        }
+    }
+
+    return players;
 }
 
 function openJumboPremiumGoldPack(promoInPacks) {
@@ -413,7 +475,32 @@ function openJumboPremiumGoldPack(promoInPacks) {
 }
 
 function openGoldUpgradePack(promoInPacks) {
-    return null;
+    numbers = generateRandomNumbers(2, 1, 100);
+    players = [];
+
+    for (let i = 0; i < 2; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 25) {
+            players.push(generatePlayer(78));
+        } else if (numbers[i] > 25 && numbers[i] <= 40) {
+            players.push(generatePlayer(79));
+        } else if (numbers[i] > 40 && numbers[i] <= 55) {
+            players.push(generatePlayer(80));
+        } else if (numbers[i] > 55 && numbers[i] <= 70) {
+            players.push(generatePlayer(81));
+        } else if (numbers[i] > 70 && numbers[i] <= 80) {
+            players.push(generatePlayer(82));
+        } else if (numbers[i] > 80 && numbers[i] <= 90) {
+            players.push(generatePlayer(83));
+        } else if (numbers[i] > 90 && numbers[i] <= 96) {
+            players.push(generatePlayer(84));
+        } else if (numbers[i] > 96 && numbers[i] <= 98) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 98 && numbers[i] <= 100) {
+            players.push(generateElite(promoInPacks));
+        }
+    }
+
+    return players;
 }
 
 function generateRandomNumber(min, max) {
@@ -443,7 +530,7 @@ function openPack(packName, promoInPacks) {
         case "Gold Pack(10k)":
             players = openGoldPack(promoInPacks);
             break;
-        case "Premium Gold Pack(7.5k)":
+        case "Premium Gold Pack(15k)":
             players = openPremiumGoldPack(promoInPacks);
             break;
         case "Jumbo Premium Gold Pack(35k)":
@@ -460,15 +547,16 @@ function openPack(packName, promoInPacks) {
 }
 
 function openPacks(pack, count, promoInPacks) {
-    players = [];
+    packPlayers = [];
     if (count == 1) {
-        players = openPack(pack, promoInPacks);
+        packPlayers = openPack(pack, promoInPacks);
     } else {
         for (let i = 0; i < count; i++) {
-            players.push(openPack(pack, promoInPacks));
+            individualPackPlayers = openPack(pack, promoInPacks);
+            packPlayers = packPlayers.concat(individualPackPlayers);
         }
     }
-    return players;
+    return packPlayers;
 }
 
 function stringifyPlayer(player) {
@@ -538,6 +626,15 @@ module.exports = {
 
         if (count == null) {
             count = 1;
+        }
+
+        switch (packName) {
+            case "Bronze Pack(2.5k)":
+                return interaction.reply("Not yet implemented");
+                break;
+            case "Silver Pack(5k)":
+                return interaction.reply("Not yet implemented");
+                break;
         }
 
         try {
