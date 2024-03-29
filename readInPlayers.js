@@ -292,7 +292,7 @@ exports.randomizerPlayerArray = [
     [268, "FC Bayern München2008 ~ 2024", 84, 42, "T. Müller\n CAM CF ST", "Partnership with Robert Lewandowski"],
     [269, "Liverpool2020 ~ 2024", 84, 43, "Thiago\n CM", ""],
     [270, "Manchester City2017 ~ 2026", 84, 44, "K. Walker\n RB", ""],
-    [271, "Chelsea2020 ~ 2024", 84, 45, "Thiago Silva\n CB", "Parntership with Marquinhos"],
+    [271, "Chelsea2020 ~ 2024", 84, 45, "Thiago Silva\n CB", "Partnership with Marquinhos"],
     [272, "FC Barcelona2020 ~ 2026", 83, 1, "Gavi\n CM LW", "Partnership with Pedri"],
     [273, "Bayer 04 Leverkusen2021 ~ 2025", 83, 2, "J. Frimpong\n RWB RM", "Partnership with Alejandro Grimaldo"],
     [274, "Newcastle United2022 ~ 2027", 83, 3, "S. Botman\n CB", ""],

@@ -85,7 +85,7 @@ function generatePlayer(rating) {
         case 78:
             if (position == 1) {
                 rng = generateRandomNumber(1, 19);
-                return randomizerGKArray[104 + rng - 1];
+                return randomizerGKArray[85 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 164);
                 return randomizerPlayerArray[696 + rng - 1];
@@ -94,7 +94,7 @@ function generatePlayer(rating) {
         case 77:
             if (position == 1) {
                 rng = generateRandomNumber(1, 16);
-                return randomizerGKArray[120 + rng - 1];
+                return randomizerGKArray[104 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 212);
                 return randomizerPlayerArray[860 + rng - 1];
@@ -103,7 +103,7 @@ function generatePlayer(rating) {
         case 76:
             if (position == 1) {
                 rng = generateRandomNumber(1, 27);
-                return randomizerGKArray[136 + rng - 1];
+                return randomizerGKArray[120 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 270);
                 return randomizerPlayerArray[1072 + rng - 1];
@@ -112,7 +112,7 @@ function generatePlayer(rating) {
         case 75:
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
-                return randomizerGKArray[163 + rng - 1];
+                return randomizerGKArray[157 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 267);
                 return randomizerPlayerArray[1342 + rng - 1];
@@ -121,7 +121,7 @@ function generatePlayer(rating) {
         case 74:
             if (position == 1) {
                 rng = generateRandomNumber(1, 42);
-                return randomizerGKArray[195 + rng - 1];
+                return randomizerGKArray[189 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 434);
                 return randomizerPlayerArray[1609 + rng - 1];
@@ -130,7 +130,7 @@ function generatePlayer(rating) {
         case 73:
             if (position == 1) {
                 rng = generateRandomNumber(1, 55);
-                return randomizerGKArray[237 + rng - 1];
+                return randomizerGKArray[231 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 482);
                 return randomizerPlayerArray[2043 + rng - 1];
@@ -139,7 +139,7 @@ function generatePlayer(rating) {
         case 72:
             if (position == 1) {
                 rng = generateRandomNumber(1, 67);
-                return randomizerGKArray[292 + rng - 1];
+                return randomizerGKArray[286 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 586);
                 return randomizerPlayerArray[2525 + rng - 1];
@@ -148,7 +148,7 @@ function generatePlayer(rating) {
         case 71:
             if (position == 1) {
                 rng = generateRandomNumber(1, 71);
-                return randomizerGKArray[359 + rng - 1];
+                return randomizerGKArray[353 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 667);
                 return randomizerPlayerArray[3111 + rng - 1];
@@ -157,7 +157,7 @@ function generatePlayer(rating) {
         case 70:
             if (position == 1) {
                 rng = generateRandomNumber(1, 73);
-                return randomizerGKArray[430 + rng - 1];
+                return randomizerGKArray[424 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 783);
                 return randomizerPlayerArray[3778 + rng - 1];
@@ -166,7 +166,7 @@ function generatePlayer(rating) {
         case 69:
             if (position == 1) {
                 rng = generateRandomNumber(1, 71);
-                return randomizerGKArray[503 + rng - 1];
+                return randomizerGKArray[497 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 902);
                 return randomizerPlayerArray[4561 + rng - 1];
@@ -175,7 +175,7 @@ function generatePlayer(rating) {
         case 68:
             if (position == 1) {
                 rng = generateRandomNumber(1, 93);
-                return randomizerGKArray[574 + rng - 1];
+                return randomizerGKArray[568 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 929);
                 return randomizerPlayerArray[5463 + rng - 1];
@@ -184,7 +184,7 @@ function generatePlayer(rating) {
         case 67:
             if (position == 1) {
                 rng = generateRandomNumber(1, 90);
-                return randomizerGKArray[667 + rng - 1];
+                return randomizerGKArray[661 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 1015);
                 return randomizerPlayerArray[6392 + rng - 1];
@@ -193,7 +193,7 @@ function generatePlayer(rating) {
         case 66:
             if (position == 1) {
                 rng = generateRandomNumber(1, 108);
-                return randomizerGKArray[757 + rng - 1];
+                return randomizerGKArray[751 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 1018);
                 return randomizerPlayerArray[7407 + rng - 1];
@@ -565,11 +565,26 @@ function stringifyPlayer(player) {
         throw new Error('Some invalid player was generated???');
     }
     playerName = player[4].replace('\n', '');
-    teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
-    toReturn = player[2] + " **" + playerName + "** " + teamName;
-    if (player[5] != "") {
-        toReturn += " | " + player[5];
+    if (player[1].includes('Hero') || player[1].includes('Icon')) {
+        if (player[1].includes('Icon')) {
+            toReturn = "__**ICON**__ " + player[2] + " **" + playerName + "** ";
+        } else {
+            teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
+            toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
+        }
+    } else if (player[5].includes('International Icon')) {
+        teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
+
+        toReturn = "**PROMO PLAYER** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5];
+    } else {
+        teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
+
+        toReturn = player[2] + " **" + playerName + "** " + teamName;
+        if (player[5] != "") {
+            toReturn += " | " + player[5];
+        }
     }
+
     return toReturn;
 }
 
