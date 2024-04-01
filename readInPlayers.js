@@ -1,24 +1,24 @@
 exports.randomizerNonSpecialElite = [
-    [1, "Independiente2023 ~ 2024", 84, 1, "Isla RB RWB", "International Icon"],
-    [2, "Real Betis2017 ~ 2024", 84, 2, "Guardado DM CM", "International Icon"]
+    [1, "Salzburg", 84, 1, "Ulmer LB CB", "UEL Hero"],
+    [2, "Dynamo Kyiv", 84, 2, "Yarmolenko RM RW ST", "UEL Hero"]
 ]
 
 exports.randomizerGKNonSpecialElite = []
 
 exports.randomizerPromoElites = [
-    [1, "Anderlecht2022 ~ 2024", 89, "1", "Vertonghen CB", "International Icon"],
-    [2, "Milan2020 ~ 2024", 87, "2", "Kjaer CB", "International Icon"],
-    [3, "Tottenham Hotspur2022 ~ 2024", 88, "3", "Perisic LB LWB LM LW", "International Icon"],
-    [4, "Inter Miami2023 ~ 2025", 90, "4", "Busquets DM CM", "International Icon"],
-    [5, "FSV Mainz 052021 ~ 2026", 86, "5", "Lee Jae-Sung CM CF CAM", "International Icon"],
-    [6, "Chelsea2022 ~ 2027", 88, "6", "Sterling LW RW ST", "International Icon"],
-    [7, "Benfica2023 ~ 2024", 90, "7", "Di Maria CF RW RM", "International Icon"],
-    [8, "Al Nassr2023 ~ 2025", 92, "8", "Ronaldo ST LW", "International Icon"],
-    [9, "Icon", 90, "9", "Thuram RB CB", ""]
+    [1, "Sevilla2017 ~ 2024", 89, 1, "Jesus Navas RB  RWB  RM", "UEL Hero"],
+    [2, "Rangers2018 ~ 2026", 87, 2, "Goldson CB", "UEL Hero"],
+    [3, "Al Hilal2023 ~ 2026", 90, 3, "Koulibaly CB", "UEL Hero"],
+    [4, "Bayer 04 Leverkusen2023 ~ 2028", 88, 4, "Xhaka CM  DM", "UEL Hero"],
+    [5, "Arsenal2016 ~ 2024", 87, 5, "Elneny CM  DM", "UEL Hero"],
+    [6, "Inter2022 ~ 2024", 88, 6, "Mkhitaryan CAM  CM  RM", "UEL Hero"],
+    [7, "Galatasaray2022 ~ 2024", 89, 7, "Mertens CF  CAM  LW  LM", "UEL Hero"],
+    [8, "Olympique de Marseille2023 ~ 2026", 90, 8, "Aubameyang ST", "UEL Hero"],
+    [9, "Icon", 90, 9, "Scifo CAM  CM  LM", ""]
 ]
 
 exports.randomizerGKPromoElites = [
-    [1, "Salernitana2023 ~ 2025", 88, "1 (GK)", "Ochoa GK", "International Icon"]
+    [1, "Villarreal2022 ~ 2024", 86, 1, "Pepe Reina GK", "UEL Hero"],
 ]
 
 exports.randomizerPlayerArray = [

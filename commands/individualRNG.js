@@ -10,18 +10,6 @@ randomizerNonSpecialElite = playerArrays.randomizerNonSpecialElite;
 randomizerGKNonSpecialElite = playerArrays.randomizerGKNonSpecialElite;
 randomizerGKPromoElites = playerArrays.randomizerGKPromoElites;
 randomizerPromoElites = playerArrays.randomizerPromoElites;
-// 53 and below	1-585	1-51
-// 54	1-231	1-49
-// 55	1-250	1-65
-// 56	1-303	1-60
-// 57	1-322	1-64
-// 58	1-409	1-85
-// 59	1-437	1-82
-// 60	1-625	1-106
-// 61	1-648	1-93
-// 62	1-840	1-95
-// 63	1-963	1-101
-// 64	1-1059	1-120
 
 function generatePlayer(rating) {
 
@@ -112,7 +100,7 @@ function generatePlayer(rating) {
         case 75:
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
-                return randomizerGKArray[147 + rng - 1];
+                return randomizerGKArray[157 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 267);
                 return randomizerPlayerArray[1342 + rng - 1];
@@ -362,10 +350,10 @@ function generateElite(promoInPacks) {
 }
 
 function openEliteHunterPack() {
-    numbers = generateRandomNumbers(8, 1, 100);
+    numbers = generateRandomNumbers(1, 1, 100);
     players = [];
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 1; i++) {
         if (numbers[i] > 0 && numbers[i] <= 4) {
             players.push(generatePlayer(75));
         } else if (numbers[i] > 4 && numbers[i] <= 9) {
@@ -397,10 +385,10 @@ function openEliteHunterPack() {
 }
 
 function openRarerPlayersPack() {
-    numbers = generateRandomNumbers(7, 1, 100);
+    numbers = generateRandomNumbers(1, 1, 100);
     players = [];
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 1; i++) {
         if (numbers[i] > 0 && numbers[i] <= 9) {
             players.push(generatePlayer(75));
         } else if (numbers[i] > 9 && numbers[i] <= 19) {
@@ -432,10 +420,10 @@ function openRarerPlayersPack() {
 }
 
 function openGoldPack(promoInPacks) {
-    numbers = generateRandomNumbers(3, 1, 200);
+    numbers = generateRandomNumbers(1, 1, 200);
     players = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
         if (numbers[i] > 0 && numbers[i] <= 50) {
             players.push(generatePlayer(75));
         } else if (numbers[i] > 51 && numbers[i] <= 80) {
@@ -467,10 +455,10 @@ function openGoldPack(promoInPacks) {
 }
 
 function openPremiumGoldPack(promoInPacks) {
-    numbers = generateRandomNumbers(3, 1, 100);
+    numbers = generateRandomNumbers(1, 1, 100);
     players = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
         if (numbers[i] > 0 && numbers[i] <= 24) {
             players.push(generatePlayer(75));
         } else if (numbers[i] > 24 && numbers[i] <= 44) {
@@ -502,10 +490,10 @@ function openPremiumGoldPack(promoInPacks) {
 }
 
 function openJumboPremiumGoldPack(promoInPacks) {
-    numbers = generateRandomNumbers(5, 1, 100);
+    numbers = generateRandomNumbers(1, 1, 100);
     players = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 1; i++) {
         if (numbers[i] > 0 && numbers[i] <= 14) {
             players.push(generatePlayer(75));
         } else if (numbers[i] > 14 && numbers[i] <= 29) {
@@ -537,10 +525,10 @@ function openJumboPremiumGoldPack(promoInPacks) {
 }
 
 function openGoldUpgradePack(promoInPacks) {
-    numbers = generateRandomNumbers(2, 1, 100);
+    numbers = generateRandomNumbers(1, 1, 100);
     players = [];
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
         if (numbers[i] > 0 && numbers[i] <= 25) {
             players.push(generatePlayer(78));
         } else if (numbers[i] > 25 && numbers[i] <= 40) {
@@ -613,7 +601,7 @@ function openPacks(pack, count, promoInPacks) {
 
     if (pack == "Provisions Pack(25k)") {
         pack = "Gold Pack(10k)";
-        count = count * 5;
+        count = count;
     }
 
     if (count == 1) {
@@ -675,9 +663,9 @@ function packOpenString(pack, count, promoInPacks) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("openpack")
+        .setName("dupereroll")
         .setDescription(
-            "Open a Pack",
+            "Open any of the packs for dupe relpacement",
         )
         .addStringOption((option) =>
             option
@@ -695,7 +683,7 @@ module.exports = {
             option
             .setName("count")
             .setRequired(false)
-            .setDescription("The number of packs you want to open"),
+            .setDescription("The number of players you want to from each pack"),
         ),
     async execute(interaction) {
         packName = interaction.options.getString("packname");
