@@ -384,7 +384,7 @@ function openEliteHunterPack() {
     return players;
 }
 
-function openRarerPlayersPack() {
+function openRarePlayersPack() {
     numbers = generateRandomNumbers(1, 1, 100);
     players = [];
 
@@ -412,6 +412,41 @@ function openRarerPlayersPack() {
         } else if (numbers[i] > 92 && numbers[i] <= 95) {
             players.push(generateNonSpecialElite());
         } else if (numbers[i] > 95 && numbers[i] <= 100) {
+            players.push(generateElite(promoInPacks));
+        }
+    }
+
+    return players;
+}
+
+function openRarerPlayersPack() {
+    numbers = generateRandomNumbers(1, 1, 100);
+    players = [];
+
+    for (let i = 0; i < 1; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 8) {
+            players.push(generatePlayer(75));
+        } else if (numbers[i] > 8 && numbers[i] <= 15) {
+            players.push(generatePlayer(76));
+        } else if (numbers[i] > 15 && numbers[i] <= 24) {
+            players.push(generatePlayer(77));
+        } else if (numbers[i] > 24 && numbers[i] <= 34) {
+            players.push(generatePlayer(78));
+        } else if (numbers[i] > 34 && numbers[i] <= 49) {
+            players.push(generatePlayer(79));
+        } else if (numbers[i] > 49 && numbers[i] <= 59) {
+            players.push(generatePlayer(80));
+        } else if (numbers[i] > 59 && numbers[i] <= 67) {
+            players.push(generatePlayer(81));
+        } else if (numbers[i] > 67 && numbers[i] <= 74) {
+            players.push(generatePlayer(82));
+        } else if (numbers[i] > 74 && numbers[i] <= 81) {
+            players.push(generatePlayer(83));
+        } else if (numbers[i] > 81 && numbers[i] <= 87) {
+            players.push(generatePlayer(84));
+        } else if (numbers[i] > 87 && numbers[i] <= 93) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 93 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -580,6 +615,9 @@ function openPack(packName, promoInPacks) {
         case "Gold Pack(10k)":
             players = openGoldPack(promoInPacks);
             break;
+        case "Rare Players Pack(50k)":
+            players = openRarePlayersPack();
+            break;
         case "Premium Gold Pack(15k)":
             players = openPremiumGoldPack(promoInPacks);
             break;
@@ -671,7 +709,7 @@ module.exports = {
             option
             .setName("packname")
             .setRequired(true)
-            .addChoices({ name: "Rarer Players Pack(60k)", value: "Rarer Players Pack(60k)" }, { name: "Provisions Pack(25k)", value: "Provisions Pack(25k)" }, { name: "Elite Hunter Pack(75k)", value: "Elite Hunter Pack(75k)" }, { name: "Gold Pack(10k)", value: "Gold Pack(10k)" }, { name: "Premium Gold Pack(15k)", value: "Premium Gold Pack(15k)" }, { name: "Jumbo Premium Gold Pack(35k)", value: "Jumbo Premium Gold Pack(35k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" })
+            .addChoices({ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" }, { name: "Rarer Players Pack(60k)", value: "Rarer Players Pack(60k)" }, { name: "Provisions Pack(25k)", value: "Provisions Pack(25k)" }, { name: "Elite Hunter Pack(75k)", value: "Elite Hunter Pack(75k)" }, { name: "Gold Pack(10k)", value: "Gold Pack(10k)" }, { name: "Premium Gold Pack(15k)", value: "Premium Gold Pack(15k)" }, { name: "Jumbo Premium Gold Pack(35k)", value: "Jumbo Premium Gold Pack(35k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" })
             .setDescription("The pack you want to open"),
         )
         .addBooleanOption((option) =>

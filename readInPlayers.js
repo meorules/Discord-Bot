@@ -1,24 +1,24 @@
 exports.randomizerNonSpecialElite = [
-    [1, "Salzburg", 84, 1, "Ulmer LB CB", "UEL Hero"],
-    [2, "Dynamo Kyiv", 84, 2, "Yarmolenko RM RW ST", "UEL Hero"]
+    [1, "Salernitana2022 ~ 2024", 84, 1, "Fazio CB", "UCL Icon"],
+    [2, "Fenerbahçe2023 ~ 2025", 84, 2, "Tadic LW, CF, CAM, RW", "UCL Icon"]
 ]
 
 exports.randomizerGKNonSpecialElite = []
 
 exports.randomizerPromoElites = [
-    [1, "Sevilla2017 ~ 2024", 89, 1, "Jesus Navas RB  RWB  RM", "UEL Hero"],
-    [2, "Rangers2018 ~ 2026", 87, 2, "Goldson CB", "UEL Hero"],
-    [3, "Al Hilal2023 ~ 2026", 90, 3, "Koulibaly CB", "UEL Hero"],
-    [4, "Bayer 04 Leverkusen2023 ~ 2028", 88, 4, "Xhaka CM  DM", "UEL Hero"],
-    [5, "Arsenal2016 ~ 2024", 87, 5, "Elneny CM  DM", "UEL Hero"],
-    [6, "Inter2022 ~ 2024", 88, 6, "Mkhitaryan CAM  CM  RM", "UEL Hero"],
-    [7, "Galatasaray2022 ~ 2024", 89, 7, "Mertens CF  CAM  LW  LM", "UEL Hero"],
-    [8, "Olympique de Marseille2023 ~ 2026", 90, 8, "Aubameyang ST", "UEL Hero"],
-    [9, "Icon", 90, 9, "Scifo CAM  CM  LM", ""]
+    [1, "Inter2018 ~ 2026", 88, 1, "Dimarco LWB, LB, CB", "UCL Icon"],
+    [2, "FC Bayern München2022 ~ 2027", 90, 2, "De Ligt CB", "UCL Icon"],
+    [3, "Liverpool2015 ~ 2025", 91, 3, "Alexander-Arnold RB, RWB, CM", "UCL Icon"],
+    [4, "Real Madrid2014 ~ 2024", 92, 4, "Kroos DM, CM", "UCL Icon"],
+    [5, "Manchester City2017 ~ 2026", 91, 5, "Silva CM, CAM, RW, RM", "UCL Icon"],
+    [6, "Al Ittihad2023 ~ 2026", 89, 6, "Kante DM, CM", "UCL Icon"],
+    [7, "FC Barcelona2022 ~ 2026", 92, 7, "Lewandowski ST, CF", "UCL Icon"],
+    [8, "Inter Miami2023 ~ 2025", 94, 8, "Messi CF, CAM, RW", "UCL Icon"],
+    [9, "Icon", 92, 9, "Modric CM, DM, CAM", "UCL Icon"]
 ]
 
 exports.randomizerGKPromoElites = [
-    [1, "Villarreal2022 ~ 2024", 86, 1, "Pepe Reina GK", "UEL Hero"],
+    [1, "Paris Saint Germain2019 ~ 2024", 90, 1, "Navas GK", "UCL Icon"],
 ]
 
 exports.randomizerPlayerArray = [
