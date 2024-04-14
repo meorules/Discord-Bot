@@ -1,24 +1,80 @@
 exports.randomizerNonSpecialElite = [
-    [1, "Salernitana2022 ~ 2024", 84, 1, "Fazio CB", "UCL Icon"],
-    [2, "Fenerbahçe2023 ~ 2025", 84, 2, "Tadic LW, CF, CAM, RW", "UCL Icon"]
+    [1,"Lens2023 ~ 2026",84,1,"Aguilar  RB","Workhorses"],
+    [2,"Sevilla2023 ~ 2028",84,2,"Pedrosa  LB","Workhorses"],
+    [3,"Benfica2022 ~ 2027",84,3,"Aursnes  CM, LM, RB","Workhorses"],
+    [4,"Fulham2023 ~ 2028",84,4,"Iwobi  RM, CM","Workhorses"],
+    [5,"Al Hilal",84,5,"Lodi  LB, LWB","Mid season movers"],
+    [6,"Manchester City2022 ~ 2028",84,6,"Philips  CDM, CM","Mid season movers"],
+    [7,"RB Leipzig",84,7,"Elmas  CM, CAM, LW","Mid season movers"],
+    [8,"Club Brugge2022 ~ 2026",84,8,"Meijer  LB, LWB, LM","Tall and small"],
+    [9,"Sporting CP2022 ~ 2026",84,9,"Edwards  RW, RM, ST","Tall and small"],
+    [10,"Milan",84,10,"D. Calabria  RB RWB","One Club legends"],
+    [11,"Everton",84,11,"S. Coleman  RB RWB","One Club legends"],
+    [12,"Wolfsburg",84,12,"M. Arnold  CM CDM","One Club legends"],
+    [13,"Estoril2023 ~ 2024",84,13,"Mangala  CB","March Madness"],
+    [14,"Everton2019 ~ 2024",84,14,"Gomes  CM, DM","March Madness"],
+    [15,"Milan2023 ~ 2024",84,15,"Jovic  ST","March Madness"],
+    [16,"Independiente2023 ~ 2024",84,16,"Isla  RB, RWB","International Icons"],
+    [17,"Real Betis2017 ~ 2024",84,17,"Guardado  DM, CM","International Icons"],
+    [18,"Salzburg2009 ~ 2024",84,18,"Ulmer  LB, CB","UEL heroes"],
+    [19,"Dynamo Kyiv2023 ~ 2025",84,19,"Yarmolenko  RM, RW, ST","UEL Heroes"],
+    [20,"Salernitana2022 ~ 2024",84,20,"Fazio  CB","UCL Heroes"],
+    [21,"Fenerbahçe2023 ~ 2025",84,21,"Tadic  LW, CF, CAM, RW","UCL Heroes"],
+    [22,"Fulham2023 ~ 2027",83,1,"Bassey  CB, LB","Workhorses"],
+    [23,"Milan2023 ~ 2028",83,2,"Reijnders  CM","Workhorses"],
+    [24,"Celtic2022 ~ 2027",83,3,"Maeda  LW, ST","Workhorses"],
+    [25,"AS Monaco",83,4,"Kehrer  CB, RB","Mid season movers"],
+    [26,"Villareal",83,5,"Guedes  LM, ST","Mid season movers"],
+    [27,"Clermont2020 ~ 2027",83,6,"Seidu  CB, RB","Tall and small"],
+    [28,"Olympique Lyonnais2023 ~ 2028",83,7,"Alvero  CDM, CM","Tall and small"],
+    [29,"UdineseJun 30, 2024 ON LOAN",83,8,"Lucca  ST","Tall and small"]
 ]
 
-exports.randomizerGKNonSpecialElite = []
+exports.randomizerGKNonSpecialElite = [    
+    [1,"SC Heerenveen2022 ~ 2027",83,1,"Noppert GK","Tall and small"],
+    [2,"Nottingham Forest",83,2,"Sels GK","Mid season movers"]
+]
 
 exports.randomizerPromoElites = [
-    [1, "Inter2018 ~ 2026", 88, 1, "Dimarco LWB, LB, CB", "UCL Icon"],
-    [2, "FC Bayern München2022 ~ 2027", 90, 2, "De Ligt CB", "UCL Icon"],
-    [3, "Liverpool2015 ~ 2025", 91, 3, "Alexander-Arnold RB, RWB, CM", "UCL Icon"],
-    [4, "Real Madrid2014 ~ 2024", 92, 4, "Kroos DM, CM", "UCL Icon"],
-    [5, "Manchester City2017 ~ 2026", 91, 5, "Silva CM, CAM, RW, RM", "UCL Icon"],
-    [6, "Al Ittihad2023 ~ 2026", 89, 6, "Kante DM, CM", "UCL Icon"],
-    [7, "FC Barcelona2022 ~ 2026", 92, 7, "Lewandowski ST, CF", "UCL Icon"],
-    [8, "Inter Miami2023 ~ 2025", 94, 8, "Messi CF, CAM, RW", "UCL Icon"],
-    [9, "Icon", 92, 9, "Modric CM, DM, CAM", "UCL Icon"]
+    [1,"FC Bayern München2023 ~ 2027",97,1,"Kane ST","TOTS"],
+    [2,"Paris Saint Germain2018 ~ 2024",97,2,"Mbappe ST, LW","TOTS"],
+    [3,"Real Madrid2023 ~ 2029",96,3,"Bellingham CM, CAM","TOTS"],
+    [4,"Manchester City2019 ~ 2027",95,1,"Rodri DM, CM","TOTS"],
+    [5,"Atlético Madrid2022 ~ 2026",95,2,"Griezmann ST, CF","TOTS"],
+    [6,"Al Nassr2023 ~ 2025",95,3,"Ronaldo ST, LW","TOTS"],
+    [7,"Arsenal2019 ~ 2024",94,1,"Saliba CB","TOTS"],
+    [8,"Real Madrid2022 ~ 2026",94,2,"Rudiger CB","TOTS"],
+    [9,"Inter2018 ~ 2026",94,3,"Martinez ST","TOTS"],
+    [10,"Bayer 04 Leverkusen2023 ~ 2027",93,4,"Grimaldo LB, LWB, LM","TOTS"],
+    [11,"Al Ahli Jeddah2023 ~ 2027",93,5,"Mahrez RM, RW","TOTS"],
+    [12,"Aston Villa2020 ~ 2025",93,6,"Watkins ST","TOTS"],
+    [13,"Monaco2023 ~ 2028",92,7,"Singo RB, RWB, RM","TOTS"],
+    [14,"Al Hilal2023 ~ 2026",92,8,"Neves DM, CM","TOTS"],
+    [15,"PSV2022 ~ 2026",92,9,"Veerman CM, DM, CAM","TOTS"],
+    [16,"Torino2018 ~ 2028",91,1,"Buongiorno CB","TOTS"],
+    [17,"Antwerp2022 ~ 2025",91,2,"Alderweireld CB","TOTS"],
+    [18,"PSV2019 ~ 2025",91,3,"Boscagli CB","TOTS"],
+    [19,"Al Nassr2023 ~ 2025",91,4,"Telles LB, LWB, LM","TOTS"],
+    [20,"RB LeipzigJun 30, 2024 ON LOAN",91,5,"Simons CAM, LW, RW","TOTS"],
+    [21,"Sporting CP2023 ~ 2028",91,6,"Gyokeres ST","TOTS"],
+    [22,"Porto2021 ~ 2025",90,7,"Wendell LB","TOTS"],
+    [23,"Monaco2018 ~ 2026",90,8,"Golovin LM, RM, CAM","TOTS"],
+    [24,"FrosinoneJun 30, 2024 ON LOAN",89,1,"Soule RM, RW","TOTS"],
+    [25,"AZ Alkmaar2021 ~ 2025",88,2,"Pavlidis ST","TOTS"],
+    [26,"Union Saint-Gilloise2022 ~ 2025",87,3,"Puertas CM, CAM, CF","TOTS"],
+    [27,"Cercle Brugge2021 ~ 2026",87,4,"Denkey ST","TOTS"]
 ]
 
 exports.randomizerGKPromoElites = [
-    [1, "Paris Saint Germain2019 ~ 2024", 90, 1, "Navas GK", "UCL Icon"],
+  [1,"Liverpool2018 ~ 2027",94,1,"Alisson GK","TOTS"],
+  [2,"Milan2021 ~ 2026",93,1,"Maignan GK","TOTS"],
+  [3,"Borussia Dortmund2021 ~ 2026",92,2,"Kobel GK","TOTS"],
+  [4,"Al Hilal2023 ~ 2026",92,3,"Bounou GK","TOTS"],
+  [5,"Las Palmas2018 ~ 2024",90,1,"Valles GK","TOTS"],
+  [6,"Brest2021 ~ 2026",90,2,"Bizot GK","TOTS"],
+  [7,"Antwerp2020 ~ 2026",88,1,"Butez GK","TOTS"],
+  [8,"Farense2020 ~ 2024",87,2,"Velho GK","TOTS"],
+  [9,"FC VolendamJun 30, 2024 ON LOAN",87,3,"Backhaus GK","TOTS"]
 ]
 
 exports.randomizerPlayerArray = [

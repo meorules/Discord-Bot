@@ -247,16 +247,54 @@ function generatePromoPlayer() {
         //No GKs, only rng players
         rng = generateRandomNumber(1, randomizerPromoElites.length);
         return randomizerPromoElites[rng - 1];
-    } else {
+    } {
         position = generateRandomNumber(1, 11);
         if (position == 1) {
             //generate GK
-            rng = generateRandomNumber(1, randomizerGKPromoElites.length);
-            return randomizerGKPromoElites[rng - 1];
+            index =0;
+            mainRNG = generateRandomNumber(1,20);
+            if(mainRNG <= 9){
+                rng = generateRandomNumber(1,3);
+                index=5;
+            }
+            else if (mainRNG > 9 && mainRNG <= 15){
+                index =3;
+                rng = generateRandomNumber(1,2);
+            }
+            else if(mainRNG > 15 && mainRNG <= 18 ){
+                rng = generateRandomNumber(1,3);
+                index=0;
+            }
+            else if(mainRNG > 18 && mainRNG <= 20){
+                index = 0;
+                rng = 0;
+            }
+            return randomizerGKPromoElites[rng +index];
         } else {
             //generateOutfielder
-            rng = generateRandomNumber(1, randomizerPromoElites.length);
-            return randomizerPromoElites[rng - 1];
+            index =0;
+            mainRNG = generateRandomNumber(1,20);
+            if(mainRNG <= 3){
+                rng = generateRandomNumber(1,4);
+                index=22;
+            }
+            else if (mainRNG > 3 && mainRNG <= 9){
+                index =15;
+                rng = generateRandomNumber(1,8);
+            }
+            else if(mainRNG > 9 && mainRNG <= 15 ){
+                rng = generateRandomNumber(1,9);
+                index=6;
+            }
+            else if(mainRNG > 15 && mainRNG <= 19){
+                index = 2;
+                rng = generateRandomNumber(1,3);
+            }
+            else if(mainRNG > 19 && mainRNG <= 20){
+                index = 0;
+                rng = generateRandomNumber(0,2);
+            }
+            return randomizerPromoElites[rng + index];
         }
     }
 }
@@ -658,17 +696,22 @@ function stringifyPlayer(player) {
         throw new Error('Some invalid player was generated???');
     }
     playerName = player[4].replace('\n', '');
-    if (player[1].includes('Hero') || player[1].includes('Icon')) {
+    if (player[1].includes('Hero')|| player[1].includes('Icon') ) {
         if (player[1].includes('Icon')) {
             toReturn = "__**ICON**__ " + player[2] + " **" + playerName + "** ";
         } else {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('International Icon')) {
+    } else if (player[5].includes('TOTS')) {
         teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
 
-        toReturn = "**PROMO PLAYER** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5];
+        toReturn = "**TEAM OF THE SEASON** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5];
+    } 
+    else if (player[5].includes('Workhorses') || player[5].includes('Mid season movers')|| player[5].includes('Tall and small') || player[5].includes('One Club legends')|| player[5].includes('March Madness')|| player[5].includes('International Icons')|| player[5].includes('UEL Heroes')|| player[5].includes('UCL Heroes')) {
+        teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
+
+        toReturn = "**PROMO** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5];
     } else {
         teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
 
