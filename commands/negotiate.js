@@ -17,6 +17,48 @@ function generateRandomNumbers(amount, min, max) {
     return numbers;
 }
 
+function round(up,value){
+    if((value - 0.25) ==Math.floor(value) ||(value - 0.5) ==Math.floor(value)||(value - 0.75) ==Math.floor(value)||(value) ==Math.floor(value)){
+        return value;
+    }
+
+    closest = Math.floor(value);
+    p1 = closest + 0.25;
+    p2 = closest + 0.5;
+    p3 = closest + 0.75;
+    if(up){
+
+        if(value > closest  && value <= p1){
+            value = p1;
+        }
+        else if(value > p1 && value <= p2){
+            value = p2;
+        }
+        else if (value > p2 && value <= p3){
+            value = p3;
+        }
+        else {
+            value = closest +1;
+        }
+    }
+    else{
+        if(value > closest  && value <= p1){
+            value = closest;
+        }
+        else if(value > p1 && value <= p2){
+            value = p1;
+        }
+        else if (value > p2 && value <= p3){
+            value = p2;
+        }
+        else {
+            value = p3;
+        }
+    }
+    return value;
+
+}
+
 function sell(value,tier){
     transaction = {choice:"Sell",modifier:"",newvalue:0};
     switch(tier){
@@ -201,7 +243,7 @@ module.exports = {
         .setDescription(
             "Get Values back using your negotiator",
         )
-        .addIntegerOption((option) =>
+        .addNumberOption((option) =>
             option
             .setName("value")
             .setRequired(true)
@@ -222,16 +264,18 @@ module.exports = {
             .setDescription("Buy or Sell"))
             ,
     async execute(interaction) {
-        value = interaction.options.getInteger("value");
+        value = interaction.options.getNumber("value");
         tier = interaction.options.getString("negotiator");
         tierInt = parseInt(tier);
         choice = interaction.options.getString("transaction");
     
-        if (choice == "1") {
+        if (choice == "0") {
             transaction = buy(value,tierInt);
+            transaction.newvalue = round(false,transaction.newvalue);
         }
-        else if (choice == "0"){
+        else if (choice == "1"){
             transaction = sell(value,tierInt);
+            transaction.newvalue = round(true,transaction.newvalue);
         }
         else{
             throw("An error, something was provided incorrectly in the parameters");

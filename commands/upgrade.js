@@ -24,40 +24,29 @@ function upgradePlayer(player){
     }
     age = player.newage;
     rating = player.newrating;
-    if(age <= 23){
-        if(rating <= 69){
-            player.newrating = rating + 5;
-            player.tracker = player.tracker + "+5";
+
+    
+    if(age < 28){
+        growth = player.potential - rating;
+        if(growth <= 1){
+            growth = 1;
         }
-        else if(rating > 69 && rating <= 75){
-            player.newrating = rating + 3;
-            player.tracker = player.tracker + "+3";
+        else{
+            growth = growth / 4;
+            growth = Math.round(growth);
+
+            if(growth < 1 ){
+                growth = 1;
+            }
         }
-        else if(rating > 75 && rating <= 82){
-            player.newrating = rating + 2;
-            player.tracker = player.tracker + "+2";
-        }
-        else if(rating > 82){
-            player.newrating = rating + 1;
-            player.tracker = player.tracker + "+1";
-        }
+
+        player.newrating = rating + growth;
+        player.tracker = player.tracker + "+" + growth;
+
     }
-    else if(age > 23 && age <= 28 ){
-        if(rating <= 75){
-            player.newrating = rating + 3;
-            player.tracker = player.tracker + "+3 or reached potential";
-        }
-        else if(rating > 75 && rating <= 82){
-            player.newrating = rating + 2;
-            player.tracker = player.tracker + "+2 or reached potential";
-        }
-        else if(rating >= 83){
-            player.newrating = rating + 1;
-            player.tracker = player.tracker + "+1 or reached potential";
-        }
-    }
-    else if(age > 28 && age <= 31){
+    else if(age >= 28 && age <= 31){
         player.tracker = player.tracker + "Reached potential";
+        player.newrating = player.potential;
     }
     else if(age >= 32){
          if(age >=38){
@@ -107,9 +96,15 @@ module.exports = {
         )
         .addIntegerOption((option) =>
             option
+            .setName("potential")
+            .setRequired(true)
+            .setDescription("Player's potential on sofifa"),
+        )
+        .addIntegerOption((option) =>
+            option
             .setName("age")
             .setRequired(true)
-            .setDescription("The age of the player at the start of the fl"),
+            .setDescription("Player's age"),
         )
         .addIntegerOption((option) =>
             option
@@ -119,6 +114,7 @@ module.exports = {
         ),
     async execute(interaction) {
         rating = interaction.options.getInteger("rating");
+        potential = interaction.options.getInteger("potential");
         age = interaction.options.getInteger("age");
         seasons = interaction.options.getInteger("count");
         if (seasons == null) {
@@ -126,7 +122,7 @@ module.exports = {
         }
 
         try {
-            player = {oldrating:rating,oldage:age,newrating:rating,newage:age,seasons:1,tracker:""};
+            player = {oldrating:rating,potential:potential,oldage:age,newage:age,newrating:rating,seasons:1,tracker:""};
             for(let i =0 ;i<seasons;i++){
                 upgradePlayer(player);
             }
