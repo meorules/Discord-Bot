@@ -324,7 +324,7 @@ function level1RNG(player){
 
 function versatilePlayer(player){
     chance = generateRandomNumber(1,10);
-    if(chance == 1){
+    if(chance == 1 && player.position != "GK"){
     player.trait = player.trait + ", Versatile ";
             switch(player.position){
                 case "GK":

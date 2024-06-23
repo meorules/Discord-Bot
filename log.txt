@@ -1179,3 +1179,8 @@ Username: meo_rules,Command Used: youthgentest,Option youthlevel:Great,Option co
 Username: meo_rules,Command Used: youthgennames,Option youthlevel:Great,Option count:5,
 Username: meo_rules,Command Used: outsiderupgrade,Option rating:76,Option potential:89,Option age:20,
 Username: meo_rules,Command Used: outsiderupgrade,Option rating:76,Option potential:89,Option age:20,
+Username: meo_rules,Command Used: youthsecondnation,Option youthlevel:Great,Option count:5,
+Username: meo_rules,Command Used: youthsecondnation,Option youthlevel:Great,Option count:5,
+Username: meo_rules,Command Used: outsiderupgrade,Option rating:77,Option potential:84,Option age:21,
+Username: meo_rules,Command Used: outsiderupgrade,Option rating:70,Option potential:86,Option age:17,
+Username: meo_rules,Command Used: outsiderupgrade,Option rating:74,Option potential:86,Option age:18,

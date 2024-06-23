@@ -18,278 +18,6 @@ function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (maxFloored + 1 - minCeiled) + minCeiled);
 }
 
-function generateRandomNumbers(amount, min, max) {
-    let numbers = [];
-    for (let i = 0; i < amount; i++) {
-        numbers[i] = generateRandomNumber(min, max);
-    }
-    return numbers;
-}
-
-function generatePosition(position){
-    returnedPosition = "";
-    switch(position){
-        case "Any":
-            returnedNumber = generateRandomNumber(0,7);
-            switch(returnedNumber){
-                case 0:
-                    returnedPosition = "GK";
-                    break;
-                case 1:
-                    returnedPosition = "LWB/LB/RB/RWB" ;
-                    break;
-                case 2:
-                    returnedPosition = "CB";
-                    break;
-                case 3:
-                    returnedPosition = "CDM";
-                    break;
-                case 4:
-                    returnedPosition = "CM";
-                    break;
-                case 5:
-                    returnedPosition = "CAM";
-                    break;
-                case 6: 
-                    returnedPosition = "LW/LM/RM/RW";
-                    break;
-                case 7:
-                    returnedPosition = "CF/ST";
-                    break;
-            }
-            break;
-        case "GK":
-            returnedPosition = "GK";
-            break;
-        case "Defender":
-            returnedNumber = generateRandomNumber(1,2);
-            switch(returnedNumber){
-                case 1:
-                    returnedPosition = "LWB/LB/RB/RWB" ;
-                    break;
-                case 2:
-                    returnedPosition = "CB";
-                    break;
-            }
-            break;
-        case "Midfielder":
-            returnedNumber = generateRandomNumber(1,4);
-            switch(returnedNumber){
-                case 1:
-                    returnedPosition = "CDM" ;
-                    break;
-                case 2:
-                    returnedPosition = "CM";
-                    break;
-                case 3:
-                    returnedPosition = "CAM" ;
-                    break;
-                case 4:
-                    returnedPosition = "LW/LM/RM/RW";
-                    break;
-            }
-            break;
-        case "Forward":
-            returnedNumber = generateRandomNumber(1,2);
-            switch(returnedNumber){
-                case 1:
-                    returnedPosition = "LW/LM/RM/RW";
-                    break;
-                case 2:
-                    returnedPosition = "CF/ST";
-                    break;
-            }
-            break;
-        
-    }
-    return returnedPosition;
-}
-
-function level5RNG(player){
-    rating = 0;
-    potential = 0;
-    initialRNG = generateRandomNumber(0,10);
-    if(initialRNG == 0){
-        rating = generateRandomNumber(55,75);
-        potential = generateRandomNumber(65,90);
-    }
-    else if(initialRNG > 0 && initialRNG <= 3){
-        rating = generateRandomNumber(55,60);
-        potential = generateRandomNumber(65,72);
-    }
-    else if(initialRNG > 3 && initialRNG <= 6){
-        rating = generateRandomNumber(60,65);
-        potential = generateRandomNumber(72,77);
-    }
-    else if(initialRNG == 7){
-        rating = generateRandomNumber(65,70);
-        potential = generateRandomNumber(77,83);
-    }
-    else if(initialRNG == 8){
-        rating = generateRandomNumber(68,73);
-        potential = generateRandomNumber(83,87);
-    }
-    else if(initialRNG == 9){
-        rating = generateRandomNumber(70,75);
-        potential = generateRandomNumber(85,90);
-    }
-    else if(initialRNG == 10){
-        rating = generateRandomNumber(74,75);
-        potential = generateRandomNumber(88,90);
-    }
-
-    player.rating = rating;
-    player.potential = potential;
-}
-
-function level4RNG(player){
-    rating = 0;
-    potential = 0;
-    initialRNG = generateRandomNumber(0,10);
-    if(initialRNG == 0){
-        rating = generateRandomNumber(54,74);
-        potential = generateRandomNumber(64,88);
-    }
-    else if(initialRNG > 0 && initialRNG <= 3){
-        rating = generateRandomNumber(54,59);
-        potential = generateRandomNumber(63,70);
-    }
-    else if(initialRNG > 3 && initialRNG <= 6){
-        rating = generateRandomNumber(59,64);
-        potential = generateRandomNumber(70,75);
-    }
-    else if(initialRNG == 7){
-        rating = generateRandomNumber(64,69);
-        potential = generateRandomNumber(75,81);
-    }
-    else if(initialRNG == 8){
-        rating = generateRandomNumber(67,72);
-        potential = generateRandomNumber(81,85);
-    }
-    else if(initialRNG == 9){
-        rating = generateRandomNumber(69,74);
-        potential = generateRandomNumber(83,88);
-    }
-    else if(initialRNG == 10){
-        rating = generateRandomNumber(73,74);
-        potential = generateRandomNumber(86,88);
-    }
-
-    player.rating = rating;
-    player.potential = potential;
-}
-
-function level3RNG(player){
-    rating = 0;
-    potential = 0;
-    initialRNG = generateRandomNumber(0,10);
-    if(initialRNG == 0){
-        rating = generateRandomNumber(53,73);
-        potential = generateRandomNumber(63,87);
-    }
-    else if(initialRNG > 0 && initialRNG <= 3){
-        rating = generateRandomNumber(53,58);
-        potential = generateRandomNumber(62,69);
-    }
-    else if(initialRNG > 3 && initialRNG <= 6){
-        rating = generateRandomNumber(58,63);
-        potential = generateRandomNumber(69,74);
-    }
-    else if(initialRNG == 7){
-        rating = generateRandomNumber(63,68);
-        potential = generateRandomNumber(74,80);
-    }
-    else if(initialRNG == 8){
-        rating = generateRandomNumber(66,71);
-        potential = generateRandomNumber(80,84);
-    }
-    else if(initialRNG == 9){
-        rating = generateRandomNumber(68,73);
-        potential = generateRandomNumber(82,87);
-    }
-    else if(initialRNG == 10){
-        rating = generateRandomNumber(72,73);
-        potential = generateRandomNumber(85,87);
-    }
-
-    player.rating = rating;
-    player.potential = potential;
-}
-
-function level2RNG(player){
-    rating = 0;
-    potential = 0;
-    initialRNG = generateRandomNumber(0,10);
-    if(initialRNG == 0){
-        rating = generateRandomNumber(51,71);
-        potential = generateRandomNumber(61,85);
-    }
-    else if(initialRNG > 0 && initialRNG <= 3){
-        rating = generateRandomNumber(51,56);
-        potential = generateRandomNumber(60,67);
-    }
-    else if(initialRNG > 3 && initialRNG <= 6){
-        rating = generateRandomNumber(56,61);
-        potential = generateRandomNumber(67,72);
-    }
-    else if(initialRNG == 7){
-        rating = generateRandomNumber(61,66);
-        potential = generateRandomNumber(72,78);
-    }
-    else if(initialRNG == 8){
-        rating = generateRandomNumber(64,69);
-        potential = generateRandomNumber(78,82);
-    }
-    else if(initialRNG == 9){
-        rating = generateRandomNumber(66,71);
-        potential = generateRandomNumber(80,85);
-    }
-    else if(initialRNG == 10){
-        rating = generateRandomNumber(70,71);
-        potential = generateRandomNumber(83,85);
-    }
-
-    player.rating = rating;
-    player.potential = potential;
-}
-
-function level1RNG(player){
-    rating = 0;
-    potential = 0;
-    initialRNG = generateRandomNumber(0,10);
-    if(initialRNG == 0){
-        rating = generateRandomNumber(50,70);
-        potential = generateRandomNumber(59,83);
-    }
-    else if(initialRNG > 0 && initialRNG <= 3){
-        rating = generateRandomNumber(50,54);
-        potential = generateRandomNumber(58,65);
-    }
-    else if(initialRNG > 3 && initialRNG <= 6){
-        rating = generateRandomNumber(54,59);
-        potential = generateRandomNumber(65,70);
-    }
-    else if(initialRNG == 7){
-        rating = generateRandomNumber(59,64);
-        potential = generateRandomNumber(70,76);
-    }
-    else if(initialRNG == 8){
-        rating = generateRandomNumber(62,67);
-        potential = generateRandomNumber(76,80);
-    }
-    else if(initialRNG == 9){
-        rating = generateRandomNumber(64,69);
-        potential = generateRandomNumber(78,83);
-    }
-    else if(initialRNG == 10){
-        rating = generateRandomNumber(69,70);
-        potential = generateRandomNumber(81,83);
-    }
-
-    player.rating = rating;
-    player.potential = potential;
-}
-
 function getCountryAPI(player){
     switch (player.secondnation) {
         case "Algeria":
@@ -524,35 +252,6 @@ function snPlayer(player){
 }
 
 function rngPlayer(player){
-    if(player.rating == 0 || player.potential == 0){
-        throw("Error calculating rating");
-    }
-    else{
-        growth = player.potential - player.rating;
-        if(growth <= 0){
-            player.potential = player.rating + 3;
-            growth = player.potential - player.rating;
-        }
-
-        if(growth >=3 && growth <=5){
-            age = generateRandomNumber(21,23);
-        }
-        else if(growth >=6 && growth <=8){
-            age = generateRandomNumber(19,21);
-        }
-        else if(growth >=9 && growth <=11){
-            age = generateRandomNumber(18,19);
-        }
-        else if(growth >=12 && growth <=15){
-            age = generateRandomNumber(17,18);
-        }
-        else if(growth >=16){
-            age = generateRandomNumber(16,17);
-        }
-    }
-
-    player.age = age;
-    traitRNG = 0;
     if(player.position=="GK"){
         traitRNG = generateRandomNumber(1,7);
     }
@@ -582,32 +281,29 @@ function rngPlayer(player){
             player.trait = "Manager's Favourite";
             break;
     }
-
-    versatilePlayer(player);
     snPlayer(player);
 }
 
-function generatePlayer(position,level){
-    positionReturned = generatePosition(position);
-    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:"",playerName:""};
-    player.position = positionReturned;
-    switch(level){
-        case "Basic":
-            level1RNG(player);
-            break;
-        case "Decent":
-            level2RNG(player);
-            break;
-        case "Good":
-            level3RNG(player);
-            break;
-        case "Great":
-            level4RNG(player);
-            break;
-        case "Elite":
-            level5RNG(player);
-            break;
+async function stringify(player){
+
+    playerName = "PlayerName";
+    playerName = await generatePlayerName(player);
+
+    string = playerName + " :flag_fr: *" + player.trait + "*";
+
+    if(player.secondnation == "Your Choice :)"){
+        string = string + " You get to choose the nation :)";
     }
+    else if(player.secondnation != "" && player.secondnation != null){
+        string = string + " " + player.secondnation + " " + countryFlags[player.secondnation];
+    }
+
+    return string;
+}
+
+
+function generatePlayer(position,level){
+    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:"",playerName:""};
     rngPlayer(player);
     return player;
 }
@@ -625,60 +321,18 @@ function generatePlayers(count,position,level){
     return players;
 }
 
-async function stringify(player){
 
-    if(player.rating >= 70 || (player.rating >=66 && player.potential >=81)){
-        string = "**"  +player.rating + "/" + player.potential + "**";
-    }
-    else{
-        string = player.rating + "/" + player.potential;
-    }
-    playerName = "PlayerName";
-    playerName = await generatePlayerName(player);
-
-    string = string + " **" + player.position + "** "+ playerName + " " + player.age + " :flag_fr: *" + player.trait + "*";
-
-    if(player.secondnation == "Your Choice :)"){
-        string = string + " You get to choose the nation :)";
-    }
-    else if(player.secondnation != "" && player.secondnation != null){
-        string = string + " " + player.secondnation + " " + countryFlags[player.secondnation];
-    }
-
-    return string;
-}
-
-function getLevelString(level){
-    switch(level){
-        case "Basic":
-            return ":star:"
-            break;
-        case "Decent":
-            return ":star::star:"
-            break;
-        case "Good":
-            return ":star::star::star:"
-            break;
-        case "Great":
-            return ":star::star::star::star:"
-            break;
-        case "Elite":
-            return ":star::star::star::star::star:"
-            break;
-    }
-}
 
 async function rngString(count, position, level) {
 
     players = generatePlayers(count,position,level);
-
+    generatedString = "";
+    
     size = players.length;
     if (count == 1){
-        generatedString = "A youth player with the position " + position + " was rnged. Academy Level: " + getLevelString(level) + "\n";
         generatedString = generatedString + "They are: " + await stringify(players[0]);
     }
     else if (count > 1){
-        generatedString = "The following youth players were generated at academy Level: " +  getLevelString(level) + "\n"
         for (let i = 0; i < size; i++) {
             generatedString = generatedString + i+1 + ". " + await stringify(players[i]) + "\n";
         }
@@ -688,9 +342,9 @@ async function rngString(count, position, level) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("youthgennames")
+        .setName("youthsecondnation")
         .setDescription(
-            "Generate Youth Players",
+            "Generate Second Nations for previous Youth Players",
         )
         .addStringOption((option) =>
             option
