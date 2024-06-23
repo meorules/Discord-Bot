@@ -3,45 +3,13 @@ const {
     ContextMenuCommandAssertions,
 } = require("discord.js");
 
-tier1Nations = ["Algeria","Cameroon","Cote D'Ivoire","DR Congo","Guadeloupe","Guinea","Martinique","Mali","Morocco","Senegal"];
-tier2Nations =  ["Angola", "Benin", "Burkina Faso", "Central African Republic", "Comoros","Congo", "French Guiana", "Gabon", "Guinea-Bissau", "Togo", "Tunisia"];
-tier3Nations = ["Argentina", "Cape Verde", "Chad", "Ghana", "Haiti","Italy", "Madagascar", "Mauritania", "Nigeria", "Portugal", "Reunion", "Spain"];
+const playerArrays = require('../countrycodes.js')
 
-const countryFlags = {
-    "Algeria": ":flag_dz:",
-    "Cameroon": ":flag_cm:",
-    "Cote D'Ivoire": ":flag_ci:",
-    "DR Congo": ":flag_cd:",
-    "Guadeloupe": ":flag_gp:",
-    "Guinea": ":flag_gn:",
-    "Martinique": ":flag_mq:",
-    "Mali": ":flag_ml:",
-    "Morocco": ":flag_ma:",
-    "Senegal": ":flag_sn:",
-    "Angola": ":flag_ao:",
-    "Benin": ":flag_bj:",
-    "Burkina Faso": ":flag_bf:",
-    "Central African Republic": ":flag_cf:",
-    "Comoros": ":flag_km:",
-    "Congo": ":flag_cg:",
-    "French Guiana": ":flag_gf:",
-    "Gabon": ":flag_ga:",
-    "Guinea-Bissau": ":flag_gw:",
-    "Togo": ":flag_tg:",
-    "Tunisia": ":flag_tn:",
-    "Argentina": ":flag_ar:",
-    "Cape Verde": ":flag_cv:",
-    "Chad": ":flag_td:",
-    "Ghana": ":flag_gh:",
-    "Haiti": ":flag_ht:",
-    "Italy": ":flag_it:",
-    "Madagascar": ":flag_mg:",
-    "Mauritania": ":flag_mr:",
-    "Nigeria": ":flag_ng:",
-    "Portugal": ":flag_pt:",
-    "Reunion": ":flag_re:",
-    "Spain": ":flag_es:"
-};
+countryCodes = playerArrays.countryCodes;
+countryFlags = playerArrays.countryFlags;
+tier1Nations = playerArrays.tier1Nations;
+tier2Nations = playerArrays.tier2Nations;
+tier3Nations = playerArrays.tier3Nations;
 
 
 function generateRandomNumber(min, max) {
@@ -322,6 +290,109 @@ function level1RNG(player){
     player.potential = potential;
 }
 
+function getCountryAPI(player){
+    switch (player.secondnation) {
+        case "Algeria":
+            return countryCodes["Arabic"];
+        case "Cameroon":
+            return countryCodes["African"];
+        case "Cote D'Ivoire":
+            return countryCodes["Akan"];
+        case "DR Congo":
+            return countryCodes["Kongo"];
+        case "Guadeloupe":
+            return countryCodes["Mayan"];
+        case "Guinea":
+            return countryCodes["African"];
+        case "Martinique":
+            return countryCodes["Mayan"];
+        case "Mali":
+            return countryCodes["African"];
+        case "Morocco":
+            return countryCodes["Arabic"];
+        case "Senegal":
+            return countryCodes["African"];
+        case "Angola":
+            return countryCodes["Mbundu"];
+        case "Benin":
+            return countryCodes["African"];
+        case "Burkina Faso":
+            return countryCodes["African"];
+        case "Central African Republic":
+            return countryCodes["African"];
+        case "Comoros":
+            return countryCodes["Comorian"];
+        case "Congo":
+            return countryCodes["Kongo"];
+        case "French Guiana":
+            return countryCodes["African"];
+        case "Gabon":
+            return countryCodes["African"];
+        case "Guinea-Bissau":
+            return countryCodes["African"];
+        case "Togo":
+            return countryCodes["Ewe"];
+        case "Tunisia":
+            return countryCodes["Arabic"];
+        case "Argentina":
+            return countryCodes["Spanish"];
+        case "Cape Verde":
+            return countryCodes["Portuguese"];
+        case "Chad":
+            return countryCodes["African"];
+        case "Ghana":
+            return countryCodes["Ga"];
+        case "Haiti":
+            return countryCodes["Mayan"];
+        case "Italy":
+            return countryCodes["Italian"];
+        case "Madagascar":
+            return countryCodes["African"];
+        case "Mauritania":
+            return countryCodes["Arabic"];
+        case "Nigeria":
+            return countryCodes["Igbo"];
+        case "Portugal":
+            return countryCodes["Portuguese"];
+        case "Reunion":
+            return countryCodes["African"];
+        case "Spain":
+            return countryCodes["Spanish"];
+        default:
+            throw("Error identifying API Call for 2nd nation");
+    }
+}
+
+async function generatePlayerName(player){
+
+    baseURL = 'https://www.behindthename.com/api/random.json?usage_fre=1&gender=m&randomsurname=yes&key=ma536057346';
+
+    if(player.secondnation == "Your Choice :)"){
+        baseURL = baseURL;
+    }
+    else if(player.secondnation != "" && player.secondnation != null){
+        baseURL = baseURL + "&usage_" + getCountryAPI(player) + "=1";
+    }
+
+    combinedName = "";
+    await fetch(baseURL)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        combinedName = data.names[0] + " " +data.names[2];
+        player.playerName = combinedName;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    return combinedName;
+
+}
+
 function versatilePlayer(player){
     chance = generateRandomNumber(1,10);
     if(chance == 1){
@@ -434,15 +505,15 @@ function snPlayer(player){
             player.secondnation = "Your Choice :)";
         }
         else if(tierChance > 5 && tierChance <= 60){
-            nation = generateRandomNumber(0,tier1Nations.length-1);
+            nation = generateRandomNumber(0,tier1Nations.length);
             player.secondnation = tier1Nations[nation];
         }
         else if(tierChance > 60 && tierChance <= 90){
-            nation = generateRandomNumber(0,tier2Nations.length-1);
+            nation = generateRandomNumber(0,tier2Nations.length);
             player.secondnation = tier2Nations[nation];
         }
         else if(tierChance > 90 && tierChance <=100){
-            nation = generateRandomNumber(0,tier3Nations.length-1);
+            nation = generateRandomNumber(0,tier3Nations.length);
             player.secondnation = tier3Nations[nation];
         }
         else{
@@ -518,7 +589,7 @@ function rngPlayer(player){
 
 function generatePlayer(position,level){
     positionReturned = generatePosition(position);
-    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:""};
+    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:"",playerName:""};
     player.position = positionReturned;
     switch(level){
         case "Basic":
@@ -554,19 +625,23 @@ function generatePlayers(count,position,level){
     return players;
 }
 
-function stringify(player){
+async function stringify(player){
+
     if(player.rating >= 70 || (player.rating >=66 && player.potential >=81)){
         string = "**"  +player.rating + "/" + player.potential + "**";
     }
     else{
         string = player.rating + "/" + player.potential;
     }
-    string = string + " **" + player.position + "** PlayerName " + player.age + " :flag_fr: *" + player.trait + "*";
+    playerName = "PlayerName";
+    playerName = await generatePlayerName(player);
+
+    string = string + " **" + player.position + "** "+ playerName + " " + player.age + " :flag_fr: *" + player.trait + "*";
 
     if(player.secondnation == "Your Choice :)"){
         string = string + " You get to choose the nation :)";
     }
-    else if(player.secondnation != ""){
+    else if(player.secondnation != "" && player.secondnation != null){
         string = string + " " + player.secondnation + " " + countryFlags[player.secondnation];
     }
 
@@ -593,18 +668,19 @@ function getLevelString(level){
     }
 }
 
-function rngString(count, position, level) {
+async function rngString(count, position, level) {
 
     players = generatePlayers(count,position,level);
+
     size = players.length;
     if (count == 1){
         generatedString = "A youth player with the position " + position + " was rnged. Academy Level: " + getLevelString(level) + "\n";
-        generatedString= generatedString + "They are: " + stringify(players[0]);
+        generatedString = generatedString + "They are: " + await stringify(players[0]);
     }
     else if (count > 1){
         generatedString = "The following youth players were generated at academy Level: " +  getLevelString(level) + "\n"
         for (let i = 0; i < size; i++) {
-            generatedString = generatedString + i+1 + ". " + stringify(players[i]) + "\n";
+            generatedString = generatedString + i+1 + ". " + await stringify(players[i]) + "\n";
         }
     }
     return generatedString;
@@ -612,7 +688,7 @@ function rngString(count, position, level) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("youthgen")
+        .setName("youthgennames")
         .setDescription(
             "Generate Youth Players",
         )
@@ -644,6 +720,10 @@ module.exports = {
             count = 1;
         }
 
+        messageString = "Potential Youth Players :eyes:"
+        const message = await interaction.channel.send({ content: messageString, fetchReply: true });
+        interaction.reply("Generating Youth Players");
+
         if (position == null) {
             position = "Any";
         }
@@ -651,11 +731,13 @@ module.exports = {
             count = 1;
         }
         try {
-            rngedString = rngString(count, position,level);
+            rngedString = await rngString(count, position,level);
         } catch (error) {
             console.error(error);
         }
 
-        return interaction.reply(`${rngedString}`);
+        message.edit(rngedString);
+
+        return;
     },
 };

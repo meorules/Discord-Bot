@@ -73,10 +73,10 @@ function generateString(player) {
     generatedString = "";
 
     if (player.tracker != "Retired"){
-        generatedString = "The provided player started at rating " + player.oldrating + " and age " + player.oldage + ", and after " + (player.seasons-1) + " seasons, the player is now " + player.newrating + " and also " + player.newage + " years old. The player went through " + player.tracker;
+        generatedString = "The provided player started at rating " + player.oldrating + ", potential of "+player.potential  +" and age " + player.oldage + ", and after " + (player.seasons-1) + " seasons, the player is now " + player.newrating + " and also " + player.newage + " years old. The player went through " + player.tracker;
     }
     else {
-        generatedString = "The provided player started at rating " + player.oldrating + " and age " + player.oldage + ", and after " + (player.seasons-1) + " seasons, the player is now retired."; 
+        generatedString = "The provided player started at rating " + player.oldrating + ", potential of " +player.potential +" and age " + player.oldage + ", and after " + (player.seasons-1) + " seasons, the player is now retired."; 
     }
 
     return generatedString;
