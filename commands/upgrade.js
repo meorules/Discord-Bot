@@ -118,7 +118,7 @@ module.exports = {
         age = interaction.options.getInteger("age");
         seasons = interaction.options.getInteger("count");
         if (seasons == null) {
-            seasons = 2;
+            seasons = 3;
         }
 
         try {

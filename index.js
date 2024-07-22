@@ -56,7 +56,8 @@ client.on(Events.InteractionCreate, async interaction => {
 
     try {
         await command.execute(interaction);
-    } catch (error) {
+    } 
+    catch (error) {
         console.error(error);
         if (interaction.replied || interaction.deferred) {
             await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
@@ -68,6 +69,6 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 
-keepAlive()
+///keepAlive()
 
 client.login(config.BOT_TOKEN);

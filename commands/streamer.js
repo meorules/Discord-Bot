@@ -18,16 +18,19 @@ function generateRandomNumbers(amount, min, max) {
 }
 
 function upstream(rating){
-    if (rating >= 82){
+    if (rating >= 83){
         return 0;
     }
-    else if(rating >=79 && rating <82){
+    else if(rating >=81 && rating <83){
         return generateRandomNumber(0,1);
     }
-    else if(rating >=75 && rating <79){
+    else if(rating >=79 && rating <81){
+        return generateRandomNumber(0,2);
+    }
+    else if(rating >=76 && rating <79){
         return generateRandomNumber(1,3);
     }
-    else if(rating <=74){
+    else if(rating <=75){
         return generateRandomNumber(2,3);
     }
     else {
@@ -35,26 +38,28 @@ function upstream(rating){
     }
 }
 
+
 function downstream(rating){
-    if (rating >= 81){
+    if (rating >= 82){
         return 0;
     }
-    else if(rating >=79 && rating <81){
+    else if(rating >=80 && rating <82){
         return generateRandomNumber(0,1);
     }
-    else if(rating >=76 && rating <79){
+    else if(rating >=77 && rating <79){
         return generateRandomNumber(0,2);
     }
-    else if(rating >=73 && rating <76){
+    else if(rating >=74 && rating <77){
         return generateRandomNumber(0,3);
     }
-    else if(rating <=72){
+    else if(rating <=73){
         return generateRandomNumber(1,3);
     }
     else {
         throw("Rating option was invalid");
     }
 }
+
 function rngString(stream, rating) {
 
     addition = 0;
