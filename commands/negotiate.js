@@ -130,7 +130,7 @@ function sell(value,tier){
                     break;
             }
             break;
-        case 4:
+        case 4: 
             mod = generateRandomNumber(1,3);
             switch(mod){
                 case 1:

@@ -10,6 +10,8 @@ randomizerNonSpecialElite = playerArrays.randomizerNonSpecialElite;
 randomizerGKNonSpecialElite = playerArrays.randomizerGKNonSpecialElite;
 randomizerGKPromoElites = playerArrays.randomizerGKPromoElites;
 randomizerPromoElites = playerArrays.randomizerPromoElites;
+randomizerSilverElites = playerArrays.randomizerSilverElites;
+randomizerGKSilverElites = playerArrays.randomizerGKSilverElites;
 
 function generatePlayer(rating) {
 

@@ -10,12 +10,71 @@ randomizerNonSpecialElite = playerArrays.randomizerNonSpecialElite;
 randomizerGKNonSpecialElite = playerArrays.randomizerGKNonSpecialElite;
 randomizerGKPromoElites = playerArrays.randomizerGKPromoElites;
 randomizerPromoElites = playerArrays.randomizerPromoElites;
+randomizerSilverElites = playerArrays.randomizerSilverElites;
+randomizerGKSilverElites = playerArrays.randomizerGKSilverElites;
 
 function generatePlayer(rating) {
 
     position = generateRandomNumber(1, 11);
 
     switch (rating) {
+        case 91:
+            rng = generateRandomNumber(1, 3);
+            return randomizerPlayerArray[18 + rng - 1];
+            break;
+        case 90:
+            if (position == 1) {
+                return randomizerGKArray[2];
+            } else {
+                rng = generateRandomNumber(1, 4);
+                return randomizerPlayerArray[32 + rng - 1];
+            }
+            break;
+        case 89:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 2);
+                return randomizerGKArray[4 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 7);
+                return randomizerPlayerArray[63 + rng - 1];
+            }
+            break;
+        case 88:
+            if (position == 1) {
+                rng = generateRandomNumber(1,2);
+                return randomizerGKArray[8 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 6);
+                return randomizerPlayerArray[104 + rng - 1];
+            }
+            break;
+        case 87:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 4);
+                return randomizerGKArray[11 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 6);
+                return randomizerPlayerArray[137 + rng - 1];
+            }
+            break;
+        case 86:
+            if (position == 1) {
+                return randomizerGKArray[16];
+            } else {
+                rng = generateRandomNumber(1, 25);
+                return randomizerPlayerArray[170 + rng - 1];
+            }
+            break;
+        case 85:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 5);
+                return randomizerGKArray[17 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 25);
+                return randomizerPlayerArray[201 + rng - 1];
+            }
+            break;
+
         case 84:
             if (position == 1) {
                 rng = generateRandomNumber(1, 6);
@@ -100,7 +159,7 @@ function generatePlayer(rating) {
         case 75:
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
-                return randomizerGKArray[157 + rng - 1];
+                return randomizerGKArray[147 + rng - 1];
             } else {
                 rng = generateRandomNumber(1, 267);
                 return randomizerPlayerArray[1342 + rng - 1];
@@ -188,39 +247,124 @@ function generatePlayer(rating) {
             }
             break;
         case 65:
-            rng = generateRandomNumber(1, 1035);
-            return randomizerPlayerArray[8425 + rng - 1];
+            if (position == 1) {
+                rng = generateRandomNumber(1, 109);
+                return randomizerGKArray[859 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 1035);
+                return randomizerPlayerArray[8425 + rng - 1];
+                break;
+            }
+            break;
+        case 64:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 120);
+                return randomizerGKArray[968 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 1059);
+                return randomizerPlayerArray[9460 + rng - 1];
+            }
+            break;
+        case 63:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 101);
+                return randomizerGKArray[1088 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 963);
+                return randomizerPlayerArray[10519 + rng - 1];
+            }
+            break;
+        case 62:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 95);
+                return randomizerGKArray[1189 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 840);
+                return randomizerPlayerArray[11482 + rng - 1];
+            }
+            break;
+        case 61:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 93);
+                return randomizerGKArray[1284 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 648);
+                return randomizerPlayerArray[12322 + rng - 1];
+            }
+            break;
+        case 60:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 106);
+                return randomizerGKArray[1377 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 625);
+                return randomizerPlayerArray[12970 + rng - 1];
+            }
+            break;
+        case 59:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 82);
+                return randomizerGKArray[1483 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 437);
+                return randomizerPlayerArray[13595 + rng - 1];
+            }
+            break;
+        case 58:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 85);
+                return randomizerGKArray[1565 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 409);
+                return randomizerPlayerArray[14032 + rng - 1];
+            }
+            break;
+        case 57:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 64);
+                return randomizerGKArray[1650 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 322);
+                return randomizerPlayerArray[14441 + rng - 1];
+            }
+            break;
+        case 56:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 60);
+                return randomizerGKArray[1714 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 303);
+                return randomizerPlayerArray[14763 + rng - 1];
+            }
+            break;
+        case 55:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 65);
+                return randomizerGKArray[1774 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 250);
+                return randomizerPlayerArray[15066 + rng - 1];
+            }
+            break;
+        case 54:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 49);
+                return randomizerGKArray[1839 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 231);
+                return randomizerPlayerArray[15316 + rng - 1];
+            }
+            break;
+        case 53:
+            if (position == 1) {
+                rng = generateRandomNumber(1, 51);
+                return randomizerGKArray[1888 + rng - 1];
+            } else {
+                rng = generateRandomNumber(1, 585);
+                return randomizerPlayerArray[15547 + rng - 1];
+            }
             break;
     }
-}
-
-function generateEliteGold(gk) {
-    if (gk == 1) {
-        rng = generateRandomNumber(1, 15);
-        count = 0;
-        for (let i = 0; i < 22; i++) {
-            if (!randomizerGKArray[i][1].includes("Icon") && !randomizerGKArray[i][1].includes("Hero")) {
-                if (count + 1 == rng) {
-                    return randomizerGKArray[i];
-                } else {
-                    count++;
-                }
-            }
-        }
-    } else {
-        rng = generateRandomNumber(1, 76);
-        count = 0;
-        for (let i = 0; i < 226; i++) {
-            if (!randomizerPlayerArray[i][1].includes("Icon") && !randomizerPlayerArray[i][1].includes("Hero")) {
-                if (count + 1 == rng) {
-                    return randomizerPlayerArray[i];
-                } else {
-                    count++;
-                }
-            }
-        }
-    }
-
 }
 
 function generateNonSpecialElite() {
@@ -247,54 +391,15 @@ function generatePromoPlayer() {
         //No GKs, only rng players
         rng = generateRandomNumber(1, randomizerPromoElites.length);
         return randomizerPromoElites[rng - 1];
-    } {
+    } else {
         position = generateRandomNumber(1, 11);
         if (position == 1) {
             //generate GK
-            index =0;
-            mainRNG = generateRandomNumber(1,20);
-            if(mainRNG <= 9){
-                rng = generateRandomNumber(1,3);
-                index=5;
-            }
-            else if (mainRNG > 9 && mainRNG <= 15){
-                index =3;
-                rng = generateRandomNumber(1,2);
-            }
-            else if(mainRNG > 15 && mainRNG <= 18 ){
-                rng = generateRandomNumber(1,3);
-                index=0;
-            }
-            else if(mainRNG > 18 && mainRNG <= 20){
-                index = 0;
-                rng = 0;
-            }
-            return randomizerGKPromoElites[rng +index];
+            rng = generateRandomNumber(1, randomizerGKPromoElites.length);
+            return randomizerGKPromoElites[rng];
         } else {
-            //generateOutfielder
-            index =0;
-            mainRNG = generateRandomNumber(1,20);
-            if(mainRNG <= 3){
-                rng = generateRandomNumber(1,4);
-                index=22;
-            }
-            else if (mainRNG > 3 && mainRNG <= 9){
-                index =15;
-                rng = generateRandomNumber(1,8);
-            }
-            else if(mainRNG > 9 && mainRNG <= 15 ){
-                rng = generateRandomNumber(1,9);
-                index=6;
-            }
-            else if(mainRNG > 15 && mainRNG <= 19){
-                index = 2;
-                rng = generateRandomNumber(1,3);
-            }
-            else if(mainRNG > 19 && mainRNG <= 20){
-                index = 0;
-                rng = generateRandomNumber(0,2);
-            }
-            return randomizerPromoElites[rng + index];
+            rng = generateRandomNumber(1, randomizerPromoElites.length);
+            return randomizerPromoElites[rng - 1];
         }
     }
 }
@@ -323,6 +428,24 @@ function generateHero(gk) {
                     count++;
                 }
             }
+        }
+    }
+}
+
+function generateSilverSpecial() {
+    if (randomizerGKSilverElites.length == 0) {
+        //No GKs, only rng players
+        rng = generateRandomNumber(1, randomizerSilverElites.length);
+        return randomizerSilverElites[rng - 1];
+    } else {
+        position = generateRandomNumber(1, 11);
+        if (position == 1) {
+            //generate GK
+            rng = generateRandomNumber(1, randomizerGKSilverElites.length);
+            return randomizerGKSilverElites[rng];
+        } else {
+            rng = generateRandomNumber(1, randomizerSilverElites.length);
+            return randomizerSilverElites[rng - 1];
         }
     }
 }
@@ -359,31 +482,46 @@ function generateElite(promoInPacks) {
 
     rng = generateRandomNumber(1, 100);
     positionRNG = generateRandomNumber(1, 11);
-
     if (promoInPacks) {
-        if (rng > 0 && rng <= 60) {
+        if (rng > 0 && rng <= 30) {
             //Gold RNG
-            return generateEliteGold(positionRNG);
-        } else if (rng > 60 && rng < 85) {
+            return generatePlayer(85);
+        }
+        else if (rng > 30 && rng < 48) {
+            return generatePlayer(86);
+        }
+        else if (rng > 48 && rng < 57) {
+            return generatePlayer(87);
+        }
+        else if (rng > 57 && rng < 62) {
+            return generatePlayer(88);
+        }
+        else if (rng > 62 && rng < 65) {
+            return generatePlayer(89);
+        }
+        else if (rng > 65 && rng < 68) {
+            return generatePlayer(90);
+        }
+        else if (rng > 68 && rng < 70) {
+            return generatePlayer(89);
+        }
+        else if (rng > 70 && rng < 81) {
             return generatePromoPlayer();
-        } else if (rng > 85 && rng < 97) {
+        } 
+        else if (rng > 81 && rng < 90) {
+            //POTW - TO BE ADDED
+            return generatePromoPlayer();
+        } 
+        else if (rng > 90 && rng < 97) {
             //Hero
             return generateHero(positionRNG);
-        } else if (rng > 97 && rng < 100) {
+        } 
+        else if (rng > 97 && rng < 100) {
             //Icon
             return generateIcon(positionRNG);
         }
     } else {
-        if (rng > 0 && rng <= 55) {
-            //Gold RNG
-            return generateEliteGold(positionRNG);
-        } else if (rng > 55 && rng < 89) {
-            //Hero
-            return generateHero(positionRNG);
-        } else if (rng > 89 && rng < 100) {
-            //Icon
-            return generateIcon(positionRNG);
-        }
+        throw ("Promos are always in packs, someone put no for this option somehow")
     }
 }
 
@@ -626,6 +764,107 @@ function openGoldUpgradePack(promoInPacks) {
     return players;
 }
 
+function openBronzePack(promoInPacks) {
+    numbers = generateRandomNumbers(3, 1, 144);
+    players = [];
+
+    for (let i = 0; i < 1; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 12) {
+            players.push(generatePlayer(53));
+        } else if (numbers[i] > 12 && numbers[i] <= 24) {
+            players.push(generatePlayer(54));
+        } else if (numbers[i] > 24 && numbers[i] <= 36) {
+            players.push(generatePlayer(55));
+        } else if (numbers[i] > 36 && numbers[i] <= 48) {
+            players.push(generatePlayer(56));
+        } else if (numbers[i] > 48 && numbers[i] <= 60) {
+            players.push(generatePlayer(57));
+        } else if (numbers[i] > 60 && numbers[i] <= 72) {
+            players.push(generatePlayer(58));
+        } else if (numbers[i] > 72 && numbers[i] <= 84) {
+            players.push(generatePlayer(59));
+        } else if (numbers[i] > 84 && numbers[i] <= 96) {
+            players.push(generatePlayer(60));
+        } else if (numbers[i] > 96 && numbers[i] <= 108) {
+            players.push(generatePlayer(61));
+        } else if (numbers[i] > 108 && numbers[i] <= 120) {
+            players.push(generatePlayer(62));
+        } else if (numbers[i] > 120 && numbers[i] <= 132) {
+            players.push(generatePlayer(63));
+        } else if (numbers[i] > 132 && numbers[i] <= 144) {
+            players.push(generatePlayer(64));
+        }
+    }
+
+    return players;
+}
+
+function openPremiumSilverPack(promoInPacks) {
+    numbers = generateRandomNumbers(3, 1, 100);
+    players = [];
+
+    for (let i = 0; i < 1; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 10) {
+            players.push(generatePlayer(65));
+        } else if (numbers[i] > 10 && numbers[i] <= 20) {
+            players.push(generatePlayer(66));
+        } else if (numbers[i] > 20 && numbers[i] <= 30) {
+            players.push(generatePlayer(67));
+        } else if (numbers[i] > 30 && numbers[i] <= 40) {
+            players.push(generatePlayer(68));
+        } else if (numbers[i] > 40 && numbers[i] <= 50) {
+            players.push(generatePlayer(69));
+        } else if (numbers[i] > 50 && numbers[i] <= 60) {
+            players.push(generatePlayer(70));
+        } else if (numbers[i] > 60 && numbers[i] <= 70) {
+            players.push(generatePlayer(71));
+        } else if (numbers[i] > 70 && numbers[i] <= 80) {
+            players.push(generatePlayer(72));
+        } else if (numbers[i] > 80 && numbers[i] <= 90) {
+            players.push(generatePlayer(73));
+        } else if (numbers[i] > 90 && numbers[i] <= 96) {
+            players.push(generatePlayer(74));
+        } else if (numbers[i] > 96 && numbers[i] <= 100) {
+            players.push(generateSilverSpecial());
+        }
+    }
+
+    return players;
+}
+
+function openSilverPack(promoInPacks) {
+    numbers = generateRandomNumbers(3, 1, 100);
+    players = [];
+
+    for (let i = 0; i < 1; i++) {
+        if (numbers[i] > 0 && numbers[i] <= 17) {
+            players.push(generatePlayer(65));
+        } else if (numbers[i] > 17 && numbers[i] <= 30) {
+            players.push(generatePlayer(66));
+        } else if (numbers[i] > 30 && numbers[i] <= 40) {
+            players.push(generatePlayer(67));
+        } else if (numbers[i] > 40 && numbers[i] <= 52) {
+            players.push(generatePlayer(68));
+        } else if (numbers[i] > 52 && numbers[i] <= 64) {
+            players.push(generatePlayer(69));
+        } else if (numbers[i] > 64 && numbers[i] <= 73) {
+            players.push(generatePlayer(70));
+        } else if (numbers[i] > 73 && numbers[i] <= 83) {
+            players.push(generatePlayer(71));
+        } else if (numbers[i] > 83 && numbers[i] <= 89) {
+            players.push(generatePlayer(72));
+        } else if (numbers[i] > 89 && numbers[i] <= 95) {
+            players.push(generatePlayer(73));
+        } else if (numbers[i] > 95 && numbers[i] <= 98) {
+            players.push(generatePlayer(74));
+        } else if (numbers[i] > 98 && numbers[i] <= 100) {
+            players.push(generateSilverSpecial());
+        }
+    }
+
+    return players;
+}
+
 function generateRandomNumber(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
@@ -647,23 +886,32 @@ function openPack(packName, promoInPacks) {
         case "Elite Hunter Pack(75k)":
             players = openEliteHunterPack();
             break;
-        case "Rarer Players Pack(60k)":
-            players = openRarerPlayersPack();
-            break;
-        case "Gold Pack(10k)":
-            players = openGoldPack(promoInPacks);
-            break;
         case "Rare Players Pack(50k)":
             players = openRarePlayersPack();
             break;
-        case "Premium Gold Pack(15k)":
+        case "Rarer Players Pack(60k)":
+            players = openRarerPlayersPack();
+            break;
+        case "Gold Pack(15k)":
+            players = openGoldPack(promoInPacks);
+            break;
+        case "Premium Gold Pack(25k)":
             players = openPremiumGoldPack(promoInPacks);
             break;
-        case "Jumbo Premium Gold Pack(35k)":
+        case "Jumbo Premium Gold Pack(40k)":
             players = openJumboPremiumGoldPack(promoInPacks);
             break;
         case "Gold Upgrade Pack(78+ x2)":
             players = openGoldUpgradePack(promoInPacks);
+            break;
+        case "Bronze Pack(2k)":
+                players = openBronzePack(promoInPacks);
+                break;
+        case "Silver Pack(7.5k)":
+            players = openSilverPack(promoInPacks);
+            break;
+        case "Premium Silver Pack(10k)":
+            players = openPremiumSilverPack(promoInPacks);
             break;
         default:
             throw new Error('Invalid or unadded pack selected');
@@ -746,19 +994,14 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("dupereroll")
         .setDescription(
-            "Open any of the packs for dupe relpacement",
+            "Open any of the packs for dupe replacement",
         )
         .addStringOption((option) =>
             option
             .setName("packname")
             .setRequired(true)
-            .addChoices({ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" }, { name: "Rarer Players Pack(60k)", value: "Rarer Players Pack(60k)" }, { name: "Provisions Pack(25k)", value: "Provisions Pack(25k)" }, { name: "Elite Hunter Pack(75k)", value: "Elite Hunter Pack(75k)" }, { name: "Gold Pack(10k)", value: "Gold Pack(10k)" }, { name: "Premium Gold Pack(15k)", value: "Premium Gold Pack(15k)" }, { name: "Jumbo Premium Gold Pack(35k)", value: "Jumbo Premium Gold Pack(35k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" })
+            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" })
             .setDescription("The pack you want to open"),
-        )
-        .addBooleanOption((option) =>
-            option
-            .setName("promo")
-            .setDescription("Whether there is a promo in packs or not, send 1 if there is")
         )
         .addIntegerOption((option) =>
             option
@@ -769,23 +1012,10 @@ module.exports = {
     async execute(interaction) {
         packName = interaction.options.getString("packname");
         count = interaction.options.getInteger("count");
-        promoInPacks = interaction.options.getBoolean('promo');
-
-        if (promoInPacks == null) {
-            promoInPacks = true;
-        }
+        promoInPacks = true;
 
         if (count == null) {
             count = 1;
-        }
-
-        switch (packName) {
-            case "Bronze Pack(2.5k)":
-                return interaction.reply("Not yet implemented");
-                break;
-            case "Silver Pack(5k)":
-                return interaction.reply("Not yet implemented");
-                break;
         }
 
         try {
