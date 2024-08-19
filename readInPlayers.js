@@ -1,32 +1,40 @@
 exports.randomizerNonSpecialElite = [
-    [4,"Bengaluru2017 ~ 2024",74,4,"Chhetri ST, LW","Golden Oldies"],
-    [1,"IFK Göteborg2021 ~ 2023",82,1,"Wendt LB, LWB","Golden Oldies"],
-    [2,"Atlético Nacional2023 ~ 2023",80,2,"Zapata CB","Golden Oldies"],
-    [3,"Beşiktaş2023 ~ 2024",81,3,"Inler CDM, CM","Golden Oldies"],
-    [4,"Leicester City2014 ~ 2024",80,4,"Albrighton RM, RWB, RW","Golden Oldies"],
-    [5,"Lanús2019 ~ 2023",79,5,"Sand ST","Golden Oldies"]
+    [1,"Galatasaray",77,1,"Jelert RB/RWB","OTW","Denmark"],
+    [2,"PSG",80,2,"Pacho CB","OTW","Ecuador"],
+    [3,"Bologna",77,3,"Miranda LB/LWB","OTW","Spain"],
+    [4,"Brugge",77,4,"Jashari CDM/CM","OTW","Switzerland"],
+    [5,"Al Ittihad",79,5,"Aouar CM/CAM","OTW","Algeria"],
+    [6,"Benfica",78,6,"Pavilidis ST","OTW","Greece"],
+    [7,"Bayern Munich",82,7,"Olise RW/CAM","OTW","France"]
 ]
 
-exports.randomizerGKNonSpecialElite = [    
+exports.randomizerGKNonSpecialElite = [ 
+    [1,"Juventus",79,1,"Di Gregorio GK","OTW","Italy"]
+]
+
+exports.randomizerGKPOTW = [
+    [1,"Nantes",85,1,"Lafont GK","POTW","France"]
+]
+
+exports.randomizerPOTW = [
+    [1,"Coventry City",77,1,"Van Ewijk RB/RWB/RM","POTW","Netherlands"],
+    [2,"Gil Vicente",80,2,"Fujimoto CAM/CM","POTW","Japan"],
+    [3,"Sint Truiden",77,3,"Zahrioleslam ST","POTW","USA"]
 ]
 
 exports.randomizerPromoElites = [
-    [1,"Górnik Zabrze2021 ~ 2025",85,1,"Podolski CAM, CF, ST","Golden Oldies"],
-    [2,"Hero (J League)",86,2,"Miura ST, CF, LW","Golden Oldies"]
+    [1,"Barcelona",85,1,"Olmo CAM/CF/LW","OTW","Spain"]
 ]
 
 exports.randomizerGKPromoElites = [
 ]
 
 exports.randomizerSilverElites = [
-    [1,"Shakhtar Donetsk2023 ~ 2024",74,1,"Chyhrynskyi CB","Golden Oldies"],
-  [2,"Hertha BSC2012 ~ 2024",74,2,"Pekarik RB, RWB","Golden Oldies"],
-  [3,"FC Cartagena2022 ~ 2024",74,3,"Mikel Rico CM, CDM","Golden Oldies"],
-  [4,"Bengaluru2017 ~ 2024",74,4,"Chhetri ST, LW","Golden Oldies"]
+    [1,"Everton",74,1,"O'Brien CB","OTW","Ireland"],
+    [2,"Sparta Prague",74,2,"Birmancevic LW/RW","OTW","Serbia"]
 ]
 
 exports.randomizerGKSilverElites = [
-    [1,"Los Angeles FC2023 ~ 2023",74,1,"Jakupovic GK","Golden Oldies"]
 ]
 
 exports.randomizerPlayerArray = [
