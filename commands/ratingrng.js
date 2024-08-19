@@ -898,7 +898,7 @@ function stringifyPlayer(player) {
     } else if (player[5].includes('OTW') || player[5].includes('POTW')) {
         teamName = player[1];
         playerFlag = flags[player[6]];
-        toReturn = "**OTW** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + playerFlag;
+        toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + playerFlag;
     } else {
         teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
 
