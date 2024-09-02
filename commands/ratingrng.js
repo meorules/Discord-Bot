@@ -819,7 +819,7 @@ function generateElite(promoInPacks) {
         } 
         else if (rng >= 82 && rng < 91) {
             //POTW - TO BE ADDED
-            return generatePOTWPlayer();
+            return generatePromoPlayer();
         } 
         else if (rng >= 91 && rng < 98) {
             //Hero

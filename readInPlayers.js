@@ -1,37 +1,33 @@
 exports.randomizerNonSpecialElite = [
-    [1,"Galatasaray",77,1,"Jelert RB/RWB","OTW","Denmark"],
-    [2,"PSG",80,2,"Pacho CB","OTW","Ecuador"],
-    [3,"Bologna",77,3,"Miranda LB/LWB","OTW","Spain"],
-    [4,"Brugge",77,4,"Jashari CDM/CM","OTW","Switzerland"],
-    [5,"Al Ittihad",79,5,"Aouar CM/CAM","OTW","Algeria"],
-    [6,"Benfica",78,6,"Pavilidis ST","OTW","Greece"],
-    [7,"Bayern Munich",82,7,"Olise RW/CAM","OTW","France"]
+    [1,"Bayern Munich",81,1,"Ito CB/CDM","OTW","Japan"],
+    [2,"Porto",81,2,"Perez CB/CDM","OTW","Argentina"],
+    [3,"Fenerbahce",81,3,"Amrabat CDM/CM","OTW","Morocco"],
+    [4,"Napoli",81,4,"McTominay CM/CDM/CAM","OTW","Scotland"],
+    [5,"Ajax",83,5,"Weghorst ST","OTW","Netherlands"],
+    [6,"Olympique Lyon",83,6,"Zaha LW/LM/CF","OTW","Ivory Coast"]
 ]
 
 exports.randomizerGKNonSpecialElite = [ 
-    [1,"Juventus",79,1,"Di Gregorio GK","OTW","Italy"]
+    [1,"Bournemouth",83,1,"Kepa GK","OTW","Spain"]
 ]
 
 exports.randomizerGKPOTW = [
-    [1,"Nantes",85,1,"Lafont GK","POTW","France"]
 ]
 
 exports.randomizerPOTW = [
-    [1,"Coventry City",77,1,"Van Ewijk RB/RWB/RM","POTW","Netherlands"],
-    [2,"Gil Vicente",80,2,"Fujimoto CAM/CM","POTW","Japan"],
-    [3,"Sint Truiden",77,3,"Zahrioleslam ST","POTW","USA"]
 ]
 
 exports.randomizerPromoElites = [
-    [1,"Barcelona",85,1,"Olmo CAM/CF/LW","OTW","Spain"]
+    [1,"Al-Hilal",86,1,"Cancelo RB/RWB/LB","OTW","Portugal"],
+    [2,"Atletico Madrid",86,2,"Alvarez ST/RW/CF","OTW","Argentina"],
+    [3,"River Plate",86,3,"Acuna LB/LWB/LM","OTW","Argentina"]
 ]
 
 exports.randomizerGKPromoElites = [
 ]
 
 exports.randomizerSilverElites = [
-    [1,"Everton",74,1,"O'Brien CB","OTW","Ireland"],
-    [2,"Sparta Prague",74,2,"Birmancevic LW/RW","OTW","Serbia"]
+    [1,"Rangers",74,1,"Bajrami CAM/LW/RW","OTW","Albania"]
 ]
 
 exports.randomizerGKSilverElites = [

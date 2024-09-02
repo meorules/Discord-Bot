@@ -815,7 +815,7 @@ function generateElite(promoInPacks) {
         } 
         else if (rng >= 82 && rng < 91) {
             //POTW - TO BE ADDED
-            return generatePOTWPlayer();
+            return generatePromoPlayer();
         } 
         else if (rng >= 91 && rng < 98) {
             //Hero
@@ -1228,7 +1228,7 @@ function openPack(packName, promoInPacks) {
 function openPacks(pack, count, promoInPacks) {
     packPlayers = [];
 
-    if (pack == "Provisions Pack(25k)") {
+    if (pack == "Provisions Pack(35k)") {
         pack = "Gold Pack(10k)";
         count = count * 5;
     }
@@ -1300,8 +1300,7 @@ module.exports = {
             option
             .setName("packname")
             .setRequired(true)
-            ///{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" }, { name: "Rarer Players Pack(60k)", value: "Rarer Players Pack(60k)" }, { name: "Provisions Pack(25k)", value: "Provisions Pack(25k)" }, { name: "Elite Hunter Pack(75k)", value: "Elite Hunter Pack(75k)" },
-            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" })
+            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" })
             .setDescription("The pack you want to open"),
         )
         .addIntegerOption((option) =>
