@@ -419,9 +419,20 @@ function generatePlayer(rating) {
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
                 return randomizerGKArray[147 + rng - 1];
-            } else {
-                rng = generateRandomNumber(1, 267);
-                return randomizerPlayerArray[1342 + rng - 1];
+            } 
+            else {
+                rng = generateRandomNumber(1, 269);
+                if(rng <= 267){
+                    return randomizerPlayerArray[1342 + rng - 1];
+                }
+                else {
+                    if(rng==268){
+                    return randomizerPlayerArray[16132];
+                    }
+                    else if(rng == 269){
+                        return randomizerPlayerArray[16133];
+                    }
+                }
             }
             break;
         case 74:
@@ -815,7 +826,7 @@ function generateElite(promoInPacks) {
         } 
         else if (rng >= 82 && rng < 91) {
             //POTW - TO BE ADDED
-            return generatePromoPlayer();
+            return generatePOTWPlayer();
         } 
         else if (rng >= 91 && rng < 98) {
             //Hero
@@ -866,7 +877,7 @@ function openEliteHunterPack() {
 }
 
 function openRarePlayersPack() {
-    numbers = generateRandomNumbers(7, 1, 100);
+    numbers = generateRandomNumbers(6, 1, 100);
     players = [];
 
     for (let i = 0; i < 7; i++) {
@@ -1108,6 +1119,7 @@ function openSilverPack(promoInPacks) {
 
 function openJumboPremiumGoldPack(promoInPacks) {
     numbers = generateRandomNumbers(5, 1, 100);
+    numbers = [97,80,99,97,85];
     players = [];
 
     for (let i = 0; i < 5; i++) {
@@ -1229,7 +1241,7 @@ function openPacks(pack, count, promoInPacks) {
     packPlayers = [];
 
     if (pack == "Provisions Pack(35k)") {
-        pack = "Gold Pack(10k)";
+        pack = "Gold Pack(15k)";
         count = count * 5;
     }
 
@@ -1256,7 +1268,7 @@ function stringifyPlayer(player) {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('OTW') || player[5].includes('POTW')) {
+    } else if (player[5].includes('Failed Wonderkid') || player[5].includes('POTW')) {
         teamName = player[1];
         playerFlag = flags[player[6]];
         toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlag;
@@ -1272,22 +1284,83 @@ function stringifyPlayer(player) {
     return toReturn;
 }
 
-function packOpenString(pack, count, promoInPacks) {
-    players = openPacks(pack, count, promoInPacks);
-
-    size = players.length;
-    if (count == 1) {
-        generatedString = "You opened a " + pack + " and got these players: \n";
-    } else {
-        generatedString = "You opened " + count + " of the " + pack + " and got these players: \n";
+function getPriority(player){
+    playerLevel = player[5];
+    priority = 0;
+    if(playerLevel.includes('Failed Wonderkid')){
+        priority = 1;
+    }
+    else if(playerLevel.includes('POTW')){
+        priority = 2;
+    }
+    else {
+        if(player[1].includes('Icon')){
+            priority = 5;
+        }
+        else if(player[1].includes('Hero')){
+            priority = 4;
+        }
+        else{
+            priority = 0;
+        }
     }
 
+    return priority;
+}
+
+function packOpenString(packName, count, promoInPacks,pack) {
+    players = openPacks(packName, count, promoInPacks);
+
+    pack.playerPack = players;
+    size = players.length;
+    if (count == 1) {
+        generatedString = "You opened a " + packName + " and got these players: \n";
+    } else {
+        generatedString = "You opened " + count + " of the " + packName + " and got these players: \n";
+    }
+
+    highestRated = 0;
+    highestRatedIndex = -1;
+    currentPriority = 0;
+
     for (let i = 0; i < size; i++) {
-        playerString = stringifyPlayer(players[i]);
+        priority = getPriority(players[i]);
+        if(currentPriority < priority || (highestRated <= parseInt(players[i][2]) && currentPriority <= priority)){
+            currentPriority = priority;
+            highestRated = parseInt(players[i][2]);
+            highestRatedIndex = i;
+        }
+    }
+
+    if (highestRated >= 85 || players[highestRatedIndex][5].includes('Failed Wonderkid') || players[highestRatedIndex][5].includes('POTW')){
+        pack.containsElites = true;
+        pack.highestRatedIndex = highestRatedIndex;
+    }
+
+    for (let j = 0; j < size; j++) {
+        playerString = "";
+        if(pack.containsElites == true && highestRatedIndex == j){
+            playerString = "?????????????????????";
+        }
+        else{
+            playerString = stringifyPlayer(players[j]);
+        }
         generatedString = generatedString + playerString + "\n";
     }
 
+
+
+    pack.packString = generatedString;
+
     return generatedString;
+}
+
+function splitPosition(playerName){
+    position = "";
+    if(playerName.indexOf("\n")!=-1){
+        position = playerName.split("\n");
+    }
+    return position;
 }
 
 module.exports = {
@@ -1300,7 +1373,7 @@ module.exports = {
             option
             .setName("packname")
             .setRequired(true)
-            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" })
+            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" })
             .setDescription("The pack you want to open"),
         )
         .addIntegerOption((option) =>
@@ -1317,14 +1390,69 @@ module.exports = {
         if (count == null) {
             count = 1;
         }
+        playerArray = [];
+        generatedString = "";
+        index = -1;
+        pack = {playerPack:playerArray,packString:generatedString,containsElites:false,highestRatedIndex:index};
+
+        messageString = "This is the pack :eyes:"
+        const message = await interaction.channel.send({ content: messageString, fetchReply: true });
+        interaction.reply("Rolling odds");
+
+        pauseTime = 1500;
+
 
         try {
-            rngedString = packOpenString(packName, count, promoInPacks);
+            rngedString = packOpenString(packName, count, promoInPacks,pack);
+            message.edit(rngedString);
+            if(pack.containsElites){
+                //player[1] = team name, player[2] = rating, player[4] = name, player[5] = promo, flags[player[6]] = flag
+                eliteMessageString = "You packed a";
+
+                if(pack.playerPack[pack.highestRatedIndex][5] == ""){
+                    eliteMessageString = eliteMessageString + " Elite";
+                }
+                else{
+                    eliteMessageString = eliteMessageString + " " + pack.playerPack[pack.highestRatedIndex][5];
+                }
+                const eliteMessage = await interaction.channel.send({ content:eliteMessageString, fetchReply: true });
+                await new Promise(r => setTimeout(r, pauseTime));
+                
+                if(pack.playerPack[pack.highestRatedIndex][5].includes('Failed Wonderkid') || pack.playerPack[pack.highestRatedIndex][5].includes('POTW')){
+                    eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6]];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                }
+                
+                eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][1];
+                eliteMessage.edit(eliteMessageString);
+                await new Promise(r => setTimeout(r, pauseTime));
+                
+                if(pack.playerPack[pack.highestRatedIndex][4].includes("\n")){
+                    position = splitPosition(pack.playerPack[pack.highestRatedIndex][4]);
+                    eliteMessageString = eliteMessageString + "\n" + position[1];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                    eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][2];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                    eliteMessageString = eliteMessageString + "\n" + position[0];
+                    eliteMessage.edit(eliteMessageString);    
+                }
+                else{
+                    eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][2];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                    eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][4];
+                    eliteMessage.edit(eliteMessageString);  
+                }
+                
+            }
         } catch (error) {
             console.error(error);
             rngedString = "An error has occured, please contact Meo";
         }
 
-        return interaction.reply(`${rngedString}`);
+        return;
     },
 };

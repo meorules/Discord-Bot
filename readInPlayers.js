@@ -1,33 +1,45 @@
-exports.randomizerNonSpecialElite = [
-    [1,"Bayern Munich",81,1,"Ito CB/CDM","OTW","Japan"],
-    [2,"Porto",81,2,"Perez CB/CDM","OTW","Argentina"],
-    [3,"Fenerbahce",81,3,"Amrabat CDM/CM","OTW","Morocco"],
-    [4,"Napoli",81,4,"McTominay CM/CDM/CAM","OTW","Scotland"],
-    [5,"Ajax",83,5,"Weghorst ST","OTW","Netherlands"],
-    [6,"Olympique Lyon",83,6,"Zaha LW/LM/CF","OTW","Ivory Coast"]
+exports.randomizerNonSpecialElite = [    
+    [1,"Gent",84,1,"Kubo \n CAM / CF","Failed Wonderkid","Japan"],
+    [2,"Spurs",83,2,"Bentaleb \n CDM / CM","Failed Wonderkid","Algeria"],
+    [3,"Sporting CP",84,3,"Martins \n RM / RW","Failed Wonderkid","Portugal"],
+    [4,"Milan",84,4,"De Sciglio \n RB / RWB / LB","Failed Wonderkid","Italy"],
+    [5,"Real Madrid",83,5,"Vallejo \n CB","Failed Wonderkid","Spain"],
+    [6,"Ajax",84,6,"K. DOlberg \n ST","Failed Wonderkid","Denmark"],
+
 ]
 
 exports.randomizerGKNonSpecialElite = [ 
-    [1,"Bournemouth",83,1,"Kepa GK","OTW","Spain"]
+    [1,"Sevilla",84,1,"Rico \n GK","Failed Wonderkid","Spain"]
 ]
 
 exports.randomizerGKPOTW = [
+    [1,"Ipswich",84,1,"Muric \n GK","POTW","Kosovo"]
 ]
 
 exports.randomizerPOTW = [
+    [1,"Milan",87,1,"Hernandez \n LB / LWB / LM","POTW","France"],
+    [2,"Monaco",85,2,"Zakaria \n CDM / CM","POTW","Switzerland"],
+    [3,"Leverkusen",85,3,"Boniface \n ST","POTW","Nigeria"]
 ]
 
 exports.randomizerPromoElites = [
-    [1,"Al-Hilal",86,1,"Cancelo RB/RWB/LB","OTW","Portugal"],
-    [2,"Atletico Madrid",86,2,"Alvarez ST/RW/CF","OTW","Argentina"],
-    [3,"River Plate",86,3,"Acuna LB/LWB/LM","OTW","Argentina"]
+    [1,"Manchester United",85,1,"Fosu Mensah \n RB / RWB / RM / CB","Failed Wonderkid","Netherlands"],
+    [2,"Fiorentina",86,2,"Nastasic \n CB","Failed Wonderkid","Serbia"],
+    [3,"OGC Nice",87,3,"Malang Sarr \n CB / LB","Failed Wonderkid","France"],
+    [4,"Real Betis",85,4,"Firpo \n LB / LWB","Failed Wonderkid","Dominican Republic (the)"],
+    [5,"Borussia Dortmund",86,5,"Emre Mor \n RM / RW / LW","Failed Wonderkid","Turkey"],
+    [6,"Everton",87,6,"Jack Rodwell \n CDM / CB / CM","Failed Wonderkid","England"],
+    [7,"Borussia Dortmund",89,6,"Mario Gotze \n CAM / CF / CM","Failed Wonderkid","Germany"],
+    [8,"Valencia",88,8,"Bakkali \n LM / LW / RM","Failed Wonderkid","Belgium"],
+    [9,"Monaco",89,9,"Martial \n ST / LW","Failed Wonderkid","France"],
+    [10,"Lazio",86,10,"Keita Balde Diao \n ST / LW","Failed Wonderkid","Senegal"]
 ]
 
 exports.randomizerGKPromoElites = [
+    [1,"Udinese",86,1,"Scuffet \n GK","Failed Wonderkid","Italy"]
 ]
 
 exports.randomizerSilverElites = [
-    [1,"Rangers",74,1,"Bajrami CAM/LW/RW","OTW","Albania"]
 ]
 
 exports.randomizerGKSilverElites = [
@@ -16165,7 +16177,9 @@ exports.randomizerPlayerArray = [
     [16129, "Meizhou Hakka2023 ~ 2028", 47, 582, "Jin Liangkuan\n CB", ""],
     [16130, "Zhejiang2023 ~ 2026", 47, 583, "Ye Daoxin\n CB", ""],
     [16131, "Zhejiang2023 ~ 2023", 47, 584, "Yin Jie\n CM", ""],
-    [16132, "Zhejiang2022 ~ 2023", 47, 585, "Wu Yuhang\n CDM", ""]
+    [16132, "Zhejiang2022 ~ 2023", 47, 585, "Wu Yuhang\n CDM", ""],
+    [16133, "Lille", 75, 268, "Bentaleb\n CDM CM", ""],
+    [16134, "Anderlecht", 75, 269, "K. Dolberg \n ST", ""]
 ]
 
 exports.randomizerGKArray = [

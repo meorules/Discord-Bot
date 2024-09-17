@@ -421,9 +421,20 @@ function generatePlayer(rating) {
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
                 return randomizerGKArray[147 + rng - 1];
-            } else {
-                rng = generateRandomNumber(1, 267);
-                return randomizerPlayerArray[1342 + rng - 1];
+            } 
+            else {
+                rng = generateRandomNumber(1, 269);
+                if(rng <= 267){
+                    return randomizerPlayerArray[1342 + rng - 1];
+                }
+                else {
+                    if(rng==268){
+                    return randomizerPlayerArray[2019];
+                    }
+                    else if(rng == 269){
+                        return randomizerPlayerArray[2020];
+                    }
+                }
             }
             break;
         case 74:
@@ -1308,7 +1319,7 @@ module.exports = {
             option
             .setName("packname")
             .setRequired(true)
-            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" })
+            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" })
             .setDescription("The pack you want to open"),
         )
         .addIntegerOption((option) =>

@@ -422,9 +422,20 @@ function generatePlayer(rating) {
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
                 return randomizerGKArray[147 + rng - 1];
-            } else {
-                rng = generateRandomNumber(1, 267);
-                return randomizerPlayerArray[1342 + rng - 1];
+            } 
+            else {
+                rng = generateRandomNumber(1, 269);
+                if(rng <= 267){
+                    return randomizerPlayerArray[1342 + rng - 1];
+                }
+                else {
+                    if(rng==268){
+                    return randomizerPlayerArray[2019];
+                    }
+                    else if(rng == 269){
+                        return randomizerPlayerArray[2020];
+                    }
+                }
             }
             break;
         case 74:
