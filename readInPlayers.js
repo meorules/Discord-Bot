@@ -1,42 +1,41 @@
 exports.randomizerNonSpecialElite = [    
-    [1,"Gent",84,1,"Kubo \n CAM / CF","Failed Wonderkid","Japan"],
-    [2,"Spurs",83,2,"Bentaleb \n CDM / CM","Failed Wonderkid","Algeria"],
-    [3,"Sporting CP",84,3,"Martins \n RM / RW","Failed Wonderkid","Portugal"],
-    [4,"Milan",84,4,"De Sciglio \n RB / RWB / LB","Failed Wonderkid","Italy"],
-    [5,"Real Madrid",83,5,"Vallejo \n CB","Failed Wonderkid","Spain"],
-    [6,"Ajax",84,6,"K. DOlberg \n ST","Failed Wonderkid","Denmark"],
-
 ]
 
 exports.randomizerGKNonSpecialElite = [ 
-    [1,"Sevilla",84,1,"Rico \n GK","Failed Wonderkid","Spain"]
 ]
 
 exports.randomizerGKPOTW = [
-    [1,"Ipswich",84,1,"Muric \n GK","POTW","Kosovo"]
+	[1,"Milan",89,1,"Maignan \n GK","POTW","France"]
 ]
 
 exports.randomizerPOTW = [
-    [1,"Milan",87,1,"Hernandez \n LB / LWB / LM","POTW","France"],
-    [2,"Monaco",85,2,"Zakaria \n CDM / CM","POTW","Switzerland"],
-    [3,"Leverkusen",85,3,"Boniface \n ST","POTW","Nigeria"]
+    [1,"Ajax",87,1,"Hato \n CB LB","POTW","Netherlands"],
+    [2,"Chelsea",89,2,"Palmer \n RM CAM","POTW","England"],
+    [3,"Lille",87,3,"David \n ST CF CAM","POTW","Canada"]
 ]
 
 exports.randomizerPromoElites = [
-    [1,"Manchester United",85,1,"Fosu Mensah \n RB / RWB / RM / CB","Failed Wonderkid","Netherlands"],
-    [2,"Fiorentina",86,2,"Nastasic \n CB","Failed Wonderkid","Serbia"],
-    [3,"OGC Nice",87,3,"Malang Sarr \n CB / LB","Failed Wonderkid","France"],
-    [4,"Real Betis",85,4,"Firpo \n LB / LWB","Failed Wonderkid","Dominican Republic (the)"],
-    [5,"Borussia Dortmund",86,5,"Emre Mor \n RM / RW / LW","Failed Wonderkid","Turkey"],
-    [6,"Everton",87,6,"Jack Rodwell \n CDM / CB / CM","Failed Wonderkid","England"],
-    [7,"Borussia Dortmund",89,6,"Mario Gotze \n CAM / CF / CM","Failed Wonderkid","Germany"],
-    [8,"Valencia",88,8,"Bakkali \n LM / LW / RM","Failed Wonderkid","Belgium"],
-    [9,"Monaco",89,9,"Martial \n ST / LW","Failed Wonderkid","France"],
-    [10,"Lazio",86,10,"Keita Balde Diao \n ST / LW","Failed Wonderkid","Senegal"]
+   [1,"West Ham United",87,1,"Areola \n GK","Nation Mutation","Philippines/France"],
+    [2,"PSV",87,2,"Dest \n RB RWB LB","Nation Mutation","Netherlands/USA"],
+    [3,"Al Nassr",90,3,"Laporte \n CB","Nation Mutation","France/Spain"],
+    [4,"VfB Stuttgart",87,4,"Stergiou \n CB","Nation Mutation","Greece/Switzerland"],
+    [5,"Torino",88,5,"Sosa \n LB LWB LM","Nation Mutation","Germany/Croatia"],
+    [6,"Newcastle United",90,6,"Guimares \n CM CDM","Nation Mutation","Spain/Brazil"],
+    [7,"LOSC Lille",88,7,"Gomes \n CAM CM LW","Nation Mutation","Portugal/England"],
+    [8,"FC Bayern München",92,8,"Musiala \n CAM CM LM","Nation Mutation","England/Germany"],
+    [9,"FC Barcelona",89,9,"Raphinha \n RW RM LW","Nation Mutation","Italy/Brazil"],
+    [10,"Marseille",87,10,"Maupay \n ST CF","Nation Mutation","Argentina/France"],
+    [11,"Roma",88,11,"El Sharaaway \n LW LM CAM","Nation Mutation","Egypt/Italy"],
+    [12,"Chelsea",86,12,"Chilwell \n LB LWB","Nation Mutation","New Zealand/England"],
+    [13,"Sevilla",86,13,"Gudelj \n CB CDM","Nation Mutation","Netherlands/Serbia"],
+    [14,"Napoli",86,14,"Simeone \n ST CF","Nation Mutation","Spanish/Argentina"],
+    [15,"Cardiff City",86,15,"NG \n RB RWB CB","Nation Mutation","Singapore/England"],
+    [16,"Celta de Vigo",86,16,"Jonathan Bamba \n LM LW RM","Nation Mutation","France/Ivory Coast"],
+    [17,"Nation Mutation Icon",91,17,"Mazzola \n ST CF CAM","Nation Mutation Icon","Brazil/Italy"],
 ]
 
 exports.randomizerGKPromoElites = [
-    [1,"Udinese",86,1,"Scuffet \n GK","Failed Wonderkid","Italy"]
+    [1,"West Ham United",87,1,"Areola \n GK","Nation Mutation","France/Phillippines"]
 ]
 
 exports.randomizerSilverElites = [
@@ -44,6 +43,7 @@ exports.randomizerSilverElites = [
 
 exports.randomizerGKSilverElites = [
 ]
+
 
 exports.randomizerPlayerArray = [
     [1, "Icon", 95, 1, "Pele CAM CF ST", ""],

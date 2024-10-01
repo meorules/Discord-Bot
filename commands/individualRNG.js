@@ -265,7 +265,7 @@ var flags = {
     "Yemen":":flag_ye:",
     "Zambia":":flag_zm:",
     "Zimbabwe":":flag_zw:",
-    "England":":england",
+    "England":":england:",
     "Scotland":":scotland:",
     "Kosovo":":flag_xk:",
     "Reunion":":flag_re:",
@@ -428,11 +428,13 @@ function generatePlayer(rating) {
                     return randomizerPlayerArray[1342 + rng - 1];
                 }
                 else {
-                    if(rng==268){
-                    return randomizerPlayerArray[2019];
+                    if(rng==268)
+                    {
+                        return randomizerPlayerArray[16132];
                     }
-                    else if(rng == 269){
-                        return randomizerPlayerArray[2020];
+                    else if(rng == 269)
+                    {
+                        return randomizerPlayerArray[16133];
                     }
                 }
             }
@@ -799,7 +801,7 @@ function generateElite(promoInPacks) {
         } 
         else if (rng >= 82 && rng < 91) {
             //POTW - TO BE ADDED
-            return generatePromoPlayer();
+            return generatePOTWPlayer();
         } 
         else if (rng >= 91 && rng < 98) {
             //Hero
@@ -837,46 +839,9 @@ function openEliteHunterPack() {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 69 && numbers[i] <= 76) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 76 && numbers[i] <= 82) {
+        } else if (numbers[i] > 76 && numbers[i] <= 86) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 82 && numbers[i] <= 90) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 90 && numbers[i] <= 100) {
-            players.push(generateElite(promoInPacks));
-        }
-    }
-
-    return players;
-}
-
-function openEliteHunterPack() {
-    numbers = generateRandomNumbers(1, 1, 100);
-    players = [];
-
-    for (let i = 0; i < 1; i++) {
-        if (numbers[i] > 0 && numbers[i] <= 4) {
-            players.push(generatePlayer(75));
-        } else if (numbers[i] > 4 && numbers[i] <= 9) {
-            players.push(generatePlayer(76));
-        } else if (numbers[i] > 9 && numbers[i] <= 19) {
-            players.push(generatePlayer(77));
-        } else if (numbers[i] > 19 && numbers[i] <= 29) {
-            players.push(generatePlayer(78));
-        } else if (numbers[i] > 29 && numbers[i] <= 39) {
-            players.push(generatePlayer(79));
-        } else if (numbers[i] > 39 && numbers[i] <= 44) {
-            players.push(generatePlayer(80));
-        } else if (numbers[i] > 44 && numbers[i] <= 59) {
-            players.push(generatePlayer(81));
-        } else if (numbers[i] > 59 && numbers[i] <= 69) {
-            players.push(generatePlayer(82));
-        } else if (numbers[i] > 69 && numbers[i] <= 76) {
-            players.push(generatePlayer(83));
-        } else if (numbers[i] > 76 && numbers[i] <= 82) {
-            players.push(generatePlayer(84));
-        } else if (numbers[i] > 82 && numbers[i] <= 90) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 90 && numbers[i] <= 100) {
+        } else if (numbers[i] > 86 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -907,11 +872,9 @@ function openRarePlayersPack() {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 81 && numbers[i] <= 88) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 88 && numbers[i] <= 92) {
+        } else if (numbers[i] > 88 && numbers[i] <= 93) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 92 && numbers[i] <= 95) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 95 && numbers[i] <= 100) {
+        } else if (numbers[i] > 93 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -942,11 +905,9 @@ function openRarerPlayersPack() {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 74 && numbers[i] <= 81) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 81 && numbers[i] <= 87) {
+        } else if (numbers[i] > 81 && numbers[i] <= 90) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 87 && numbers[i] <= 93) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 93 && numbers[i] <= 100) {
+        } else if (numbers[i] > 90 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -979,9 +940,7 @@ function openGoldPack(promoInPacks) {
             players.push(generatePlayer(83));
         } else if (numbers[i] > 197 && numbers[i] <= 198) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 198 && numbers[i] <= 199) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 199 && numbers[i] <= 200) {
+        } else if (numbers[i] > 198 && numbers[i] <= 200) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1014,9 +973,7 @@ function openPremiumGoldPack(promoInPacks) {
             players.push(generatePlayer(83));
         } else if (numbers[i] > 97 && numbers[i] <= 98) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 98 && numbers[i] <= 99) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 99 && numbers[i] <= 100) {
+        } else if (numbers[i] > 98 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1047,11 +1004,9 @@ function openJumboPremiumGoldPack(promoInPacks) {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 88 && numbers[i] <= 93) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 93 && numbers[i] <= 96) {
+        } else if (numbers[i] > 93 && numbers[i] <= 97) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 96 && numbers[i] <= 98) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 98 && numbers[i] <= 100) {
+        } else if (numbers[i] > 97 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1076,11 +1031,9 @@ function openGoldUpgradePack(promoInPacks) {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 80 && numbers[i] <= 90) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 90 && numbers[i] <= 96) {
+        } else if (numbers[i] > 90 && numbers[i] <= 97) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 96 && numbers[i] <= 98) {
-            players.push(generateNonSpecialElite());
-        } else if (numbers[i] > 98 && numbers[i] <= 100) {
+        } else if (numbers[i] > 97 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1275,10 +1228,19 @@ function stringifyPlayer(player) {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('OTW') || player[5].includes('POTW')) {
+    } else if (player[5].includes('POTW')) {
         teamName = player[1];
-        playerFlag = flags[player[6]];
-        toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlag;
+        playerFlagOne = flags[player[6]];
+        toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne;
+    } else if (player[5].includes('Nation Mutation')) {
+        teamName = player[1];
+        playerFlagOne = flags[player[6].split("/")[0]];
+        playerFlagTwo = flags[player[6].split("/")[1]];
+        toReturn = "";
+        if(player[1]=='Nation Mutation Icon'){
+            toReturn = "__**ICON**__ ";
+        }
+        toReturn = toReturn + "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne +  " " + playerFlagTwo;
     } else {
         teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
 
