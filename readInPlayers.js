@@ -5,37 +5,29 @@ exports.randomizerGKNonSpecialElite = [
 ]
 
 exports.randomizerGKPOTW = [
-	[1,"Milan",89,1,"Maignan \n GK","POTW","France"]
+	[1,"Al Ittihad",92,1,"Rajkovic \n GK","POTW","Serbia"]
 ]
 
 exports.randomizerPOTW = [
-    [1,"Ajax",87,1,"Hato \n CB LB","POTW","Netherlands"],
-    [2,"Chelsea",89,2,"Palmer \n RM CAM","POTW","England"],
-    [3,"Lille",87,3,"David \n ST CF CAM","POTW","Canada"]
+    [1,"SC Freiburg",92,1,"Lienhart \n CB","POTW","Austria"],
+    [2,"Marseille",92,2,"Ounahi \n CAM CM CDM","POTW","Morocco"],
+    [3,"Inter",92,3,"Arnautovic \n ST","POTW","Austria"]
 ]
 
 exports.randomizerPromoElites = [
-   [1,"West Ham United",87,1,"Areola \n GK","Nation Mutation","Philippines/France"],
-    [2,"PSV",87,2,"Dest \n RB RWB LB","Nation Mutation","Netherlands/USA"],
-    [3,"Al Nassr",90,3,"Laporte \n CB","Nation Mutation","France/Spain"],
-    [4,"VfB Stuttgart",87,4,"Stergiou \n CB","Nation Mutation","Greece/Switzerland"],
-    [5,"Torino",88,5,"Sosa \n LB LWB LM","Nation Mutation","Germany/Croatia"],
-    [6,"Newcastle United",90,6,"Guimares \n CM CDM","Nation Mutation","Spain/Brazil"],
-    [7,"LOSC Lille",88,7,"Gomes \n CAM CM LW","Nation Mutation","Portugal/England"],
-    [8,"FC Bayern München",92,8,"Musiala \n CAM CM LM","Nation Mutation","England/Germany"],
-    [9,"FC Barcelona",89,9,"Raphinha \n RW RM LW","Nation Mutation","Italy/Brazil"],
-    [10,"Marseille",87,10,"Maupay \n ST CF","Nation Mutation","Argentina/France"],
-    [11,"Roma",88,11,"El Sharaaway \n LW LM CAM","Nation Mutation","Egypt/Italy"],
-    [12,"Chelsea",86,12,"Chilwell \n LB LWB","Nation Mutation","New Zealand/England"],
-    [13,"Sevilla",86,13,"Gudelj \n CB CDM","Nation Mutation","Netherlands/Serbia"],
-    [14,"Napoli",86,14,"Simeone \n ST CF","Nation Mutation","Spanish/Argentina"],
-    [15,"Cardiff City",86,15,"NG \n RB RWB CB","Nation Mutation","Singapore/England"],
-    [16,"Celta de Vigo",86,16,"Jonathan Bamba \n LM LW RM","Nation Mutation","France/Ivory Coast"],
-    [17,"Nation Mutation Icon",91,17,"Mazzola \n ST CF CAM","Nation Mutation Icon","Brazil/Italy"],
+    [1, "Lyon", 92, "Ligue 1", "Maitland-Niles \n CM/RB", "Fan Favourites", "England"],
+    [2, "Arsenal", 92, "EPL", "Elneny \n CDM/CM", "Fan Favourites", "Egypt"],
+    [3, "Manchester United", 92, "EPL", "De Ligt \n CB", "Fan Favourites", "Netherlands"],
+    [4, "Fiorentina", 92, "Serie A", "Barak \n CM/CAM/CF", "Fan Favourites", "Czech Republic"],
+    [5, "Milan", 92, "Serie A", "Tomori \n CB", "Fan Favourites", "England"],
+    [6, "Atletico Madrid", 92, "La Liga", "Lino \n LM/LB/RM", "Fan Favourites", "Brazil"],
+    [7, "Galatasaray", 92, "Super Lig", "Yilmaz \n RM/LM/ST", "Fan Favourites", "Turkey"],
+    [8, "Wolves", 92, "EPL", "Cunha \n ST/CAM/LM", "Fan Favourites", "Brazil"],
+    [9, "Man City", 92, "EPL", "Lewis \n RB/CDM", "Fan Favourites", "England"]    
 ]
 
 exports.randomizerGKPromoElites = [
-    [1,"West Ham United",87,1,"Areola \n GK","Nation Mutation","France/Phillippines"]
+    [1, "Barcelona", 92, "La Liga", "Ter Stegen \n GK", "Fan Favourites", "Germany"]
 ]
 
 exports.randomizerSilverElites = [

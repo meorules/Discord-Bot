@@ -873,7 +873,7 @@ function stringifyPlayer(player) {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('POTW')) {
+    } else if (player[5].includes('POTW') || player[5].includes('Fan Favourites')) {
         teamName = player[1];
         playerFlagOne = flags[player[6]];
         toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne;

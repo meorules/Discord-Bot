@@ -827,7 +827,7 @@ function generateElite(promoInPacks) {
             return generatePromoPlayer();
         } 
         else if (rng >= 82 && rng < 91) {
-            //POTW - TO BE ADDED
+            //POTW
             return generatePOTWPlayer();
         } 
         else if (rng >= 91 && rng < 98) {
@@ -1249,14 +1249,14 @@ function stringifyPlayer(player) {
         throw new Error('Some invalid player was generated???');
     }
     playerName = player[4].replace('\n', '');
-    if ((player[1].includes('Hero') || player[1].includes('Icon')) && !player[1].includes('Nation Mutation Icon')) {
+    if ((player[1].includes('Hero') || player[1].includes('Icon')) && !player[1].includes('Fan Favourites Icon')) {
         if (player[1].includes('Icon')) {
             toReturn = "__**ICON**__ " + player[2] + " **" + playerName + "** ";
         } else {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('POTW')) {
+    } else if (player[5].includes('POTW') || player[5].includes('Fan Favourites')) {
         teamName = player[1];
         playerFlagOne = flags[player[6]];
         toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne;
@@ -1284,7 +1284,7 @@ function stringifyPlayer(player) {
 function getPriority(player){
     playerLevel = player[5];
     priority = 0;
-    if(playerLevel.includes('Nation Mutation')){
+    if(playerLevel.includes('Fan Favourites')){
         priority = 1;
     }
     else if(playerLevel.includes('POTW')){
@@ -1329,7 +1329,7 @@ function packOpenString(packName, count, promoInPacks,pack) {
         }
     }
 
-    if (highestRated >= 85 || players[highestRatedIndex][5].includes('Nation Mutation') || players[highestRatedIndex][5].includes('POTW')){
+    if (highestRated >= 85 || players[highestRatedIndex][5].includes('Fan Favourites') || players[highestRatedIndex][5].includes('POTW')){
         pack.containsElites = true;
         pack.highestRatedIndex = highestRatedIndex;
     }
@@ -1370,7 +1370,7 @@ module.exports = {
             option
             .setName("packname")
             .setRequired(true)
-            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" })
+            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"})
             .setDescription("The pack you want to open"),
         )
         .addIntegerOption((option) =>
@@ -1416,12 +1416,13 @@ module.exports = {
                 await new Promise(r => setTimeout(r, pauseTime));
                 
                 if(pack.playerPack[pack.highestRatedIndex][5].includes('Nation Mutation')){
-                    eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6].split("/")[0]] + " " + flags[pack.playerPack[pack.highestRatedIndex][6].split("/")[1]];
+                    eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6]] + " " + flags[pack.playerPack[pack.highestRatedIndex][6].split("/")[1]];
                     eliteMessage.edit(eliteMessageString);
                     await new Promise(r => setTimeout(r, pauseTime));
                 }
                 
-                if(pack.playerPack[pack.highestRatedIndex][5].includes('POTW')){
+                
+                if(pack.playerPack[pack.highestRatedIndex][5].includes('POTW') || pack.playerPack[pack.highestRatedIndex][5].includes('Fan Favourites')){
                     eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6]];
                     eliteMessage.edit(eliteMessageString);
                     await new Promise(r => setTimeout(r, pauseTime));
