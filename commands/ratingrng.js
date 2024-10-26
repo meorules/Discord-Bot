@@ -81,7 +81,7 @@ var flags = {
     "Denmark":":flag_dk:",
     "Djibouti":":flag_dj:",
     "Dominica":":flag_dm:",
-    "Dominican Republic (the)":":flag_do:",
+    "Dominican Republic":":flag_do:",
     "Ecuador":":flag_ec:",
     "Egypt":":flag_eg:",
     "El Salvador":":flag_sv:",
@@ -351,8 +351,13 @@ function generatePlayer(rating) {
                 rng = generateRandomNumber(1, 3);
                 return randomizerGKArray[28 + rng - 1];
             } else {
-                rng = generateRandomNumber(1, 52);
-                return randomizerPlayerArray[271 + rng - 1];
+                rng = generateRandomNumber(1, 53);
+                if(rng <=52){
+                    return randomizerPlayerArray[271 + rng - 1];
+                }
+                else{
+                    return randomizerPlayerArray[16134];
+                }
             }
             break;
         case 82:
@@ -873,7 +878,7 @@ function stringifyPlayer(player) {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('POTW') || player[5].includes('Fan Favourites')) {
+    } else if (player[5].includes('POTW') || player[5].includes('Football Heritage')|| player[5].includes('What If')|| player[5].includes('Golden Oldies')|| player[5].includes('Fan Favourites')|| player[5].includes('Ones To Watch')) {
         teamName = player[1];
         playerFlagOne = flags[player[6]];
         toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne;
@@ -911,12 +916,12 @@ function packOpenString(rating, count, promoInPacks) {
                 generatedString = "You opened " + count + " of the " + rating + " player pack and got these players: \n";
             }
         } else if (rating == 0) {
-            //players.push(generateNonSpecialElite());
-            //if (count == 1) {
-              //  generatedString = "You opened a 1x Non-Elite Special pack and got these players: \n";
-            //} else {
-              //  generatedString = "You opened " + count + " of the Non-Elite Special player pack and got these players: \n";
-            //}
+            players.push(generateNonSpecialElite());
+            if (count == 1) {
+                generatedString = "You opened a 1x Non-Elite Special pack and got these players: \n";
+            } else {
+                generatedString = "You opened " + count + " of the Non-Elite Special player pack and got these players: \n";
+            }
         } else if (rating == 1) {
             players.push(generateElite(promoInPacks));
             if (count == 1) {
@@ -949,7 +954,7 @@ module.exports = {
             option
             .setName("rating")
             .setRequired(true)
-            .setDescription("The rating you want to rng, put 1 for random elite"),
+            .setDescription("The rating you want to rng, put 0 for non-elite special, 1 for random elite"),
         )
         .addIntegerOption((option) =>
             option

@@ -79,7 +79,7 @@ var flags = {
     "Denmark":":flag_dk:",
     "Djibouti":":flag_dj:",
     "Dominica":":flag_dm:",
-    "Dominican Republic (the)":":flag_do:",
+    "Dominican Republic":":flag_do:",
     "Ecuador":":flag_ec:",
     "Egypt":":flag_eg:",
     "El Salvador":":flag_sv:",
@@ -348,8 +348,13 @@ function generatePlayer(rating) {
                 rng = generateRandomNumber(1, 3);
                 return randomizerGKArray[28 + rng - 1];
             } else {
-                rng = generateRandomNumber(1, 52);
-                return randomizerPlayerArray[271 + rng - 1];
+                rng = generateRandomNumber(1, 53);
+                if(rng <=52){
+                    return randomizerPlayerArray[271 + rng - 1];
+                }
+                else{
+                    return randomizerPlayerArray[16134];
+                }
             }
             break;
         case 82:
@@ -866,9 +871,11 @@ function openEliteHunterPack() {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 69 && numbers[i] <= 76) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 76 && numbers[i] <= 86) {
+        } else if (numbers[i] > 76 && numbers[i] <= 82) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 86 && numbers[i] <= 100) {
+        } else if (numbers[i] > 82 && numbers[i] <= 90) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 90 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -899,9 +906,11 @@ function openRarePlayersPack() {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 81 && numbers[i] <= 88) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 88 && numbers[i] <= 93) {
+        } else if (numbers[i] > 88 && numbers[i] <= 92) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 93 && numbers[i] <= 100) {
+        } else if (numbers[i] > 92 && numbers[i] <= 95) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 95 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -932,9 +941,11 @@ function openRarerPlayersPack() {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 74 && numbers[i] <= 81) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 81 && numbers[i] <= 90) {
+        } else if (numbers[i] > 81 && numbers[i] <= 87) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 90 && numbers[i] <= 100) {
+        } else if (numbers[i] > 87 && numbers[i] <= 93) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 93 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -967,7 +978,9 @@ function openGoldPack(promoInPacks) {
             players.push(generatePlayer(83));
         } else if (numbers[i] > 197 && numbers[i] <= 198) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 198 && numbers[i] <= 200) {
+        } else if (numbers[i] > 198 && numbers[i] <= 199) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 199 && numbers[i] <= 200) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1000,7 +1013,9 @@ function openPremiumGoldPack(promoInPacks) {
             players.push(generatePlayer(83));
         } else if (numbers[i] > 97 && numbers[i] <= 98) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 98 && numbers[i] <= 100) {
+        } else if (numbers[i] > 98 && numbers[i] <= 99) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 99 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1112,7 +1127,7 @@ function openSilverPack(promoInPacks) {
 function openJumboPremiumGoldPack(promoInPacks) {
     numbers = generateRandomNumbers(5, 1, 100);
 
-players = [];
+    players = [];
 
     for (let i = 0; i < 5; i++) {
         if (numbers[i] > 0 && numbers[i] <= 14) {
@@ -1133,9 +1148,11 @@ players = [];
             players.push(generatePlayer(82));
         } else if (numbers[i] > 88 && numbers[i] <= 93) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 93 && numbers[i] <= 97) {
+        } else if (numbers[i] > 93 && numbers[i] <= 96) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 97 && numbers[i] <= 100) {
+        } else if (numbers[i] > 96 && numbers[i] <= 98) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 98 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1160,9 +1177,11 @@ function openGoldUpgradePack(promoInPacks) {
             players.push(generatePlayer(82));
         } else if (numbers[i] > 80 && numbers[i] <= 90) {
             players.push(generatePlayer(83));
-        } else if (numbers[i] > 90 && numbers[i] <= 97) {
+        } else if (numbers[i] > 90 && numbers[i] <= 96) {
             players.push(generatePlayer(84));
-        } else if (numbers[i] > 97 && numbers[i] <= 100) {
+        } else if (numbers[i] > 96 && numbers[i] <= 98) {
+            players.push(generateNonSpecialElite());
+        } else if (numbers[i] > 98 && numbers[i] <= 100) {
             players.push(generateElite(promoInPacks));
         }
     }
@@ -1256,7 +1275,7 @@ function stringifyPlayer(player) {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('POTW') || player[5].includes('Fan Favourites')) {
+    } else if (player[5].includes('POTW') || player[5].includes('Football Heritage')|| player[5].includes('What If')|| player[5].includes('Golden Oldies')|| player[5].includes('Fan Favourites')|| player[5].includes('Ones To Watch')) {
         teamName = player[1];
         playerFlagOne = flags[player[6]];
         toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne;
@@ -1282,13 +1301,14 @@ function stringifyPlayer(player) {
 }
 
 function getPriority(player){
+    console.log(player);
     playerLevel = player[5];
     priority = 0;
-    if(playerLevel.includes('Fan Favourites')){
-        priority = 1;
+    if (playerLevel.includes('POTW') || playerLevel.includes('Football Heritage')|| playerLevel.includes('What If')|| playerLevel.includes('Golden Oldies')|| playerLevel.includes('Fan Favourites')|| playerLevel.includes('Ones To Watch')) {
+        priority = 2;
     }
     else if(playerLevel.includes('POTW')){
-        priority = 2;
+        priority = 1;
     }
     else {
         if(player[1].includes('Icon')){
@@ -1421,8 +1441,7 @@ module.exports = {
                     await new Promise(r => setTimeout(r, pauseTime));
                 }
                 
-                
-                if(pack.playerPack[pack.highestRatedIndex][5].includes('POTW') || pack.playerPack[pack.highestRatedIndex][5].includes('Fan Favourites')){
+                if(pack.playerPack[pack.highestRatedIndex][5].includes('POTW') || pack.playerPack[pack.highestRatedIndex][5].includes('Football Heritage')|| pack.playerPack[pack.highestRatedIndex][5].includes('What If')|| pack.playerPack[pack.highestRatedIndex][5].includes('Golden Oldies')|| pack.playerPack[pack.highestRatedIndex][5].includes('Fan Favourites')|| pack.playerPack[pack.highestRatedIndex][5].includes('Ones To Watch')){
                     eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6]];
                     eliteMessage.edit(eliteMessageString);
                     await new Promise(r => setTimeout(r, pauseTime));
