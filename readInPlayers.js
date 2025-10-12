@@ -1,33 +1,171 @@
-exports.randomizerNonSpecialElite = [
-    [4,"Bengaluru2017 ~ 2024",74,4,"Chhetri ST, LW","Golden Oldies"],
-    [1,"IFK Göteborg2021 ~ 2023",82,1,"Wendt LB, LWB","Golden Oldies"],
-    [2,"Atlético Nacional2023 ~ 2023",80,2,"Zapata CB","Golden Oldies"],
-    [3,"Beşiktaş2023 ~ 2024",81,3,"Inler CDM, CM","Golden Oldies"],
-    [4,"Leicester City2014 ~ 2024",80,4,"Albrighton RM, RWB, RW","Golden Oldies"],
-    [5,"Lanús2019 ~ 2023",79,5,"Sand ST","Golden Oldies"]
+exports.randomizerNonSpecialElite = [    
+    [1, "Atletico Madrid", 84, 1, "Le Normand \n CB", "Ones To Watch", "Spain"],
+    [2, "Gent", 84, 2, "Kubo \n CAM CF", "What If", "Japan"],
+    [3, "Sporting", 84, 3, "Martins \n RM RW", "What If", "Portugal"],
+    [4, "Milan", 84, 4, "De Sciglio \n RB RWB LB", "What If", "Italy"],
+    [5, "Ajax", 84, 5, "Dolberg \n ST", "What If", "Denmark"],
+    [6, "Arsenal", 83, 6, "Calafiori \n CB LB", "Ones To Watch", "Italy"],
+    [7, "Fenerbache", 83, 7, "En Nesyri \n ST", "Ones To Watch", "Morocco"],
+    [8, "Ajax", 83, 8, "Weghorst \n ST", "Ones To Watch", "Netherlands"],
+    [9, "Lyon", 83, 9, "Zaha \n LW LM CF", "Ones To Watch", "Ivory Coast"],
+    [10, "Spurs", 83, 10, "Bentaleb \n CDM CM", "What If", "Algeria"],
+    [11, "Real Madrid", 83, 11, "Vallejo \n CB", "What If", "Spain"],
+    [12, "IFK Göteborg", 82, 12, "Wendt \n LB, LWB", "Golden Oldies", "Sweden"],
+    [13, "Bayern Munich", 82, 13, "Olise \n RW CAM", "Ones To Watch", "France"],
+    [14, "Beşiktaş", 81, 14, "Inler \n CDM, CM", "Golden Oldies", "Switzerland"],
+    [15, "AC Milan", 81, 15, "Fofana \n DM CM", "Ones To Watch", "France"],
+    [16, "Bayern Munich", 81, 16, "Ito \n CB CDM", "Ones To Watch", "Japan"],
+    [17, "Porto", 81, 17, "Perez \n CB CDM", "Ones To Watch", "Argentina"],
+    [18, "Fenerbache", 81, 18, "Amrabat \n CDM CM", "Ones To Watch", "Morocco"],
+    [19, "Napoli", 81, 19, "McTominay \n CDM CM CAM", "Ones To Watch", "Scotland"],
+    [20, "Atlético Nacional", 80, 20, "Zapata \n CB", "Golden Oldies", "Colombia"],
+    [21, "Leicester City", 80, 21, "Albrighton \n CDM, CM", "Golden Oldies", "England"],
+    [22, "PSG", 80, 22, "Pacho \n CB", "Ones To Watch", "Ecuador"],
+    [23, "Lanús", 79, 23, "Sand \n ST", "Golden Oldies", "Argentina"],
+    [24, "Al Ittihad", 79, 24, "Aouar \n CM CAM", "Ones To Watch", "Algeria"],
+    [25, "Sporting", 79, 25, "Debast \n CB", "Ones To Watch", "Belgium"],
+    [26, "Atlanta United", 79, 26, "Miranchuk \n CAM CF", "Ones To Watch", "Russia"],
+    [27, "Lyon", 79, 27, "Mikautadze \n ST", "Ones To Watch", "Georgia"],
+    [28, "Benfica", 78, 28, "Pavilidis \n ST", "Ones To Watch", "Greece"],
+    [29, "Feyenoord", 78, 29, "Lingr \n CM CAM LW", "Ones To Watch", "Czechia"],
+    [30, "Galatasaray", 77, 30, "Jelert \n RB RWB", "Ones To Watch", "Denmark"],
+    [31, "Genoa", 77, 31, "Miranda \n LB LWB", "Ones To Watch", "Spain"],
+    [32, "Brugge", 77, 32, "Jashari \n DM CM", "Ones To Watch", "Switzerland"],
+    [33, "Sivasspor", 82, 33, "Radakovic \n CB", "POTW", "Serbia"],
+    [34, "Al-Wehda", 82, 34, "Goodwin \n LW LM RM", "POTW", "Australia"],
+    [35, "Basaksehir", 82, 35, "Piatek \n ST", "POTW", "Poland"],
+    [36, "Coventry City", 79, 36, "Van Ewijk \n RWB RB RM", "POTW", "Netherlands"],
+    [37, "Gil Vicente", 79, 37, "Fujimoto \n CAM CM", "POTW", "Japan"],
+    [38, "Sint Truiden", 79, 38, "Zahrioleslam \n ST", "POTW", "USA"]
 ]
 
-exports.randomizerGKNonSpecialElite = [    
+exports.randomizerGKNonSpecialElite = [ 
+    [1,"Torino",82,1,"Milinkovic-Savic \n GK","POTW","Serbia"],
+    [2,"Anderlecht",82,2,"Coosemans \n GK","POTW","Belgium"], 
+    [3,"Sevilla",84,3,"Rico \n GK","What If","Spain"],
+    [4,"Bournemouth",83,4,"Kepa \n GK","Ones To Watch","Spain"],
+    [5,"Juventus",79,5,"Di Gregorio \n GK","Ones To Watch","Italy"],
+    [6,"Wolfsburg",78,6,"Grabara \n GK","Ones To Watch","Poland"],
+]
+
+exports.randomizerGKPOTW = [
+    [1,"Fiorentina",91,1,"De Gea \n GK","POTW","Spain"],
+    [2,"Al Ittihad",90,2,"Rajkovic \n GK","POTW","Serbia"],
+    [3,"Milan",89,3,"Maignan \n GK","POTW","France"],
+    [4,"Girona",89,4,"Gazzaniga \n GK","POTW","Argentina"],
+    [5,"Nantes",85,5,"Lafont \n GK","POTW","France"],
+    [6,"Ipswich",85,6,"Muric \n GK","POTW","Kosovo"],
+    [7,"Crystal Palace",85,7,"Henderson \n GK","POTW","England"]
+]
+
+exports.randomizerPOTW = [
+    [1,"Inter",91,1,"Dumfries \n RB RWB CB","POTW","Netherlands"],
+    [2,"Liverpool",91,2,"Szoboszlai \n CAM CM","POTW","Hungary"],
+    [3,"Benfica",91,3,"Pavlidis \n ST","POTW","Greece"],
+    [4,"Freiburg",90,4,"Lienhart \n CB","POTW","Austria"],
+    [5,"Marseille",90,5,"Ounahi \n CM CDM CAM","POTW","Morocco"],
+    [6,"Inter",90,6,"Arnautovic \n ST","POTW","Austria"],
+    [7,"Chelsea",89,7,"Palmer \n RM CAM","POTW","England"],
+    [8,"Atalanta",89,8,"De Roon \n CB CDM CM","POTW","Netherlands"],
+    [9,"Hadjuk Split",89,9,"Rakitic \n CM CDM CAM","POTW","Croatia"],
+    [10,"Porto",89,10,"Omorodion \n ST CF","POTW","Spain"],
+    [11,"Leverkusen",87,11,"Grimaldo \n LB LWB LM","POTW","Spain"],
+    [12,"Milan",87,12,"Hernandez \n LB LWB LM","POTW","France"],
+    [13,"Ajax",87,13,"Hato \n CB LB","POTW","Netherlands"],
+    [14,"Lille",87,14,"David \n ST, CF, CAM","POTW","Canada"],
+    [15,"Brentford",86,15,"Mbuemo \n RM RW","POTW","Cameroon"],
+    [16,"Hoffenheim",85,16,"Kramaric \n ST CF CAM","POTW","Croatia"],
+    [17,"Monaco",85,17,"Zakaria \n CDM CM","POTW","Switzerland"],
+    [18,"Leverkusen",85,18,"Boniface \n ST","POTW","Nigeria"],
+    [19,"FC Twente",85,19,"Salah-Eddine \n LB CDM","POTW","Netherlands"],
+    [20,"Shanghai Shenhua",85,20,"Yu Hanchao \n LM CM RM","POTW","China"],
+    [21,"Espanyol",85,21,"Puado \n ST LM","POTW","Spain"]
 ]
 
 exports.randomizerPromoElites = [
-    [1,"Górnik Zabrze2021 ~ 2025",85,1,"Podolski CAM, CF, ST","Golden Oldies"],
-    [2,"Hero (J League)",86,2,"Miura ST, CF, LW","Golden Oldies"]
+    [1,"PSV",87,1,"Dest \n RB RWB LB","Nation Mutation","Netherlands/USA"],
+    [2,"Al Nassr",90,2,"Laporte \n CB","Nation Mutation","France/Spain"],
+    [3,"VfB Stuttgart",87,3,"Stergiou \n CB","Nation Mutation","Greece/Switzerland"],
+    [4,"Torino",88,4,"Sosa \n LB LWB LM","Nation Mutation","Germany/Croatia"],
+    [5,"Newcastle United",90,5,"Guimares \n CM CDM","Nation Mutation","Spain/Brazil"],
+    [6,"LOSC Lille",88,6,"Gomes \n CAM CM LW","Nation Mutation","Portugal/England"],
+    [7,"FC Bayern München",92,7,"Musiala \n CAM CM LM","Nation Mutation","England/Germany"],
+    [8,"FC Barcelona",89,8,"Raphinha \n RW RM LW","Nation Mutation","Italy/Brazil"],
+    [9,"Marseille",87,9,"Maupay \n ST CF","Nation Mutation","Argentina/France"],
+    [10,"Roma",88,10,"El Sharaaway \n LW LM CAM","Nation Mutation","Egypt/Italy"],
+    [11,"Chelsea",86,11,"Chilwell \n LB LWB","Nation Mutation","New Zealand/England"],
+    [12,"Sevilla",86,12,"Gudelj \n CB CDM","Nation Mutation","Netherlands/Serbia"],
+    [13,"Napoli",86,13,"Simeone \n ST CF","Nation Mutation","Spanish/Argentina"],
+    [14,"Cardiff City",86,14,"NG \n RB RWB CB","Nation Mutation","Singapore/England"],
+    [15,"Celta de Vigo",86,15,"Jonathan Bamba \n LM LW RM","Nation Mutation","France/Ivory Coast"],
+    [16,"Nation Mutation Icon",91,16,"Mazzola \n ST CF CAM","Nation Mutation Icon","Brazil/Italy"],
+    [17, "Gives +1 to S11 Fullbacks/Wingbacks", 95, 17, "Ronaldo \n ST/LW/LM", "Football Heritage", "Portugal"],
+    [18, "Gives +1 to S11 attackers (LW RW CF ST)", 95, 18, "Messi \n RW/CF", "Football Heritage", "Argentina"],
+    [19, "Gives +2 to players who have played on both sides of a rivalry", 93, 19, "Lewandowski \n ST", "Football Heritage", "Poland"],
+    [20, "Gives +2 to S11 players who got a red card this season (max 3)", 94, 20, "Suarez \n ST/CF", "Football Heritage", "Uruguay"],
+    [21, "Gives +2 to S11 players with 100+ NT appearances (max 3)", 93, 21, "Modric \n CM/CAM", "Football Heritage", "Croatia"],
+    [22, "Gives +1 to S11 CB(s) and GK", 94, 22, "Ramos \n CB/RB", "Football Heritage", "Spain"],
+    [23, "Gives +1 to S11 players who have defeated Barcelona by 3 goals or more", 93, 23, "Muller \n CF/CAM/RM/CM", "Football Heritage", "Germany"],
+    [24, "Gives +2 to S11 players who are 168cm or shorter (max 3)", 92, 24, "Kante \n CDM/CM", "Football Heritage", "France"],
+    [25, "Gives +1 to S11 central midfielders (CM CDM CAM)", 92, 25, "Busquets \n CDM", "Football Heritage", "Spain"],
+    [26, "Gives +2 to S11 players who have scored from outside the box this season (max 3)", 93, 26, "Ibrahimovic \n ST/CF", "Football Heritage", "Sweden"],
+    [27, "Gives +1 to S11 players who have been official NT Captains", 92, 27, "Terry \n CB", "Football Heritage", "England"],
+    [28, "Gives +3 to anyone who played for 3 clubs beginning with the same letter (no FC, SC, or anything like that)", 95, 28, "Evra \n LB/LWB", "Football Heritage", "France"],
+    [29, "Gives +4 to S11 players with a footballing relative (max 2)", 94, 29, "Cesare Maldini \n CB/CDM", "Football Heritage", "Italy"],
+    [30, "Gives +2 to anyone in S11 with a 2* WF or lower (max 3)", 93, 30, "Robben \n RM/RW", "Football Heritage", "Netherlands"],
+    [31, "Gives +2 to S11 players who have stayed 10+ years at the same club (no loans)", 94, 31, "Totti \n ST/CF/CAM", "Football Heritage", "Italy"],
+    [32, "Gives +1 to S11 icons", 94, 32, "Beckenbauer \n CB/CDM", "Football Heritage", "Germany"],
+    [33, "Gives +1 to S11 U23 players", 92, 33, "Edgar Davids \n CM/CDM/LM", "Football Heritage", "Netherlands"], 
+    [34,"Lyon",92,34,"Maitland-Niles \n CM/RB","Fan Favourites","England"],
+    [35,"Arsenal",92,35,"Elneny \n CDM/CM","Fan Favourites","Egypt"],
+    [36,"Man Utd",92,36,"De Ligt \n CB","Fan Favourites","Netherlands"],
+    [37,"Fiorentina",92,37,"Barak \n CM/CAM/CF","Fan Favourites","Czech Republic"],
+    [38,"Milan",92,38,"Tomori \n CB","Fan Favourites","England"],
+    [39,"Atletico Madrid",92,39,"Lino \n LM/LB/RM","Fan Favourites","Brazil"],
+    [40,"Galatasaray",92,40,"Yilmaz \n RM/LM/ST","Fan Favourites","Turkey"],
+    [41,"Wolves",92,41,"Cunha \n ST/CAM/LM","Fan Favourites","Brazil"],
+    [42,"Man City",92,42,"Lewis \n RB/CDM","Fan Favourites","England"],
+    [44,"Dortmund",89,44,"Gotze \n CAM CF CM ","What If","Germany"],
+    [45,"Monaco",89,45,"Martial \n ST LW","What If","France"],
+    [46,"Valencia",88,46,"Bakkali \n LM LW RM","What If","Belgium"],
+    [47,"Nice",87,47,"Sarr \n CB LB","What If","France"],
+    [48,"Everton",87,48,"Rodwell \n CDM CB CM","What If","England"],
+    [49,"Hero (J League)",86,49,"Miura \n ST, CF, LW","Golden Oldies","Japan"],
+    [50,"Al Ittihad",86,50,"Diaby \n RW RM","Ones To Watch","France"],
+    [51,"Al-Hilal",86,51,"Cancelo \n RB RWB LB","Ones To Watch","Portugal"],
+    [52,"River Plate",86,52,"Acuna \n LB LWB LM","Ones To Watch","Argentina"],
+    [53,"Atletico Madrid",86,53,"Alvarez \n RW ST CF","Ones To Watch","Argentina"],
+    [54,"Fiorentina",86,54,"Nastasic \n CB","What If","Serbia"],
+    [55,"Dortmund",86,55,"Mor \n RM RW LW","What If","Turkey"],
+    [56,"Lazio",86,56,"Balde \n ST LW","What If","Senegal"],
+    [57,"GÃ³rnik Zabrze2021 ~ 2025",85,57,"Podolski \n CAM, CF, ST","Golden Oldies","Germany"],
+    [58,"Barcelona",85,58,"Olmo \n CAM CF LW","Ones To Watch","Spain"],
+    [59,"Manchester United",85,59,"Fosu Mensah \n RB RWB RM CB","What If","Netherlands"],
+    [60,"Betis",85,60,"Firpo \n LB LWB","What If","Dominican Republic"]
 ]
 
 exports.randomizerGKPromoElites = [
+    [1,"West Ham United",87,1,"Areola \n GK","Nation Mutation","Philippines/France"],
+    [2, "Gives +1 to S11 Brazilians", 95,2, "Football Heritage Icons", "Dida \n GK", "Football Heritage", "Brazil"]
+    [2,"Barcelona",92,3,"Ter Stegen \n GK","Fan Favourites","Germany"],
+    [3,"Udinese",86,4,"Scuffet \n GK","What If","Italy"]
 ]
 
 exports.randomizerSilverElites = [
-    [1,"Shakhtar Donetsk2023 ~ 2024",74,1,"Chyhrynskyi CB","Golden Oldies"],
-  [2,"Hertha BSC2012 ~ 2024",74,2,"Pekarik RB, RWB","Golden Oldies"],
-  [3,"FC Cartagena2022 ~ 2024",74,3,"Mikel Rico CM, CDM","Golden Oldies"],
-  [4,"Bengaluru2017 ~ 2024",74,4,"Chhetri ST, LW","Golden Oldies"]
+  [1,"Shakhtar Donetsk2023 ~ 2024",74,1,"Chyhrynskyi \n CB","Golden Oldies","Ukraine"],
+  [2,"Hertha BSC2012 ~ 2024",74,2,"Pekarik \n RB, RWB","Golden Oldies","Slovakia"],
+  [3,"FC Cartagena2022 ~ 2024",74,3,"Mikel Rico \n CM, CDM","Golden Oldies","Spain"],
+  [4,"Bengaluru2017 ~ 2024",74,4,"Chhetri \n ST, LW","Golden Oldies","India"],
+  [5,"Everton",74,5,"O'Brien \n CB","Ones To Watch","Ireland"],
+  [6,"Sparta Prague",74,6,"Birmancevic \n LW RW","Ones To Watch","Serbia"],
+  [7,"Boca Juniors",74,7,"Aguirre \n LW","Ones To Watch","Argentina"],
+  [8,"Rangers",74,8,"Bajrami \n CAM LW RW","Ones To Watch","Albania"]
 ]
 
 exports.randomizerGKSilverElites = [
-    [1,"Los Angeles FC2023 ~ 2023",74,1,"Jakupovic GK","Golden Oldies"]
+  [1,"Los Angeles FC2023 ~ 2023",74,1,"Jakupovic \n GK","Golden Oldies","Switzerland"]
 ]
+
 
 exports.randomizerPlayerArray = [
     [1, "Icon", 95, 1, "Pele CAM CF ST", ""],
@@ -16161,7 +16299,10 @@ exports.randomizerPlayerArray = [
     [16129, "Meizhou Hakka2023 ~ 2028", 47, 582, "Jin Liangkuan\n CB", ""],
     [16130, "Zhejiang2023 ~ 2026", 47, 583, "Ye Daoxin\n CB", ""],
     [16131, "Zhejiang2023 ~ 2023", 47, 584, "Yin Jie\n CM", ""],
-    [16132, "Zhejiang2022 ~ 2023", 47, 585, "Wu Yuhang\n CDM", ""]
+    [16132, "Zhejiang2022 ~ 2023", 47, 585, "Wu Yuhang\n CDM", ""],
+    [16133, "Lille", 75, 268, "Bentaleb\n CDM CM", ""],
+    [16134, "Anderlecht", 75, 269, "K. Dolberg \n ST", ""],
+    [16135, "Inter Miami", 83, 53, "L. Suarez \n ST CF", ""]
 ]
 
 exports.randomizerGKArray = [

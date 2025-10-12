@@ -3,6 +3,7 @@ exports.tier1Nations = ["Algeria","Cameroon","Cote D'Ivoire","DR Congo","Guadelo
 exports.tier2Nations =  ["Angola", "Benin", "Burkina Faso", "Central African Republic", "Comoros","Congo", "French Guiana", "Gabon", "Guinea-Bissau", "Togo", "Tunisia"];
 exports.tier3Nations = ["Argentina", "Cape Verde", "Chad", "Ghana", "Haiti","Italy", "Madagascar", "Mauritania", "Nigeria", "Portugal", "Reunion", "Spain"];
 
+exports.playstyles = ["Chip Shot", "Finesse Shot", "Power Header", "Power Shot", "Dead Ball", "Incisive Pass", "Pinged Pass", "Long Ball Pass", "Tiki Taka", "Whipped Pass", "First Touch", "Flair", "Press Proven", "Rapid", "Technical", "Trickster", "Block", "Bruiser", "Intercept", "Jockey", "Slide Tackle", "Anticipate", "Acrobatic", "Aerial", "Trivela", "Relentless", "Quick Step", "Long Throw", "Far Throw", "Footwork", "Cross Claimer", "Rush Out", "Far Reach", "Quick Reflexes"];
 
 exports.countryFlags = {
     "Algeria": ":flag_dz:",

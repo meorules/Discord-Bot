@@ -11,7 +11,266 @@ randomizerGKNonSpecialElite = playerArrays.randomizerGKNonSpecialElite;
 randomizerGKPromoElites = playerArrays.randomizerGKPromoElites;
 randomizerSilverElites = playerArrays.randomizerSilverElites;
 randomizerGKSilverElites = playerArrays.randomizerGKSilverElites;
+randomizerGKPOTW = playerArrays.randomizerGKPOTW;
+randomizerPOTW = playerArrays.randomizerPOTW;
 
+
+var flags = {
+    "Afghanistan":":flag_af:",
+    "Åland Islands":":flag_ax:",
+    "Albania":":flag_al:",
+    "Algeria":":flag_dz:",
+    "American Samoa":":flag_as:",
+    "Andorra":":flag_ad:",
+    "Angola":":flag_ao:",
+    "Anguilla":":flag_ai:",
+    "Antarctica [a]":":flag_aq:",
+    "Antigua and Barbuda":":flag_ag:",
+    "Argentina":":flag_ar:",
+    "Armenia":":flag_am:",
+    "Aruba":":flag_aw:",
+    "Australia":":flag_au:",
+    "Austria":":flag_at:",
+    "Azerbaijan":":flag_az:",
+    "Bahamas (the)":":flag_bs:",
+    "Bahrain":":flag_bh:",
+    "Bangladesh":":flag_bd:",
+    "Barbados":":flag_bb:",
+    "Belarus":":flag_by:",
+    "Belgium":":flag_be:",
+    "Belize":":flag_bz:",
+    "Benin":":flag_bj:",
+    "Bermuda":":flag_bm:",
+    "Bhutan":":flag_bt:",
+    "Bolivia (Plurinational State of)":":flag_bo:",
+    "Bonaire Sint Eustatius\n Saba":":flag_bq:",
+    "Bosnia & Herzegovina":":flag_ba:",
+    "Botswana":":flag_bw:",
+    "Bouvet Island":":flag_bv:",
+    "Brazil":":flag_br:",
+    "British Indian Ocean Territory (the)":":flag_io:",
+    "Brunei Darussalam [e]":":flag_bn:",
+    "Bulgaria":":flag_bg:",
+    "Burkina Faso":":flag_bf:",
+    "Burundi":":flag_bi:",
+    "Cape Verde":":flag_cv:",
+    "Cambodia":":flag_kh:",
+    "Cameroon":":flag_cm:",
+    "Canada":":flag_ca:",
+    "Cayman Islands (the)":":flag_ky:",
+    "Central African Republic":":flag_cf:",
+    "Chad":":flag_td:",
+    "Chile":":flag_cl:",
+    "China":":flag_cn:",
+    "Christmas Island":":flag_cx:",
+    "Cocos (Keeling) Islands (the)":":flag_cc:",
+    "Colombia":":flag_co:",
+    "Comoros (the)":":flag_km:",
+    "DR Congo":":flag_cd:",
+    "Congo":":flag_cg:",
+    "Cook Islands (the)":":flag_ck:",
+    "Costa Rica":":flag_cr:",
+    "Ivory Coast":":flag_ci:",
+    "Croatia":":flag_hr:",
+    "Cuba":":flag_cu:",
+    "Curacao":":flag_cw:",
+    "Cyprus":":flag_cy:",
+    "Czechia":":flag_cz:",
+    "Denmark":":flag_dk:",
+    "Djibouti":":flag_dj:",
+    "Dominica":":flag_dm:",
+    "Dominican Republic":":flag_do:",
+    "Ecuador":":flag_ec:",
+    "Egypt":":flag_eg:",
+    "El Salvador":":flag_sv:",
+    "Equatorial Guinea":":flag_gq:",
+    "Eritrea":":flag_er:",
+    "Estonia":":flag_ee:",
+    "Eswatini [j]":":flag_sz:",
+    "Ethiopia":":flag_et:",
+    "Falkland Islands (the) [Malvinas] [k]":":flag_fk:",
+    "Faroe Islands (the)":":flag_fo:",
+    "Fiji":":flag_fj:",
+    "Finland":":flag_fi:",
+    "France":":flag_fr:",
+    "French Guiana":":flag_gf:",
+    "French Polynesia":":flag_pf:",
+    "French Southern Territories (the) [m]":":flag_tf:",
+    "Gabon":":flag_ga:",
+    "Gambia":":flag_gm:",
+    "Georgia":":flag_ge:",
+    "Germany":":flag_de:",
+    "Ghana":":flag_gh:",
+    "Gibraltar":":flag_gi:",
+    "Greece":":flag_gr:",
+    "Greenland":":flag_gl:",
+    "Grenada":":flag_gd:",
+    "Guadeloupe":":flag_gp:",
+    "Guam":":flag_gu:",
+    "Guatemala":":flag_gt:",
+    "Guernsey":":flag_gg:",
+    "Guinea":":flag_gn:",
+    "Guinea Bissau":":flag_gw:",
+    "Guyana":":flag_gy:",
+    "Haiti":":flag_ht:",
+    "Heard Island and McDonald Islands":":flag_hm:",
+    "Holy See (the) [n]":":flag_va:",
+    "Honduras":":flag_hn:",
+    "Hong Kong":":flag_hk:",
+    "Hungary":":flag_hu:",
+    "Iceland":":flag_is:",
+    "India":":flag_in:",
+    "Indonesia":":flag_id:",
+    "Iran (Islamic Republic of)":":flag_ir:",
+    "Iraq":":flag_iq:",
+    "Ireland":":flag_ie:",
+    "Isle of Man":":flag_im:",
+    "Italy":":flag_it:",
+    "Jamaica":":flag_jm:",
+    "Japan":":flag_jp:",
+    "Jersey":":flag_je:",
+    "Jordan":":flag_jo:",
+    "Kazakhstan":":flag_kz:",
+    "Kenya":":flag_ke:",
+    "Kiribati":":flag_ki:",
+    "Korea (the Democratic People's Republic of) [o]":":flag_kp:",
+    "South Korea":":flag_kr:",
+    "Kuwait":":flag_kw:",
+    "Kyrgyzstan":":flag_kg:",
+    "Lao People's Democratic Republic (the) [q]":":flag_la:",
+    "Latvia":":flag_lv:",
+    "Lebanon":":flag_lb:",
+    "Lesotho":":flag_ls:",
+    "Liberia":":flag_lr:",
+    "Libya":":flag_ly:",
+    "Liechtenstein":":flag_li:",
+    "Lithuania":":flag_lt:",
+    "Luxembourg":":flag_lu:",
+    "Macao [r]":":flag_mo:",
+    "North Macedonia":":flag_mk:",
+    "Madagascar":":flag_mg:",
+    "Malawi":":flag_mw:",
+    "Malaysia":":flag_my:",
+    "Maldives":":flag_mv:",
+    "Mali":":flag_ml:",
+    "Malta":":flag_mt:",
+    "Marshall Islands (the)":":flag_mh:",
+    "Martinique":":flag_mq:",
+    "Mauritania":":flag_mr:",
+    "Mauritius":":flag_mu:",
+    "Mayotte":":flag_yt:",
+    "Mexico":":flag_mx:",
+    "Micronesia (Federated States of)":":flag_fm:",
+    "Moldova (the Republic of)":":flag_md:",
+    "Monaco":":flag_mc:",
+    "Mongolia":":flag_mn:",
+    "Montenegro":":flag_me:",
+    "Montserrat":":flag_ms:",
+    "Morocco":":flag_ma:",
+    "Mozambique":":flag_mz:",
+    "Myanmar [t]":":flag_mm:",
+    "Namibia":":flag_na:",
+    "Nauru":":flag_nr:",
+    "Nepal":":flag_np:",
+    "Netherlands":":flag_nl:",
+    "New Caledonia":":flag_nc:",
+    "New Zealand":":flag_nz:",
+    "Nicaragua":":flag_ni:",
+    "Niger (the)":":flag_ne:",
+    "Nigeria":":flag_ng:",
+    "Niue":":flag_nu:",
+    "Norfolk Island":":flag_nf:",
+    "Northern Mariana Islands (the)":":flag_mp:",
+    "Norway":":flag_no:",
+    "Oman":":flag_om:",
+    "Pakistan":":flag_pk:",
+    "Palau":":flag_pw:",
+    "Palestine":":flag_ps:",
+    "Panama":":flag_pa:",
+    "Papua New Guinea":":flag_pg:",
+    "Paraguay":":flag_py:",
+    "Peru":":flag_pe:",
+    "Philippines":":flag_ph:",
+    "Pitcairn [u]":":flag_pn:",
+    "Poland":":flag_pl:",
+    "Portugal":":flag_pt:",
+    "Puerto Rico":":flag_pr:",
+    "Qatar":":flag_qa:",
+    "Réunion":":flag_re:",
+    "Romania":":flag_ro:",
+    "Russia":":flag_ru:",
+    "Rwanda":":flag_rw:",
+    "Saint Barthélemy":":flag_bl:",
+    "Saint Helena Ascension and Tristan da Cunha":":flag_sh:",
+    "Saint Kitts and Nevis":":flag_kn:",
+    "Saint Lucia":":flag_lc:",
+    "Saint Martin (French part)":":flag_mf:",
+    "Saint Pierre and Miquelon":":flag_pm:",
+    "Saint Vincent and the Grenadines":":flag_vc:",
+    "Samoa":":flag_ws:",
+    "San Marino":":flag_sm:",
+    "Sao Tome and Principe":":flag_st:",
+    "Saudi Arabia":":flag_sa:",
+    "Senegal":":flag_sn:",
+    "Serbia":":flag_rs:",
+    "Seychelles":":flag_sc:",
+    "Sierra Leone":":flag_sl:",
+    "Singapore":":flag_sg:",
+    "Sint Maarten (Dutch part)":":flag_sx:",
+    "Slovakia":":flag_sk:",
+    "Slovenia":":flag_si:",
+    "Solomon Islands":":flag_sb:",
+    "Somalia":":flag_so:",
+    "South Africa":":flag_za:",
+    "South Georgia and the South Sandwich Islands":":flag_gs:",
+    "South Sudan":":flag_ss:",
+    "Spain":":flag_es:",
+    "Sri Lanka":":flag_lk:",
+    "Sudan (the)":":flag_sd:",
+    "Suriname":":flag_sr:",
+    "Svalbard Jan Mayen":":flag_sj:",
+    "Sweden":":flag_se:",
+    "Switzerland":":flag_ch:",
+    "Syrian Arab Republic (the) [x]":":flag_sy:",
+    "Taiwan (Province of China) [y]":":flag_tw:",
+    "Tajikistan":":flag_tj:",
+    "Tanzania":":flag_tz:",
+    "Thailand":":flag_th:",
+    "Timor-Leste [aa]":":flag_tl:",
+    "Togo":":flag_tg:",
+    "Tokelau":":flag_tk:",
+    "Tonga":":flag_to:",
+    "Trinidad and Tobago":":flag_tt:",
+    "Tunisia":":flag_tn:",
+    "Turkey":":flag_tr:",
+    "Turkmenistan":":flag_tm:",
+    "Turks and Caicos Islands (the)":":flag_tc:",
+    "Tuvalu":":flag_tv:",
+    "Uganda":":flag_ug:",
+    "Ukraine":":flag_ua:",
+    "United Arab Emirates (the)":":flag_ae:",
+    "Northern Ireland":":flag_gb:",
+    "United States Minor Outlying Islands (the) [ac]":":flag_um:",
+    "USA":":flag_us:",
+    "Uruguay":":flag_uy:",
+    "Uzbekistan":":flag_uz:",
+    "Vanuatu":":flag_vu:",
+    "Venezuela":":flag_ve:",
+    "Viet Nam [ae]":":flag_vn:",
+    "Virgin Islands (British) [af]":":flag_vg:",
+    "Virgin Islands (U.S.) [ag]":":flag_vi:",
+    "Wallis and Futuna":":flag_wf:",
+    "Western Sahara [ah]":":flag_eh:",
+    "Yemen":":flag_ye:",
+    "Zambia":":flag_zm:",
+    "Zimbabwe":":flag_zw:",
+    "England":":england:",
+    "Scotland":":scotland:",
+    "Kosovo":":flag_xk:",
+    "Reunion":":flag_re:",
+    "Wales":":wales:",
+    "Lichtenstein":":flag_lichtenstein:",
+};
 
 function generatePlayer(rating) {
 
@@ -89,8 +348,13 @@ function generatePlayer(rating) {
                 rng = generateRandomNumber(1, 3);
                 return randomizerGKArray[28 + rng - 1];
             } else {
-                rng = generateRandomNumber(1, 52);
-                return randomizerPlayerArray[271 + rng - 1];
+                rng = generateRandomNumber(1, 53);
+                if(rng <=52){
+                    return randomizerPlayerArray[271 + rng - 1];
+                }
+                else{
+                    return randomizerPlayerArray[16134];
+                }
             }
             break;
         case 82:
@@ -160,9 +424,22 @@ function generatePlayer(rating) {
             if (position == 1) {
                 rng = generateRandomNumber(1, 32);
                 return randomizerGKArray[147 + rng - 1];
-            } else {
-                rng = generateRandomNumber(1, 267);
-                return randomizerPlayerArray[1342 + rng - 1];
+            } 
+            else {
+                rng = generateRandomNumber(1, 269);
+                if(rng <= 267){
+                    return randomizerPlayerArray[1342 + rng - 1];
+                }
+                else {
+                    if(rng==268)
+                    {   
+                        return randomizerPlayerArray[16132];
+                    }
+                    else if(rng == 269)
+                    {
+                        return randomizerPlayerArray[16133];
+                    }
+                }
             }
             break;
         case 74:
@@ -415,6 +692,24 @@ function generateNonSpecialElite() {
     }
 }
 
+function generatePOTWPlayer() {
+    if (randomizerGKPOTW.length == 0) {
+        //No GKs, only rng players
+        rng = generateRandomNumber(1, randomizerPOTW.length);
+        return randomizerPOTW[rng - 1];
+    } else {
+        position = generateRandomNumber(1, 11);
+        if (position == 1) {
+            //generate GK
+            rng = generateRandomNumber(1, randomizerGKPOTW.length);
+            return randomizerGKPOTW[rng-1];
+        } else {
+            rng = generateRandomNumber(1, randomizerPOTW.length);
+            return randomizerPOTW[rng - 1];
+        }
+    }
+}
+
 function generatePromoPlayer() {
     if (randomizerGKPromoElites.length == 0) {
         //No GKs, only rng players
@@ -425,7 +720,7 @@ function generatePromoPlayer() {
         if (position == 1) {
             //generate GK
             rng = generateRandomNumber(1, randomizerGKPromoElites.length);
-            return randomizerGKPromoElites[rng];
+            return randomizerGKPromoElites[rng-1];
         } else {
             rng = generateRandomNumber(1, randomizerPromoElites.length);
             return randomizerPromoElites[rng - 1];
@@ -513,39 +808,38 @@ function generateElite(promoInPacks) {
     positionRNG = generateRandomNumber(1, 11);
     if (promoInPacks) {
         if (rng > 0 && rng <= 30) {
-            //Gold RNG
             return generatePlayer(85);
         }
-        else if (rng > 30 && rng < 48) {
+        else if (rng > 30 && rng < 49) {
             return generatePlayer(86);
         }
-        else if (rng > 48 && rng < 57) {
+        else if (rng >= 49 && rng < 58) {
             return generatePlayer(87);
         }
-        else if (rng > 57 && rng < 62) {
+        else if (rng >= 58 && rng < 63) {
             return generatePlayer(88);
         }
-        else if (rng > 62 && rng < 65) {
+        else if (rng >= 63 && rng < 66) {
             return generatePlayer(89);
         }
-        else if (rng > 65 && rng < 68) {
+        else if (rng >= 66 && rng < 69) {
             return generatePlayer(90);
         }
-        else if (rng > 68 && rng < 70) {
+        else if (rng >= 69 && rng < 71) {
             return generatePlayer(89);
         }
-        else if (rng > 70 && rng < 81) {
+        else if (rng >= 71 && rng < 82) {
             return generatePromoPlayer();
         } 
-        else if (rng > 81 && rng < 90) {
-            //POTW - TO BE ADDED
-            return generatePromoPlayer();
+        else if (rng >= 82 && rng < 91) {
+            //POTW
+            return generatePOTWPlayer();
         } 
-        else if (rng > 90 && rng < 97) {
+        else if (rng >= 91 && rng < 98) {
             //Hero
             return generateHero(positionRNG);
         } 
-        else if (rng > 97 && rng < 100) {
+        else if (rng >= 98 && rng <= 100) {
             //Icon
             return generateIcon(positionRNG);
         }
@@ -590,7 +884,7 @@ function openEliteHunterPack() {
 }
 
 function openRarePlayersPack() {
-    numbers = generateRandomNumbers(7, 1, 100);
+    numbers = generateRandomNumbers(6, 1, 100);
     players = [];
 
     for (let i = 0; i < 7; i++) {
@@ -832,6 +1126,7 @@ function openSilverPack(promoInPacks) {
 
 function openJumboPremiumGoldPack(promoInPacks) {
     numbers = generateRandomNumbers(5, 1, 100);
+
     players = [];
 
     for (let i = 0; i < 5; i++) {
@@ -952,8 +1247,8 @@ function openPack(packName, promoInPacks) {
 function openPacks(pack, count, promoInPacks) {
     packPlayers = [];
 
-    if (pack == "Provisions Pack(25k)") {
-        pack = "Gold Pack(10k)";
+    if (pack == "Provisions Pack(35k)") {
+        pack = "Gold Pack(15k)";
         count = count * 5;
     }
 
@@ -973,22 +1268,26 @@ function stringifyPlayer(player) {
         throw new Error('Some invalid player was generated???');
     }
     playerName = player[4].replace('\n', '');
-    if (player[1].includes('Hero')|| player[1].includes('Icon') ) {
+    if ((player[1].includes('Hero') || player[1].includes('Icon')) && !player[1].includes('Fan Favourites Icon')) {
         if (player[1].includes('Icon')) {
             toReturn = "__**ICON**__ " + player[2] + " **" + playerName + "** ";
         } else {
             teamName = player[1].substring(player[1].search("\\(") + 1, player[1].search('\\)'));
             toReturn = "__**" + teamName.toUpperCase() + "**__ **Hero** " + player[2] + " **" + playerName + "** ";
         }
-    } else if (player[5].includes('TOTS')) {
-        teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
-
-        toReturn = "**TEAM OF THE SEASON** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5];
-    } 
-    else if (player[5].includes('Workhorses') || player[5].includes('Mid season movers')|| player[5].includes('Tall and small') || player[5].includes('One Club legends')|| player[5].includes('March Madness')|| player[5].includes('International Icons')|| player[5].includes('UEL Heroes')|| player[5].includes('UCL Heroes')) {
-        teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
-
-        toReturn = "**PROMO** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5];
+    } else if (player[5].includes('POTW') || player[5].includes('Football Heritage')|| player[5].includes('What If')|| player[5].includes('Golden Oldies')|| player[5].includes('Fan Favourites')|| player[5].includes('Ones To Watch')) {
+        teamName = player[1];
+        playerFlagOne = flags[player[6]];
+        toReturn = "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne;
+    } else if (player[5].includes('Nation Mutation')) {
+        teamName = player[1];
+        playerFlagOne = flags[player[6].split("/")[0]];
+        playerFlagTwo = flags[player[6].split("/")[1]];
+        toReturn = "";
+        if(player[1]=='Nation Mutation Icon'){
+            toReturn = "__**ICON**__ ";
+        }
+        toReturn = toReturn + "**" + player[5] + "** " + player[2] + " **" + playerName + "** " + teamName + " | " + player[5] + " " + playerFlagOne +  " " + playerFlagTwo;
     } else {
         teamName = player[1].substring(0, player[1].search('[0-9][0-9][0-9][0-9]'));
 
@@ -1001,22 +1300,84 @@ function stringifyPlayer(player) {
     return toReturn;
 }
 
-function packOpenString(pack, count, promoInPacks) {
-    players = openPacks(pack, count, promoInPacks);
-
-    size = players.length;
-    if (count == 1) {
-        generatedString = "You opened a " + pack + " and got these players: \n";
-    } else {
-        generatedString = "You opened " + count + " of the " + pack + " and got these players: \n";
+function getPriority(player){
+    console.log(player);
+    playerLevel = player[5];
+    priority = 0;
+    if (playerLevel.includes('POTW') || playerLevel.includes('Football Heritage')|| playerLevel.includes('What If')|| playerLevel.includes('Golden Oldies')|| playerLevel.includes('Fan Favourites')|| playerLevel.includes('Ones To Watch')) {
+        priority = 2;
+    }
+    else if(playerLevel.includes('POTW')){
+        priority = 1;
+    }
+    else {
+        if(player[1].includes('Icon')){
+            priority = 5;
+        }
+        else if(player[1].includes('Hero')){
+            priority = 4;
+        }
+        else{
+            priority = 0;
+        }
     }
 
+    return priority;
+}
+
+function packOpenString(packName, count, promoInPacks,pack) {
+    players = openPacks(packName, count, promoInPacks);
+
+    pack.playerPack = players;
+    size = players.length;
+    if (count == 1) {
+        generatedString = "You opened a " + packName + " and got these players: \n";
+    } else {
+        generatedString = "You opened " + count + " of the " + packName + " and got these players: \n";
+    }
+
+    highestRated = 0;
+    highestRatedIndex = -1;
+    currentPriority = 0;
+
     for (let i = 0; i < size; i++) {
-        playerString = stringifyPlayer(players[i]);
+        priority = getPriority(players[i]);
+        if(currentPriority < priority || (highestRated <= parseInt(players[i][2]) && currentPriority <= priority)){
+            currentPriority = priority;
+            highestRated = parseInt(players[i][2]);
+            highestRatedIndex = i;
+        }
+    }
+
+    if (highestRated >= 85 || players[highestRatedIndex][5].includes('Fan Favourites') || players[highestRatedIndex][5].includes('POTW')){
+        pack.containsElites = true;
+        pack.highestRatedIndex = highestRatedIndex;
+    }
+
+    for (let j = 0; j < size; j++) {
+        playerString = "";
+        if(pack.containsElites == true && highestRatedIndex == j){
+            playerString = "?????????????????????";
+        }
+        else{
+            playerString = stringifyPlayer(players[j]);
+        }
         generatedString = generatedString + playerString + "\n";
     }
 
+
+
+    pack.packString = generatedString;
+
     return generatedString;
+}
+
+function splitPosition(playerName){
+    position = "";
+    if(playerName.indexOf("\n")!=-1){
+        position = playerName.split("\n");
+    }
+    return position;
 }
 
 module.exports = {
@@ -1029,8 +1390,7 @@ module.exports = {
             option
             .setName("packname")
             .setRequired(true)
-            ///{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" }, { name: "Rarer Players Pack(60k)", value: "Rarer Players Pack(60k)" }, { name: "Provisions Pack(25k)", value: "Provisions Pack(25k)" }, { name: "Elite Hunter Pack(75k)", value: "Elite Hunter Pack(75k)" },
-            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" })
+            .addChoices({ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" },{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"})
             .setDescription("The pack you want to open"),
         )
         .addIntegerOption((option) =>
@@ -1047,14 +1407,75 @@ module.exports = {
         if (count == null) {
             count = 1;
         }
+        playerArray = [];
+        generatedString = "";
+        index = -1;
+        pack = {playerPack:playerArray,packString:generatedString,containsElites:false,highestRatedIndex:index};
+
+        messageString = "This is the pack :eyes:"
+        const message = await interaction.channel.send({ content: messageString, fetchReply: true });
+        interaction.reply("Rolling odds");
+
+        pauseTime = 1500;
+
 
         try {
-            rngedString = packOpenString(packName, count, promoInPacks);
+            rngedString = packOpenString(packName, count, promoInPacks,pack);
+            message.edit(rngedString);
+            if(pack.containsElites){
+                //player[1] = team name, player[2] = rating, player[4] = name, player[5] = promo, flags[player[6]] = flag
+                eliteMessageString = "You packed a";
+
+                if(pack.playerPack[pack.highestRatedIndex][5] == ""){
+                    eliteMessageString = eliteMessageString + " Elite";
+                }
+                else{
+                    eliteMessageString = eliteMessageString + " " + pack.playerPack[pack.highestRatedIndex][5];
+                }
+                const eliteMessage = await interaction.channel.send({ content:eliteMessageString, fetchReply: true });
+                await new Promise(r => setTimeout(r, pauseTime));
+                
+                if(pack.playerPack[pack.highestRatedIndex][5].includes('Nation Mutation')){
+                    eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6]] + " " + flags[pack.playerPack[pack.highestRatedIndex][6].split("/")[1]];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                }
+                
+                if(pack.playerPack[pack.highestRatedIndex][5].includes('POTW') || pack.playerPack[pack.highestRatedIndex][5].includes('Football Heritage')|| pack.playerPack[pack.highestRatedIndex][5].includes('What If')|| pack.playerPack[pack.highestRatedIndex][5].includes('Golden Oldies')|| pack.playerPack[pack.highestRatedIndex][5].includes('Fan Favourites')|| pack.playerPack[pack.highestRatedIndex][5].includes('Ones To Watch')){
+                    eliteMessageString = eliteMessageString + "\n" + flags[pack.playerPack[pack.highestRatedIndex][6]];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                }
+                
+                eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][1];
+                eliteMessage.edit(eliteMessageString);
+                await new Promise(r => setTimeout(r, pauseTime));
+                
+                if(pack.playerPack[pack.highestRatedIndex][4].includes("\n")){
+                    position = splitPosition(pack.playerPack[pack.highestRatedIndex][4]);
+                    eliteMessageString = eliteMessageString + "\n" + position[1];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                    eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][2];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                    eliteMessageString = eliteMessageString + "\n" + position[0];
+                    eliteMessage.edit(eliteMessageString);    
+                }
+                else{
+                    eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][2];
+                    eliteMessage.edit(eliteMessageString);
+                    await new Promise(r => setTimeout(r, pauseTime));
+                    eliteMessageString = eliteMessageString + "\n" + pack.playerPack[pack.highestRatedIndex][4];
+                    eliteMessage.edit(eliteMessageString);  
+                }
+                
+            }
         } catch (error) {
             console.error(error);
             rngedString = "An error has occured, please contact Meo";
         }
 
-        return interaction.reply(`${rngedString}`);
+        return;
     },
 };

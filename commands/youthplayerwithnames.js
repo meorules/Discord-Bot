@@ -10,20 +10,13 @@ countryFlags = playerArrays.countryFlags;
 tier1Nations = playerArrays.tier1Nations;
 tier2Nations = playerArrays.tier2Nations;
 tier3Nations = playerArrays.tier3Nations;
+playstyles = playerArrays.playstyles;
 
 
 function generateRandomNumber(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored + 1 - minCeiled) + minCeiled);
-}
-
-function generateRandomNumbers(amount, min, max) {
-    let numbers = [];
-    for (let i = 0; i < amount; i++) {
-        numbers[i] = generateRandomNumber(min, max);
-    }
-    return numbers;
 }
 
 function generatePosition(position){
@@ -36,7 +29,7 @@ function generatePosition(position){
                     returnedPosition = "GK";
                     break;
                 case 1:
-                    returnedPosition = "LWB/LB/RB/RWB" ;
+                    returnedPosition = "LB/RB" ;
                     break;
                 case 2:
                     returnedPosition = "CB";
@@ -54,7 +47,7 @@ function generatePosition(position){
                     returnedPosition = "LW/LM/RM/RW";
                     break;
                 case 7:
-                    returnedPosition = "CF/ST";
+                    returnedPosition = "ST";
                     break;
             }
             break;
@@ -65,7 +58,7 @@ function generatePosition(position){
             returnedNumber = generateRandomNumber(1,2);
             switch(returnedNumber){
                 case 1:
-                    returnedPosition = "LWB/LB/RB/RWB" ;
+                    returnedPosition = "LB/RB" ;
                     break;
                 case 2:
                     returnedPosition = "CB";
@@ -96,7 +89,7 @@ function generatePosition(position){
                     returnedPosition = "LW/LM/RM/RW";
                     break;
                 case 2:
-                    returnedPosition = "CF/ST";
+                    returnedPosition = "ST";
                     break;
             }
             break;
@@ -393,47 +386,89 @@ async function generatePlayerName(player){
 
 }
 
-function versatilePlayer(player){
-    chance = generateRandomNumber(1,10);
-    if(chance == 1 && player.position != "GK"){
-    player.trait = player.trait + ", Versatile ";
-            switch(player.position){
-                case "GK":
-                    //Sad state for you, he's versatile, so he should have a different trait and this should be impossible to get to
-                    //throw("Somehow, a GK was rnged but got versatile, please contact meo");
-                    //Do nothing
-                    break;
-                case "LWB/LB/RB/RWB":
-                    rng = generateRandomNumber(1,3);
+function versatilePlaystlePlayer(player){
+        switch(player.position){
+            case "GK":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(28,33);
+                    player.playstyles = playstyles[playstyle];
+                }
+                break;
+            case "LB/RB":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(16,21);
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     if(rng == 1){
                         player.trait = player.trait + "Complete Defender";
-                        player.position = "CDM/WB/FB/CB";
+                        player.position = "CDM/FB/CB";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Wideman";
-                        player.position = "FB/WB/WM/W";
+                        player.position = "FB/WM/W";
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Box-To-Box";
-                        player.position = "CM/CDM/WB/FB";
+                        player.position = "CM/CDM/FB";
                     }
-                    break;
-                case "CB":
+                }
+                break;
+            case "CB":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(16,21);
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     rng = generateRandomNumber(1,2);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Defender";
-                        player.position = "CDM/WB/FB/CB";
+                        player.position = "CDM/FB/CB";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Deep-lying Playmaker";
                         player.position = "CM/CDM/CB";
                     }
-                    break;
-                case "CDM":
+                }
+                break;
+            case "CDM":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(5,21);
+                    if(playstyle>=10 && playstyle<=15){
+                        playstyle = generateRandomNumber(16,21);
+                    }
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     rng = generateRandomNumber(1,4);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Defender";
-                        player.position = "CDM/WB/FB/CB";
+                        player.position = "CDM/FB/CB";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Complete Midfielder";
@@ -441,14 +476,28 @@ function versatilePlayer(player){
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Box-To-Box";
-                        player.position = "CM/CDM/WB/FB";
+                        player.position = "CM/CDM/FB";
                     }
                     else if(rng == 4){
                         player.trait = player.trait + "Deep-lying Playmaker";
                         player.position = "CM/CDM/CB";
                     }
-                    break;                    break;
-                case "CM":
+                }
+                break;
+            case "CM":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(5,21);
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     rng = generateRandomNumber(1,3);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Midfielder";
@@ -456,25 +505,53 @@ function versatilePlayer(player){
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Box-To-Box";
-                        player.position = "CM/CDM/WB/FB";
+                        player.position = "CM/CDM/FB";
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Deep-lying Playmaker";
                         player.position = "CM/CDM/CB";
                     }
-                    break;
-                case "CAM":
+                }
+                break;
+            case "CAM":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(0,15);
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     rng = generateRandomNumber(1,2);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Attacker";
-                        player.position = "CAM/W/CF/ST";
+                        player.position = "CAM/W/ST";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Complete Midfielder";
                         player.position = "CDM/CM/CAM/WM";
                     }
-                    break;
-                case "LW/LM/RM/RW": 
+                }
+                break;
+            case "LW/LM/RM/RW":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(0,15);
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     rng = generateRandomNumber(1,3);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Midfielder";
@@ -482,18 +559,35 @@ function versatilePlayer(player){
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Complete Attacker";
-                        player.position = "CAM/W/CF/ST";
+                        player.position = "CAM/W/ST";
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Wideman";
-                        player.position = "FB/WB/WM/W";
+                        player.position = "FB/WM/W";
                     }
-                    break;
-                case "CF/ST":
+                }
+                break;
+            case "ST":
+                chance = generateRandomNumber(1,10);
+                if(chance > 5){
+                    playstyle = generateRandomNumber(0,15);
+                    if(playstyle>=5 && playstyle<=9){
+                        playstyle = generateRandomNumber(10,15);
+                    }
+                    player.playstyles = playstyles[playstyle];
+                }
+                if(chance >=8){
+                    playstyle = generateRandomNumber(22,27);
+                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
+                }
+                rng = generateRandomNumber(1,3);
+                chance = generateRandomNumber(1,10);
+                if(chance == 1){
+                    player.trait = player.trait + ", Versatile ";
                     player.trait = player.trait + "Complete Attacker";
-                    player.position = "CAM/W/CF/ST";
-                    break;
-            }
+                    player.position = "CAM/W/ST";
+                }
+                break;
         }
 }
 
@@ -583,13 +677,13 @@ function rngPlayer(player){
             break;
     }
 
-    versatilePlayer(player);
+    versatilePlaystlePlayer(player);
     snPlayer(player);
 }
 
 function generatePlayer(position,level){
     positionReturned = generatePosition(position);
-    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:"",playerName:""};
+    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:"",playerName:"",playstyles:""};
     player.position = positionReturned;
     switch(level){
         case "Basic":
@@ -643,6 +737,36 @@ async function stringify(player){
     }
     else if(player.secondnation != "" && player.secondnation != null){
         string = string + " " + player.secondnation + " " + countryFlags[player.secondnation];
+    }
+
+    if(player.playstyles != ""){
+        string = string + " **";
+        playstylePlus = generateRandomNumber(1,10);
+        if (playstylePlus > 5){
+            playstylePlus = generateRandomNumber(1,3);
+            if(player.playstyles.includes(',')){
+                playstylesSplit = player.playstyles.split(',');
+                if(playstylePlus==1){
+                    string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1];
+                }
+                else if(playstylePlus==2){
+                    string = string + playstylesSplit[0] + " and " + playstylesSplit[1]+ "+";
+                }
+                else{
+                    string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1]+ "+";
+                }
+            }
+            else {
+                if(playstylePlus==1 ||playstylePlus == 2){
+                    string = string + player.playstyles + "+";
+                }
+
+            }
+        }
+        else{
+            string = string + player.playstyles;
+        }
+        string = string + "**";
     }
 
     return string;
