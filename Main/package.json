@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "basic discord bot to run some quick maths for the fifa league sims",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meorules/Discord-Bot.git"
+  },
+  "author": "Mazen Omar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meorules/Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/meorules/Discord-Bot#readme",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "express": "^4.19.2"
+  }
+}
