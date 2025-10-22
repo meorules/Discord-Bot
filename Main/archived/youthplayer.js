@@ -3,46 +3,13 @@ const {
     ContextMenuCommandAssertions,
 } = require("discord.js");
 
+const playerArrays = require("../countrycodes");
+
 tier1Nations = ["Algeria","Cameroon","Cote D'Ivoire","DR Congo","Guadeloupe","Guinea","Martinique","Mali","Morocco","Senegal"];
 tier2Nations =  ["Angola", "Benin", "Burkina Faso", "Central African Republic", "Comoros","Congo", "French Guiana", "Gabon", "Guinea-Bissau", "Togo", "Tunisia"];
 tier3Nations = ["Argentina", "Cape Verde", "Chad", "Ghana", "Haiti","Italy", "Madagascar", "Mauritania", "Nigeria", "Portugal", "Reunion", "Spain"];
 
-const countryFlags = {
-    "Algeria": ":flag_dz:",
-    "Cameroon": ":flag_cm:",
-    "Cote D'Ivoire": ":flag_ci:",
-    "DR Congo": ":flag_cd:",
-    "Guadeloupe": ":flag_gp:",
-    "Guinea": ":flag_gn:",
-    "Martinique": ":flag_mq:",
-    "Mali": ":flag_ml:",
-    "Morocco": ":flag_ma:",
-    "Senegal": ":flag_sn:",
-    "Angola": ":flag_ao:",
-    "Benin": ":flag_bj:",
-    "Burkina Faso": ":flag_bf:",
-    "Central African Republic": ":flag_cf:",
-    "Comoros": ":flag_km:",
-    "Congo": ":flag_cg:",
-    "French Guiana": ":flag_gf:",
-    "Gabon": ":flag_ga:",
-    "Guinea-Bissau": ":flag_gw:",
-    "Togo": ":flag_tg:",
-    "Tunisia": ":flag_tn:",
-    "Argentina": ":flag_ar:",
-    "Cape Verde": ":flag_cv:",
-    "Chad": ":flag_td:",
-    "Ghana": ":flag_gh:",
-    "Haiti": ":flag_ht:",
-    "Italy": ":flag_it:",
-    "Madagascar": ":flag_mg:",
-    "Mauritania": ":flag_mr:",
-    "Nigeria": ":flag_ng:",
-    "Portugal": ":flag_pt:",
-    "Reunion": ":flag_re:",
-    "Spain": ":flag_es:"
-};
-
+countryFlags = playerArrays.countryFlags;
 
 function generateRandomNumber(min, max) {
     const minCeiled = Math.ceil(min);

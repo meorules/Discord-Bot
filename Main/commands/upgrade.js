@@ -26,25 +26,42 @@ function upgradePlayer(player){
     rating = player.newrating;
 
     
-    if(age < 28){
-        growth = player.potential - rating;
-        if(growth <= 1){
-            growth = 1;
+   if(age <= 23){
+        if(rating <= 69){
+            player.newrating = (Math.min(rating + 5,player.potential));
         }
-        else{
-            growth = growth / 4;
-            growth = Math.round(growth);
-
-            if(growth < 1 ){
-                growth = 1;
-            }
+        else if(rating > 69 && rating <= 75){
+            player.newrating = rating + 3;
         }
-
+        else if(rating > 75 && rating <= 82){
+            player.newrating = rating + 2;
+        }
+        else if(rating > 82){
+            player.newrating = rating + 1;
+        }
         player.newrating = rating + growth;
         player.tracker = player.tracker + "+" + growth;
-
     }
-    else if(age >= 28 && age <= 31){
+    else if(age > 23 && age <= 28 ){
+        if(rating <= 75){
+            player.newrating = rating + 3;
+        }
+        else if(rating > 75 && rating <= 82){
+            player.newrating = rating + 2;
+        }
+        else if(rating >= 83){
+            player.newrating = rating + 1;
+        }
+        
+        if(player.newrating == player.potential){
+            player.tracker = player.tracker + "reached potential"
+        }
+        else{
+            player.newrating = rating + growth;
+            player.tracker = player.tracker + "+" + growth;
+        }
+    }
+    else if(age > 28 && age <= 31){
         player.tracker = player.tracker + "Reached potential";
         player.newrating = player.potential;
     }

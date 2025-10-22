@@ -103,32 +103,32 @@ function level5RNG(player){
     potential = 0;
     initialRNG = generateRandomNumber(0,10);
     if(initialRNG == 0){
-        rating = generateRandomNumber(55,75);
-        potential = generateRandomNumber(65,90);
+        rating = generateRandomNumber(50,72);
+        potential = generateRandomNumber(65,88);
     }
     else if(initialRNG > 0 && initialRNG <= 3){
-        rating = generateRandomNumber(55,60);
-        potential = generateRandomNumber(65,72);
+        rating = generateRandomNumber(50,72);
+        potential = generateRandomNumber(65,70);
     }
     else if(initialRNG > 3 && initialRNG <= 6){
-        rating = generateRandomNumber(60,65);
-        potential = generateRandomNumber(72,77);
+        rating = generateRandomNumber(55,60);
+        potential = generateRandomNumber(70,74);
     }
     else if(initialRNG == 7){
-        rating = generateRandomNumber(65,70);
-        potential = generateRandomNumber(77,83);
+        rating = generateRandomNumber(60,63);
+        potential = generateRandomNumber(74,77);
     }
     else if(initialRNG == 8){
-        rating = generateRandomNumber(68,73);
-        potential = generateRandomNumber(83,87);
+        rating = generateRandomNumber(63,67);
+        potential = generateRandomNumber(77,82);
     }
     else if(initialRNG == 9){
-        rating = generateRandomNumber(70,75);
-        potential = generateRandomNumber(85,90);
+        rating = generateRandomNumber(65,70);
+        potential = generateRandomNumber(80,85);
     }
     else if(initialRNG == 10){
-        rating = generateRandomNumber(74,75);
-        potential = generateRandomNumber(88,90);
+        rating = generateRandomNumber(70,72);
+        potential = generateRandomNumber(83,88);
     }
 
     player.rating = rating;
@@ -287,70 +287,50 @@ function getCountryAPI(player){
     switch (player.secondnation) {
         case "Algeria":
             return countryCodes["Arabic"];
+        case "Angola":
+            return countryCodes["Mbundu"];
+        case "Brazil":
+            return countryCodes["Portuguese"];
         case "Cameroon":
             return countryCodes["African"];
         case "Cote D'Ivoire":
             return countryCodes["Akan"];
         case "DR Congo":
             return countryCodes["Kongo"];
-        case "Guadeloupe":
-            return countryCodes["Mayan"];
-        case "Guinea":
-            return countryCodes["African"];
-        case "Martinique":
-            return countryCodes["Mayan"];
-        case "Mali":
-            return countryCodes["African"];
-        case "Morocco":
-            return countryCodes["Arabic"];
-        case "Senegal":
-            return countryCodes["African"];
-        case "Angola":
-            return countryCodes["Mbundu"];
-        case "Benin":
-            return countryCodes["African"];
-        case "Burkina Faso":
-            return countryCodes["African"];
-        case "Central African Republic":
-            return countryCodes["African"];
-        case "Comoros":
-            return countryCodes["Comorian"];
-        case "Congo":
-            return countryCodes["Kongo"];
-        case "French Guiana":
-            return countryCodes["African"];
-        case "Gabon":
-            return countryCodes["African"];
-        case "Guinea-Bissau":
-            return countryCodes["African"];
-        case "Togo":
-            return countryCodes["Ewe"];
-        case "Tunisia":
-            return countryCodes["Arabic"];
-        case "Argentina":
-            return countryCodes["Spanish"];
-        case "Cape Verde":
-            return countryCodes["Portuguese"];
-        case "Chad":
-            return countryCodes["African"];
+        case "France":
+            return countryCodes["French"];
+        case "Germany":
+            return countryCodes["German"];
         case "Ghana":
             return countryCodes["Ga"];
-        case "Haiti":
-            return countryCodes["Mayan"];
+        case "Greece":
+            return countryCodes["Greek"];
+        case "Guinea":
+            return countryCodes["African"];
         case "Italy":
             return countryCodes["Italian"];
-        case "Madagascar":
-            return countryCodes["African"];
-        case "Mauritania":
+        case "Morocco":
             return countryCodes["Arabic"];
+        case "Netherlands":
+            return countryCodes["Dutch"];
         case "Nigeria":
             return countryCodes["Igbo"];
+        case "Poland":
+            return countryCodes["Polish"];
         case "Portugal":
             return countryCodes["Portuguese"];
-        case "Reunion":
+        case "Romania":
+            return countryCodes["Romanian"];
+        case "Senegal":
             return countryCodes["African"];
+        case "Serbia":
+            return countryCodes["Serbian"];
         case "Spain":
             return countryCodes["Spanish"];
+        case "Syria":
+            return countryCodes["Arabic"];
+        case "Turkey":
+            return countryCodes["Turkish"];
         default:
             throw("Error identifying API Call for 2nd nation");
     }
@@ -687,16 +667,28 @@ function generatePlayer(position,level){
     player.position = positionReturned;
     switch(level){
         case "Basic":
-            level1RNG(player);
+            //level1RNG(player);
+            level5RNG(player);
+            player.rating -= 4;
+            player.potential -= 4;
             break;
         case "Decent":
-            level2RNG(player);
+            //level2RNG(player);
+            level5RNG(player);
+            player.rating -= 3;
+            player.potential -= 3;
             break;
         case "Good":
-            level3RNG(player);
+            //level3RNG(player);
+            level5RNG(player);
+            player.rating -= 2;
+            player.potential -= 2;
             break;
         case "Great":
-            level4RNG(player);
+            //level4RNG(player);
+            level5RNG(player);
+            player.rating -= 1;
+            player.potential -= 1;
             break;
         case "Elite":
             level5RNG(player);
@@ -812,7 +804,7 @@ async function rngString(count, position, level) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("youthgennames")
+        .setName("youthgen")
         .setDescription(
             "Generate Youth Players",
         )
