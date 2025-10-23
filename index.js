@@ -1,14 +1,15 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const keepAlive = require("./server.js")
+//const keepAlive = require("./server.js")
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const config = require("./config.json");
 
 const prefix = "!"
+const logFilePath = "Main/log.txt"
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Collection();
-const commandsPath = path.join(__dirname, 'commands');
+const commandsPath = path.join(__dirname, 'Main/commands');
 
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
@@ -33,13 +34,13 @@ client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
     try {
-        fs.writeFileSync('log.txt', "Username: " + interaction.user.username + ",", { flag: 'a+' });
-        fs.writeFileSync('log.txt', "Command Used: " + interaction.commandName + ",", { flag: 'a+' });
+        fs.writeFileSync(logFilePath, "Username: " + interaction.user.username + ",", { flag: 'a+' });
+        fs.writeFileSync(logFilePath, "Command Used: " + interaction.commandName + ",", { flag: 'a+' });
         console.log(interaction.options);
         for (option in interaction.options._hoistedOptions) {
-            fs.writeFileSync('log.txt', "Option " + interaction.options._hoistedOptions[option].name + ":" + interaction.options._hoistedOptions[option].value + ",", { flag: 'a+' });
+            fs.writeFileSync(logFilePath, "Option " + interaction.options._hoistedOptions[option].name + ":" + interaction.options._hoistedOptions[option].value + ",", { flag: 'a+' });
         }
-        fs.writeFileSync('log.txt', "\n", { flag: 'a+' });
+        fs.writeFileSync(logFilePath, "\n", { flag: 'a+' });
 
         // file written successfully
     } catch (err) {
