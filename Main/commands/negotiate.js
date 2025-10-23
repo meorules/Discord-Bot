@@ -101,7 +101,7 @@ function sell(value,tier){
                     break;
                 case 1:
                     transaction.modifier = "1.5x";
-                    transaction.newvalue = 1.35 * value;
+                    transaction.newvalue = 1.5 * value;
                     break;
             }
             break;
