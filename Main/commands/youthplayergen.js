@@ -692,12 +692,7 @@ function rngPlayer(player){
 
     player.age = age;
     traitRNG = 0;
-    if(player.position=="GK"){
-        traitRNG = generateRandomNumber(1,7);
-    }
-    else{
-        traitRNG = generateRandomNumber(1,7);
-    }
+    traitRNG = generateRandomNumber(1,5);
     switch(traitRNG){
         case 1:
             player.trait = "Quick Learner";
@@ -712,13 +707,7 @@ function rngPlayer(player){
             player.trait = "Teacher's Pet";
             break;
         case 5:
-            player.trait = "Early Bloomer";
-            break;
-        case 6:
             player.trait = "Fan Favourite";
-            break;
-        case 7:
-            player.trait = "Manager's Favourite";
             break;
     }
 
