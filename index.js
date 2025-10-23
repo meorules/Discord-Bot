@@ -5,7 +5,7 @@ const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const config = require("./config.json");
 
 const prefix = "!"
-const logFilePath = "Main/log.txt"
+const logFilePath = path.join(__dirname,"Main/log.txt")
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Collection();

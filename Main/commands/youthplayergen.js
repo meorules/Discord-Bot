@@ -387,8 +387,6 @@ async function generatePlayerName(player){
         return response.json();
     })
     .then(data => {
-        console.log(player.secondnation)
-        console.log(data)
         if(data.names.length == 2){
             combinedName = data.names[0] + " " + data.names[1];
             nameLength = 2;
