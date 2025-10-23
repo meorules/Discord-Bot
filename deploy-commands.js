@@ -6,6 +6,7 @@ const {
   CARD_FL_ID,
   FUN_GAMES_ID,
   OCM,
+  CC4,
   BOT_TOKEN,
 } = require("./config.json");
 const fs = require("node:fs");
@@ -36,7 +37,7 @@ const rest = new REST({ version: "10" }).setToken(BOT_TOKEN);
 
     // The put method is used to fully refresh all commands in the guild with the current set
     const data = await rest.put(
-      Routes.applicationGuildCommands(APP_ID, GUILD_ID),
+      Routes.applicationGuildCommands(APP_ID, CC4),
       { body: commands },
     );
 
