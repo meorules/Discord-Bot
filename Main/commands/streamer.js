@@ -21,7 +21,7 @@ function upstream(rating){
     if (rating >= 75){
         return 0;
     }
-    else if(rating >=73 && rating <74){
+    else if(rating >=72 && rating <74){
         return generateRandomNumber(0,1);
     }
     else if(rating >=70 && rating <71){
