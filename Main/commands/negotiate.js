@@ -87,12 +87,25 @@ function sell(value,tier){
                     transaction.newvalue = 1.25 * value;
                     break;
                 case 2:
-                    transaction.modifier = "1.35x";
-                    transaction.newvalue = 1.35 * value;
+                    transaction.modifier = "1.5x";
+                    transaction.newvalue = 1.5 * value;
                     break;
             }
             break;
         case 2:
+            mod = generateRandomNumber(0,1);
+            switch(mod){
+                case 0:
+                    transaction.modifier = "1.25x";
+                    transaction.newvalue = 1.25 * value;
+                    break;
+                case 1:
+                    transaction.modifier = "1.5x";
+                    transaction.newvalue = 1.35 * value;
+                    break;
+            }
+            break;
+        case 3:
             mod = generateRandomNumber(0,2);
             switch(mod){
                 case 0:
@@ -100,50 +113,25 @@ function sell(value,tier){
                     transaction.newvalue = 1.25 * value;
                     break;
                 case 1:
-                    transaction.modifier = "1.35x";
-                    transaction.newvalue = 1.35 * value;
-                    break;
-                case 2:
                     transaction.modifier = "1.5x";
                     transaction.newvalue = 1.5 * value;
                     break;
-            }
-            break;
-        case 3:
-            mod = generateRandomNumber(0,3);
-            switch(mod){
-                case 0:
-                    transaction.modifier = "1.25x";
-                    transaction.newvalue = 1.25 * value;
-                    break;
-                case 1:
-                    transaction.modifier = "1.35x";
-                    transaction.newvalue = 1.35 * value;
-                    break;
                 case 2:
-                    transaction.modifier = "1.5x";
-                    transaction.newvalue = 1.5 * value;
-                    break;
-                case 3:
-                    transaction.modifier = "1.65x";
-                    transaction.newvalue = 1.65 * value;
+                    transaction.modifier = "1.75x";
+                    transaction.newvalue = 1.75 * value;
                     break;
             }
             break;
         case 4: 
-            mod = generateRandomNumber(1,3);
+            mod = generateRandomNumber(1,2);
             switch(mod){
                 case 1:
-                    transaction.modifier = "1.35x";
-                    transaction.newvalue = 1.35 * value;
-                    break;
-                case 2:
                     transaction.modifier = "1.5x";
                     transaction.newvalue = 1.5 * value;
                     break;
-                case 3:
-                    transaction.modifier = "1.65x";
-                    transaction.newvalue = 1.65 * value;
+                case 2:
+                    transaction.modifier = "1.75x";
+                    transaction.newvalue = 1.75 * value;
                     break;
             }
             break;
