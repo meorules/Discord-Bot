@@ -1,7 +1,7 @@
 
-exports.tier1Nations = ["Algeria","Cameroon","Cote D'Ivoire","DR Congo","Guadeloupe","Guinea","Martinique","Mali","Morocco","Senegal"];
-exports.tier2Nations =  ["Angola", "Benin", "Burkina Faso", "Central African Republic", "Comoros","Congo", "French Guiana", "Gabon", "Guinea-Bissau", "Togo", "Tunisia"];
-exports.tier3Nations = ["Argentina", "Cape Verde", "Chad", "Ghana", "Haiti","Italy", "Madagascar", "Mauritania", "Nigeria", "Portugal", "Reunion", "Spain"];
+exports.tier1Nations = ["DR Congo","Morocco","Senegal"];
+exports.tier2Nations =  ["Ghana", "Cote D'Ivoire", "Guinea", "Netherlands", "Italy","France","Spain","Turkey","Serbia"];
+exports.tier3Nations = ["Angola","Algeria", "Cameroon", "Portugal", "Brazil", "Germany", "Syria", "Nigeria", "Greece", "Romania","Poland"];
 
 exports.playstyles = ["Chip Shot", "Finesse Shot", "Power Header", "Power Shot", "Dead Ball", "Incisive Pass", "Pinged Pass", "Long Ball Pass", "Tiki Taka", "Whipped Pass", "First Touch", "Flair", "Press Proven", "Rapid", "Technical", "Trickster", "Block", "Bruiser", "Intercept", "Jockey", "Slide Tackle", "Anticipate", "Acrobatic", "Aerial", "Trivela", "Relentless", "Quick Step", "Long Throw", "Far Throw", "Footwork", "Cross Claimer", "Rush Out", "Far Reach", "Quick Reflexes"];
 
@@ -10,35 +10,24 @@ exports.countryFlags = {
     "Cameroon": ":flag_cm:",
     "Cote D'Ivoire": ":flag_ci:",
     "DR Congo": ":flag_cd:",
-    "Guadeloupe": ":flag_gp:",
     "Guinea": ":flag_gn:",
-    "Martinique": ":flag_mq:",
-    "Mali": ":flag_ml:",
     "Morocco": ":flag_ma:",
     "Senegal": ":flag_sn:",
     "Angola": ":flag_ao:",
-    "Benin": ":flag_bj:",
-    "Burkina Faso": ":flag_bf:",
-    "Central African Republic": ":flag_cf:",
-    "Comoros": ":flag_km:",
-    "Congo": ":flag_cg:",
-    "French Guiana": ":flag_gf:",
-    "Gabon": ":flag_ga:",
-    "Guinea-Bissau": ":flag_gw:",
-    "Togo": ":flag_tg:",
-    "Tunisia": ":flag_tn:",
-    "Argentina": ":flag_ar:",
-    "Cape Verde": ":flag_cv:",
-    "Chad": ":flag_td:",
     "Ghana": ":flag_gh:",
-    "Haiti": ":flag_ht:",
     "Italy": ":flag_it:",
-    "Madagascar": ":flag_mg:",
-    "Mauritania": ":flag_mr:",
     "Nigeria": ":flag_ng:",
     "Portugal": ":flag_pt:",
-    "Reunion": ":flag_re:",
-    "Spain": ":flag_es:"
+    "Spain": ":flag_es:",
+    "Netherlands": ":flag_nl:",
+    "France": ":flag_fr:",
+    "Turkey": ":flag_tr:",
+    "Serbia": ":flag_rs:",
+    "Germany": ":flag_de:",
+    "Brazil": ":flag_br:",
+    "Greece": ":flag_gr:",
+    "Romania": ":flag_ro:",
+    "Poland": ":flag_pl:"
 };
 
 

@@ -6,6 +6,7 @@ const {
   CARD_FL_ID,
   FUN_GAMES_ID,
   OCM,
+  CC4,
   BOT_TOKEN,
 } = require("./config.json");
 const fs = require("node:fs");
@@ -13,14 +14,14 @@ const path = require("node:path");
 
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
-const commandsPath = path.join(__dirname, "commands");
+const commandsPath = path.join(__dirname, "Main/commands");
 const commandFiles = fs
   .readdirSync(commandsPath)
   .filter((file) => file.endsWith(".js"));
 
 // Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
+  const command = require(`./Main/commands/${file}`);
   commands.push(command.data.toJSON());
 }
 
@@ -36,7 +37,7 @@ const rest = new REST({ version: "10" }).setToken(BOT_TOKEN);
 
     // The put method is used to fully refresh all commands in the guild with the current set
     const data = await rest.put(
-      Routes.applicationGuildCommands(APP_ID, FD_SERVER_ID),
+      Routes.applicationGuildCommands(APP_ID, CC4),
       { body: commands },
     );
 

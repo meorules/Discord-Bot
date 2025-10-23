@@ -3,20 +3,26 @@ const {
     ContextMenuCommandAssertions,
 } = require("discord.js");
 
-const playerArrays = require('../countrycodes.js')
+const playerArrays = require("../countrycodes");
 
-countryCodes = playerArrays.countryCodes;
+tier1Nations = ["Algeria","Cameroon","Cote D'Ivoire","DR Congo","Guadeloupe","Guinea","Martinique","Mali","Morocco","Senegal"];
+tier2Nations =  ["Angola", "Benin", "Burkina Faso", "Central African Republic", "Comoros","Congo", "French Guiana", "Gabon", "Guinea-Bissau", "Togo", "Tunisia"];
+tier3Nations = ["Argentina", "Cape Verde", "Chad", "Ghana", "Haiti","Italy", "Madagascar", "Mauritania", "Nigeria", "Portugal", "Reunion", "Spain"];
+
 countryFlags = playerArrays.countryFlags;
-tier1Nations = playerArrays.tier1Nations;
-tier2Nations = playerArrays.tier2Nations;
-tier3Nations = playerArrays.tier3Nations;
-playstyles = playerArrays.playstyles;
-
 
 function generateRandomNumber(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored + 1 - minCeiled) + minCeiled);
+}
+
+function generateRandomNumbers(amount, min, max) {
+    let numbers = [];
+    for (let i = 0; i < amount; i++) {
+        numbers[i] = generateRandomNumber(min, max);
+    }
+    return numbers;
 }
 
 function generatePosition(position){
@@ -29,7 +35,7 @@ function generatePosition(position){
                     returnedPosition = "GK";
                     break;
                 case 1:
-                    returnedPosition = "LB/RB" ;
+                    returnedPosition = "LWB/LB/RB/RWB" ;
                     break;
                 case 2:
                     returnedPosition = "CB";
@@ -47,7 +53,7 @@ function generatePosition(position){
                     returnedPosition = "LW/LM/RM/RW";
                     break;
                 case 7:
-                    returnedPosition = "ST";
+                    returnedPosition = "CF/ST";
                     break;
             }
             break;
@@ -58,7 +64,7 @@ function generatePosition(position){
             returnedNumber = generateRandomNumber(1,2);
             switch(returnedNumber){
                 case 1:
-                    returnedPosition = "LB/RB" ;
+                    returnedPosition = "LWB/LB/RB/RWB" ;
                     break;
                 case 2:
                     returnedPosition = "CB";
@@ -89,7 +95,7 @@ function generatePosition(position){
                     returnedPosition = "LW/LM/RM/RW";
                     break;
                 case 2:
-                    returnedPosition = "ST";
+                    returnedPosition = "CF/ST";
                     break;
             }
             break;
@@ -283,192 +289,47 @@ function level1RNG(player){
     player.potential = potential;
 }
 
-function getCountryAPI(player){
-    switch (player.secondnation) {
-        case "Algeria":
-            return countryCodes["Arabic"];
-        case "Cameroon":
-            return countryCodes["African"];
-        case "Cote D'Ivoire":
-            return countryCodes["Akan"];
-        case "DR Congo":
-            return countryCodes["Kongo"];
-        case "Guadeloupe":
-            return countryCodes["Mayan"];
-        case "Guinea":
-            return countryCodes["African"];
-        case "Martinique":
-            return countryCodes["Mayan"];
-        case "Mali":
-            return countryCodes["African"];
-        case "Morocco":
-            return countryCodes["Arabic"];
-        case "Senegal":
-            return countryCodes["African"];
-        case "Angola":
-            return countryCodes["Mbundu"];
-        case "Benin":
-            return countryCodes["African"];
-        case "Burkina Faso":
-            return countryCodes["African"];
-        case "Central African Republic":
-            return countryCodes["African"];
-        case "Comoros":
-            return countryCodes["Comorian"];
-        case "Congo":
-            return countryCodes["Kongo"];
-        case "French Guiana":
-            return countryCodes["African"];
-        case "Gabon":
-            return countryCodes["African"];
-        case "Guinea-Bissau":
-            return countryCodes["African"];
-        case "Togo":
-            return countryCodes["Ewe"];
-        case "Tunisia":
-            return countryCodes["Arabic"];
-        case "Argentina":
-            return countryCodes["Spanish"];
-        case "Cape Verde":
-            return countryCodes["Portuguese"];
-        case "Chad":
-            return countryCodes["African"];
-        case "Ghana":
-            return countryCodes["Ga"];
-        case "Haiti":
-            return countryCodes["Mayan"];
-        case "Italy":
-            return countryCodes["Italian"];
-        case "Madagascar":
-            return countryCodes["African"];
-        case "Mauritania":
-            return countryCodes["Arabic"];
-        case "Nigeria":
-            return countryCodes["Igbo"];
-        case "Portugal":
-            return countryCodes["Portuguese"];
-        case "Reunion":
-            return countryCodes["African"];
-        case "Spain":
-            return countryCodes["Spanish"];
-        default:
-            throw("Error identifying API Call for 2nd nation");
-    }
-}
-
-async function generatePlayerName(player){
-
-    baseURL = 'https://www.behindthename.com/api/random.json?usage_fre=1&gender=m&randomsurname=yes&key=ma536057346';
-
-    if(player.secondnation == "Your Choice :)"){
-        baseURL = baseURL;
-    }
-    else if(player.secondnation != "" && player.secondnation != null){
-        baseURL = baseURL + "&usage_" + getCountryAPI(player) + "=1";
-    }
-
-    combinedName = "";
-    await fetch(baseURL)
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        combinedName = data.names[0] + " " +data.names[2];
-        player.playerName = combinedName;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-    return combinedName;
-
-}
-
-function versatilePlaystlePlayer(player){
-        switch(player.position){
-            case "GK":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(28,33);
-                    player.playstyles = playstyles[playstyle];
-                }
-                break;
-            case "LB/RB":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(16,21);
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+function versatilePlayer(player){
+    chance = generateRandomNumber(1,10);
+    if(chance == 1 && player.position != "GK"){
+    player.trait = player.trait + ", Versatile ";
+            switch(player.position){
+                case "GK":
+                    //Sad state for you, he's versatile, so he should have a different trait and this should be impossible to get to
+                    //throw("Somehow, a GK was rnged but got versatile, please contact meo");
+                    //Do nothing
+                    break;
+                case "LWB/LB/RB/RWB":
+                    rng = generateRandomNumber(1,3);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Defender";
-                        player.position = "CDM/FB/CB";
+                        player.position = "CDM/WB/FB/CB";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Wideman";
-                        player.position = "FB/WM/W";
+                        player.position = "FB/WB/WM/W";
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Box-To-Box";
-                        player.position = "CM/CDM/FB";
+                        player.position = "CM/CDM/WB/FB";
                     }
-                }
-                break;
-            case "CB":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(16,21);
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+                    break;
+                case "CB":
                     rng = generateRandomNumber(1,2);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Defender";
-                        player.position = "CDM/FB/CB";
+                        player.position = "CDM/WB/FB/CB";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Deep-lying Playmaker";
                         player.position = "CM/CDM/CB";
                     }
-                }
-                break;
-            case "CDM":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(5,21);
-                    if(playstyle>=10 && playstyle<=15){
-                        playstyle = generateRandomNumber(16,21);
-                    }
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+                    break;
+                case "CDM":
                     rng = generateRandomNumber(1,4);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Defender";
-                        player.position = "CDM/FB/CB";
+                        player.position = "CDM/WB/FB/CB";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Complete Midfielder";
@@ -476,28 +337,14 @@ function versatilePlaystlePlayer(player){
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Box-To-Box";
-                        player.position = "CM/CDM/FB";
+                        player.position = "CM/CDM/WB/FB";
                     }
                     else if(rng == 4){
                         player.trait = player.trait + "Deep-lying Playmaker";
                         player.position = "CM/CDM/CB";
                     }
-                }
-                break;
-            case "CM":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(5,21);
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+                    break;                    break;
+                case "CM":
                     rng = generateRandomNumber(1,3);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Midfielder";
@@ -505,53 +352,25 @@ function versatilePlaystlePlayer(player){
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Box-To-Box";
-                        player.position = "CM/CDM/FB";
+                        player.position = "CM/CDM/WB/FB";
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Deep-lying Playmaker";
                         player.position = "CM/CDM/CB";
                     }
-                }
-                break;
-            case "CAM":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(0,15);
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+                    break;
+                case "CAM":
                     rng = generateRandomNumber(1,2);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Attacker";
-                        player.position = "CAM/W/ST";
+                        player.position = "CAM/W/CF/ST";
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Complete Midfielder";
                         player.position = "CDM/CM/CAM/WM";
                     }
-                }
-                break;
-            case "LW/LM/RM/RW":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(0,15);
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+                    break;
+                case "LW/LM/RM/RW": 
                     rng = generateRandomNumber(1,3);
                     if(rng == 1){
                         player.trait = player.trait + "Complete Midfielder";
@@ -559,35 +378,18 @@ function versatilePlaystlePlayer(player){
                     }
                     else if(rng == 2){
                         player.trait = player.trait + "Complete Attacker";
-                        player.position = "CAM/W/ST";
+                        player.position = "CAM/W/CF/ST";
                     }
                     else if(rng == 3){
                         player.trait = player.trait + "Wideman";
-                        player.position = "FB/WM/W";
+                        player.position = "FB/WB/WM/W";
                     }
-                }
-                break;
-            case "ST":
-                chance = generateRandomNumber(1,10);
-                if(chance > 5){
-                    playstyle = generateRandomNumber(0,15);
-                    if(playstyle>=5 && playstyle<=9){
-                        playstyle = generateRandomNumber(10,15);
-                    }
-                    player.playstyles = playstyles[playstyle];
-                }
-                if(chance >=8){
-                    playstyle = generateRandomNumber(22,27);
-                    player.playstyles = player.playstyles + ", " + playstyles[playstyle];
-                }
-                rng = generateRandomNumber(1,3);
-                chance = generateRandomNumber(1,10);
-                if(chance == 1){
-                    player.trait = player.trait + ", Versatile ";
+                    break;
+                case "CF/ST":
                     player.trait = player.trait + "Complete Attacker";
-                    player.position = "CAM/W/ST";
-                }
-                break;
+                    player.position = "CAM/W/CF/ST";
+                    break;
+            }
         }
 }
 
@@ -599,15 +401,15 @@ function snPlayer(player){
             player.secondnation = "Your Choice :)";
         }
         else if(tierChance > 5 && tierChance <= 60){
-            nation = generateRandomNumber(0,tier1Nations.length);
+            nation = generateRandomNumber(0,tier1Nations.length-1);
             player.secondnation = tier1Nations[nation];
         }
         else if(tierChance > 60 && tierChance <= 90){
-            nation = generateRandomNumber(0,tier2Nations.length);
+            nation = generateRandomNumber(0,tier2Nations.length-1);
             player.secondnation = tier2Nations[nation];
         }
         else if(tierChance > 90 && tierChance <=100){
-            nation = generateRandomNumber(0,tier3Nations.length);
+            nation = generateRandomNumber(0,tier3Nations.length-1);
             player.secondnation = tier3Nations[nation];
         }
         else{
@@ -677,13 +479,13 @@ function rngPlayer(player){
             break;
     }
 
-    versatilePlaystlePlayer(player);
+    versatilePlayer(player);
     snPlayer(player);
 }
 
 function generatePlayer(position,level){
     positionReturned = generatePosition(position);
-    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:"",playerName:"",playstyles:""};
+    player = {position:"", rating:0, potential:0,trait:"",age:0,secondnation:""};
     player.position = positionReturned;
     switch(level){
         case "Basic":
@@ -719,54 +521,20 @@ function generatePlayers(count,position,level){
     return players;
 }
 
-async function stringify(player){
-
+function stringify(player){
     if(player.rating >= 70 || (player.rating >=66 && player.potential >=81)){
         string = "**"  +player.rating + "/" + player.potential + "**";
     }
     else{
         string = player.rating + "/" + player.potential;
     }
-    playerName = "PlayerName";
-    playerName = await generatePlayerName(player);
-
-    string = string + " **" + player.position + "** "+ playerName + " " + player.age + " :flag_fr: *" + player.trait + "*";
+    string = string + " **" + player.position + "** PlayerName " + player.age + " :flag_fr: *" + player.trait + "*";
 
     if(player.secondnation == "Your Choice :)"){
         string = string + " You get to choose the nation :)";
     }
-    else if(player.secondnation != "" && player.secondnation != null){
+    else if(player.secondnation != ""){
         string = string + " " + player.secondnation + " " + countryFlags[player.secondnation];
-    }
-
-    if(player.playstyles != ""){
-        string = string + " **";
-        playstylePlus = generateRandomNumber(1,10);
-        if (playstylePlus > 5){
-            playstylePlus = generateRandomNumber(1,3);
-            if(player.playstyles.includes(',')){
-                playstylesSplit = player.playstyles.split(',');
-                if(playstylePlus==1){
-                    string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1];
-                }
-                else if(playstylePlus==2){
-                    string = string + playstylesSplit[0] + " and " + playstylesSplit[1]+ "+";
-                }
-                else{
-                    string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1]+ "+";
-                }
-            }
-            else {
-                if(playstylePlus==1 ||playstylePlus == 2){
-                    string = string + player.playstyles + "+";
-                }
-
-            }
-        }
-        else{
-            string = string + player.playstyles;
-        }
-        string = string + "**";
     }
 
     return string;
@@ -792,19 +560,18 @@ function getLevelString(level){
     }
 }
 
-async function rngString(count, position, level) {
+function rngString(count, position, level) {
 
     players = generatePlayers(count,position,level);
-
     size = players.length;
     if (count == 1){
         generatedString = "A youth player with the position " + position + " was rnged. Academy Level: " + getLevelString(level) + "\n";
-        generatedString = generatedString + "They are: " + await stringify(players[0]);
+        generatedString= generatedString + "They are: " + stringify(players[0]);
     }
     else if (count > 1){
         generatedString = "The following youth players were generated at academy Level: " +  getLevelString(level) + "\n"
         for (let i = 0; i < size; i++) {
-            generatedString = generatedString + i+1 + ". " + await stringify(players[i]) + "\n";
+            generatedString = generatedString + i+1 + ". " + stringify(players[i]) + "\n";
         }
     }
     return generatedString;
@@ -812,7 +579,7 @@ async function rngString(count, position, level) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("youthgennames")
+        .setName("youthgen")
         .setDescription(
             "Generate Youth Players",
         )
@@ -844,10 +611,6 @@ module.exports = {
             count = 1;
         }
 
-        messageString = "Potential Youth Players :eyes:"
-        const message = await interaction.channel.send({ content: messageString, fetchReply: true });
-        interaction.reply("Generating Youth Players");
-
         if (position == null) {
             position = "Any";
         }
@@ -855,13 +618,11 @@ module.exports = {
             count = 1;
         }
         try {
-            rngedString = await rngString(count, position,level);
+            rngedString = rngString(count, position,level);
         } catch (error) {
             console.error(error);
         }
 
-        message.edit(rngedString);
-
-        return;
+        return interaction.reply(`${rngedString}`);
     },
 };
