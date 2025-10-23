@@ -288,7 +288,7 @@ function getCountryAPI(player){
         case "Algeria":
             return countryCodes["Arabic"];
         case "Angola":
-            return countryCodes["Mbundu"];
+            return countryCodes["African"];
         case "Brazil":
             return countryCodes["Portuguese"];
         case "Cameroon":
@@ -296,13 +296,13 @@ function getCountryAPI(player){
         case "Cote D'Ivoire":
             return countryCodes["Akan"];
         case "DR Congo":
-            return countryCodes["Kongo"];
+            return countryCodes["African"];
         case "France":
             return countryCodes["French"];
         case "Germany":
             return countryCodes["German"];
         case "Ghana":
-            return countryCodes["Ga"];
+            return countryCodes["African"];
         case "Greece":
             return countryCodes["Greek"];
         case "Guinea":
@@ -338,7 +338,34 @@ function getCountryAPI(player){
 
 async function generatePlayerName(player){
 
-    baseURL = 'https://www.behindthename.com/api/random.json?usage_fre=1&gender=m&randomsurname=yes&key=ma536057346';
+    baseURL = 'https://www.behindthename.com/api/random.json?&gender=m&randomsurname=yes&key=ma536057346&number=1';
+
+    choice = generateRandomNumber(1,7);
+    additive = "&usage_dut=1&usage_fre=1&usage_ger=1";
+    // switch(choice){
+    //     case 1:
+    //         if(player.secondnation != "Germany"){
+    //             additive = "&usage_ger=1";
+    //         }
+    //     case 2:
+    //         if(player.secondnation != "France"){
+    //             additive = "&usage_fre=1";
+    //         }
+    //     case 3:
+    //         if(player.secondnation != "Netherlands"){
+    //         additive = "&usage_dut=1";
+    //         }
+    //     case 4:
+    //         additive = "&usage_dut=1&usage_ger=1";
+    //     case 5:
+    //         additive = "usage_fre=1&usage_ger=1";
+    //     case 6:
+    //         additive = "&usage_dut=1&usage_fre=1";
+    //     case 7:
+    //         additive = "&usage_dut=1&usage_fre=1&usage_ger=1";
+
+    // }
+
 
     if(player.secondnation == "Your Choice :)"){
         baseURL = baseURL;
@@ -346,8 +373,12 @@ async function generatePlayerName(player){
     else if(player.secondnation != "" && player.secondnation != null){
         baseURL = baseURL + "&usage_" + getCountryAPI(player) + "=1";
     }
+    else{
+        baseURL = baseURL + additive;
+    }
 
     combinedName = "";
+    nameLength = 0;
     await fetch(baseURL)
     .then(response => {
         if (!response.ok) {
@@ -356,12 +387,48 @@ async function generatePlayerName(player){
         return response.json();
     })
     .then(data => {
-        combinedName = data.names[0] + " " +data.names[2];
-        player.playerName = combinedName;
+        console.log(player.secondnation)
+        console.log(data)
+        if(data.names.length == 2){
+            combinedName = data.names[0] + " " + data.names[1];
+            nameLength = 2;
+        }
+        else {
+            combinedName = data.names[0];
+            nameLength = 1;
+        }
     })
     .catch(error => {
         console.error('Error:', error);
+        console.error('Player Second Nation:',player.secondnation);
+        console.error('Player Additive - base nation:',additive);
     });
+
+    if(nameLength == 1 ){
+        baseURL = baseURL + additive;
+        await fetch(baseURL)
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if(data.names.length == 2){
+                combinedName = combinedName + " " + data.names[1];
+            }
+            else {
+                combinedName = combinedName + " " + data.names[0];
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            console.error('Player Second Nation:',player.secondnation);
+            console.error('Player Additive - base nation:',additive);
+        });
+    }
+
+    player.playerName = combinedName;
     return combinedName;
 
 }
@@ -579,15 +646,15 @@ function snPlayer(player){
             player.secondnation = "Your Choice :)";
         }
         else if(tierChance > 5 && tierChance <= 60){
-            nation = generateRandomNumber(0,tier1Nations.length);
+            nation = generateRandomNumber(0,tier1Nations.length-1);
             player.secondnation = tier1Nations[nation];
         }
         else if(tierChance > 60 && tierChance <= 90){
-            nation = generateRandomNumber(0,tier2Nations.length);
+            nation = generateRandomNumber(0,tier2Nations.length-1);
             player.secondnation = tier2Nations[nation];
         }
         else if(tierChance > 90 && tierChance <=100){
-            nation = generateRandomNumber(0,tier3Nations.length);
+            nation = generateRandomNumber(0,tier3Nations.length-1);
             player.secondnation = tier3Nations[nation];
         }
         else{
@@ -603,7 +670,7 @@ function rngPlayer(player){
     }
     else{
         growth = player.potential - player.rating;
-        if(growth <= 0){
+        if(growth <= 2){
             player.potential = player.rating + 3;
             growth = player.potential - player.rating;
         }
@@ -722,7 +789,7 @@ async function stringify(player){
     playerName = "PlayerName";
     playerName = await generatePlayerName(player);
 
-    string = string + " **" + player.position + "** "+ playerName + " " + player.age + " :flag_fr: *" + player.trait + "*";
+    string = string + " **" + player.position + "** "+ playerName + " " + player.age + " :flag_be: *" + player.trait + "*";
 
     if(player.secondnation == "Your Choice :)"){
         string = string + " You get to choose the nation :)";
@@ -731,35 +798,35 @@ async function stringify(player){
         string = string + " " + player.secondnation + " " + countryFlags[player.secondnation];
     }
 
-    if(player.playstyles != ""){
-        string = string + " **";
-        playstylePlus = generateRandomNumber(1,10);
-        if (playstylePlus > 5){
-            playstylePlus = generateRandomNumber(1,3);
-            if(player.playstyles.includes(',')){
-                playstylesSplit = player.playstyles.split(',');
-                if(playstylePlus==1){
-                    string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1];
-                }
-                else if(playstylePlus==2){
-                    string = string + playstylesSplit[0] + " and " + playstylesSplit[1]+ "+";
-                }
-                else{
-                    string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1]+ "+";
-                }
-            }
-            else {
-                if(playstylePlus==1 ||playstylePlus == 2){
-                    string = string + player.playstyles + "+";
-                }
+    // if(player.playstyles != ""){
+    //     string = string + " **";
+    //     playstylePlus = generateRandomNumber(1,10);
+    //     if (playstylePlus > 5){
+    //         playstylePlus = generateRandomNumber(1,3);
+    //         if(player.playstyles.includes(',')){
+    //             playstylesSplit = player.playstyles.split(',');
+    //             if(playstylePlus==1){
+    //                 string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1];
+    //             }
+    //             else if(playstylePlus==2){
+    //                 string = string + playstylesSplit[0] + " and " + playstylesSplit[1]+ "+";
+    //             }
+    //             else{
+    //                 string = string + playstylesSplit[0] + "+ and " + playstylesSplit[1]+ "+";
+    //             }
+    //         }
+    //         else {
+    //             if(playstylePlus==1 ||playstylePlus == 2){
+    //                 string = string + player.playstyles + "+";
+    //             }
 
-            }
-        }
-        else{
-            string = string + player.playstyles;
-        }
-        string = string + "**";
-    }
+    //         }
+    //     }
+    //     else{
+    //         string = string + player.playstyles;
+    //     }
+    //     string = string + "**";
+    // }
 
     return string;
 }
