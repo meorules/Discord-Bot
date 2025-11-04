@@ -4,6 +4,9 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const config = require("./config.json");
 
+const CardType = require('./Main/modules/cardType.js');
+
+
 const prefix = "!"
 const logFilePath = path.join(__dirname,"Main/log.txt")
 
@@ -25,7 +28,14 @@ for (const file of commandFiles) {
 }
 
 
-client.once(Events.ClientReady, c => {
+client.once(Events.ClientReady, async c => {
+    cardPrioritySet = await CardType.PopulateCardTypePriority();
+    if(cardPrioritySet){
+        console.log("Card Priority set");
+    }
+    else{
+        console.error("Card Priority NOT set");
+    }
     console.log(`Ready! Logged in as ${c.user.tag}`);
 });
 

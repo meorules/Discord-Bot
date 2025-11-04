@@ -118,7 +118,8 @@ async function ReadPlayersFromCSV(filePath) {
             row.Attacking,
             row.Country,
             row.URL,
-            row.Gender
+            row.Gender,
+            row.Boost
             );
 
             players.push(player);
