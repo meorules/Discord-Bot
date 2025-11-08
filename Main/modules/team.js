@@ -57,6 +57,31 @@ class Team {
         return stringToReturn;
     }
 
+    static async RetrieveAllTeams(){
+        let db = await ConnectToDB();
+        let teamsToReturn = [];
+        try{
+            const rows = await db.all("SELECT * FROM Teams;", []);
+            if(rows){
+                for(let row in rows){
+                    var teamToReturn = new Team(rows[row].ID,rows[row].TeamName,rows[row].PrimaryColour,rows[row].SecondaryColour,rows[row].DiscordUsername,rows[row].AutoAddPlayers,rows[row].Balance);
+
+                    teamToReturn.mPlayers = [];
+                    teamToReturn.mPlayers = await this.RetrieveTeamPlayers(teamToReturn.mID);
+                    teamsToReturn.push(teamToReturn);
+                }
+                
+                return teamsToReturn;
+            }
+            else{
+                console.error('❌ Query error:', err);
+            }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    }
+
     static async CreateTeam(teamName,primaryColour,secondaryColour, discordUsername){
         let db = await ConnectToDB();
         const result = await db.run("INSERT INTO Teams(TeamName,PrimaryColour,SecondaryColour,DiscordUsername,Balance) VALUES(?,?,?,?,?);",[teamName,primaryColour,secondaryColour,discordUsername,0]);
@@ -139,10 +164,12 @@ class Team {
         let db = await ConnectToDB();
 
         try{
+            let count = 0;
             for(let player in players){
-                const result = await db.run("INSERT INTO TeamPlayers(TeamID,PlayerID,Upgrade) VALUES(?,?,?)",[teamID,players[player].mID,0]);
-                return result.changes;
+                let result = await db.run("INSERT INTO TeamPlayers(TeamID,PlayerID,Upgrade) VALUES(?,?,?)",[teamID,players[player].mID,0]);
+                count += result.changes;
             }
+                return count;
         }
         catch(err){
             console.error('❌ Query error:', err);
@@ -200,6 +227,39 @@ class Team {
         }
     
 
+    }
+    static async RemovePlayerFromTeamByID(teamID,id){
+        let db = await ConnectToDB();
+
+        try{
+            let correspondingPlayer = await Player.RetrievePlayerByID(id); 
+            if(correspondingPlayer){
+                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [teamID,correspondingPlayer.mID]);
+                if(row){
+                    const result = await db.run('DELETE FROM TeamPlayers WHERE ID = (SELECT ID FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? LIMIT 1);',[teamID,correspondingPlayer.mID]);
+                    return result.changes;
+                }
+
+            }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    
+
+    }
+
+    static sort(teamA,teamB){
+        if(teamA.mBalance < teamB.mBalance){
+            return 1;
+        }
+        else if(teamA.mBalance > teamB.mBalance){
+            return -1;
+        }
+        else{
+            return 0;
+        }
+        
     }
 }
 

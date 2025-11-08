@@ -13,11 +13,17 @@ module.exports = {
         let username = interaction.user.username;
 
         team = await Team.RetrieveTeamByUser(username);
-        let changes = await Team.RemovePlayerFromTeam(team.mID,name);
 
-        if(changes > 0 ){
-            return interaction.reply(`The player ${name} was removed from your team.`);
+        for(let player in team.mPlayers){
+            if(team.mPlayers[player].mPlayerName.includes(name)){
+                let changes = await Team.RemovePlayerFromTeamByID(team.mID,team.mPlayers[player].mID);
+                if(changes > 0 ){
+                    return interaction.reply(`The player ${name} was removed from your team.`);
+                }
+            }
         }
+
+
         return interaction.reply('Unable to remove the player with name ' + name + ' from your team,');
     },
 };

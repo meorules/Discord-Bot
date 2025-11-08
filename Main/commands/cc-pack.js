@@ -143,10 +143,17 @@ module.exports = {
             .setName("count")
             .setRequired(false)
             .setDescription("The number of packs you want to open"),
+        )
+        .addBooleanOption((option) =>
+            option
+            .setName("free")
+            .setRequired(false)
+            .setDescription("If the pack is free, put 1 here, otherwise you can leave it"),
         ),
     async execute(interaction) {
         let packName = interaction.options.getString("packname");
         let count = interaction.options.getInteger("count");
+        let free = interaction.options.getBoolean("free");
 
         if (count == null) {
             count = 1;
@@ -162,6 +169,10 @@ module.exports = {
         let rngedString = "";
         let packValue = calcPackBalance(packName);
 
+        if(free){
+            packValue = 0;
+        }
+
         try {
             let currentTeam = await Team.RetrieveTeamByUser(username);
             
@@ -173,7 +184,10 @@ module.exports = {
                 return;
                 }
                 if(currentTeam.mAutoAddPlayers==1){
-                    await Team.AddPlayers(currentTeam.mID,packedPlayer);
+                    let changes = await Team.AddPlayers(currentTeam.mID,players);
+                    if(changes != players.length()){
+                        rngedString = rngedString + "Some players were not added, contact Meo";
+                    }
                 }
                 currentTeam.updateBalance(-packValue);
             }
