@@ -119,7 +119,7 @@ async function ReadPlayersFromCSV(filePath) {
             row.Country,
             row.URL,
             row.Gender,
-            row.Boost
+            0
             );
 
             players.push(player);
@@ -130,12 +130,12 @@ async function ReadPlayersFromCSV(filePath) {
 }
 
 async function AddNewPromoPlayers(fileName){
-    players = await ReadPlayersFromCSV(fileName);
+    let players = await ReadPlayersFromCSV(fileName);
     for(player of players){
 
-        returnedPlayerID = await Player.InsertPlayer(player);
+        let returnedPlayerID = await Player.InsertPlayer(player);
         //Retrieve the base player ID
-        correspondingPlayer = await Player.RetrievePlayerByName(player.mPlayerName,returnedPlayerID);
+        let correspondingPlayer = await Player.RetrievePlayerByName(player.mPlayerName,returnedPlayerID);
         let params = [correspondingPlayer.mID,returnedPlayerID,1];
 
         await db.run("INSERT INTO PromoPlayers(BasePlayerID,PromoPlayerID,Packable) VALUES(?, ?, ?)",params,function(err){
@@ -153,8 +153,8 @@ async function main(){
 
     //retrievedCardType = await CardType.RetrieveCardTypeByName("Gold");
     //console.log(retrievedCardType);
-    //fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players.csv';
-    //await AddNewPromoPlayers(fileName);
+    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players2.csv';
+    await AddNewPromoPlayers(fileName);
     //retrievedPlayer = await Player.RetrievePlayerByName("Wirt");
     //console.log(retrievedPlayer);
 

@@ -1,0 +1,8 @@
+Fri Nov 07 2025 22:53:22 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Meo's Muchachos) Amount([object Undefined]) Added by (meo_rules) 
+Fri Nov 07 2025 22:54:37 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Meo's Muchachos) Amount(1000000) Added by (meo_rules)  - New Balance (3000000) 
+Fri Nov 07 2025 22:58:15 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Meo's Muchachos) Amount(1000000) Added by (meo_rules)  - New Balance (4000000) 
+Fri Nov 07 2025 22:58:36 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Merseyside Mongs) Amount(1000000) Added by (a.h.m.e.d.)  - New Balance (1000000) 
+Fri Nov 07 2025 23:02:59 GMT+0000 (Greenwich Mean Time) - Money Remove: Team(Meo's Muchachos) Amount(1000) Removed by (meo_rules)  - New Balance (4001000) 
+Fri Nov 07 2025 23:03:26 GMT+0000 (Greenwich Mean Time) - Money Remove: Team(Meo's Muchachos) Amount(1000) Removed by (meo_rules)  - New Balance (4000000) 
+Fri Nov 07 2025 23:07:57 GMT+0000 (Greenwich Mean Time) - Money Remove: Team(Meo's Muchachos) Amount(4002000) Removed by (meo_rules)  - New Balance (0) 
+Sat Nov 08 2025 07:30:10 GMT+0000 (Greenwich Mean Time) - Pack Opened: Team(No Team, meo_rules) Amount(7000) Opened by (meo_rules)  - New Balance (No Team, Balance unchanged) 

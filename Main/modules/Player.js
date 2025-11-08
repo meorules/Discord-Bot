@@ -1,4 +1,6 @@
 const sqlite3 = require('sqlite3');
+const { open } = require('sqlite');
+
 const countryCodeArrays = require('../countrycodes.js')
 
 const CardType = require('./cardType.js');
@@ -30,6 +32,7 @@ class Player{
         this.mURL = url;
         this.mGender = gender;
         this.mBoost = boost;
+        this.mUpgrade = 0;
     }
 
     setAttributes(id, name, cardTypeId, position,age, rating, team, league, height, weight, crossing, finishing, heading, jumping, penalties, weakFoot, skillMoves, passing, defending, attacking,country, url, gender,boost){
@@ -64,6 +67,19 @@ class Player{
             return true;
         }
         return false;
+    }
+
+    upgrade(amount){
+        this.mUpgrade = amount;
+        this.mRating += amount;
+        this.mCrossing += amount;
+        this.mFinishing += amount;
+        this.mHeading += amount;
+        this.mJumping += amount;
+        this.mPenalties += amount;
+        this.mPassing += amount;
+        this.mDefending += amount;
+        this.mAttacking += amount;
     }
 
     async stringify(){
@@ -102,6 +118,14 @@ class Player{
         if(this.mBoost == 1){
             toReturn += " :sparkles:";
         }
+
+        if(this.mUpgrade > 0 ){
+            toReturn += " :arrow_up: +" + this.mUpgrade;
+        }
+        else if(this.mUpgrade < 0 ){
+            toReturn += " :arrow_down: " + this.mUpgrade;
+        }
+
         return toReturn;
     }
 
@@ -160,32 +184,29 @@ class Player{
 
     static async RetrievePlayerByID(id){
         
-        db = ConnectToDB();
+        let db = await ConnectToDB();
 
-        const PlayerToReturn = new Player();
+        try{
+            let row = await db.get("SELECT * FROM Players WHERE ID = ? ;", [id]);
+            if(row){
+                const PlayerToReturn = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
 
-        return new Promise((resolve, reject) => {
-            db.get("SELECT * FROM Players WHERE ID = ? ;", [id], (err, row) => {
-            if (err) {
-            console.error('❌ Query error:', err);
-            return reject(err);
+                return PlayerToReturn;
             }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
 
-            PlayerToReturn.setAttributes(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
-            //console.log(PlayerToReturn);
-            return resolve(PlayerToReturn);
-            });
-        });
     }
 
     static async RetrievePlayerByName(name,ignoreID){
 
-        db = ConnectToDB();
+        let db = await ConnectToDB();
         name = '%' + name + '%';
         let params = [];
         params.push(name);
 
-        const PlayerToReturn = new Player();
         let baseSQL = "SELECT * FROM Players WHERE PlayerName LIKE ? "
 
         if(ignoreID){
@@ -196,137 +217,128 @@ class Player{
             baseSQL = baseSQL + ";";
         }
 
-        return new Promise((resolve, reject) => {
-            db.get(baseSQL, params, (err, row) => {
-            if (err) {
-            console.error('❌ Query error:', err);
-            return reject(err);
-            }
+        try{
+            const row = await db.get(baseSQL, params);
+            
             if(row){
-                PlayerToReturn.setAttributes(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
+                const PlayerToReturn = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
                 //console.log(PlayerToReturn);
-                return resolve(PlayerToReturn);
+                return PlayerToReturn;
             }
             else{
-                return reject(null);
+                return null;
             }
-            });
-        });
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
     }
 
     static async RetrievePlayersByRating(rating){
     
-        db = ConnectToDB();
+        let db = await ConnectToDB();
 
         let players = [];
+        try{
+            const rows = await db.all("SELECT * FROM Players WHERE Rating = ? ;", [rating]);
 
-        return new Promise((resolve, reject) => {
-            db.all("SELECT * FROM Players WHERE Rating = ? ;", [rating], (err, rows) => {
-            if (err) {
-                console.error('❌ Query error:', err);
-                return reject(err);
-            }
-
-            //console.log(rows);
-            
             rows.forEach(row => {
                 let player = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
                 players.push(player);
             });
 
-            return resolve(players);
-            });
-        });
+            return players;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
     }
 
     
     static async RetrievePlayersByCardType(cardTypeID){
     
-        db = ConnectToDB();
+        let db = await ConnectToDB();
 
         let players = [];
 
-        return new Promise((resolve, reject) => {
-            db.all("SELECT * FROM Players WHERE CardTypeID = ? ;", [cardTypeID], (err, rows) => {
-            if (err) {
-                console.error('❌ Query error:', err);
-                return reject(err);
+        if(cardTypeID>5){
+            let placeholderPlayers = await this.RetrievePackablePromoPlayers(50,99);
+            for(let player in placeholderPlayers){
+                if(placeholderPlayers[player].mCardTypeID == cardTypeID){
+                   players.push(placeholderPlayers[player]);
+                }
             }
+            return players;
+        }
+        else{
 
-            //console.log(rows);
-            
-            rows.forEach(row => {
-                let player = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
-                players.push(player);
-            });
+            try{
+                const rows = await db.all("SELECT * FROM Players WHERE CardTypeID = ? ;", [cardTypeID]);
 
-            return resolve(players);
-            });
-        });
+                rows.forEach(row => {
+                    let player = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
+                    players.push(player);
+                });
+
+                return players;
+            }
+            catch(err){
+                console.error('❌ Query error:', err);
+            }
+        }
+        
     }
 
     static async InsertPlayer(player){
 
-        db = ConnectToDB();
+        let db = await ConnectToDB();
         let params = [player.mPlayerName,player.mCardTypeID,player.mPosition,player.mAge,player.mRating, player.mTeam, player.mHeight,player.mWeight,player.mCrossing,player.mFinishing,player.mHeading,player.mJumping,player.mPenalties,player.mWeakFoot,player.mSkillMoves,player.mPassing,player.mDefending,player.mAttacking,player.mCountry,player.mURL,player.mGender,player.mBoost]
-        return new Promise((resolve, reject) => {
-            db.run("INSERT INTO Players(PlayerName,CardTypeID,Position,Age,Rating,Team,Height,Weight,Crossing,Finishing,Heading,Jumping,Penalties,WeakFoot,SkillMoves,Passing,Defending,Attacking,Country,URL,Gender,Boost) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?, ?, ?, ?, ?)",params,function(err){
-             if (err) {
-                console.error('❌ Query error:', err);
-                return reject(err);
-            }
-            //console.log(this.changes);
-            //console.log("Inserted into DB " + this.lastID);
-            return resolve(this.lastID);
-            });
-        });
+        try{
+            const result = await db.run("INSERT INTO Players(PlayerName,CardTypeID,Position,Age,Rating,Team,Height,Weight,Crossing,Finishing,Heading,Jumping,Penalties,WeakFoot,SkillMoves,Passing,Defending,Attacking,Country,URL,Gender,Boost) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?, ?, ?, ?, ?)",params);
+            return result.lastID;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
     }
 
     static async RetrievePackablePromoPlayers(minRating,maxRating){
-        db = ConnectToDB();
+        let db = await ConnectToDB();
         let players = [];
+        try{
+            const rows = await db.all("SELECT * FROM PromoPlayers WHERE Packable = 1 ;", []);
 
-        return new Promise((resolve, reject) => {
-            db.all("SELECT * FROM PromoPlayers WHERE Packable = 1 ;", [],(err, rows) => {
-            if (err) {
-                console.error('❌ Query error:', err);
-                return reject(err);
-            }
-
-            //console.log(rows);
-            
-            rows.forEach(async row => {
+            for(const row of rows){
                 let correspondingPlayer = await Player.RetrievePlayerByID(row.PromoPlayerID);
                 if(correspondingPlayer.mRating <= maxRating && correspondingPlayer.mRating >= minRating){
                     players.push(correspondingPlayer);
                 }
-            });
+            };
 
-            return resolve(players);
-            });
-        });
+            return players;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+
     }
 
     static async ReplaceIfPromo(player){
-        db = ConnectToDB();
+        let db = await ConnectToDB();
         //console.log(player);
 
-        return new Promise((resolve, reject) => {
-            db.get("SELECT * FROM PromoPlayers WHERE BasePlayerID = ? ;", [player.mID],async (err, row) => {
-                if (err) {
-                    console.error('❌ Query error:', err);
-                    return reject(err);
-                }
+        try{
+            const row = await db.get("SELECT * FROM PromoPlayers WHERE BasePlayerID = ? ;", [player.mID]);
 
-                //console.log(rows);
+            if(row){
+                player = await Player.RetrievePlayerByID(row.PromoPlayerID); 
+            }
 
-                if(row){
-                    player = await Player.RetrievePlayerByID(row.PromoPlayerID); 
-                }
-
-                return resolve(player);
-            });
-        });
+            return player;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
     }
 
     static sort(playerA,playerB){
@@ -356,14 +368,17 @@ class Player{
 }
 
 
-function ConnectToDB(){
-    try{
-        db = new sqlite3.Database("botDB.db");
-    }
-    catch(error){
-        console.log(error);
-    }
+async function ConnectToDB(){
+  try {
+    const db = await open({
+      filename: './botDB.db',
+      driver: sqlite3.Database
+    });
     return db;
+  } catch (error) {
+    console.error('❌ Failed to connect to DB:', error);
+    throw error;
+  }
 }
 
 module.exports = Player;

@@ -1,4 +1,5 @@
 const sqlite3 = require('sqlite3');
+const { open } = require('sqlite');
 
 mPriorityList = []
 class CardType {
@@ -27,81 +28,68 @@ class CardType {
 
     static async RetrieveCardTypeByID(id){
     
-        db = ConnectToDB();
+        let db = await ConnectToDB();
 
-        const cardTypeToReturn = new CardType;
+        try{
+            const row = await db.get("SELECT * FROM CardType WHERE CardTypeID = ? ;", [id]);
+            const cardTypeToReturn = new CardType(row.CardTypeID,row.CardType,row.Emoji,row.Priority);
 
-        return new Promise((resolve, reject) => {
-            db.get("SELECT * FROM CardType WHERE CardTypeID = ? ;", [id], (err, row) => {
-            if (err) {
-                console.error('❌ Query error:', err);
-                return reject(err);
-            }
-
-            cardTypeToReturn.setAttributes(row.CardTypeID,row.CardType,row.Emoji,row.Priority);
-            //console.log(row.CardTypeID);
-
-            return resolve(cardTypeToReturn);
-            });
-        });
+            return cardTypeToReturn;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
     }
 
     static async RetrieveCardTypeByName(name){
     
-        db = ConnectToDB();
+        let db = await ConnectToDB();
 
         name = '%' + name + '%';
 
-        const cardTypeToReturn = new CardType();
+        try{
+            const row = await db.get("SELECT * FROM CardType WHERE CardType LIKE ? ;", [name]);
 
-        return new Promise((resolve, reject) => {
-            db.get("SELECT * FROM CardType WHERE CardType LIKE ? ;", [name], (err, row) => {
-            if (err) {
+            const cardTypeToReturn = new CardType(row.CardTypeID,row.CardType,row.Emoji,row.Priority);
+
+            return cardTypeToReturn;
+        }
+        catch(err){
             console.error('❌ Query error:', err);
-            return reject(err);
-            }
-
-            cardTypeToReturn.setAttributes(row.CardTypeID,row.CardType,row.Emoji,row.Priority);
-
-            return resolve(cardTypeToReturn);
-            });
-        });
+        }
     }
 
     static async PopulateCardTypePriority(){
-        db = ConnectToDB();
+        let db = await ConnectToDB();
 
-        return new Promise((resolve,reject) => {
-            db.all("SELECT * FROM CardType;", [], (err, rows) => {
-            if (err) {
-                console.error('❌ Query error:', err);
-                return reject(err);
-            }
-
-            //console.log(rows);
-            
+        try{
+            const rows = await db.all("SELECT * FROM CardType;", []);
             rows.forEach(row => {
                 let cdToBeAdded = {"cardTypeID": row.CardTypeID,"priority": row.Priority};
                 mPriorityList.push(cdToBeAdded);
             });
             
-            return resolve(true);
-            
-            });
-        });
+            return true;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
     }
 
 
 }
 
-function ConnectToDB(){
-    try{
-        db = new sqlite3.Database("botDB.db");
-    }
-    catch(error){
-        console.log(error);
-    }
+async function ConnectToDB(){
+  try {
+    const db = await open({
+      filename: './botDB.db',
+      driver: sqlite3.Database
+    });
     return db;
+  } catch (error) {
+    console.error('❌ Failed to connect to DB:', error);
+    throw error;
+  }
 }
 
 module.exports = CardType;

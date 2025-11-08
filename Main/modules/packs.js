@@ -315,6 +315,7 @@ static async openPremiumSilverPack(count) {
 
 static async openSilverPack(count) {
     let numbers = generateRandomNumbers(count, 1, 100);
+    //let numbers = [99,99,99];
     let players = [];
 
     for (let i = 0; i < numbers.length; i++) {

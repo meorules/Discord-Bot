@@ -9,6 +9,7 @@ const PackOpening = require('../modules/packOpening.js');
 const CardType = require('../modules/cardType.js');
 const Player = require('../modules/Player.js');
 const Packs = require('../modules/packs.js');
+const Team = require('../modules/team.js')
 
 
 async function openPack(packName) {
@@ -71,11 +72,16 @@ async function openPacks(pack, count) {
     return packPlayers;
 }
 
-async function packOpenString(pack, count) {
+async function packOpen(pack, count) {
     walkout = null;
     let players = await openPacks(pack, count);
     players.sort(Player.sort);
 
+    return players;
+
+}
+
+async function generateString(pack,players,count){
     size = players.length;
     if (count == 1) {
         generatedString = "You opened a " + pack + " and got these players: \n";
@@ -101,7 +107,7 @@ extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ 
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("dupereroll")
+        .setName("pack-reroll")
         .setDescription(
             "Open any of the packs for dupe replacement",
         )
@@ -121,7 +127,8 @@ module.exports = {
     async execute(interaction) {
         packName = interaction.options.getString("packname");
         count = interaction.options.getInteger("count");
-
+        let username = interaction.user.username;
+        
         if (count == null) {
             count = 1;
         }
@@ -130,8 +137,20 @@ module.exports = {
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
         interaction.reply("Rolling odds");
 
+
         try {
-            rngedString = await packOpenString(packName, count);
+            players = await packOpen(packName, count);
+            rngedString = await generateString(packName,players,count);
+            let currentTeam = await Team.RetrieveTeamByUser(username);
+            if(currentTeam){
+                if(currentTeam.mAutoAddPlayers==1){
+                    await Team.AddPlayers(currentTeam.mID,packedPlayer);
+                }
+            }
+            else{
+                rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
+            }
+
         } catch (error) {
             console.error(error);
         }

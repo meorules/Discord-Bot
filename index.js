@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+require('log-timestamp');
 //const keepAlive = require("./server.js")
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const config = require("./config.json");
@@ -46,6 +47,7 @@ client.on(Events.InteractionCreate, async interaction => {
     try {
         fs.writeFileSync(logFilePath, "Username: " + interaction.user.username + ",", { flag: 'a+' });
         fs.writeFileSync(logFilePath, "Command Used: " + interaction.commandName + ",", { flag: 'a+' });
+        console.log(interaction.user.username);
         console.log(interaction.options);
         for (option in interaction.options._hoistedOptions) {
             fs.writeFileSync(logFilePath, "Option " + interaction.options._hoistedOptions[option].name + ":" + interaction.options._hoistedOptions[option].value + ",", { flag: 'a+' });

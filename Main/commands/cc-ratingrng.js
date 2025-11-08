@@ -6,6 +6,9 @@ const {
 const PackOpening = require('../modules/packOpening.js');
 const CardType = require('../modules/cardType.js');
 const Player = require('../modules/Player.js');
+const Team = require('../modules/team.js')
+
+interactingUser = null;
 
 async function packOpenString(rating, count) {
 
@@ -53,12 +56,19 @@ async function packOpenString(rating, count) {
             packedPlayer.push(player);
             validPlayerCount++;
         }
-        //console.log("players array")
-        //console.log(players)
+
     }
 
-    //console.log("players array")
-    //console.log(players)
+    let currentTeam = await Team.RetrieveTeamByUser(interactingUser);
+    if(currentTeam){
+        if(currentTeam.mAutoAddPlayers==1){
+            await Team.AddPlayers(currentTeam.mID,packedPlayer);
+        }
+    }
+    else{
+        generatedString = generatedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
+    }
+
 
     size = packedPlayer.length;
 
@@ -77,7 +87,7 @@ async function packOpenString(rating, count) {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("ratingrng")
+        .setName("rating-rng")
         .setDescription(
             "Roll a random player from the database based on their rating",
         )
@@ -94,6 +104,7 @@ module.exports = {
             .setDescription("The number of players you want to from each pack"),
         ),
     async execute(interaction) {
+        interactingUser = interaction.user.username;
         let rating = interaction.options.getInteger("rating");
         let count = interaction.options.getInteger("count");
 
@@ -108,7 +119,7 @@ module.exports = {
         }
 
         //console.log(rngedString);
-
+        interactingUser = null;
         return interaction.reply(`${rngedString}`);
     },
 };

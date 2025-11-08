@@ -3,11 +3,13 @@ const {
     ContextMenuCommandAssertions,
 } = require("discord.js");
 
+const fs = require('node:fs');
+
 const PackOpening = require('../modules/packOpening.js');
 const CardType = require('../modules/cardType.js');
 const Player = require('../modules/Player.js');
 const Packs = require('../modules/packs.js');
-
+const Team = require('../modules/team.js')
 
 async function openPack(packName) {
     let players = []
@@ -74,10 +76,8 @@ async function openPacks(pack, count) {
     return packPlayers;
 }
 
-async function packOpenString(pack, count) {
-    let players = await openPacks(pack, count);
-    players.sort(Player.sort);
-
+async function generateString(pack,players, count){
+     var generatedString = "";
     size = players.length;
     if (count == 1) {
         generatedString = "You opened a " + pack + " and got these players: \n";
@@ -98,12 +98,36 @@ async function packOpenString(pack, count) {
     return generatedString;
 }
 
+async function packOpen(pack, count) {
+    let players = await openPacks(pack, count);
+    players.sort(Player.sort);
+
+    return players;
+}
+
+function calcPackBalance(pack){
+    try{
+        if(pack == "Gold Upgrade Pack(78+ x2)"){
+            return 0;
+        }
+        else{
+            let firstSplit = pack.split("(")[1];
+            let secondSplit = firstSplit.split("k)")[0];
+            number = parseInt(secondSplit) * 1000;
+            return number;
+        }
+    }
+    catch(err){
+        console.error("Unable to find balance: " + err);
+    }
+}
+
 basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }];
 extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"}]
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("openpack")
+        .setName("pack-open")
         .setDescription(
             "Open a Pack",
         )
@@ -128,15 +152,53 @@ module.exports = {
             count = 1;
         }
 
-        messageString = "This is the pack :eyes:"
+        let messageString = "This is the pack :eyes:"
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
         interaction.reply("Rolling odds");
 
+        let username = interaction.user.username;
+
+        let players = [];
+        let rngedString = "";
+        let packValue = calcPackBalance(packName);
+
         try {
-            rngedString = await packOpenString(packName, count);
+            let currentTeam = await Team.RetrieveTeamByUser(username);
+            
+            players = await packOpen(packName, count);
+            rngedString = await generateString(packName,players,count);
+            if(currentTeam){
+                if(packValue > currentTeam.mBalance){
+                    message.edit("You can't afford this pack!");
+                return;
+                }
+                if(currentTeam.mAutoAddPlayers==1){
+                    await Team.AddPlayers(currentTeam.mID,packedPlayer);
+                }
+                currentTeam.updateBalance(-packValue);
+            }
+            else{
+                rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
+            }
+            try {
+                ownerString = "No Team, " + username;
+                balanceString = "No Team, Balance unchanged"
+                if(currentTeam){
+                    ownerString = currentTeam.mTeamName;
+                    balanceString = currentTeam.mBalance;
+
+                    const content = Date() + " - Pack Opened: Team(" + ownerString +  ") Amount(" + packValue + ") Opened by (" + username + ")  - New Balance ("+ balanceString +") \n";
+                    fs.appendFileSync('Main/Log/moneyLog.txt', content);
+                }
+
+            // file written successfully
+            } catch (err) {
+                console.error(err);
+            }
         } catch (error) {
             console.error(error);
         }
+
 
         pauseTime = 1000;
 
@@ -159,6 +221,7 @@ module.exports = {
             }
 
         }
+
 
         return;
     },
