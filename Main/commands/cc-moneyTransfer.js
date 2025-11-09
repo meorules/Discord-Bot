@@ -59,6 +59,9 @@ module.exports = {
         try {
             const content = Date() + " - Money Add: Team(" + teamTo.mTeamName +  ") Amount(" + amount + ") Added by (" + username + ")  - New Balance ("+ teamTo.mBalance +") \n";
             fs.appendFileSync('Main/Log/moneyLog.txt', content);
+
+            const channel = interaction.client.channels.cache.get("1436903358870061212");
+            channel.send(Date() + " - **Money Transfer:** From Team (" + teamFrom.mTeamName +  ") - To Team (" + teamTo.mTeamName +  ")\nAmount(" + amount + ") Transfer made by by (" + username + ")  \n Balance of Team From ("+ teamFrom.mBalance +") - Balance of Team To ("+ teamTo.mBalance +")");
         } catch (err) {
             console.error(err);
         }

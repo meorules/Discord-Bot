@@ -35,18 +35,25 @@ module.exports = {
             username = commandUsername;
         }
         team = await Team.RetrieveTeamByUser(username);
+        if(amount <= 0){
+            return interaction.reply("You think you're sly, you are not adding money like this lil bro.");
+        }
         team.updateBalance(-amount);
 
         try {
             const content = Date() + " - Money Remove: Team(" + team.mTeamName +  ") Amount(" + amount + ") Removed by (" + commandUsername + ")  - New Balance ("+ team.mBalance +") \n";
             fs.appendFileSync('Main/Log/moneyLog.txt', content);
+
+            const channel = interaction.client.channels.cache.get("1436903358870061212");
+            channel.send(Date() + " - **Money Remove:** Team (" + team.mTeamName +  ") \nAmount (" + amount + ") Removed by (" + commandUsername + ")  \nNew Balance ("+ team.mBalance +") \n");
         // file written successfully
         } catch (err) {
             console.error(err);
         }
         //console.log(team)
 
-        generatedString = team.stringify(false,true);
+        generatedString = "Amount removed: " + amount + " \n";
+        generatedString = generatedString + team.stringify(false,true);
 
         return interaction.reply(generatedString);
     },

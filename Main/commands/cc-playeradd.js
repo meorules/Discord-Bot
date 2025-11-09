@@ -33,7 +33,7 @@ module.exports = {
         if(playerToAdd){
             let changes = await Team.AddPlayers(team.mID,[playerToAdd]);
             if(changes > 0 ){
-                return interaction.reply(`The player ${playerToAdd.mPlayerName} was added to your team.`);
+                return interaction.reply(`The player ${playerToAdd.mPlayerName} was added to the team ${team.mTeamName}.`);
             }
         }
 

@@ -7,10 +7,21 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('player-remove')
         .setDescription('Remove players from your team')
-        .addStringOption(option => option.setName('name').setDescription('Player of the name you own who you want to remove').setRequired(true)),
+        .addStringOption(option => option.setName('name').setDescription('Player of the name you own who you want to remove').setRequired(true))
+        .addUserOption(option => option.setName('username').setDescription('Username to remove the player from (if not yourself)').setRequired(false)),
     async execute(interaction) {
         let name = interaction.options.getString("name");
-        let username = interaction.user.username;
+        let commandUsername = interaction.user.username;
+        let retrievedUsername = interaction.options.getUser("username");
+        let username = "";
+
+        if(retrievedUsername){
+
+            username = retrievedUsername.username;
+        }
+        else{
+            username = commandUsername;
+        }
 
         team = await Team.RetrieveTeamByUser(username);
 
@@ -18,7 +29,7 @@ module.exports = {
             if(team.mPlayers[player].mPlayerName.includes(name)){
                 let changes = await Team.RemovePlayerFromTeamByID(team.mID,team.mPlayers[player].mID);
                 if(changes > 0 ){
-                    return interaction.reply(`The player ${name} was removed from your team.`);
+                    return interaction.reply(`The player ${name} was removed from the team ${team.mTeamName}.`);
                 }
             }
         }

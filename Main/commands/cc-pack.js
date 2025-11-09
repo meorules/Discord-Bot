@@ -181,11 +181,11 @@ module.exports = {
             if(currentTeam){
                 if(packValue > currentTeam.mBalance){
                     message.edit("You can't afford this pack!");
-                return;
+                    return;
                 }
                 if(currentTeam.mAutoAddPlayers==1){
                     let changes = await Team.AddPlayers(currentTeam.mID,players);
-                    if(changes != players.length()){
+                    if(changes != players.length){
                         rngedString = rngedString + "Some players were not added, contact Meo";
                     }
                 }

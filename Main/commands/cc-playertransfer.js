@@ -41,10 +41,10 @@ module.exports = {
 
         teamToRemove = await Team.RetrieveTeamByUser(username);
         teamToAdd = await Team.RetrieveTeamByUser(toUsername);
-
-        for(let player in team.mPlayers){
+        let changes = 0;
+        for(let player in teamToRemove.mPlayers){
                     if(teamToRemove.mPlayers[player].mPlayerName.includes(name)){
-                        let changes = await Team.RemovePlayerFromTeamByID(teamToRemove.mID,teamToRemove.mPlayers[player].mID);
+                        changes = await Team.RemovePlayerFromTeamByID(teamToRemove.mID,teamToRemove.mPlayers[player].mID);
                         if(changes == 0 ){
                             return interaction.reply('Unable to complete player transfer.');
                         }

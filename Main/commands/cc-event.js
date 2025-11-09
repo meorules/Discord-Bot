@@ -5,6 +5,7 @@ module.exports = {
         .setName('setupevent')
         .setDescription('Setup an event with reactions'),
     async execute(interaction) {
+        return interaction.reply("Not active");
         const r = await interaction.guild.roles.fetch("1261679081255206914");
         messageString = `${r} \n React for event \n :newspaper: Scattegories \n :paintbrush: Skribbl \n :map: Geoguesser \n :gun: Warzone \n:green_square: Bingo \n :snake: Curve \n :laughing: Meme \n :money_with_wings: Monopoly \n :question: Codenames \n :garlic: Gartic \n :black_joker: Cards Against Humanity \n   :golf: Putt Party \n :sushi: Amongus \n :detective: Mafia \n :bat: Unknown \n :race_car: Smash Karts \n :robot: Roblox \n :slot_machine: Poker \n :hamster: Hax`;
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
