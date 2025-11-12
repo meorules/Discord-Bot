@@ -16,6 +16,10 @@ module.exports = {
         let secondaryEmoji = interaction.options.getString("secondaryemoji");
         let username = interaction.user.username;
 
+        if(teamName.length > 35){
+            return interaction.reply(`The team has not been created, please enter a team name shorter than 36 characters long.`);
+        }
+
         let teamID = await Team.CreateTeam(teamName,primaryEmoji,secondaryEmoji,username);
         team = await Team.RetrieveTeamByID(teamID);
 

@@ -26,10 +26,18 @@ module.exports = {
         team = await Team.RetrieveTeamByUser(username);
 
         for(let player in team.mPlayers){
-            if(team.mPlayers[player].mPlayerName.includes(name)){
+            if(team.mPlayers[player].mPlayerName.toLowerCase().includes(name.toLowerCase().trim())){
                 let changes = await Team.RemovePlayerFromTeamByID(team.mID,team.mPlayers[player].mID);
                 if(changes > 0 ){
-                    return interaction.reply(`The player ${name} was removed from the team ${team.mTeamName}.`);
+                    try{
+                        const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                        let playersgeneratedString = await team.mPlayers[player].stringify();
+                        playerLogChannel.send("``` ``` \n" + Date() + " - **Player Removal Command** Team (" + team.mTeamName +  ") Player Removed:\n"+ playersgeneratedString);
+                    }
+                    catch(err){
+                        console.error(err);
+                    }
+                    return interaction.reply(`The following player was removed from the team ${team.mTeamName}:\n ${await team.mPlayers[player].stringify()}`);
                 }
             }
         }

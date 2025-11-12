@@ -146,6 +146,13 @@ module.exports = {
                 if(currentTeam.mAutoAddPlayers==1){
                     await Team.AddPlayers(currentTeam.mID,players);
                 }
+                const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                let playersgeneratedString = "";
+                for (let i = 0; i < size; i++) {
+                    playerString = await players[i].stringify();
+                    playersgeneratedString = playersgeneratedString + playerString + "\n";
+                }
+                playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  ") Players Added:\n"+ playersgeneratedString);
             }
             else{
                 rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
@@ -177,6 +184,7 @@ module.exports = {
 
         }
 
+        walkout = null;
         return;
     },
 };

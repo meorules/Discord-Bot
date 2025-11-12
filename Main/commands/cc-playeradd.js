@@ -33,7 +33,16 @@ module.exports = {
         if(playerToAdd){
             let changes = await Team.AddPlayers(team.mID,[playerToAdd]);
             if(changes > 0 ){
-                return interaction.reply(`The player ${playerToAdd.mPlayerName} was added to the team ${team.mTeamName}.`);
+                try{
+                    const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                    let playersgeneratedString = await playerToAdd.stringify();
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Player Add Command** Team (" + team.mTeamName +  ") Player Added:\n"+ playersgeneratedString);
+                }
+                catch(err){
+                    console.error(err);
+                }
+
+                return interaction.reply(`The following player was added to the team ${team.mTeamName}:\n ${await playerToAdd.stringify()}`);
             }
         }
 

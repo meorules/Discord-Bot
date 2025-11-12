@@ -45,7 +45,7 @@ module.exports = {
             fs.appendFileSync('Main/Log/moneyLog.txt', content);
 
             const channel = interaction.client.channels.cache.get("1436903358870061212");
-            channel.send(Date() + " - **Money Remove:** Team (" + team.mTeamName +  ") \nAmount (" + amount + ") Removed by (" + commandUsername + ")  \nNew Balance ("+ team.mBalance +") \n");
+            channel.send("``` ``` \n" + Date() + " - **Money Remove:** Team (" + team.mTeamName +  ") \nAmount (" + amount + ") Removed by (" + commandUsername + ")  \nNew Balance ("+ team.mBalance +") \n");
         // file written successfully
         } catch (err) {
             console.error(err);

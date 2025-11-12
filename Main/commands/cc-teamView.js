@@ -11,7 +11,7 @@ module.exports = {
             option
             .setName("page")
             .setRequired(false)
-            .setDescription("Each page is 20 players"),
+            .setDescription("Each page is 18 players"),
         )
         .addUserOption((option) =>
             option
@@ -39,15 +39,18 @@ module.exports = {
 
         team = await Team.RetrieveTeamByUser(username);
         //console.log(team);
-        playerStart = (page-1)*20 + 1;
+        playerStart = (page-1)*18;
         if (page == 1) {
             playerStart = 0;
         }
-        playersEnd = (page*20)+1;
+        playersEnd = playerStart + 18;
         condensedPlayers = team.mPlayers.slice(playerStart,playersEnd);
         condensedPlayers.sort(Player.sort);
+        if(playersEnd > team.mPlayers.length){
+            playersEnd = team.mPlayers.length
+        }
 
-        generatedString = team.stringify(false) + " Players: Page " + page + " - Count("+ condensedPlayers.length + ") \n";
+        generatedString = team.stringify(false) + " Players: Page " + page + " - Players "+ (playerStart+1) + "-" + (playersEnd) +  " out of " + team.mPlayers.length +" total players \n";
 
 
 

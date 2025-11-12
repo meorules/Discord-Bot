@@ -166,8 +166,13 @@ class Team {
         try{
             let count = 0;
             for(let player in players){
-                let result = await db.run("INSERT INTO TeamPlayers(TeamID,PlayerID,Upgrade) VALUES(?,?,?)",[teamID,players[player].mID,0]);
-                count += result.changes;
+                if(players[player]){
+                    let result = await db.run("INSERT INTO TeamPlayers(TeamID,PlayerID,Upgrade) VALUES(?,?,?)",[teamID,players[player].mID,0]);
+                    count += result.changes;
+                }
+                else{
+                    throw Error("Player to be added was null");
+                }
             }
                 return count;
         }
@@ -206,6 +211,38 @@ class Team {
         catch(err){
             console.error('❌ Query error:', err);
         }
+    }
+
+    static async TransferPlayer(oldTeam,newTeam,playerName){
+        let db = await ConnectToDB();
+        try{
+            let playerFound = null;
+            let playerFoundIndex = -1;
+            for(var player in oldTeam.mPlayers){
+                    if(oldTeam.mPlayers[player].mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
+                        playerFound = oldTeam.mPlayers[player];
+                        console.log(playerFoundIndex);
+                        playerFoundIndex=player;
+                        break;
+                    }
+            }
+            if(playerFound){
+                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [oldTeam.mID,playerFound.mID]);
+                if(row){
+                    const result = await db.run('UPDATE TeamPlayers SET TeamID = ? WHERE teamID = ? AND PlayerID = ?;',[newTeam.mID,oldTeam.mID,playerFound.mID]);
+                    if(result){
+                        return { playerTransferred: true, playerFoundIndex };
+                    }
+                }
+            }
+            else{
+                return { playerTransferred: false, playerFoundIndex };
+            }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+        return false;
     }
 
     static async RemovePlayerFromTeam(teamID,playerName){

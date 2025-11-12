@@ -24,6 +24,9 @@ module.exports = {
         switch(setting){
             case "Team Name":
                 fieldName = "TeamName";
+                if(value.length > 35){
+                    return interaction.reply(`The team name was not changed, please enter a team name shorter than 36 characters long.`);
+                }
                 break;
             case "Primary Emoji":
                 fieldName = "PrimaryColour";

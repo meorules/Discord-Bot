@@ -10,7 +10,7 @@ const Team = require('../modules/team.js')
 
 interactingUser = null;
 
-async function packOpenString(rating, count) {
+async function packOpenString(rating, count,interaction) {
 
     let packedPlayer = [];
     let player;
@@ -63,6 +63,18 @@ async function packOpenString(rating, count) {
     if(currentTeam){
         if(currentTeam.mAutoAddPlayers==1){
             await Team.AddPlayers(currentTeam.mID,packedPlayer);
+            try{
+                const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                let playersgeneratedString = "";
+                for (let j = 0; j < packedPlayer.length; j++) {
+                    playerString = await packedPlayer[j].stringify();
+                    playersgeneratedString = playersgeneratedString + playerString + "\n";
+                }
+                playerLogChannel.send("``` ``` \n" + Date() + " - **Rating RNG Pack** Team (" + currentTeam.mTeamName +  ") Player(s) Added:\n"+ playersgeneratedString);
+            }
+            catch(err){
+                console.error(err);
+            }
         }
     }
     else{
@@ -113,7 +125,7 @@ module.exports = {
         }
 
         try {
-            rngedString = await packOpenString(rating, count);
+            rngedString = await packOpenString(rating, count,interaction);
         } catch (error) {
             console.error(error);
         }

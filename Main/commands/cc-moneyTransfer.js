@@ -42,6 +42,10 @@ module.exports = {
             username = commandUsername;
         }
 
+        if(fromUsername == toUsername){
+            return interaction.reply("You think you're sly, you are not adding money like this lil bro.");
+        }
+
         teamFrom = await Team.RetrieveTeamByUser(username);
         teamFrom.updateBalance(-amount);
 
@@ -61,7 +65,7 @@ module.exports = {
             fs.appendFileSync('Main/Log/moneyLog.txt', content);
 
             const channel = interaction.client.channels.cache.get("1436903358870061212");
-            channel.send(Date() + " - **Money Transfer:** From Team (" + teamFrom.mTeamName +  ") - To Team (" + teamTo.mTeamName +  ")\nAmount(" + amount + ") Transfer made by by (" + username + ")  \n Balance of Team From ("+ teamFrom.mBalance +") - Balance of Team To ("+ teamTo.mBalance +")");
+            channel.send("``` ``` \n" + Date() + " - **Money Transfer:** From Team (" + teamFrom.mTeamName +  ") - To Team (" + teamTo.mTeamName +  ")\nAmount(" + amount + ") Transfer made by by (" + username + ")  \n Balance of Team From ("+ teamFrom.mBalance +") - Balance of Team To ("+ teamTo.mBalance +")");
         } catch (err) {
             console.error(err);
         }

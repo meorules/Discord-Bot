@@ -190,6 +190,7 @@ module.exports = {
                     }
                 }
                 currentTeam.updateBalance(-packValue);
+                rngedString = rngedString + "New Balance after opening pack is "+ currentTeam.mBalance;
             }
             else{
                 rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
@@ -203,6 +204,22 @@ module.exports = {
 
                     const content = Date() + " - Pack Opened: Team(" + ownerString +  ") Amount(" + packValue + ") Opened by (" + username + ")  - New Balance ("+ balanceString +") \n";
                     fs.appendFileSync('Main/Log/moneyLog.txt', content);
+
+                    const moneyLogChannel = interaction.client.channels.cache.get("1436903358870061212");
+                    moneyLogChannel.send("``` ``` \n" + Date() + " - Pack Opened: Team (" + ownerString +  ") Amount (" + packValue + ") Opened by (" + username + ")  - New Balance ("+ balanceString +") \n");
+        
+                    const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                    let playersgeneratedString = "";
+                    for (let i = 0; i < size; i++) {
+                        playerString = await players[i].stringify();
+                        playersgeneratedString = playersgeneratedString + playerString + "\n";
+                    }
+                    playersAddedString = ") Players Added:\n"
+                    if(currentTeam.mAutoAddPlayers==0){
+                        playersAddedString = ") Players Packed but NOT Added:\n"
+                    }
+
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName + playersAddedString + playersgeneratedString);
                 }
 
             // file written successfully
@@ -233,7 +250,7 @@ module.exports = {
                 eliteMessage.edit(eliteMessageString);
                 await new Promise(r => setTimeout(r, pauseTime));
             }
-
+            walkout = null;
         }
 
 

@@ -108,10 +108,10 @@ class Player{
         //Adding team
         toReturn += this.mTeam + " ";
         if(this.mGender == "Male"){
-            toReturn += ":man: ";
+            toReturn += ":male_sign: ";
         }
         else{
-            toReturn += ":woman: ";
+            toReturn += ":female_sign: ";
         }
 
         //Add Boost tag if there is one
