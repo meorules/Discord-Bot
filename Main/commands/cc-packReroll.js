@@ -125,6 +125,7 @@ module.exports = {
             .setDescription("The number of players you want to from each pack"),
         ),
     async execute(interaction) {
+        walkout = null;
         packName = interaction.options.getString("packname");
         count = interaction.options.getInteger("count");
         let username = interaction.user.username;
@@ -152,7 +153,7 @@ module.exports = {
                     playerString = await players[i].stringify();
                     playersgeneratedString = playersgeneratedString + playerString + "\n";
                 }
-                playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  ") Players Added:\n"+ playersgeneratedString);
+                playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players Added:\n"+ playersgeneratedString);
             }
             else{
                 rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"

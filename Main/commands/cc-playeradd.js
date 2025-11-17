@@ -36,7 +36,7 @@ module.exports = {
                 try{
                     const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
                     let playersgeneratedString = await playerToAdd.stringify();
-                    playerLogChannel.send("``` ``` \n" + Date() + " - **Player Add Command** Team (" + team.mTeamName +  ") Player Added:\n"+ playersgeneratedString);
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Player Add Command** Team (" + team.mTeamName +  "), Added by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Player Added:\n"+ playersgeneratedString);
                 }
                 catch(err){
                     console.error(err);

@@ -534,7 +534,7 @@ exports.countryAlphaCodeDictionary = {
   "England": "england",
   "Scotland": "scotland",
   "Wales": "wales",
-  "Northern Ireland": "flag_gb",
+  "Northern Ireland": "nir",
   "NotReal" : "flag_il",
   "Kosovo" : "flag_xk"
 };

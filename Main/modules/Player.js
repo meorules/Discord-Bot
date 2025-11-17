@@ -102,7 +102,13 @@ class Player{
         //Adding rating
         toReturn += this.mRating + " ";
         //Adding flag
-        toReturn += ":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": ";
+        let country = ":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": ";
+
+
+        if(country == ":nir: "){
+            country = "<:nir:1439364606974758952> ";
+        }
+        toReturn += country;
         //Adding name & position
         toReturn += "**"+ this.mPlayerName + " " + this.mPosition + "** ";
         //Adding team

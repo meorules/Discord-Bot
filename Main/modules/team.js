@@ -229,7 +229,7 @@ class Team {
             if(playerFound){
                 const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [oldTeam.mID,playerFound.mID]);
                 if(row){
-                    const result = await db.run('UPDATE TeamPlayers SET TeamID = ? WHERE teamID = ? AND PlayerID = ?;',[newTeam.mID,oldTeam.mID,playerFound.mID]);
+                    const result = await db.run('UPDATE TeamPlayers SET TeamID = ? WHERE ID = (SELECT ID FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? LIMIT 1)',[newTeam.mID,oldTeam.mID,playerFound.mID]);
                     if(result){
                         return { playerTransferred: true, playerFoundIndex };
                     }

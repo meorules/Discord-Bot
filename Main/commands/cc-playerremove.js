@@ -7,7 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('player-remove')
         .setDescription('Remove players from your team')
-        .addStringOption(option => option.setName('name').setDescription('Player of the name you own who you want to remove').setRequired(true))
+        .addStringOption(option => option.setName('name').setDescription('Name of the player you want to remove').setRequired(true))
         .addUserOption(option => option.setName('username').setDescription('Username to remove the player from (if not yourself)').setRequired(false)),
     async execute(interaction) {
         let name = interaction.options.getString("name");
@@ -16,8 +16,13 @@ module.exports = {
         let username = "";
 
         if(retrievedUsername){
+            if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ))){
 
+            return interaction.reply("You do not have permission to remove players from this team.");
+            }
+            else{
             username = retrievedUsername.username;
+            }
         }
         else{
             username = commandUsername;
@@ -32,7 +37,7 @@ module.exports = {
                     try{
                         const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
                         let playersgeneratedString = await team.mPlayers[player].stringify();
-                        playerLogChannel.send("``` ``` \n" + Date() + " - **Player Removal Command** Team (" + team.mTeamName +  ") Player Removed:\n"+ playersgeneratedString);
+                        playerLogChannel.send("``` ``` \n" + Date() + " - **Player Removal Command** Team (" + team.mTeamName +  "), Removed by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Player Removed:\n"+ playersgeneratedString);
                     }
                     catch(err){
                         console.error(err);

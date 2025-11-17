@@ -70,7 +70,7 @@ async function packOpenString(rating, count,interaction) {
                     playerString = await packedPlayer[j].stringify();
                     playersgeneratedString = playersgeneratedString + playerString + "\n";
                 }
-                playerLogChannel.send("``` ``` \n" + Date() + " - **Rating RNG Pack** Team (" + currentTeam.mTeamName +  ") Player(s) Added:\n"+ playersgeneratedString);
+                playerLogChannel.send("``` ``` \n" + Date() + " - **Rating RNG Pack** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " -  Player(s) Added:\n"+ playersgeneratedString);
             }
             catch(err){
                 console.error(err);

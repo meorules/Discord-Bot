@@ -102,7 +102,7 @@ async function main() {
     driver: sqlite3.Database
   });
 
-  const rows = await db.all("SELECT PlayerName FROM players");
+  const rows = await db.all("SELECT PlayerName FROM Players WHERE Gender = \"Male\" AND CardTypeID <= \"3\"");
   const names = rows.map(r => r.PlayerName);
 
   const { clean, excluded } = sanitisePlayers(names);

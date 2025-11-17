@@ -59,7 +59,7 @@ async function openPacks(pack, count) {
 
 
     if (pack == "Provisions Pack(35k)") {
-        pack = "Gold Pack(10k)";
+        pack = "Gold Pack(15k)";
         count = count * 5;
     }
 
@@ -105,7 +105,7 @@ async function packOpen(pack, count) {
     return players;
 }
 
-function calcPackBalance(pack){
+function calcPackBalance(pack,count){
     try{
         if(pack == "Gold Upgrade Pack(78+ x2)"){
             return 0;
@@ -113,7 +113,7 @@ function calcPackBalance(pack){
         else{
             let firstSplit = pack.split("(")[1];
             let secondSplit = firstSplit.split("k)")[0];
-            number = parseInt(secondSplit) * 1000;
+            number = parseInt(secondSplit) * 1000 * (count ? count : 1);
             return number;
         }
     }
@@ -151,6 +151,7 @@ module.exports = {
             .setDescription("If the pack is free, put 1 here, otherwise you can leave it"),
         ),
     async execute(interaction) {
+        walkout = null;
         let packName = interaction.options.getString("packname");
         let count = interaction.options.getInteger("count");
         let free = interaction.options.getBoolean("free");
@@ -167,7 +168,7 @@ module.exports = {
 
         let players = [];
         let rngedString = "";
-        let packValue = calcPackBalance(packName);
+        let packValue = calcPackBalance(packName, count);
 
         if(free){
             packValue = 0;
@@ -190,7 +191,9 @@ module.exports = {
                     }
                 }
                 currentTeam.updateBalance(-packValue);
-                rngedString = rngedString + "New Balance after opening pack is "+ currentTeam.mBalance;
+                if(packValue > 0){
+                    rngedString = rngedString + "New Balance after opening pack is "+ currentTeam.mBalance;
+                }
             }
             else{
                 rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
@@ -214,12 +217,12 @@ module.exports = {
                         playerString = await players[i].stringify();
                         playersgeneratedString = playersgeneratedString + playerString + "\n";
                     }
-                    playersAddedString = ") Players Added:\n"
+                    playersAddedString = " - Players Added:\n"
                     if(currentTeam.mAutoAddPlayers==0){
-                        playersAddedString = ") Players Packed but NOT Added:\n"
+                        playersAddedString = " - Players Packed but NOT Added:\n"
                     }
 
-                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName + playersAddedString + playersgeneratedString);
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName  +"), In Channel:" +  interaction.channel.name + playersAddedString + playersgeneratedString);
                 }
 
             // file written successfully

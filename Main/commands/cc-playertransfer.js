@@ -35,13 +35,16 @@ module.exports = {
             if(fromUsername == toUsername){
                 return interaction.reply("You think you're sly, you are not actually doing anything lol");
             }
-            console.log(commandUsername);
-            console.log(!commandUsername.toLowerCase().trim().includes("meo_rules") && !commandUsername.toLowerCase().trim().includes("mun25"));
-            if((!commandUsername.toLowerCase().trim().includes("meo_rules") && !commandUsername.toLowerCase().trim().includes("mun25")  && !commandUsername.toLowerCase().trim().includes("a.h.m.e.d.") && !commandUsername.toLowerCase().trim().includes("billygilmour") && !commandUsername.toLowerCase().trim().includes("witzbold_1704")) && fromUsername != commandUsername){
-                return interaction.reply("Only mods can transfer players which are not on their team. Please do not attempt to move a player from someone else's team.");
+            if(fromUsername.username != commandUsername){
+                if((!commandUsername.toLowerCase().trim().includes("meo_rules") && !commandUsername.toLowerCase().trim().includes("mun25")  && !commandUsername.toLowerCase().trim().includes("a.h.m.e.d.") && !commandUsername.toLowerCase().trim().includes("billygilmour") && !commandUsername.toLowerCase().trim().includes("witzbold_1704")) && fromUsername != commandUsername){
+                    return interaction.reply("Only mods can transfer players which are not on their team. Please do not attempt to move a player from someone else's team.");
+                }
+                else{
+                    username = fromUsername.username;
+                }
             }
             else{
-                username = fromUsername.username;
+                username = commandUsername;
             }
         }
         else{
@@ -57,7 +60,7 @@ module.exports = {
             try{
                 const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
                 let playersgeneratedString = await playerFound.stringify();
-                playerLogChannel.send("``` ``` \n" + Date() + " - **Player Transfer Command** Previous Team (" + teamToRemove.mTeamName +  ") New Team (" + teamToAdd.mTeamName +  ") Player Transferred:\n"+ playersgeneratedString);
+                playerLogChannel.send("``` ``` \n" + Date() + " - **Player Transfer Command** Previous Team (" + teamToRemove.mTeamName +  ") New Team (" + teamToAdd.mTeamName +  ") Transferred by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Player Transferred:\n"+ playersgeneratedString);
             }
             catch(err){
                 console.error(err);
