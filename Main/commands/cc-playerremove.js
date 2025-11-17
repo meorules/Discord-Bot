@@ -7,17 +7,47 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('player-remove')
         .setDescription('Remove players from your team')
-        .addStringOption(option => option.setName('name').setDescription('Player of the name you own who you want to remove').setRequired(true)),
+        .addStringOption(option => option.setName('name').setDescription('Name of the player you want to remove').setRequired(true))
+        .addUserOption(option => option.setName('username').setDescription('Username to remove the player from (if not yourself)').setRequired(false)),
     async execute(interaction) {
         let name = interaction.options.getString("name");
-        let username = interaction.user.username;
+        let commandUsername = interaction.user.username;
+        let retrievedUsername = interaction.options.getUser("username");
+        let username = "";
+
+        if(retrievedUsername){
+            if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ))){
+
+            return interaction.reply("You do not have permission to remove players from this team.");
+            }
+            else{
+            username = retrievedUsername.username;
+            }
+        }
+        else{
+            username = commandUsername;
+        }
 
         team = await Team.RetrieveTeamByUser(username);
-        let changes = await Team.RemovePlayerFromTeam(team.mID,name);
 
-        if(changes > 0 ){
-            return interaction.reply(`The player ${name} was removed from your team.`);
+        for(let player in team.mPlayers){
+            if(team.mPlayers[player].mPlayerName.toLowerCase().includes(name.toLowerCase().trim())){
+                let changes = await Team.RemovePlayerFromTeamByID(team.mID,team.mPlayers[player].mID);
+                if(changes > 0 ){
+                    try{
+                        const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                        let playersgeneratedString = await team.mPlayers[player].stringify();
+                        playerLogChannel.send("``` ``` \n" + Date() + " - **Player Removal Command** Team (" + team.mTeamName +  "), Removed by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Player Removed:\n"+ playersgeneratedString);
+                    }
+                    catch(err){
+                        console.error(err);
+                    }
+                    return interaction.reply(`The following player was removed from the team ${team.mTeamName}:\n ${await team.mPlayers[player].stringify()}`);
+                }
+            }
         }
+
+
         return interaction.reply('Unable to remove the player with name ' + name + ' from your team,');
     },
 };

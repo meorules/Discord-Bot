@@ -32,39 +32,44 @@ module.exports = {
         let username = "";
 
         if(fromUsername){
-
-            username = fromUsername.username;
+            if(fromUsername == toUsername){
+                return interaction.reply("You think you're sly, you are not actually doing anything lol");
+            }
+            if(fromUsername.username != commandUsername){
+                if((!commandUsername.toLowerCase().trim().includes("meo_rules") && !commandUsername.toLowerCase().trim().includes("mun25")  && !commandUsername.toLowerCase().trim().includes("a.h.m.e.d.") && !commandUsername.toLowerCase().trim().includes("billygilmour") && !commandUsername.toLowerCase().trim().includes("witzbold_1704")) && fromUsername != commandUsername){
+                    return interaction.reply("Only mods can transfer players which are not on their team. Please do not attempt to move a player from someone else's team.");
+                }
+                else{
+                    username = fromUsername.username;
+                }
+            }
+            else{
+                username = commandUsername;
+            }
         }
         else{
             username = commandUsername;
         }
 
+
         teamToRemove = await Team.RetrieveTeamByUser(username);
         teamToAdd = await Team.RetrieveTeamByUser(toUsername);
-
-        let changes = await Team.RemovePlayerFromTeam(teamToRemove.mID,name);
-
-        if(changes > 0 ){
+        const { playerTransferred, playerFoundIndex } = await Team.TransferPlayer(teamToRemove,teamToAdd,name);
+        if(playerTransferred && playerFoundIndex != -1){
+            let playerFound = teamToRemove.mPlayers[playerFoundIndex];
             try{
-                changes = await Team.AddPlayer(teamToAdd.mID,name);
-
-                if(changes > 0){
-                    return interaction.reply(`The player ${name} was removed from ${teamToRemove.mTeamName} and added to ${teamToAdd.mTeamName}`);
-                }
+                const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
+                let playersgeneratedString = await playerFound.stringify();
+                playerLogChannel.send("``` ``` \n" + Date() + " - **Player Transfer Command** Previous Team (" + teamToRemove.mTeamName +  ") New Team (" + teamToAdd.mTeamName +  ") Transferred by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Player Transferred:\n"+ playersgeneratedString);
             }
             catch(err){
-                console.error("Unable to add player, " + err);
-                changes = await Team.AddPlayer(teamToRemove.mID,name);
-                if(changes > 0 ){
-                    return interaction.reply(`Failed to add player to new team, player re-added to original team.`);
-                }
-                else{
-                    return interaction.reply(`Operation failed mid-way, please inform Meo.`);
-                }
+                console.error(err);
             }
+            return interaction.reply(`The following player was removed from ${teamToRemove.mTeamName} and added to ${teamToAdd.mTeamName}: \n ${await playerFound.stringify()}`);
+
         }
-
-
-        return interaction.reply('Unable to complete player transfer.');
+        else{
+            return interaction.reply('Unable to complete player transfer. Either the player is not on the team or the name passed in is incorrect.');
+        }
     },
 };

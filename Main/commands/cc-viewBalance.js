@@ -6,9 +6,26 @@ const Team = require('../modules/team.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('balance')
-        .setDescription('View your balance'),
+        .setDescription('View your balance')
+        .addUserOption((option) =>
+            option
+            .setName("username")
+            .setRequired(false)
+            .setDescription("Username to check the balance, if not yourself"),
+        ),
     async execute(interaction) {
-        let username = interaction.user.username;
+        let retrievedUsername = interaction.options.getUser("username");
+        let commandUsername = interaction.user.username;
+        let username ;
+
+        if(retrievedUsername){
+
+            username = retrievedUsername.username;
+        }
+        else{
+            username = commandUsername;
+        }
+        
 
         team = await Team.RetrieveTeamByUser(username);
         //console.log(team)

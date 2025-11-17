@@ -153,7 +153,7 @@ async function main(){
 
     //retrievedCardType = await CardType.RetrieveCardTypeByName("Gold");
     //console.log(retrievedCardType);
-    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players2.csv';
+    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players4.csv';
     await AddNewPromoPlayers(fileName);
     //retrievedPlayer = await Player.RetrievePlayerByName("Wirt");
     //console.log(retrievedPlayer);

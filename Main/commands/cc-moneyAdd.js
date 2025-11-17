@@ -40,13 +40,16 @@ module.exports = {
         try {
             const content = Date() + " - Money Add: Team(" + team.mTeamName +  ") Amount(" + amount + ") Added by (" + commandUsername + ")  - New Balance ("+ team.mBalance +") \n";
             fs.appendFileSync('Main/Log/moneyLog.txt', content);
+
+            const channel = interaction.client.channels.cache.get("1436903358870061212");
+            channel.send("``` ``` \n" + Date() + " - **Money Add:** Team (" + team.mTeamName +  ") \nAmount (" + amount + ") Added by (" + commandUsername + ")  \nNew Balance ("+ team.mBalance +") \n");
         // file written successfully
         } catch (err) {
             console.error(err);
         }
         //console.log(team)
-
-        generatedString = team.stringify(false,true);
+        generatedString = "Amount added: " + amount + " \n";
+        generatedString = generatedString + team.stringify(false,true);
 
         return interaction.reply(generatedString);
     },
