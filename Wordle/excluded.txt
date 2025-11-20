@@ -27,13 +27,14 @@ A. Wan-Bissaka — discarded: contains invalid characters
 M. De Cuyper — discarded: too many words
 J. van Hecke — discarded: too many words
 W. Zaïre-Emery — discarded: contains invalid characters
+P. Groß — discarded: contains unconvertible ligatures (œ/ß)
 R. Loftus-Cheek — discarded: contains invalid characters
 Ruiz de Galarreta — discarded: too many words
 A. El Kaabi — discarded: too many words
 Lee Kang In — discarded: too many words
 V. Milinković-Savić — discarded: contains invalid characters
 S. El Shaarawy — discarded: too many words
-A. Guðmundsson — discarded: contains invalid characters
+A. Guðmundsson — discarded: contains Icelandic letters ð/þ
 C. Carter-Vickers — discarded: contains invalid characters
 M. Lewis-Skelly — discarded: contains invalid characters
 C. Hudson-Odoi — discarded: contains invalid characters
@@ -77,6 +78,7 @@ M. Fernandez-Pardo — discarded: contains invalid characters
 M. Al Tamari — discarded: contains "Al"
 C. Egan-Riley — discarded: contains invalid characters
 A. Sambi Lokonga — discarded: too many words
+T. Krauß — discarded: contains unconvertible ligatures (œ/ß)
 D. da Costa — discarded: too many words
 A. Hanche-Olsen — discarded: contains invalid characters
 M. Pereira Lage — discarded: too many words
@@ -132,7 +134,7 @@ Jeong Woo Yeong — discarded: too many words
 F. Dele-Bashiru — discarded: contains invalid characters
 D. St. Clair — discarded: too many words
 E. Latte Lath — discarded: too many words
-N. Weißhaupt — discarded: contains invalid characters
+N. Weißhaupt — discarded: contains unconvertible ligatures (œ/ß)
 S. Raux-Yao — discarded: contains invalid characters
 J. Almada Monteiro — discarded: too many words
 J. de Haas — discarded: too many words
@@ -264,18 +266,20 @@ M. van Bergen — discarded: too many words
 T. Gardner-Hickman — discarded: contains invalid characters
 J. Rankin-Costello — discarded: contains invalid characters
 B. Thomas-Asante — discarded: contains invalid characters
-S. Þórðarson — discarded: contains invalid characters
+S. Þórðarson — discarded: contains Icelandic letters ð/þ
 H. ter Avest — discarded: too many words
 S. Amo-Ameyaw — discarded: contains invalid characters
 T. Le Bris — discarded: too many words
 T. Sainte-Luce — discarded: contains invalid characters
 C. Antwi-Adjei — discarded: contains invalid characters
+J. Þorsteinsson — discarded: contains Icelandic letters ð/þ
 F. Le Joncour — discarded: too many words
+Þ. Helgason — discarded: contains Icelandic letters ð/þ
 M. De Luca — discarded: too many words
 G. Di Chiara — discarded: too many words
 F. Delli Carri — discarded: too many words
 Kim Joon Hong — discarded: too many words
-A. Sigurðsson — discarded: contains invalid characters
+A. Sigurðsson — discarded: contains Icelandic letters ð/þ
 S. Leach Holm — discarded: too many words
 T. Jabol-Folcarelli — discarded: contains invalid characters
 M. Ben Ouanes — discarded: too many words
@@ -316,7 +320,8 @@ D. Sanches Fernandes — discarded: too many words
 A. Van Hoorenbeeck — discarded: too many words
 F. de Keijzer — discarded: too many words
 B. Martins Indi — discarded: too many words
-A. Guðjohnsen — discarded: contains invalid characters
+M. Weiß — discarded: contains unconvertible ligatures (œ/ß)
+A. Guðjohnsen — discarded: contains Icelandic letters ð/þ
 R. Norrington-Davies — discarded: contains invalid characters
 C. Blackett-Taylor — discarded: contains invalid characters
 I. Samuels-Smith — discarded: contains invalid characters
@@ -325,7 +330,7 @@ A. Ait Boudlal — discarded: too many words
 S. El Mala — discarded: too many words
 N. Sarenren Bazee — discarded: too many words
 O. Batista Meier — discarded: too many words
-R. Heußer — discarded: contains invalid characters
+R. Heußer — discarded: contains unconvertible ligatures (œ/ß)
 J. de Wijs — discarded: too many words
 R. Di Gennaro — discarded: too many words
 B. Norton-Cuffy — discarded: contains invalid characters
@@ -426,6 +431,7 @@ T. Al Ammar — discarded: contains "Al"
 D. Da Silva — discarded: too many words
 L. Martínez Dupuy — discarded: too many words
 J. Dos Santos — discarded: too many words
+M. Krauß — discarded: contains unconvertible ligatures (œ/ß)
 J. Jensen-Abbew — discarded: contains invalid characters
 K. Van de Perre — discarded: too many words
 E. van der Gouw — discarded: too many words
@@ -439,18 +445,19 @@ L. Le Roux — discarded: too many words
 T. De Percin — discarded: too many words
 S. El Mourabet — discarded: too many words
 M. El Idrissy — discarded: too many words
-M. Großer — discarded: contains invalid characters
-R. Preißinger — discarded: contains invalid characters
+L. Rieß — discarded: contains unconvertible ligatures (œ/ß)
+M. Großer — discarded: contains unconvertible ligatures (œ/ß)
+R. Preißinger — discarded: contains unconvertible ligatures (œ/ß)
 F. Di Michele Sanchez — discarded: too many words
 G. Di Serio — discarded: too many words
 M. Haile-Selassie — discarded: contains invalid characters
 D. Etienne Jr — discarded: too many words
 Jeong Sang Bin — discarded: too many words
-S. Sigurðarson — discarded: contains invalid characters
+S. Sigurðarson — discarded: contains Icelandic letters ð/þ
 Alberto del Moral — discarded: too many words
 K. de la Fuente — discarded: too many words
 De la Rosa — discarded: too many words
-K. Þórðarson — discarded: contains invalid characters
+K. Þórðarson — discarded: contains Icelandic letters ð/þ
 S. Martinsson Ngouali — discarded: too many words
 H. Rönnlöf Castegren — discarded: too many words
 J. Osei-Tutu — discarded: contains invalid characters
@@ -497,7 +504,7 @@ B. Barros Schelotto — discarded: too many words
 D. de la Cruz — discarded: too many words
 F. La Mantía — discarded: too many words
 P. de la Cruz — discarded: too many words
-R. Meißner — discarded: contains invalid characters
+R. Meißner — discarded: contains unconvertible ligatures (œ/ß)
 Y. van Nieff — discarded: too many words
 J. Pereyra Díaz — discarded: too many words
 N. De Wilde — discarded: too many words
@@ -505,6 +512,7 @@ A. van Axel Dongen — discarded: too many words
 D. van der Haar — discarded: too many words
 G. de Regt — discarded: too many words
 M. te Wierik — discarded: too many words
+N. Þórisson — discarded: contains Icelandic letters ð/þ
 Wanya Marçal — discarded: contains "Al"
 N. Saint-Ruf — discarded: contains invalid characters
 F. Alfa-Ruprecht — discarded: contains invalid characters
@@ -551,7 +559,7 @@ Lee Jung Taek — discarded: too many words
 Oh Seung Hoon — discarded: too many words
 Jeong Chi In — discarded: too many words
 Hong Jung Un — discarded: too many words
-H. Friðjónsson — discarded: contains invalid characters
+H. Friðjónsson — discarded: contains Icelandic letters ð/þ
 Choi Kyoung Rok — discarded: too many words
 Lee Kang Hyeon — discarded: too many words
 Cho Sung Gwon — discarded: too many words
@@ -597,7 +605,8 @@ K. O'Toole — discarded: contains "O'"
 J. Reitan-Sunde — discarded: contains invalid characters
 J. Hjertø-Dahl — discarded: contains invalid characters
 J. de Boer — discarded: too many words
-S. Guðjohnsen — discarded: contains invalid characters
+J. Bjartalíð — discarded: contains Icelandic letters ð/þ
+S. Guðjohnsen — discarded: contains Icelandic letters ð/þ
 W. O'Hora — discarded: contains "O'"
 J. El-Abdellaoui — discarded: contains invalid characters
 M. Nilsson Säfqvist — discarded: too many words
@@ -610,9 +619,9 @@ F. Blake-Tracy — discarded: contains invalid characters
 R. Edmonds-Green — discarded: contains invalid characters
 U. Godwin-Malifé — discarded: contains invalid characters
 A. O'Connor — discarded: contains "O'"
-G. Þórðarson — discarded: contains invalid characters
+G. Þórðarson — discarded: contains Icelandic letters ð/þ
 B. van Hoeven — discarded: too many words
-M. Faßbender — discarded: contains invalid characters
+M. Faßbender — discarded: contains unconvertible ligatures (œ/ß)
 C. Inao Oulaï — discarded: too many words
 Lee Seung Mo — discarded: too many words
 Yoon Jong Gyu — discarded: too many words
@@ -639,7 +648,7 @@ J. Courtney-Perkins — discarded: contains invalid characters
 A. de la Cuesta — discarded: too many words
 C. Rey Domenech — discarded: too many words
 R. Elongo-Yombo — discarded: contains invalid characters
-T. Meißner — discarded: contains invalid characters
+T. Meißner — discarded: contains unconvertible ligatures (œ/ß)
 N. De Cat — discarded: too many words
 M. Al Sahafi — discarded: contains "Al"
 J. van de Haar — discarded: too many words
@@ -658,19 +667,19 @@ A. De Cristofaro — discarded: too many words
 K. Kossa-Rienzi — discarded: contains invalid characters
 J. Girdwood-Reich — discarded: contains invalid characters
 J. Marshall-Rutty — discarded: contains invalid characters
-E. Guðmundsson — discarded: contains invalid characters
+E. Guðmundsson — discarded: contains Icelandic letters ð/þ
 C. Landu-Landu — discarded: contains invalid characters
 S. O'Donnell — discarded: contains "O'"
 H. Abaida El Achhab — discarded: too many words
 J. Nguono Ochieng — discarded: too many words
-D. Guðjohnsen — discarded: contains invalid characters
+D. Guðjohnsen — discarded: contains Icelandic letters ð/þ
 K. Höög Jansson — discarded: too many words
 R. Niklasson Petrovic — discarded: too many words
 M. de Brienne — discarded: too many words
 J. Doyle-Hayes — discarded: contains invalid characters
 N. Guinness-Walker — discarded: contains invalid characters
 C. Conn-Clarke — discarded: contains invalid characters
-J. Svanþórs­son — discarded: contains invalid characters
+J. Svanþórs­son — discarded: contains Icelandic letters ð/þ
 R. Hepburn-Murphy — discarded: contains invalid characters
 M. Southam-Hales — discarded: contains invalid characters
 M. Haglind-Sangré — discarded: contains invalid characters
@@ -778,6 +787,8 @@ M. Al Baqawi — discarded: contains "Al"
 M. Al Rashidi — discarded: contains "Al"
 K. Al Samiri — discarded: contains "Al"
 L. D'Arrigo — discarded: contains invalid characters
+C. Noß — discarded: contains unconvertible ligatures (œ/ß)
+A. Groiß — discarded: contains unconvertible ligatures (œ/ß)
 S. Gomez van Hoogen — discarded: too many words
 R. Mitongo Muteba — discarded: too many words
 T. De Vlieger — discarded: too many words
@@ -982,7 +993,7 @@ K. Al Dawsari — discarded: contains "Al"
 M. Di Pizio — discarded: too many words
 J. de Asís — discarded: too many words
 N. Awortwie-Grant — discarded: contains invalid characters
-T. Dierßen — discarded: contains invalid characters
+T. Dierßen — discarded: contains unconvertible ligatures (œ/ß)
 P. Singh Gill — discarded: too many words
 M. El Âdfaoui — discarded: too many words
 M. Mau-Asam — discarded: contains invalid characters
@@ -998,6 +1009,7 @@ E. Amundsen-Day — discarded: contains invalid characters
 T. Samuel-Ogunsuyi — discarded: contains invalid characters
 Jaime Sánchez-Rubio — discarded: contains invalid characters
 W. Lindberg Uhrström — discarded: too many words
+R. Þorkelsson — discarded: contains Icelandic letters ð/þ
 J. Okine-Peters — discarded: contains invalid characters
 D. McCoy-Splatt — discarded: contains invalid characters
 K. Thompson-Sommers — discarded: contains invalid characters
@@ -1079,7 +1091,7 @@ S. Al Shehri — discarded: contains "Al"
 L. Brooke-Smith — discarded: contains invalid characters
 F. Roa Conchie — discarded: too many words
 M. de Lima — discarded: too many words
-K. Freßle — discarded: contains invalid characters
+K. Freßle — discarded: contains unconvertible ligatures (œ/ß)
 N. Kumar Sekar — discarded: too many words
 D. de Ornelas — discarded: too many words
 A. van der Spa — discarded: too many words
@@ -1185,7 +1197,7 @@ N. Al Shwaier — discarded: contains "Al"
 M. Al Shammari — discarded: contains "Al"
 M. Al Dawsari — discarded: contains "Al"
 Sun Zheng'ao — discarded: contains invalid characters
-L. Faßmann — discarded: contains invalid characters
+L. Faßmann — discarded: contains unconvertible ligatures (œ/ß)
 N. El Ouarti — discarded: too many words
 B. De Jaegere — discarded: too many words
 R. Ramos Jr — discarded: too many words

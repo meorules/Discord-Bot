@@ -377,7 +377,6 @@ const players = [
   "PAIXAO",             // Igor Paixão
   "GUERREIRO",          // R. Guerreiro
   "JACKSON",            // N. Jackson
-  "GROSS",                // P. Groß
   "SABITZER",           // M. Sabitzer
   "HONORAT",            // F. Honorat
   "GRIFO",              // V. Grifo
@@ -1313,7 +1312,6 @@ const players = [
   "MUHEIM",             // M. Muheim
   "TORUNARIGHA",        // J. Torunarigha
   "ZIELER",             // R. Zieler
-  "KRAU",               // T. Krauß
   "QUANSAH",            // J. Quansah
   "LEWELING",           // J. Leweling
   "BOUANANI",           // B. Bouanani
@@ -4099,7 +4097,6 @@ const players = [
   "STROMPF",            // P. Strompf
   "ITTER",              // L. Itter
   "ZEEFUIK",            // D. Zeefuik
-  "ORSTEINSSON",        // J. Þorsteinsson
   "ERNST",              // T. Ernst
   "GECHTER",            // L. Gechter
   "KRATTENMACHER",      // M. Krattenmacher
@@ -4150,7 +4147,6 @@ const players = [
   "EBOSSE",             // E. Ebosse
   "SLOTSAGER",          // T. Slotsager
   "KOUASSI",            // O. Kouassi
-  "HELGASON",           // Þ. Helgason
   "LEZZERINI",          // L. Lezzerini
   "ELLERTSSON",         // M. Ellertsson
   "ANGORI",             // S. Angori
@@ -4634,7 +4630,6 @@ const players = [
   "NGUMOHA",            // R. Ngumoha
   "RUDDY",              // J. Ruddy
   "OSULA",              // W. Osula
-  "WEI",                // M. Weiß
   "AHAMADA",            // N. Ahamada
   "VALDIMARSSON",       // H. Valdimarsson
   "BARADJI",            // M. Baradji
@@ -6195,7 +6190,6 @@ const players = [
   "DRLJACA",            // S. Drljača
   "DIEHL",              // J. Diehl
   "TAUER",              // N. Tauer
-  "RIE",                // L. Rieß
   "BOBZIEN",            // B. Bobzien
   "SEELT",              // J. Seelt
   "DAGHIM",             // A. Daghim
@@ -6842,7 +6836,6 @@ const players = [
   "HAMDAOUI",           // M. Hamdaoui
   "TEJAN",              // K. Tejan
   "VELTHUIS",           // T. Velthuis
-  "ORISSON",            // N. Þórisson
   "BURROWES",           // B. Burrowes
   "OBI",                // C. Obi
   "FREDRICSON",         // T. Fredricson
@@ -7715,7 +7708,6 @@ const players = [
   "SORAS",              // T. Sørås
   "GRANATH",            // G. Granath
   "SMAJLOVIC",          // Z. Smajlović
-  "BJARTALI",           // J. Bjartalíð
   "OHLENSCHLAEGER",     // O. Øhlenschlæger
   "SKOGVOLD",           // H. Skogvold
   "HALVORSEN",          // V. Halvorsen
@@ -9338,7 +9330,6 @@ const players = [
   "LATTEIER",           // T. Latteier
   "SYMALLA",            // J. Symalla
   "TOPKEN",             // T. Töpken
-  "NO",                 // C. Noß
   "BORKOWSKI",          // D. Borkowski
   "JESSEN",             // N. Jessen
   "CASTELLE",           // N. Castelle
@@ -9363,7 +9354,6 @@ const players = [
   "HENNRICH",           // P. Hennrich
   "LASSIG",             // V. Lässig
   "BAHR",               // F. Bähr
-  "GROI",               // A. Groiß
   "NANKISHI",           // A. Nankishi
   "PLATH",              // M. Plath
   "NDUKA",              // D. Nduka
@@ -10204,6 +10194,7 @@ const players = [
   "RUIFENG",            // Huang Ruifeng
   "GUOWEN",             // Sun Guowen
   "RUOFAN",             // Liu Ruofan
+  "WEI",                // Chen Wei
   "CHAOSHENG",          // Yang Chaosheng
   "JIANAN",             // Wang Jianan
   "TAO",                // Jian Tao
@@ -10722,7 +10713,6 @@ const players = [
   "BOLMA",              // S. Bolma
   "HILVENIUS",          // H. Hilvenius
   "ENGDAHL",            // B. Engdahl
-  "ORKELSSON",          // R. Þorkelsson
   "NILDEN",             // C. Nildén
   "COTTON",             // O. Cotton
   "HEDSTROM",           // E. Hedström

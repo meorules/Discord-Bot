@@ -20,7 +20,10 @@ function stripAccents(str) {
     "Ü": "U", "ü": "u",
     "Ç": "C", "ç": "c",
     "Ł": "L", "ł": "l",
-    "İ": "I", "ı": "i"
+    "İ": "I", "ı": "i",
+    "Œ": "OE","œ": "oe",
+    "Ð": "D","ð": "d",
+    "ẞ": "SS","ß": "ss"
   };
 
   result = result.replace(/./g, c => replacements[c] || c);
@@ -51,6 +54,18 @@ function sanitisePlayers(list, { suffixes = DEFAULT_SUFFIXES } = {}) {
       excluded.push(`${trimmed} — discarded: contains "Al"`);
       continue;
     }
+
+    // Exclude names with ð or þ
+    if (/[ðþ]/i.test(trimmed)) {
+      excluded.push(`${trimmed} — discarded: contains Icelandic letters ð/þ`);
+      continue;
+    }
+
+    if (/[œŒßẞ]/.test(trimmed)) {
+      excluded.push(`${trimmed} — discarded: contains unconvertible ligatures (œ/ß)`);
+      continue;
+    }
+
 
     if (trimmed === "") {
       excluded.push(`${raw} — discarded: empty after trim`);
