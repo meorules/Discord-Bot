@@ -2,6 +2,7 @@ const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 
 mPriorityList = []
+mPromoValues = []
 class CardType {
 
     static mPriorityList = [];
@@ -67,6 +68,9 @@ class CardType {
             rows.forEach(row => {
                 let cdToBeAdded = {"cardTypeID": row.CardTypeID,"priority": row.Priority};
                 mPriorityList.push(cdToBeAdded);
+                if(row.CardTypeID > 5){
+                    mPromoValues.push({name: row.CardType, value: row.CardTypeID});
+                }
             });
             
             return true;
