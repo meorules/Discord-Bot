@@ -285,14 +285,14 @@ class Player{
     }
 
     
-    static async RetrievePlayersByCardType(cardTypeID){
+    static async RetrievePlayersByCardType(cardTypeID,packable){
     
         let db = await ConnectToDB();
 
         let players = [];
 
         if(cardTypeID>5){
-            let placeholderPlayers = await this.RetrievePackablePromoPlayers(50,99);
+            let placeholderPlayers = await this.RetrievePackablePromoPlayers(50,99,packable);
             for(let player in placeholderPlayers){
                 if(placeholderPlayers[player].mCardTypeID == cardTypeID){
                    players.push(placeholderPlayers[player]);
@@ -332,11 +332,18 @@ class Player{
         }
     }
 
-    static async RetrievePackablePromoPlayers(minRating,maxRating){
+    static async RetrievePackablePromoPlayers(minRating,maxRating,packable=1){
         let db = await ConnectToDB();
         let players = [];
+        let baseQuery = "SELECT * FROM PromoPlayers";
+        if(packable == 1){
+            baseQuery = baseQuery + " WHERE Packable = 1 ;"
+        }  
+        else{
+            baseQuery = baseQuery + " ;"
+        }
         try{
-            const rows = await db.all("SELECT * FROM PromoPlayers WHERE Packable = 1 ;", []);
+            const rows = await db.all(baseQuery, []);
 
             for(const row of rows){
                 let correspondingPlayer = await Player.RetrievePlayerByID(row.PromoPlayerID);
