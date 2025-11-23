@@ -194,17 +194,27 @@ class Team {
 
     }
 
-    static async EditPlayerUpgrade(teamID,playerName,upgrade){
+    static async EditPlayerUpgrade(team,playerName,upgrade){
         let db = await ConnectToDB();
         try{
 
-            let correspondingPlayer = await Player.RetrievePlayerByName(playerName); 
-            if(correspondingPlayer){
-                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [teamID,correspondingPlayer.mID]);
+            let playerFound = null;
+            let playerFoundIndex = -1;
+            for(var player in team.mPlayers){
+                    if(team.mPlayers[player].mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
+                        playerFound = team.mPlayers[player];
+                       
+                        playerFoundIndex=player;
+                        break;
+                    }
+            }
+            if(playerFound){
+                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [team.mID,playerFound.mID]);
+                
                 if(row){
-                    const result = await db.run('UPDATE TeamPlayers SET Upgrade = ? WHERE teamID = ? AND PlayerID = ?;',[upgrade,teamID,correspondingPlayer.mID]);
-                    correspondingPlayer.upgrade(upgrade);
-                    return correspondingPlayer;
+                    const result = await db.run('UPDATE TeamPlayers SET Upgrade = ? WHERE teamID = ? AND PlayerID = ?;',[upgrade,team.mID,playerFound.mID]);
+                    playerFound.upgrade(upgrade);
+                    return playerFound;
                 }
             }
         }
@@ -221,7 +231,7 @@ class Team {
             for(var player in oldTeam.mPlayers){
                     if(oldTeam.mPlayers[player].mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
                         playerFound = oldTeam.mPlayers[player];
-                        console.log(playerFoundIndex);
+                        
                         playerFoundIndex=player;
                         break;
                     }

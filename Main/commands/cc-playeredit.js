@@ -20,7 +20,7 @@ module.exports = {
         let username = interaction.user.username;
 
         team = await Team.RetrieveTeamByUser(username);
-        let player = await Team.EditPlayerUpgrade(team.mID,name,upgrade);
+        let player = await Team.EditPlayerUpgrade(team,name,upgrade);
 
         if(player){
             return interaction.reply(`The player was edited succesfully in your team, these are the new details: \n ${await player.stringify()}`);

@@ -240,6 +240,30 @@ class Player{
         }
     }
 
+        static async RetrievePlayersByName(name){
+
+        let db = await ConnectToDB();
+        name = '%' + name + '%';
+        let params = [];
+        params.push(name);
+
+        let baseSQL = "SELECT * FROM Players WHERE PlayerName LIKE ? ;"
+
+        let players = [];
+        try{
+            const rows = await db.all(baseSQL, params);
+            
+            for(const row of rows){
+                const PlayerToReturn = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
+                players.push(PlayerToReturn);
+            }
+            return players;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    }
+
     static async RetrievePlayersByRating(rating){
     
         let db = await ConnectToDB();
@@ -334,7 +358,7 @@ class Player{
         //console.log(player);
 
         try{
-            const row = await db.get("SELECT * FROM PromoPlayers WHERE BasePlayerID = ? ;", [player.mID]);
+            const row = await db.get("SELECT * FROM PromoPlayers WHERE BasePlayerID = ? AND Packable = 1;", [player.mID]);
 
             if(row){
                 player = await Player.RetrievePlayerByID(row.PromoPlayerID); 
@@ -359,10 +383,10 @@ class Player{
             let cardTypeBPriority = mPriorityList.find(o => o.cardTypeID == playerB.mCardTypeID);
 
             if (cardTypeAPriority < cardTypeBPriority){
-                return 1;
+                return -1;
             }
             else if(cardTypeAPriority > cardTypeBPriority){
-                return -1;
+                return 1;
             }
             else{
                 return 0;
