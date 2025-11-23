@@ -822,3 +822,8 @@ Mon Nov 17 2025 03:41:57 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Spaghe
 Mon Nov 17 2025 03:42:17 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Indian ISIS) Amount(750) Added by (meo_rules)  - New Balance (3425) 
 Mon Nov 17 2025 03:42:42 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Monkey Shampoo) Amount(750) Added by (meo_rules)  - New Balance (11775) 
 Mon Nov 17 2025 03:42:51 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Spicy Bombay Butter Chicken Pizza) Amount(750) Added by (meo_rules)  - New Balance (10650) 
+Sun Nov 23 2025 21:41:43 GMT+0000 (Greenwich Mean Time) - Money Add: Team(ViniVidiVici) Amount(2000) Added by (mun25)  - New Balance (7350) 
+Sun Nov 23 2025 21:41:50 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Al Momayizeen Musiala & Co) Amount(2000) Added by (mun25)  - New Balance (4250) 
+Sun Nov 23 2025 21:42:07 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Carlton’s Clarets) Amount(1750) Added by (mun25)  - New Balance (37650) 
+Sun Nov 23 2025 21:42:22 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Merseyside Mongs) Amount(1750) Added by (mun25)  - New Balance (37050) 
+Sun Nov 23 2025 21:42:29 GMT+0000 (Greenwich Mean Time) - Money Add: Team(RCD Fentanyol) Amount(1750) Added by (mun25)  - New Balance (11700) 

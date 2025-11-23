@@ -136,7 +136,7 @@ module.exports = {
 
         messageString = "This is the pack :eyes:"
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
-        await interaction.reply({ content: 'Rolling odds', flags: MessageFlags.Ephemeral }); 
+        await interaction.reply({ content: 'Rolling odds' }); 
 
 
         try {

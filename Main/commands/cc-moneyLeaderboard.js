@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder,MessageFlags } = require('discord.js');
 
 const Player = require('../modules/Player.js');
 const Team = require('../modules/team.js');
