@@ -28,8 +28,13 @@ module.exports = {
         let username = "";
 
         if(retrievedUsername){
+            if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ))){
 
+            return interaction.reply("You do not have permission to remove money from this user.");
+            }
+            else{
             username = retrievedUsername.username;
+            }
         }
         else{
             username = commandUsername;
