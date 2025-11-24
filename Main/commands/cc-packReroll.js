@@ -186,6 +186,7 @@ module.exports = {
         }
 
         walkout = null;
+        rngedString = "";
         return;
     },
 };

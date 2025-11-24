@@ -827,3 +827,8 @@ Sun Nov 23 2025 21:41:50 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Al Mom
 Sun Nov 23 2025 21:42:07 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Carlton’s Clarets) Amount(1750) Added by (mun25)  - New Balance (37650) 
 Sun Nov 23 2025 21:42:22 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Merseyside Mongs) Amount(1750) Added by (mun25)  - New Balance (37050) 
 Sun Nov 23 2025 21:42:29 GMT+0000 (Greenwich Mean Time) - Money Add: Team(RCD Fentanyol) Amount(1750) Added by (mun25)  - New Balance (11700) 
+Mon Nov 24 2025 12:37:10 GMT+0000 (Greenwich Mean Time) - Money Add: Team(Harimau Amerika Selatan) Amount(750) Added by (meo_rules)  - New Balance (34850) 
+Mon Nov 24 2025 12:37:14 GMT+0000 (Greenwich Mean Time) - Pack Opened: Team(RCD Fentanyol) Amount(0) Opened by (simonepadoin_)  - New Balance (6700) 
+Mon Nov 24 2025 12:37:47 GMT+0000 (Greenwich Mean Time) - Money Add: Team(PoseidonAcademy) Amount(1000) Added by (billygilmour)  - New Balance (8500) 
+Mon Nov 24 2025 12:38:00 GMT+0000 (Greenwich Mean Time) - Money Add: Team(PoseidonAcademy) Amount(1000) Added by (billygilmour)  - New Balance (9500) 
+Mon Nov 24 2025 12:53:12 GMT+0000 (Greenwich Mean Time) - Pack Opened: Team(Harimau Amerika Selatan) Amount(15000) Opened by (lolfattenski)  - New Balance (19850) 

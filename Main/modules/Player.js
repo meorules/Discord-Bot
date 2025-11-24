@@ -102,8 +102,15 @@ class Player{
         //Adding rating
         toReturn += this.mRating + " ";
         //Adding flag
-        let country = ":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": ";
-
+        let country = "";
+        try{
+            country = ":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": ";
+        }
+        catch(err){
+            console.error('❌ Country code not found for country: ' + this.mCountry);
+            console.error('PlayerJS::stringify()');
+            country = ":flag_white: ";
+        }
 
         if(country == ":nir: "){
             country = "<:nir:1439364606974758952> ";
@@ -265,6 +272,26 @@ class Player{
     }
 
     static async RetrievePlayersByRating(rating){
+    
+        let db = await ConnectToDB();
+
+        let players = [];
+        try{
+            const rows = await db.all("SELECT * FROM Players WHERE Rating = ? AND CardTypeID < 4 ;", [rating]);
+
+            rows.forEach(row => {
+                let player = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
+                players.push(player);
+            });
+
+            return players;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    }
+
+    static async RetrievePlayersByRatingBroken(rating){
     
         let db = await ConnectToDB();
 

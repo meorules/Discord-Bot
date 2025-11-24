@@ -47,7 +47,9 @@ client.on(Events.InteractionCreate, async interaction => {
     try {
         fs.writeFileSync(logFilePath, "Username: " + interaction.user.username + ",", { flag: 'a+' });
         fs.writeFileSync(logFilePath, "Command Used: " + interaction.commandName + ",", { flag: 'a+' });
+        fs.writeFileSync(logFilePath, "Options passed in" + interaction.options + ",", { flag: 'a+' });
         console.log(interaction.user.username);
+        console.log(interaction.commandName);
         console.log(interaction.options);
         for (option in interaction.options._hoistedOptions) {
             fs.writeFileSync(logFilePath, "Option " + interaction.options._hoistedOptions[option].name + ":" + interaction.options._hoistedOptions[option].value + ",", { flag: 'a+' });
