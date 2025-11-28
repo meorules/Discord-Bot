@@ -106,7 +106,7 @@ module.exports = {
         .addIntegerOption((option) =>
             option
             .setName("rating")
-            .setRequired(true)
+            .setRequired(false)
             .setDescription("The rating you want to rng, put -1 for non-elite special, -2 for random elite"),
         )
         .addIntegerOption((option) =>
@@ -117,11 +117,16 @@ module.exports = {
         ),
     async execute(interaction) {
         interactingUser = interaction.user.username;
-        let rating = interaction.options.getInteger("rating");
+        let rating = interaction.options.getInteger("rating") || null;
         let count = interaction.options.getInteger("count");
 
         if (count == null) {
             count = 1;
+        }
+
+        if (rating == null) {
+            interaction.reply(`Please supply a rating`);
+            return;
         }
 
         try {

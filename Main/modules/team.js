@@ -147,6 +147,9 @@ class Team {
             for(let row in rows){
                 var correspondingPlayer = await Player.RetrievePlayerByID(rows[row].PlayerID);
                 correspondingPlayer.upgrade(rows[row].Upgrade);
+                if(rows[row].Positions){
+                    correspondingPlayer.addPosition(rows[row].Positions);
+                }
                 players.push(correspondingPlayer);
             }
 
@@ -201,6 +204,7 @@ class Team {
             let playerFound = null;
             let playerFoundIndex = -1;
             for(var player in team.mPlayers){
+                    playerFoundIndex++;
                     if(team.mPlayers[player].mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
                         playerFound = team.mPlayers[player];
                        
@@ -212,10 +216,67 @@ class Team {
                 const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [team.mID,playerFound.mID]);
                 
                 if(row){
-                    const result = await db.run('UPDATE TeamPlayers SET Upgrade = ? WHERE teamID = ? AND PlayerID = ?;',[upgrade,team.mID,playerFound.mID]);
                     playerFound.upgrade(upgrade);
+                    const result = await db.run('UPDATE TeamPlayers SET Upgrade = ? WHERE teamID = ? AND PlayerID = ?;',[playerFound.mUpgrade,team.mID,playerFound.mID]);
+                    team.mPlayers[playerFoundIndex] = playerFound;
                     return playerFound;
                 }
+            }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    }
+
+    static async EditPlayerPosition(team,playerName,position){
+        let db = await ConnectToDB();
+        try{
+
+            let playerFound = null;
+            let playerFoundIndex = -1;
+            for(var player in team.mPlayers){
+                    playerFoundIndex++;
+                    if(team.mPlayers[player].mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
+                        playerFound = team.mPlayers[player];
+                       
+                        playerFoundIndex=player;
+                        break;
+                    }
+            }
+            if(playerFound){
+                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [team.mID,playerFound.mID]);
+                //Add random adjacent position
+                if(position == "1"){
+                    let positionAdded = playerFound.addRandomAdjacentPosition();
+                    let currentPositions;
+                    if(row.Positions){
+                        currentPositions = row.Positions + " " + positionAdded;
+                    }
+                    else{
+                        currentPositions = positionAdded;
+                    }
+                    const result = await db.run('UPDATE TeamPlayers SET Positions = ? WHERE teamID = ? AND PlayerID = ?;',[currentPositions,team.mID,playerFound.mID]);
+                }
+                //Remove all positions
+                else if(position == "2"){
+                    playerFound.resetPosition(row.Positions);
+                    const result = await db.run('UPDATE TeamPlayers SET Positions = "" WHERE teamID = ? AND PlayerID = ?;',[team.mID,playerFound.mID]);
+                }
+                else{
+                    if(!row.Positions.includes(position)){
+                        playerFound.addPosition(position);
+                        let currentPositions;
+                        if(row.Positions){
+                            currentPositions = row.Positions + " " + position;
+                        }
+                        else{
+                            currentPositions = position;
+                        }                        
+                        const result = await db.run('UPDATE TeamPlayers SET Positions = ? WHERE teamID = ? AND PlayerID = ?;',[currentPositions,team.mID,playerFound.mID]);
+                    }
+                }
+                team.mPlayers[playerFoundIndex] = playerFound;
+                return playerFound;
             }
         }
         catch(err){

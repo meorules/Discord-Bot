@@ -143,17 +143,25 @@ module.exports = {
             players = await packOpen(packName, count);
             rngedString = await generateString(packName,players,count);
             let currentTeam = await Team.RetrieveTeamByUser(username);
+            const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
             if(currentTeam){
                 if(currentTeam.mAutoAddPlayers==1){
                     await Team.AddPlayers(currentTeam.mID,players);
+                    let playersgeneratedString = "";
+                    for (let i = 0; i < size; i++) {
+                        playerString = await players[i].stringify();
+                        playersgeneratedString = playersgeneratedString + playerString + "\n";
+                    }
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players Added:\n"+ playersgeneratedString);
                 }
-                const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
-                let playersgeneratedString = "";
-                for (let i = 0; i < size; i++) {
-                    playerString = await players[i].stringify();
-                    playersgeneratedString = playersgeneratedString + playerString + "\n";
+                else{
+                    let playersgeneratedString = "";
+                    for (let i = 0; i < size; i++) {
+                        playerString = await players[i].stringify();
+                        playersgeneratedString = playersgeneratedString + playerString + "\n";
+                    }
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players NOT Added:\n"+ playersgeneratedString);
                 }
-                playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players Added:\n"+ playersgeneratedString);
             }
             else{
                 rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"

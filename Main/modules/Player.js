@@ -5,6 +5,20 @@ const countryCodeArrays = require('../countrycodes.js')
 
 const CardType = require('./cardType.js');
 
+//Adjacent Positions Map
+// 
+positonMap = [{"CB": ["LB","RB","CDM"]},
+{"LB": ["CB","LM","CDM"]},
+{"RB": ["CB","RM","CDM"]},
+{"CDM": ["CB","CM","LB","RB"]},
+{"CM": ["LM","RM","CDM","CAM"]},
+{"CAM": ["LM","RM","CM","ST","LW","RW"]},
+{"LM": ["LW","LB","CM"]},
+{"RM": ["RW","RB","CM"]},
+{"LW": ["LM","ST","CAM"]},
+{"RW": ["RM","ST","CAM"]},
+{"ST": ["LW","CAM","RW"]}];
+
 class Player{
 
     constructor(id, name, cardTypeId, position,age, rating, team, league, height, weight, crossing, finishing, heading, jumping, penalties, weakFoot, skillMoves, passing, defending, attacking,country, url, gender,boost){
@@ -33,6 +47,7 @@ class Player{
         this.mGender = gender;
         this.mBoost = boost;
         this.mUpgrade = 0;
+        this.mOwner = null;
     }
 
     setAttributes(id, name, cardTypeId, position,age, rating, team, league, height, weight, crossing, finishing, heading, jumping, penalties, weakFoot, skillMoves, passing, defending, attacking,country, url, gender,boost){
@@ -70,7 +85,7 @@ class Player{
     }
 
     upgrade(amount){
-        this.mUpgrade = amount;
+        this.mUpgrade += amount;
         this.mRating += amount;
         this.mCrossing += amount;
         this.mFinishing += amount;
@@ -80,6 +95,53 @@ class Player{
         this.mPassing += amount;
         this.mDefending += amount;
         this.mAttacking += amount;
+    }
+
+    downgrade(amount){
+        this.upgrade(-amount);
+    }
+
+    setOwner(owner){
+        this.mOwner = owner;
+    }
+
+    addPosition(position){
+        this.mPosition = this.mPosition + " " + position;
+    }
+
+    resetPosition(positionsToRemove){
+        let correctPosition = "";
+        let splitPosition = this.mPosition.split(" ");
+        for(let pos of splitPosition){
+            if(positionsToRemove.includes(pos)){
+                continue;
+            }
+            else{
+                correctPosition = correctPosition + " " + pos;
+            }
+        }
+        this.mPosition = correctPosition.trim();
+    }
+
+    addRandomAdjacentPosition(){
+        let potentialPositions = [];
+        let splitPosition = this.mPosition.split(" ");
+        for(let pos of splitPosition){
+            let adjacentPositions = positonMap.find(o => Object.keys(o)[0] == pos);
+            if(adjacentPositions){
+                for(let adjPos of adjacentPositions[pos]){
+                    if(!splitPosition.includes(adjPos) && !potentialPositions.includes(adjPos)){
+                        potentialPositions.push(adjPos);
+                    }
+                }
+            }
+        }
+        if(potentialPositions.length > 0){
+            let randomIndex = Math.floor(Math.random() * potentialPositions.length);
+            let positionAdded = potentialPositions[randomIndex];
+            this.addPosition(positionAdded);
+            return positionAdded;
+        }
     }
 
     async stringify(){
@@ -92,7 +154,7 @@ class Player{
         //Adding Emoji
         toReturn += retrievedCardType.mEmoji + " ";
         //Adding extra card type for specials
-        if(this.mCardTypeID != '1' || this.mCardTypeID != '2'|| this.mCardTypeID != '3'){
+        if(this.mCardTypeID != '1' && this.mCardTypeID != '2' && this.mCardTypeID != '3'){
             toReturn += "**" + retrievedCardType.mCardType + "** ";
         }
         //Adding league if it is a hero
@@ -137,6 +199,10 @@ class Player{
         }
         else if(this.mUpgrade < 0 ){
             toReturn += " :arrow_down: " + this.mUpgrade;
+        }
+
+        if(this.mOwner){
+            toReturn += "- *" + this.mOwner.mDiscordUsername + "*";
         }
 
         return toReturn;

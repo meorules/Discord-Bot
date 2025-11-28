@@ -1,0 +1,127 @@
+const { SlashCommandBuilder } = require('discord.js');
+
+const Player = require('../modules/Player.js');
+const Team = require('../modules/team.js');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('db-view')
+        .setDescription('View all Players owned by a user in the database')        
+        .addIntegerOption((option) =>
+            option
+            .setName("page")
+            .setRequired(false)
+            .setDescription("Each page is 18 players"),
+        )
+        .addStringOption((option) =>
+            option
+            .setName("club")
+            .setRequired(false)
+            .setDescription("Club to filter by"),
+        )        
+        .addStringOption((option) =>
+            option
+            .setName("nation")
+            .setRequired(false)
+            .setDescription("Nation to filter by"),
+        )
+        .addIntegerOption((option) =>
+            option
+            .setName("maxrating")
+            .setRequired(false)
+            .setDescription("Maximum rating to filter by"),
+        )
+        .addIntegerOption((option) =>
+            option
+            .setName("minrating")
+            .setRequired(false)
+            .setDescription("Minimum rating to filter by"),
+        ),
+    async execute(interaction) {
+        let page = interaction.options.getInteger("page");
+        let clubFilter = interaction.options.getString("club");
+        let nationFilter = interaction.options.getString("nation");
+        let maxRatingFilter = interaction.options.getInteger("maxrating");
+        let minRatingFilter = interaction.options.getInteger("minrating");
+
+
+        if (page == null) {
+            page = 1;
+        }
+
+        let teams = await Team.RetrieveAllTeams();  
+        let totalPlayers = [];
+
+        for(let team of teams){
+            let addPlayer = true;
+            for(let player of team.mPlayers){
+                if(clubFilter && player.mTeam.toLowerCase().trim().includes(clubFilter.toLowerCase().trim()) && nationFilter && player.mCountry.toLowerCase().trim().includes(nationFilter.toLowerCase().trim())){
+                    addPlayer = true;
+                }
+                else if(!clubFilter && nationFilter && player.mCountry.toLowerCase().trim().includes(nationFilter.toLowerCase().trim())){
+                    addPlayer = true;
+                }
+                else if(!nationFilter && clubFilter && player.mTeam.toLowerCase().trim().includes(clubFilter.toLowerCase().trim())){
+                    addPlayer = true;
+                }
+                else if(!clubFilter && !nationFilter){
+                    addPlayer = true;
+                }
+                else{
+                    addPlayer = false;
+                }
+
+                if(addPlayer){
+                    if(!maxRatingFilter && !minRatingFilter){
+                        addPlayer = true;
+                    }
+                    else if(maxRatingFilter && !minRatingFilter && player.mRating <= maxRatingFilter){
+                        addPlayer = true;
+                    }
+                    else if(!maxRatingFilter && minRatingFilter && player.mRating >= minRatingFilter){
+                        addPlayer = true;
+                    }
+                    else if(maxRatingFilter && minRatingFilter && player.mRating <= maxRatingFilter && player.mRating >= minRatingFilter){
+                        addPlayer = true;
+                    }
+                    else{
+                        addPlayer = false;
+                    }
+                }
+
+                if(addPlayer){
+                    player.setOwner(team);
+                    totalPlayers.push(player);
+                }
+            }
+        }
+
+        //Add way to merge players from different teams and put their owners on the player string
+
+        totalPlayers.sort(Player.sort);
+        playerStart = (page-1)*15;
+        if (page == 1) {
+            playerStart = 0;
+        }
+        playersEnd = playerStart + 15;
+
+
+
+        condensedPlayers = totalPlayers.slice(playerStart,playersEnd);
+        condensedPlayers.sort(Player.sort);
+        if(playersEnd > totalPlayers.length){
+            playersEnd = totalPlayers.length
+        }
+
+        generatedString = " Players: Page " + page + " - Players "+ (playerStart+1) + "-" + (playersEnd) +  " out of " + totalPlayers.length +" total players \n";
+
+
+
+        for(player in condensedPlayers){
+            generatedString = generatedString + await condensedPlayers[player].stringify() + "\n";
+        }
+
+
+        return interaction.reply(generatedString);
+    },
+};
