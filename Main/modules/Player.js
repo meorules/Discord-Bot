@@ -7,7 +7,7 @@ const CardType = require('./cardType.js');
 
 //Adjacent Positions Map
 // 
-positonMap = [{"CB": ["LB","RB","CDM"]},
+positionMap = [{"CB": ["LB","RB","CDM"]},
 {"LB": ["CB","LM","CDM"]},
 {"RB": ["CB","RM","CDM"]},
 {"CDM": ["CB","CM","LB","RB"]},
@@ -127,7 +127,7 @@ class Player{
         let potentialPositions = [];
         let splitPosition = this.mPosition.split(" ");
         for(let pos of splitPosition){
-            let adjacentPositions = positonMap.find(o => Object.keys(o)[0] == pos);
+            let adjacentPositions = positionMap.find(o => Object.keys(o)[0] == pos);
             if(adjacentPositions){
                 for(let adjPos of adjacentPositions[pos]){
                     if(!splitPosition.includes(adjPos) && !potentialPositions.includes(adjPos)){
@@ -166,7 +166,13 @@ class Player{
         //Adding flag
         let country = "";
         try{
-            country = ":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": ";
+            country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
+            if(country == "nir"){
+                toReturn += "<:nir:1439364606974758952> ";
+            }
+            else{
+                toReturn += ":" + country + ": ";
+            }
         }
         catch(err){
             console.error('❌ Country code not found for country: ' + this.mCountry);
@@ -174,10 +180,6 @@ class Player{
             country = ":flag_white: ";
         }
 
-        if(country == ":nir: "){
-            country = "<:nir:1439364606974758952> ";
-        }
-        toReturn += country;
         //Adding name & position
         toReturn += "**"+ this.mPlayerName + " " + this.mPosition + "** ";
         //Adding team

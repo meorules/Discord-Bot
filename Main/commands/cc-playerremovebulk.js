@@ -66,7 +66,6 @@ module.exports = {
         console.log(unableToRemove);
         if(unableToRemove.length > 0){
             unableToRemoveString = unableToRemove.join(", ");
-            console.log(unableToRemoveString);
         }
 
         try{
@@ -77,10 +76,10 @@ module.exports = {
                 playerLogChannel.send("``` ``` \n" + Date() + " - **Player Bulk Removal Command** Team (" + team.mTeamName +  "), Removed by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Players Removed:\n"+ playersgeneratedString);
                 
                 if(removedPlayers.length == names.length){
-                    return interaction.reply(`The following players were removed from the team ${team.mTeamName}:\n ${playersgeneratedString}`);
+                    return interaction.reply(`The following players were removed from the team ${team.mTeamName}:\n${playersgeneratedString}`);
                 }
                 else{
-                    return interaction.reply(`The following players were removed from the team ${team.mTeamName}:\n ${playersgeneratedString}\nUnable to remove the following players: ${unableToRemoveString}`);
+                    return interaction.reply(`The following players were removed from the team ${team.mTeamName}:\n${playersgeneratedString}\nUnable to remove the following players: ${unableToRemoveString}`);
                 }
             }
         }

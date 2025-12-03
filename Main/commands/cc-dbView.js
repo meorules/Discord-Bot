@@ -36,20 +36,37 @@ module.exports = {
             .setName("minrating")
             .setRequired(false)
             .setDescription("Minimum rating to filter by"),
-        ),
+        )
+        .addBooleanOption((option) =>
+            option
+            .setName("gender")
+            .setRequired(false)
+            .setDescription("Filter by gender (true for male, false for female)")
+        )
+        .addUserOption((option) =>
+            option
+            .setName("owner")
+            .setRequired(false)
+            .setDescription("Show only players that are owned by a user") 
+        ),       
     async execute(interaction) {
         let page = interaction.options.getInteger("page");
         let clubFilter = interaction.options.getString("club");
         let nationFilter = interaction.options.getString("nation");
         let maxRatingFilter = interaction.options.getInteger("maxrating");
         let minRatingFilter = interaction.options.getInteger("minrating");
-
+        let genderFilter = interaction.options.getBoolean("gender");
+        let ownerFilter = interaction.options.getUser("owner");
 
         if (page == null) {
             page = 1;
         }
 
-        let teams = await Team.RetrieveAllTeams();  
+        let teams = await Team.RetrieveAllTeams();
+        if(ownerFilter){
+            currentTeam = await Team.RetrieveTeamByUser(ownerFilter.username);
+            teams = [currentTeam];
+        }
         let totalPlayers = [];
 
         for(let team of teams){
@@ -82,6 +99,21 @@ module.exports = {
                         addPlayer = true;
                     }
                     else if(maxRatingFilter && minRatingFilter && player.mRating <= maxRatingFilter && player.mRating >= minRatingFilter){
+                        addPlayer = true;
+                    }
+                    else{
+                        addPlayer = false;
+                    }
+                }
+
+                if(addPlayer){
+                    if(genderFilter == null){
+                        addPlayer = true;
+                    }
+                    else if(genderFilter != null && genderFilter && player.mGender == "Male"){
+                        addPlayer = true;
+                    }
+                    else if(genderFilter != null && !genderFilter && player.mGender == "Female"){
                         addPlayer = true;
                     }
                     else{

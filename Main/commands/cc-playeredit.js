@@ -43,7 +43,7 @@ module.exports = {
         }
 
         if(player){
-            return interaction.reply(`The player was edited succesfully in your team, these are the new details: \n ${await player.stringify()}`);
+            return interaction.reply(`The player was edited successfully in your team, these are the new details: \n ${await player.stringify()}`);
         }
         return interaction.reply('Unable to edit the player upgrade for ' + name);
     },

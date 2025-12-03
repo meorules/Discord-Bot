@@ -44,7 +44,7 @@ module.exports = {
         if(changes > 0 ){
             team = await Team.RetrieveTeamByUser(username);
 
-            return interaction.reply(`The team was edited succesfully, these are the new details: \n ${team.stringify(true)}`);
+            return interaction.reply(`The team was edited successfully, these are the new details: \n ${team.stringify(true)}`);
         }
         else{
         return interaction.reply('Unable to edit the team settings');

@@ -5,23 +5,23 @@ const Player = require('./Player.js');
 
 class Team {
 
-    constructor(id,teamName,primaryColour,secondaryColour,discordusername,autoAddPlayers,balance){
+    constructor(id,teamName,primaryColour,secondaryColour,discordUsername,autoAddPlayers,balance){
         this.mID = id;
         this.mTeamName = teamName;
         this.mPrimaryColour = primaryColour;
         this.mSecondaryColour = secondaryColour;
-        this.mDiscordUsername = discordusername;
+        this.mDiscordUsername = discordUsername;
         this.mAutoAddPlayers = autoAddPlayers;
         this.mBalance = balance;
         this.mPlayers = null;
     }
 
-    setAttributes(id,teamName,primaryColour,secondaryColour,discordusername,autoAddPlayers,players,balance){
+    setAttributes(id,teamName,primaryColour,secondaryColour,discordUsername,autoAddPlayers,players,balance){
         this.mID = id;
         this.mTeamName = teamName;
         this.mPrimaryColour = primaryColour;
         this.mSecondaryColour = secondaryColour;
-        this.mDiscordUsername = discordusername;
+        this.mDiscordUsername = discordUsername;
         this.mAutoAddPlayers = autoAddPlayers;
         this.mBalance = balance;
         this.mPlayers = players;
@@ -232,7 +232,7 @@ class Team {
         let db = await ConnectToDB();
         try{
 
-            let playerFound = null;
+            var playerFound = null;
             let playerFoundIndex = -1;
             for(var player in team.mPlayers){
                     playerFoundIndex++;
@@ -263,21 +263,23 @@ class Team {
                     const result = await db.run('UPDATE TeamPlayers SET Positions = "" WHERE teamID = ? AND PlayerID = ?;',[team.mID,playerFound.mID]);
                 }
                 else{
-                    if(!row.Positions.includes(position)){
-                        playerFound.addPosition(position);
-                        let currentPositions;
-                        if(row.Positions){
+                    let currentPositions;
+                    if(row.Positions){                    
+                        if(!row.Positions.includes(position)){
+                            playerFound.addPosition(position);
                             currentPositions = row.Positions + " " + position;
                         }
-                        else{
-                            currentPositions = position;
-                        }                        
-                        const result = await db.run('UPDATE TeamPlayers SET Positions = ? WHERE teamID = ? AND PlayerID = ?;',[currentPositions,team.mID,playerFound.mID]);
                     }
+                    else{
+                        currentPositions = position;
+                        playerFound.addPosition(position);
+                    }                        
+                    const result = await db.run('UPDATE TeamPlayers SET Positions = ? WHERE teamID = ? AND PlayerID = ?;',[currentPositions,team.mID,playerFound.mID]);
                 }
-                team.mPlayers[playerFoundIndex] = playerFound;
-                return playerFound;
             }
+            console.log(playerFound);
+            team.mPlayers[playerFoundIndex] = playerFound;
+            return playerFound;
         }
         catch(err){
             console.error('❌ Query error:', err);
