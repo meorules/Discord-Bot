@@ -1,0 +1,661 @@
+ID,Team,League,scraped_date
+1,Liverpool,Premier League,2025-12-09 01:28:35
+2,Paris Saint-Germain,Ligue 1,2025-12-09 01:28:35
+3,Real Madrid,La Liga,2025-12-09 01:28:35
+4,Arsenal,Premier League,2025-12-09 01:28:35
+5,Manchester City,Premier League,2025-12-09 01:28:35
+6,FC Bayern München,Bundesliga,2025-12-09 01:28:35
+7,FC Barcelona,La Liga,2025-12-09 01:28:35
+8,Inter,Serie A,2025-12-09 01:28:35
+9,Atlético Madrid,La Liga,2025-12-09 01:28:35
+10,Chelsea,Premier League,2025-12-09 01:28:35
+11,Newcastle United,Premier League,2025-12-09 01:28:35
+12,Tottenham Hotspur,Premier League,2025-12-09 01:28:35
+13,Borussia Dortmund,Bundesliga,2025-12-09 01:28:35
+14,AC Milan,Serie A,2025-12-09 01:28:35
+15,Napoli,Serie A,2025-12-09 01:28:35
+16,Aston Villa,Premier League,2025-12-09 01:28:35
+17,Manchester United,Premier League,2025-12-09 01:28:35
+18,Juventus,Serie A,2025-12-09 01:28:35
+19,Roma,Serie A,2025-12-09 01:28:35
+20,Galatasaray SK,Süper Lig,2025-12-09 01:28:35
+21,Athletic Club,La Liga,2025-12-09 01:28:35
+22,Crystal Palace,Premier League,2025-12-09 01:28:35
+23,Nottingham Forest,Premier League,2025-12-09 01:28:35
+24,Bayer 04 Leverkusen,Bundesliga,2025-12-09 01:28:35
+25,Atalanta,Serie A,2025-12-09 01:28:35
+26,RB Leipzig,Bundesliga,2025-12-09 01:28:35
+27,Lazio,Serie A,2025-12-09 01:28:35
+28,Fenerbahçe SK,Süper Lig,2025-12-09 01:28:35
+29,Olympique de Marseille,Ligue 1,2025-12-09 01:28:35
+30,Villarreal CF,La Liga,2025-12-09 01:28:35
+31,Sporting CP,Primeira Liga,2025-12-09 01:28:35
+32,Brighton & Hove Albion,Premier League,2025-12-09 01:28:35
+33,Eintracht Frankfurt,Bundesliga,2025-12-09 01:28:35
+34,AS Monaco,Ligue 1,2025-12-09 01:28:35
+35,Fulham FC,Premier League,2025-12-09 01:28:35
+36,AFC Bournemouth,Premier League,2025-12-09 01:28:35
+37,Real Betis Balompié,La Liga,2025-12-09 01:28:35
+38,SL Benfica,Primeira Liga,2025-12-09 01:28:35
+39,Everton,Premier League,2025-12-09 01:28:35
+40,West Ham United,Premier League,2025-12-09 01:28:35
+41,VfB Stuttgart,Bundesliga,2025-12-09 01:28:35
+42,Fiorentina,Serie A,2025-12-09 01:28:35
+43,Al Hilal,Pro League,2025-12-09 01:28:35
+44,Sunderland,Premier League,2025-12-09 01:28:35
+45,Brentford,Premier League,2025-12-09 01:28:35
+46,Real Sociedad,La Liga,2025-12-09 01:28:35
+47,Rayo Vallecano,La Liga,2025-12-09 01:28:35
+48,FC Porto,Primeira Liga,2025-12-09 01:28:35
+49,PSV,Eredivisie,2025-12-09 01:28:35
+50,Leeds United,Premier League,2025-12-09 01:28:35
+51,Al Nassr,Pro League,2025-12-09 01:28:35
+52,Flamengo,Série A,2025-12-09 01:28:35
+53,Olympiacos FC,Super League,2025-12-09 01:28:35
+54,Torino,Serie A,2025-12-09 01:28:35
+55,Lille OSC,Ligue 1,2025-12-09 01:28:35
+56,Olympique Lyonnais,Ligue 1,2025-12-09 01:28:35
+57,Beşiktaş JK,Süper Lig,2025-12-09 01:28:35
+58,OGC Nice,Ligue 1,2025-12-09 01:28:35
+59,Stade Rennais FC,Ligue 1,2025-12-09 01:28:35
+60,Al Ittihad,Pro League,2025-12-09 01:28:35
+61,Wolverhampton Wanderers,Premier League,2025-12-09 01:28:35
+62,VfL Wolfsburg,Bundesliga,2025-12-09 01:28:35
+63,Bologna,Serie A,2025-12-09 01:28:35
+64,RC Celta,La Liga,2025-12-09 01:28:35
+65,RCD Mallorca,La Liga,2025-12-09 01:28:35
+66,Valencia CF,La Liga,2025-12-09 01:28:35
+67,Como,Serie A,2025-12-09 01:28:35
+68,CA Osasuna,La Liga,2025-12-09 01:28:35
+69,Girona FC,La Liga,2025-12-09 01:28:35
+70,Burnley,Premier League,2025-12-09 01:28:35
+71,Botafogo,Série A,2025-12-09 01:28:35
+72,SK Slavia Praha,První liga,2025-12-09 01:28:35
+73,Atlético Mineiro,Série A,2025-12-09 01:28:35
+74,Borussia Mönchengladbach,Bundesliga,2025-12-09 01:28:35
+75,SC Freiburg,Bundesliga,2025-12-09 01:28:35
+76,SV Werder Bremen,Bundesliga,2025-12-09 01:28:35
+77,1. FC Union Berlin,Bundesliga,2025-12-09 01:28:35
+78,TSG 1899 Hoffenheim,Bundesliga,2025-12-09 01:28:35
+79,RC Lens,Ligue 1,2025-12-09 01:28:35
+80,Getafe CF,La Liga,2025-12-09 01:28:35
+81,RC Strasbourg Alsace,Ligue 1,2025-12-09 01:28:35
+82,Celtic,Premiership,2025-12-09 01:28:35
+83,River Plate,Liga Profesional de Fútbol,2025-12-09 01:28:35
+84,Boca Juniors,Liga Profesional de Fútbol,2025-12-09 01:28:35
+85,Palmeiras,Série A,2025-12-09 01:28:35
+86,1. FSV Mainz 05,Bundesliga,2025-12-09 01:28:35
+87,RCD Espanyol,La Liga,2025-12-09 01:28:35
+88,Sevilla FC,La Liga,2025-12-09 01:28:35
+89,Ajax,Eredivisie,2025-12-09 01:28:35
+90,Feyenoord,Eredivisie,2025-12-09 01:28:35
+91,Al Ahli SFC,Pro League,2025-12-09 01:28:35
+92,Al Qadsiah FC,Pro League,2025-12-09 01:28:35
+93,AEK Athens,Super League,2025-12-09 01:28:35
+94,Internacional,Série A,2025-12-09 01:28:35
+95,1. FC Köln,Bundesliga,2025-12-09 01:28:35
+96,FC Augsburg,Bundesliga,2025-12-09 01:28:35
+97,Panathinaikos FC,Super League,2025-12-09 01:28:35
+98,Sassuolo,Serie A,2025-12-09 01:28:35
+99,Sporting Clube de Braga,Primeira Liga,2025-12-09 01:28:35
+100,Stade Brestois 29,Ligue 1,2025-12-09 01:28:35
+101,PAOK,Super League,2025-12-09 01:28:35
+102,Trabzonspor,Süper Lig,2025-12-09 01:28:35
+103,Paris FC,Ligue 1,2025-12-09 01:28:35
+104,Deportivo Alavés,La Liga,2025-12-09 01:28:35
+105,Racing Club,Liga Profesional de Fútbol,2025-12-09 01:28:35
+106,Union Saint-Gilloise,Pro League,2025-12-09 01:28:35
+107,Club Brugge KV,Pro League,2025-12-09 01:28:35
+108,Sparta Praha,První liga,2025-12-09 01:28:35
+109,Southampton,Championship,2025-12-09 01:28:35
+110,Corinthians,Série A,2025-12-09 01:28:35
+111,Hamburger SV,Bundesliga,2025-12-09 01:28:35
+112,Parma,Serie A,2025-12-09 01:28:35
+113,Cagliari,Serie A,2025-12-09 01:28:35
+114,Udinese,Serie A,2025-12-09 01:28:35
+115,Levante UD,La Liga,2025-12-09 01:28:35
+116,Cremonese,Serie A,2025-12-09 01:28:35
+117,Rangers FC,Premiership,2025-12-09 01:28:35
+118,São Paulo,Série A,2025-12-09 01:28:35
+119,Ipswich Town,Championship,2025-12-09 01:28:35
+120,Leicester City,Championship,2025-12-09 01:28:35
+121,AZ Alkmaar,Eredivisie,2025-12-09 01:28:35
+122,Medipol Başakşehir FK,Süper Lig,2025-12-09 01:28:35
+123,KRC Genk,Pro League,2025-12-09 01:28:35
+124,Hellas Verona FC,Serie A,2025-12-09 01:28:35
+125,Elche CF,La Liga,2025-12-09 01:28:35
+126,Estudiantes de La Plata,Liga Profesional de Fútbol,2025-12-09 01:28:35
+127,Genoa,Serie A,2025-12-09 01:28:35
+128,Vélez Sarsfield,Liga Profesional de Fútbol,2025-12-09 01:28:35
+129,Real Oviedo,La Liga,2025-12-09 01:28:35
+130,Rosario Central,Liga Profesional de Fútbol,2025-12-09 01:28:35
+131,Sheffield United,Championship,2025-12-09 01:28:35
+132,Coventry City,Championship,2025-12-09 01:28:35
+133,Toulouse FC,Ligue 1,2025-12-09 01:28:35
+134,Talleres,Liga Profesional de Fútbol,2025-12-09 01:28:35
+135,FC København,Superliga,2025-12-09 01:28:35
+136,Palermo FC,Serie B,2025-12-09 01:28:35
+137,Fluminense,Série A,2025-12-09 01:28:35
+138,Cruzeiro,Série A,2025-12-09 01:28:35
+139,Lanús,Liga Profesional de Fútbol,2025-12-09 01:28:35
+140,Bahia,Série A,2025-12-09 01:28:35
+141,UD Almería,La Liga 2,2025-12-09 01:28:35
+142,FC Nantes,Ligue 1,2025-12-09 01:28:35
+143,Ferencvárosi Torna Club,Nemzeti Bajnokság I,2025-12-09 01:28:35
+144,Lecce,Serie A,2025-12-09 01:28:35
+145,Grêmio,Série A,2025-12-09 01:28:35
+146,1. FC Heidenheim 1846,Bundesliga,2025-12-09 01:28:35
+147,Viktoria Plzeň,První liga,2025-12-09 01:28:35
+148,Argentinos Juniors,Liga Profesional de Fútbol,2025-12-09 01:28:35
+149,Dynamo Kyiv,Premier League,2025-12-09 01:28:35
+150,Shakhtar Donetsk,Premier League,2025-12-09 01:28:35
+151,Monza,Serie B,2025-12-09 01:28:35
+152,Dinamo Zagreb,Hrvatska nogometna liga,2025-12-09 01:28:35
+153,UD Las Palmas,La Liga 2,2025-12-09 01:28:35
+154,RSC Anderlecht,Pro League,2025-12-09 01:28:35
+155,Samsunspor,Süper Lig,2025-12-09 01:28:35
+156,Atlético Nacional,Categoría Primera A,2025-12-09 01:28:35
+157,Inter Miami,Major League Soccer,2025-12-09 01:28:35
+158,Middlesbrough,Championship,2025-12-09 01:28:35
+159,Independiente,Liga Profesional de Fútbol,2025-12-09 01:28:35
+160,AS Saint-Étienne,Ligue 2,2025-12-09 01:28:35
+161,Seattle Sounders FC,Major League Soccer,2025-12-09 01:28:35
+162,AJ Auxerre,Ligue 1,2025-12-09 01:28:35
+163,Birmingham City,Championship,2025-12-09 01:28:35
+164,Huracán,Liga Profesional de Fútbol,2025-12-09 01:28:35
+165,Los Angeles FC,Major League Soccer,2025-12-09 01:28:35
+166,FC Utrecht,Eredivisie,2025-12-09 01:28:35
+167,FC Twente,Eredivisie,2025-12-09 01:28:35
+168,NEC Nijmegen,Eredivisie,2025-12-09 01:28:35
+169,Bristol City,Championship,2025-12-09 01:28:35
+170,FC Basel 1893,Super League,2025-12-09 01:28:35
+171,Pisa,Serie A,2025-12-09 01:28:35
+172,FK Bodø/Glimt,Eliteserien,2025-12-09 01:28:35
+173,Wrexham,Championship,2025-12-09 01:28:35
+174,Hull City,Championship,2025-12-09 01:28:35
+175,Famalicão,Primeira Liga,2025-12-09 01:28:35
+176,Belgrano de Córdoba,Liga Profesional de Fútbol,2025-12-09 01:28:35
+177,Le Havre AC,Ligue 1,2025-12-09 01:28:35
+178,Fortaleza,Série A,2025-12-09 01:28:35
+179,FC Lorient,Ligue 1,2025-12-09 01:28:35
+180,FC Midtjylland,Superliga,2025-12-09 01:28:35
+181,Peñarol,Primera División,2025-12-09 01:28:35
+182,Vancouver Whitecaps FC,Major League Soccer,2025-12-09 01:28:35
+183,FC St. Pauli,Bundesliga,2025-12-09 01:28:35
+184,Angers SCO,Ligue 1,2025-12-09 01:28:35
+185,FC Cincinnati,Major League Soccer,2025-12-09 01:28:35
+186,Norwich City,Championship,2025-12-09 01:28:35
+187,Watford,Championship,2025-12-09 01:28:35
+188,Hajduk Split,Hrvatska nogometna liga,2025-12-09 01:28:35
+189,Preston North End,Championship,2025-12-09 01:28:35
+190,Al Taawoun FC,Pro League,2025-12-09 01:28:35
+191,Stoke City,Championship,2025-12-09 01:28:35
+192,Queens Park Rangers,Championship,2025-12-09 01:28:35
+193,CD Leganés,La Liga 2,2025-12-09 01:28:35
+194,Minnesota United FC,Major League Soccer,2025-12-09 01:28:35
+195,GD Estoril Praia,Primeira Liga,2025-12-09 01:28:35
+196,Portland Timbers,Major League Soccer,2025-12-09 01:28:35
+197,Sampdoria,Serie B,2025-12-09 01:28:35
+198,FC Lugano,Super League,2025-12-09 01:28:35
+199,Vasco da Gama,Série A,2025-12-09 01:28:35
+200,Newell's Old Boys,Liga Profesional de Fútbol,2025-12-09 01:28:35
+201,FC Metz,Ligue 1,2025-12-09 01:28:35
+202,Cerro Porteño,División Profesional,2025-12-09 01:28:35
+203,Casa Pia,Primeira Liga,2025-12-09 01:28:35
+204,Hearts,Premiership,2025-12-09 01:28:35
+205,Godoy Cruz,Liga Profesional de Fútbol,2025-12-09 01:28:35
+206,Derby County,Championship,2025-12-09 01:28:35
+207,Millwall FC,Championship,2025-12-09 01:28:35
+208,Eyüpspor,Süper Lig,2025-12-09 01:28:35
+209,Lech Poznań,Ekstraklasa,2025-12-09 01:28:35
+210,West Bromwich Albion,Championship,2025-12-09 01:28:35
+211,San Diego FC,Major League Soccer,2025-12-09 01:28:35
+212,Stade de Reims,Ligue 2,2025-12-09 01:28:35
+213,BSC Young Boys,Super League,2025-12-09 01:28:35
+214,Colo-Colo,Primera Division,2025-12-09 01:28:35
+215,LDU Quito,Serie A,2025-12-09 01:28:35
+216,Santa Clara,Primeira Liga,2025-12-09 01:28:35
+217,VfL Bochum 1848,2. Bundesliga,2025-12-09 01:28:35
+218,Libertad,División Profesional,2025-12-09 01:28:35
+219,KAA Gent,Pro League,2025-12-09 01:28:35
+220,Alianza Lima,Liga 1,2025-12-09 01:28:35
+221,Hertha BSC,2. Bundesliga,2025-12-09 01:28:35
+222,SV Darmstadt 98,2. Bundesliga,2025-12-09 01:28:35
+223,Universitario de Deportes,Liga 1,2025-12-09 01:28:35
+224,Swansea City,Championship,2025-12-09 01:28:35
+225,Kocaelispor,Süper Lig,2025-12-09 01:28:35
+226,Çaykur Rizespor,Süper Lig,2025-12-09 01:28:35
+227,Columbus Crew,Major League Soccer,2025-12-09 01:28:35
+228,Universidad de Chile,Primera Division,2025-12-09 01:28:35
+229,Gaziantep FK,Süper Lig,2025-12-09 01:28:35
+230,LA Galaxy,Major League Soccer,2025-12-09 01:28:35
+231,FC Red Bull Salzburg,Bundesliga,2025-12-09 01:28:35
+232,Real Sporting de Gijón,La Liga 2,2025-12-09 01:28:35
+233,Venezia,Serie B,2025-12-09 01:28:35
+234,Real Valladolid CF,La Liga 2,2025-12-09 01:28:35
+235,Charlotte FC,Major League Soccer,2025-12-09 01:28:35
+236,NEOM SC,Pro League,2025-12-09 01:28:35
+237,Club Nacional de Football,Primera División,2025-12-09 01:28:35
+238,Rio Ave FC,Primeira Liga,2025-12-09 01:28:35
+239,RC Deportivo de La Coruña,La Liga 2,2025-12-09 01:28:35
+240,Atlanta United,Major League Soccer,2025-12-09 01:28:35
+241,Alanyaspor,Süper Lig,2025-12-09 01:28:35
+242,Blackburn Rovers,Championship,2025-12-09 01:28:35
+243,Philadelphia Union,Major League Soccer,2025-12-09 01:28:35
+244,Independiente del Valle,Serie A,2025-12-09 01:28:35
+245,Brøndby IF,Superliga,2025-12-09 01:28:35
+246,Aarhus Gymnastikforening,Superliga,2025-12-09 01:28:35
+247,Go Ahead Eagles,Eredivisie,2025-12-09 01:28:35
+248,1. FC Kaiserslautern,2. Bundesliga,2025-12-09 01:28:35
+249,FC Schalke 04,2. Bundesliga,2025-12-09 01:28:35
+250,Rosenborg BK,Eliteserien,2025-12-09 01:28:35
+251,Viking FK,Eliteserien,2025-12-09 01:28:35
+252,Fortuna Düsseldorf,2. Bundesliga,2025-12-09 01:28:35
+253,Platense,Liga Profesional de Fútbol,2025-12-09 01:28:35
+254,Albacete Balompié,La Liga 2,2025-12-09 01:28:35
+255,Malmö FF,Allsvenskan,2025-12-09 01:28:35
+256,Holstein Kiel,2. Bundesliga,2025-12-09 01:28:35
+257,Servette FC,Super League,2025-12-09 01:28:35
+258,CA Banfield,Liga Profesional de Fútbol,2025-12-09 01:28:35
+259,Montpellier HSC,Ligue 2,2025-12-09 01:28:35
+260,Legia Warszawa,Ekstraklasa,2025-12-09 01:28:35
+261,Al Ain,Pro League,2025-12-09 01:28:35
+262,Charlton Athletic,Championship,2025-12-09 01:28:35
+263,Atlético Tucumán,Liga Profesional de Fútbol,2025-12-09 01:28:35
+264,Burgos CF,La Liga 2,2025-12-09 01:28:35
+265,Defensa y Justicia,Liga Profesional de Fútbol,2025-12-09 01:28:35
+266,Gil Vicente FC,Primeira Liga,2025-12-09 01:28:35
+267,Atlético Bucaramanga,Categoría Primera A,2025-12-09 01:28:35
+268,Club Atlético Unión,Liga Profesional de Fútbol,2025-12-09 01:28:35
+269,Instituto Atlético Central Córdoba,Liga Profesional de Fútbol,2025-12-09 01:28:35
+270,Moreirense FC,Primeira Liga,2025-12-09 01:28:35
+271,FC Arouca,Primeira Liga,2025-12-09 01:28:35
+272,KV Mechelen,Pro League,2025-12-09 01:28:35
+273,Barcelona de Guayaquil,Serie A,2025-12-09 01:28:35
+274,AVS Futebol SAD,Primeira Liga,2025-12-09 01:28:35
+275,Barracas Central,Liga Profesional de Fútbol,2025-12-09 01:28:35
+276,Spezia,Serie B,2025-12-09 01:28:35
+277,Raków Częstochowa,Ekstraklasa,2025-12-09 01:28:35
+278,FCSB,Liga I,2025-12-09 01:28:35
+279,Jagiellonia Białystok,Ekstraklasa,2025-12-09 01:28:35
+280,Kayserispor,Süper Lig,2025-12-09 01:28:35
+281,Royal Charleroi Sporting Club,Pro League,2025-12-09 01:28:35
+282,Oxford United,Championship,2025-12-09 01:28:35
+283,Gençlerbirliği SK,Süper Lig,2025-12-09 01:28:35
+284,Sporting Cristal,Liga 1,2025-12-09 01:28:35
+285,KVC Westerlo,Pro League,2025-12-09 01:28:35
+286,Independiente Rivadavia,Liga Profesional de Fútbol,2025-12-09 01:28:35
+287,Cádiz CF,La Liga 2,2025-12-09 01:28:35
+288,New York Red Bulls,Major League Soccer,2025-12-09 01:28:35
+289,New England Revolution,Major League Soccer,2025-12-09 01:28:35
+290,Chicago Fire,Major League Soccer,2025-12-09 01:28:35
+291,Vitória,Série A,2025-12-09 01:28:35
+292,Houston Dynamo,Major League Soccer,2025-12-09 01:28:35
+293,New York City FC,Major League Soccer,2025-12-09 01:28:35
+294,Ulsan HD FC,K League 1,2025-12-09 01:28:35
+295,Jeonbuk Hyundai Motors,K League 1,2025-12-09 01:28:35
+296,Racing Santander,La Liga 2,2025-12-09 01:28:35
+297,Modena,Serie B,2025-12-09 01:28:35
+298,SD Eibar,La Liga 2,2025-12-09 01:28:35
+299,Gimnasia y Esgrima La Plata,Liga Profesional de Fútbol,2025-12-09 01:28:35
+300,Orlando City SC,Major League Soccer,2025-12-09 01:28:35
+301,Al Ettifaq,Pro League,2025-12-09 01:28:35
+302,Qarabağ FK,Premyer Liqa,2025-12-09 01:28:35
+303,Hannover 96,2. Bundesliga,2025-12-09 01:28:35
+304,Antalyaspor,Süper Lig,2025-12-09 01:28:35
+305,Royal Antwerp FC,Pro League,2025-12-09 01:28:35
+306,Standard de Liège,Pro League,2025-12-09 01:28:35
+307,América de Cali,Categoría Primera A,2025-12-09 01:28:35
+308,Austin FC,Major League Soccer,2025-12-09 01:28:35
+309,Once Caldas,Categoría Primera A,2025-12-09 01:28:35
+310,Nashville SC,Major League Soccer,2025-12-09 01:28:35
+311,Al Khaleej,Pro League,2025-12-09 01:28:35
+312,Real Zaragoza,La Liga 2,2025-12-09 01:28:35
+313,San Lorenzo de Almagro,Liga Profesional de Fútbol,2025-12-09 01:28:35
+314,Oud-Heverlee Leuven,Pro League,2025-12-09 01:28:35
+315,SK Rapid,Bundesliga,2025-12-09 01:28:35
+316,Portsmouth,Championship,2025-12-09 01:28:35
+317,Fatih Karagümrük,Süper Lig,2025-12-09 01:28:35
+318,Sheffield Wednesday,Championship,2025-12-09 01:28:35
+319,Sparta Rotterdam,Eredivisie,2025-12-09 01:28:35
+320,APOEL FC,1. Division,2025-12-09 01:28:35
+321,Karlsruher SC,2. Bundesliga,2025-12-09 01:28:35
+322,SC Paderborn 07,2. Bundesliga,2025-12-09 01:28:35
+323,Universitatea Craiova,Liga I,2025-12-09 01:28:35
+324,Rapid Bucuresti,Liga I,2025-12-09 01:28:35
+325,SSC Bari,Serie B,2025-12-09 01:28:35
+326,San Jose Earthquakes,Major League Soccer,2025-12-09 01:28:35
+327,Al Shabab,Pro League,2025-12-09 01:28:35
+328,Catanzaro,Serie B,2025-12-09 01:28:35
+329,Málaga CF,La Liga 2,2025-12-09 01:28:35
+330,Calcio Padova,Serie B,2025-12-09 01:28:35
+331,Cesena FC,Serie B,2025-12-09 01:28:35
+332,SV Elversberg,2. Bundesliga,2025-12-09 01:28:35
+333,Central Cordoba SdE,Liga Profesional de Fútbol,2025-12-09 01:28:35
+334,Club Atlético Sarmiento,Liga Profesional de Fútbol,2025-12-09 01:28:35
+335,Córdoba CF,La Liga 2,2025-12-09 01:28:35
+336,Aberdeen,Premiership,2025-12-09 01:28:35
+337,Hibernian,Premiership,2025-12-09 01:28:35
+338,CA Aldosivi,Liga Profesional de Fútbol,2025-12-09 01:28:35
+339,Vitória SC,Primeira Liga,2025-12-09 01:28:35
+340,CD Nacional,Primeira Liga,2025-12-09 01:28:35
+341,Tigre,Liga Profesional de Fútbol,2025-12-09 01:28:35
+342,Carrarese,Serie B,2025-12-09 01:28:35
+343,Bolívar,División de Fútbol Profesional,2025-12-09 01:28:35
+344,Fortuna Sittard,Eredivisie,2025-12-09 01:28:35
+345,St. Louis CITY SC,Major League Soccer,2025-12-09 01:28:35
+346,Universidad Católica,Primera Division,2025-12-09 01:28:35
+347,FC St.Gallen 1879,Super League,2025-12-09 01:28:35
+348,Luton Town,League One,2025-12-09 01:28:35
+349,CD Tondela,Primeira Liga,2025-12-09 01:28:35
+350,SK Brann,Eliteserien,2025-12-09 01:28:35
+351,Pogoń Szczecin,Ekstraklasa,2025-12-09 01:28:35
+352,Molde FK,Eliteserien,2025-12-09 01:28:35
+353,Göztepe SK,Süper Lig,2025-12-09 01:28:35
+354,Sint-Truidense VV,Pro League,2025-12-09 01:28:35
+355,Cardiff City,League One,2025-12-09 01:28:35
+356,Konyaspor,Süper Lig,2025-12-09 01:28:35
+357,1. FC Nürnberg,2. Bundesliga,2025-12-09 01:28:35
+358,Colorado Rapids,Major League Soccer,2025-12-09 01:28:35
+359,Sporting Kansas City,Major League Soccer,2025-12-09 01:28:35
+360,Pohang Steelers,K League 1,2025-12-09 01:28:35
+361,Hammarby Fotboll,Allsvenskan,2025-12-09 01:28:35
+362,Djurgårdens IF,Allsvenskan,2025-12-09 01:28:35
+363,BK Häcken,Allsvenskan,2025-12-09 01:28:35
+364,Pescara,Serie B,2025-12-09 01:28:35
+365,Mjällby AIF,Allsvenskan,2025-12-09 01:28:35
+366,Alverca,Primeira Liga,2025-12-09 01:28:35
+367,SK Sturm Graz,Bundesliga,2025-12-09 01:28:35
+368,Empoli,Serie B,2025-12-09 01:28:35
+369,Daejeon Citizen,K League 1,2025-12-09 01:28:35
+370,FC Seoul,K League 1,2025-12-09 01:28:35
+371,Cercle Brugge KSV,Pro League,2025-12-09 01:28:35
+372,Real Salt Lake,Major League Soccer,2025-12-09 01:28:35
+373,CFR Cluj,Liga I,2025-12-09 01:28:35
+374,CD Palestino,Primera Division,2025-12-09 01:28:35
+375,FBC Melgar,Liga 1,2025-12-09 01:28:35
+376,Kasımpaşa SK,Süper Lig,2025-12-09 01:28:35
+377,Granada CF,La Liga 2,2025-12-09 01:28:35
+378,SD Huesca,La Liga 2,2025-12-09 01:28:35
+379,Randers FC,Superliga,2025-12-09 01:28:35
+380,LASK Linz,Bundesliga,2025-12-09 01:28:35
+381,1. FC Magdeburg,2. Bundesliga,2025-12-09 01:28:35
+382,FK Austria Wien,Bundesliga,2025-12-09 01:28:35
+383,Silkeborg IF,Superliga,2025-12-09 01:28:35
+384,SC Preußen Münster,2. Bundesliga,2025-12-09 01:28:35
+385,Toronto FC,Major League Soccer,2025-12-09 01:28:35
+386,ESTAC Troyes,Ligue 2,2025-12-09 01:28:35
+387,Widzew Łódź,Ekstraklasa,2025-12-09 01:28:35
+388,En Avant Guingamp,Ligue 2,2025-12-09 01:28:35
+389,FC Lausanne-Sport,Super League,2025-12-09 01:28:35
+390,Mantova,Serie B,2025-12-09 01:28:35
+391,Club Atlético San Martín,Liga Profesional de Fútbol,2025-12-09 01:28:35
+392,Shanghai Shenhua,Super League,2025-12-09 01:28:35
+393,Südtirol,Serie B,2025-12-09 01:28:35
+394,NAC Breda,Eredivisie,2025-12-09 01:28:35
+395,SC Heerenveen,Eredivisie,2025-12-09 01:28:35
+396,FC Groningen,Eredivisie,2025-12-09 01:28:35
+397,Reggiana,Serie B,2025-12-09 01:28:35
+398,Dinamo Bucureşti,Liga I,2025-12-09 01:28:35
+399,Universidad Católica del Ecuador,Serie A,2025-12-09 01:28:35
+400,Cracovia,Ekstraklasa,2025-12-09 01:28:35
+401,Shanghai Port,Super League,2025-12-09 01:28:35
+402,SV Zulte Waregem,Pro League,2025-12-09 01:28:35
+403,DSC Arminia Bielefeld,2. Bundesliga,2025-12-09 01:28:35
+404,Universitatea Cluj,Liga I,2025-12-09 01:28:35
+405,Viborg FF,Superliga,2025-12-09 01:28:35
+406,Górnik Zabrze,Ekstraklasa,2025-12-09 01:28:35
+407,Eintracht Braunschweig,2. Bundesliga,2025-12-09 01:28:35
+408,SpVgg Greuther Fürth,2. Bundesliga,2025-12-09 01:28:35
+409,Red Star FC,Ligue 2,2025-12-09 01:28:35
+410,DC United,Major League Soccer,2025-12-09 01:28:35
+411,AIK,Allsvenskan,2025-12-09 01:28:35
+412,FC Sion,Super League,2025-12-09 01:28:35
+413,FC Dallas,Major League Soccer,2025-12-09 01:28:35
+414,IF Elfsborg,Allsvenskan,2025-12-09 01:28:35
+415,Estrela da Amadora,Primeira Liga,2025-12-09 01:28:35
+416,Wolfsberger AC,Bundesliga,2025-12-09 01:28:35
+417,CD Castellón,La Liga 2,2025-12-09 01:28:35
+418,CD Mirandés,La Liga 2,2025-12-09 01:28:35
+419,Avellino,Serie B,2025-12-09 01:28:35
+420,Dynamo Dresden,2. Bundesliga,2025-12-09 01:28:35
+421,FC Nordsjælland,Superliga,2025-12-09 01:28:35
+422,SS Juve Stabia,Serie B,2025-12-09 01:28:35
+423,Bolton Wanderers,League One,2025-12-09 01:28:35
+424,Al Fateh,Pro League,2025-12-09 01:28:35
+425,Grenoble Foot 38,Ligue 2,2025-12-09 01:28:35
+426,Odense Boldklub,Superliga,2025-12-09 01:28:35
+427,Deportivo Riestra,Liga Profesional de Fútbol,2025-12-09 01:28:35
+428,Stade Lavallois Mayenne FC,Ligue 2,2025-12-09 01:28:35
+429,FCV Dender EH,Pro League,2025-12-09 01:28:35
+430,Heracles Almelo,Eredivisie,2025-12-09 01:28:35
+431,FC Hansa Rostock,3. Liga,2025-12-09 01:28:35
+432,TSV 1860 München,3. Liga,2025-12-09 01:28:35
+433,CF Montréal,Major League Soccer,2025-12-09 01:28:35
+434,Frosinone,Serie B,2025-12-09 01:28:35
+435,IFK Göteborg,Allsvenskan,2025-12-09 01:28:35
+436,Sarpsborg 08 FF,Eliteserien,2025-12-09 01:28:35
+437,AD Ceuta FC,La Liga 2,2025-12-09 01:28:35
+438,Shandong Taishan,Super League,2025-12-09 01:28:35
+439,PEC Zwolle,Eredivisie,2025-12-09 01:28:35
+440,FC Andorra,La Liga 2,2025-12-09 01:28:35
+441,FC Zürich,Super League,2025-12-09 01:28:35
+442,GKS Katowice,Ekstraklasa,2025-12-09 01:28:35
+443,Blau-Weiß Linz,Bundesliga,2025-12-09 01:28:35
+444,FC Luzern,Super League,2025-12-09 01:28:35
+445,Blackpool FC,League One,2025-12-09 01:28:35
+446,RAAL La Louvière,Pro League,2025-12-09 01:28:35
+447,Chengdu Rongcheng,Super League,2025-12-09 01:28:35
+448,Plymouth Argyle,League One,2025-12-09 01:28:35
+449,Wycombe Wanderers,League One,2025-12-09 01:28:35
+450,Deportivo Táchira,Primera Division,2025-12-09 01:28:35
+451,Carabobo FC,Primera Division,2025-12-09 01:28:35
+452,Huddersfield Town,League One,2025-12-09 01:28:35
+453,Beijing Guoan,Super League,2025-12-09 01:28:35
+454,Al Fayha,Pro League,2025-12-09 01:28:35
+455,Cienciano,Liga 1,2025-12-09 01:28:35
+456,Cultural Leonesa,La Liga 2,2025-12-09 01:28:35
+457,FC Anyang,K League 1,2025-12-09 01:28:35
+458,USL Dunkerque,Ligue 2,2025-12-09 01:28:35
+459,Excelsior,Eredivisie,2025-12-09 01:28:35
+460,Mushuc Runa,Serie A,2025-12-09 01:28:35
+461,Guaraní,División Profesional,2025-12-09 01:28:35
+462,Boston River,Primera División,2025-12-09 01:28:35
+463,Korona Kielce,Ekstraklasa,2025-12-09 01:28:35
+464,Piast Gliwice,Ekstraklasa,2025-12-09 01:28:35
+465,Radomiak Radom,Ekstraklasa,2025-12-09 01:28:35
+466,Lechia Gdańsk,Ekstraklasa,2025-12-09 01:28:35
+467,Gangwon FC,K League 1,2025-12-09 01:28:35
+468,Club Olimpia,División Profesional,2025-12-09 01:28:35
+469,Motor Lublin,Ekstraklasa,2025-12-09 01:28:35
+470,Virtus Entella,Serie B,2025-12-09 01:28:35
+471,Reading FC,League One,2025-12-09 01:28:35
+472,Rotherham United,League One,2025-12-09 01:28:35
+473,Daegu FC,K League 1,2025-12-09 01:28:35
+474,1. FC Saarbrücken,3. Liga,2025-12-09 01:28:35
+475,SV Ried,Bundesliga,2025-12-09 01:28:35
+476,Rot-Weiss Essen,3. Liga,2025-12-09 01:28:35
+477,Clermont Foot 63,Ligue 2,2025-12-09 01:28:35
+478,Amiens SC,Ligue 2,2025-12-09 01:28:35
+479,Telstar,Eredivisie,2025-12-09 01:28:35
+480,Wisła Płock,Ekstraklasa,2025-12-09 01:28:35
+481,FC Annecy,Ligue 2,2025-12-09 01:28:35
+482,Rodez Aveyron Football,Ligue 2,2025-12-09 01:28:35
+483,IK Sirius,Allsvenskan,2025-12-09 01:28:35
+484,Vejle Boldklub,Superliga,2025-12-09 01:28:35
+485,Sporting Club Bastia,Ligue 2,2025-12-09 01:28:35
+486,Grasshopper Club Zürich,Super League,2025-12-09 01:28:35
+487,Motherwell FC,Premiership,2025-12-09 01:28:35
+488,SSV Ulm 1846,3. Liga,2025-12-09 01:28:35
+489,Stevenage,League One,2025-12-09 01:28:35
+490,Unión Española,Primera Division,2025-12-09 01:28:35
+491,FC Volendam,Eredivisie,2025-12-09 01:28:35
+492,Stockport County,League One,2025-12-09 01:28:35
+493,Barnsley,League One,2025-12-09 01:28:35
+494,Caracas FC,Primera Division,2025-12-09 01:28:35
+495,Al Riyadh,Pro League,2025-12-09 01:28:35
+496,Lincoln City,League One,2025-12-09 01:28:35
+497,Vålerenga Fotball,Eliteserien,2025-12-09 01:28:35
+498,Strømsgodset IF,Eliteserien,2025-12-09 01:28:35
+499,Auckland FC,A-League Men,2025-12-09 01:28:35
+500,Zagłębie Lubin,Ekstraklasa,2025-12-09 01:28:35
+501,Sportivo Luqueño,División Profesional,2025-12-09 01:28:35
+502,FC Botoşani,Liga I,2025-12-09 01:28:35
+503,SC Rheindorf Altach,Bundesliga,2025-12-09 01:28:35
+504,FC Energie Cottbus,3. Liga,2025-12-09 01:28:35
+505,Tromsø IL,Eliteserien,2025-12-09 01:28:35
+506,Al Akhdoud Saudi Club,Pro League,2025-12-09 01:28:35
+507,Atlético Grau,Liga 1,2025-12-09 01:28:35
+508,Suwon FC,K League 1,2025-12-09 01:28:35
+509,FC Winterthur,Super League,2025-12-09 01:28:35
+510,FC Thun,Super League,2025-12-09 01:28:35
+511,Dundee United FC,Premiership,2025-12-09 01:28:35
+512,WSG Tirol,Bundesliga,2025-12-09 01:28:35
+513,Jeju United FC,K League 1,2025-12-09 01:28:35
+514,TSV Hartberg,Bundesliga,2025-12-09 01:28:35
+515,VfL Osnabrück,3. Liga,2025-12-09 01:28:35
+516,Racing Club de Montevideo,Primera División,2025-12-09 01:28:35
+517,GAIS,Allsvenskan,2025-12-09 01:28:35
+518,SV Wehen Wiesbaden,3. Liga,2025-12-09 01:28:35
+519,Oțelul Galați,Liga I,2025-12-09 01:28:35
+520,Fredrikstad FK,Eliteserien,2025-12-09 01:28:35
+521,FCV Farul Constanța,Liga I,2025-12-09 01:28:35
+522,Asociația Clubul Sportiv Petrolul 52,Liga I,2025-12-09 01:28:35
+523,Milton Keynes Dons,League Two,2025-12-09 01:28:35
+524,Gimcheon Sangmu FC,K League 1,2025-12-09 01:28:35
+525,Bradford City,League One,2025-12-09 01:28:35
+526,Nacional Potosí,División de Fútbol Profesional,2025-12-09 01:28:35
+527,SSV Jahn Regensburg,3. Liga,2025-12-09 01:28:35
+528,AS Nancy Lorraine,Ligue 2,2025-12-09 01:28:35
+529,MSV Duisburg,3. Liga,2025-12-09 01:28:35
+530,Alemannia Aachen,3. Liga,2025-12-09 01:28:35
+531,Zhejiang FC,Super League,2025-12-09 01:28:35
+532,Melbourne Victory,A-League Men,2025-12-09 01:28:35
+533,Perth Glory,A-League Men,2025-12-09 01:28:35
+534,Sydney FC,A-League Men,2025-12-09 01:28:35
+535,Western Sydney Wanderers,A-League Men,2025-12-09 01:28:35
+536,Damac FC,Pro League,2025-12-09 01:28:35
+537,Al Hazem FC,Pro League,2025-12-09 01:28:35
+538,Cerro Largo,Primera División,2025-12-09 01:28:35
+539,Kilmarnock,Premiership,2025-12-09 01:28:35
+540,IF Brommapojkarna,Allsvenskan,2025-12-09 01:28:35
+541,Melbourne City FC,A-League Men,2025-12-09 01:28:35
+542,Livingston FC,Premiership,2025-12-09 01:28:35
+543,Wigan Athletic,League One,2025-12-09 01:28:35
+544,Bruk-Bet Termalica Nieciecza,Ekstraklasa,2025-12-09 01:28:35
+545,Gwangju FC,K League 1,2025-12-09 01:28:35
+546,FC Ingolstadt 04,3. Liga,2025-12-09 01:28:35
+547,Port Vale,League One,2025-12-09 01:28:35
+548,Wuhan Three Towns,Super League,2025-12-09 01:28:35
+549,Exeter City,League One,2025-12-09 01:28:35
+550,Peterborough United,League One,2025-12-09 01:28:35
+551,Deportes Iquique,Primera Division,2025-12-09 01:28:35
+552,Mansfield Town,League One,2025-12-09 01:28:35
+553,Al Kholood,Pro League,2025-12-09 01:28:35
+554,UTA Arad,Liga I,2025-12-09 01:28:35
+555,KFUM-Kameratene Oslo,Eliteserien,2025-12-09 01:28:35
+556,SC Verl,3. Liga,2025-12-09 01:28:35
+557,Leyton Orient,League One,2025-12-09 01:28:35
+558,Sønderjyske Fodbold,Superliga,2025-12-09 01:28:35
+559,Academia Puerto Cabello,Primera Division,2025-12-09 01:28:35
+560,Al-Najma SC,Pro League,2025-12-09 01:28:35
+561,IFK Norrköping,Allsvenskan,2025-12-09 01:28:35
+562,SV Waldhof Mannheim,3. Liga,2025-12-09 01:28:35
+563,Le Mans FC,Ligue 2,2025-12-09 01:28:35
+564,San Antonio Bulo Bulo,División de Fútbol Profesional,2025-12-09 01:28:35
+565,Hamarkameratene,Eliteserien,2025-12-09 01:28:35
+566,Sandefjord Fotball,Eliteserien,2025-12-09 01:28:35
+567,Grazer AK 1902,Bundesliga,2025-12-09 01:28:35
+568,FC Hermannstadt,Liga I,2025-12-09 01:28:35
+569,Degerfors IF,Allsvenskan,2025-12-09 01:28:35
+570,HJK Helsinki,Veikkausliiga,2025-12-09 01:28:35
+571,Arka Gdynia,Ekstraklasa,2025-12-09 01:28:35
+572,Pau FC,Ligue 2,2025-12-09 01:28:35
+573,FC Erzgebirge Aue,3. Liga,2025-12-09 01:28:35
+574,Mohun Bagan Super Giant,Super League,2025-12-09 01:28:35
+575,Salford City,League Two,2025-12-09 01:28:35
+576,Walsall,League Two,2025-12-09 01:28:35
+577,US Boulogne Cote d'Opale,Ligue 2,2025-12-09 01:28:35
+578,Adelaide United,A-League Men,2025-12-09 01:28:35
+579,Shamrock Rovers,Premier Division,2025-12-09 01:28:35
+580,Kristiansund BK,Eliteserien,2025-12-09 01:28:35
+581,Viktoria Köln,3. Liga,2025-12-09 01:28:35
+582,Halmstads BK,Allsvenskan,2025-12-09 01:28:35
+583,1. FC Schweinfurt 05,3. Liga,2025-12-09 01:28:35
+584,Östers IF,Allsvenskan,2025-12-09 01:28:35
+585,Real Sociedad de Fútbol B,La Liga 2,2025-12-09 01:28:35
+586,Unirea Slobozia,Liga I,2025-12-09 01:28:35
+587,AFC Wimbledon,League One,2025-12-09 01:28:35
+588,Chesterfield,League Two,2025-12-09 01:28:35
+589,Northampton Town,League One,2025-12-09 01:28:35
+590,Doncaster Rovers,League One,2025-12-09 01:28:35
+591,Notts County,League Two,2025-12-09 01:28:35
+592,FC Argeș,Liga I,2025-12-09 01:28:35
+593,Cambridge United,League Two,2025-12-09 01:28:35
+594,Fredericia,Superliga,2025-12-09 01:28:35
+595,Tianjin Jinmen Tiger,Super League,2025-12-09 01:28:35
+596,Qingdao West Coast FC,Super League,2025-12-09 01:28:35
+597,Burton Albion,League One,2025-12-09 01:28:35
+598,Bristol Rovers,League Two,2025-12-09 01:28:35
+599,Macarthur FC,A-League Men,2025-12-09 01:28:35
+600,Dundee FC,Premiership,2025-12-09 01:28:35
+601,FK Haugesund,Eliteserien,2025-12-09 01:28:35
+602,St. Mirren,Premiership,2025-12-09 01:28:35
+603,Yunnan Yukun,Super League,2025-12-09 01:28:35
+604,Dalian Yingbo,Super League,2025-12-09 01:28:35
+605,Bryne FK,Eliteserien,2025-12-09 01:28:35
+606,IFK Värnamo,Allsvenskan,2025-12-09 01:28:35
+607,Gillingham,League Two,2025-12-09 01:28:35
+608,Gualberto Villarroel SJ,División de Fútbol Profesional,2025-12-09 01:28:35
+609,Brisbane Roar,A-League Men,2025-12-09 01:28:35
+610,Newcastle Jets,A-League Men,2025-12-09 01:28:35
+611,Crawley Town,League Two,2025-12-09 01:28:35
+612,TSV Havelse,3. Liga,2025-12-09 01:28:35
+613,Grimsby Town,League Two,2025-12-09 01:28:35
+614,Western United,A-League Men,2025-12-09 01:28:35
+615,Csíkszereda Miercurea Ciuc,Liga I,2025-12-09 01:28:35
+616,Barrow,League Two,2025-12-09 01:28:35
+617,Shrewsbury Town,League Two,2025-12-09 01:28:35
+618,Fleetwood Town,League Two,2025-12-09 01:28:35
+619,Barnet,League Two,2025-12-09 01:28:35
+620,Swindon Town,League Two,2025-12-09 01:28:35
+621,Colchester United,League Two,2025-12-09 01:28:35
+622,Cheltenham Town,League Two,2025-12-09 01:28:35
+623,FC Goa,Super League,2025-12-09 01:28:35
+624,Shenzhen Peng City,Super League,2025-12-09 01:28:35
+625,Henan FC,Super League,2025-12-09 01:28:35
+626,St Patrick's Athletic FC,Premier Division,2025-12-09 01:28:35
+627,Tranmere Rovers,League Two,2025-12-09 01:28:35
+628,Central Coast Mariners,A-League Men,2025-12-09 01:28:35
+629,Shelbourne FC,Premier Division,2025-12-09 01:28:35
+630,Falkirk,Premiership,2025-12-09 01:28:35
+631,TSG 1899 Hoffenheim II,3. Liga,2025-12-09 01:28:35
+632,Harrogate Town,League Two,2025-12-09 01:28:35
+633,Qingdao Hainiu FC,Super League,2025-12-09 01:28:35
+634,VfB Stuttgart II,3. Liga,2025-12-09 01:28:35
+635,Metaloglobus București,Liga I,2025-12-09 01:28:35
+636,Crewe Alexandra,League Two,2025-12-09 01:28:35
+637,Bromley,League Two,2025-12-09 01:28:35
+638,Newport County,League Two,2025-12-09 01:28:35
+639,Oldham Athletic,League Two,2025-12-09 01:28:35
+640,NorthEast United,Super League,2025-12-09 01:28:35
+641,Changchun Yatai,Super League,2025-12-09 01:28:35
+642,Meizhou Hakka,Super League,2025-12-09 01:28:35
+643,Bohemian FC,Premier Division,2025-12-09 01:28:35
+644,Wellington Phoenix,A-League Men,2025-12-09 01:28:35
+645,Derry City,Premier Division,2025-12-09 01:28:35
+646,Accrington Stanley,League Two,2025-12-09 01:28:35
+647,East Bengal FC,Super League,2025-12-09 01:28:35
+648,Drogheda United,Premier Division,2025-12-09 01:28:35
+649,Sligo Rovers,Premier Division,2025-12-09 01:28:35
+650,United Tigers SC,Super League,2025-12-09 01:28:35
+651,Mumbai City FC,Super League,2025-12-09 01:28:35
+652,Galway United,Premier Division,2025-12-09 01:28:35
+653,Kerala Blasters FC,Super League,2025-12-09 01:28:35
+654,Bengaluru FC,Super League,2025-12-09 01:28:35
+655,Waterford FC,Premier Division,2025-12-09 01:28:35
+656,Jamshedpur FC,Super League,2025-12-09 01:28:35
+657,Cork City,Premier Division,2025-12-09 01:28:35
+658,Punjab FC,Super League,2025-12-09 01:28:35
+659,Odisha FC,Super League,2025-12-09 01:28:35
+660,Chennaiyin FC,Super League,2025-12-09 01:28:35

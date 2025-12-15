@@ -191,13 +191,15 @@ client.on(Events.InteractionCreate, async interaction => {
 
         interaction.client.bulkAddSessions.delete(sessionId);
 
-        // Delete the select menu message to prevent reuse
-        await interaction.message.delete().catch(() => {});
-
-        return interaction.reply({
+        interaction.channel.send({
             content: `Successfully added **${amount}** to **${users.length}** teams.\n Details:\n${moneyAddedString}`,
             ephemeral: false
         });
+
+        // Delete the select menu message to prevent reuse
+        await interaction.message.delete().catch(() => {});
+
+        return;
     }
 
     return;

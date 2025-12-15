@@ -144,7 +144,7 @@ class Player{
         }
     }
 
-    async stringify(){
+    async stringify(lineupPlayer=false){
         let toReturn = "";
         if(this.mID == -1){
             throw new Error('Some invalid player was stringified.');
@@ -154,7 +154,7 @@ class Player{
         //Adding Emoji
         toReturn += retrievedCardType.mEmoji + " ";
         //Adding extra card type for specials
-        if(this.mCardTypeID != '1' && this.mCardTypeID != '2' && this.mCardTypeID != '3'){
+        if(this.mCardTypeID != '1' && this.mCardTypeID != '2' && this.mCardTypeID != '3' && lineupPlayer==false){
             toReturn += "**" + retrievedCardType.mCardType + "** ";
         }
         //Adding league if it is a hero
@@ -181,9 +181,16 @@ class Player{
         }
 
         //Adding name & position
-        toReturn += "**"+ this.mPlayerName + " " + this.mPosition + "** ";
+        toReturn += "**"+ this.mPlayerName + " ";
+        if(lineupPlayer){
+            toReturn += "** ";
+        }
+        else{
+            toReturn += this.mPosition + "** ";
+            toReturn += this.mTeam + " ";
+        }
         //Adding team
-        toReturn += this.mTeam + " ";
+
         if(this.mGender == "Male"){
             toReturn += ":male_sign: ";
         }

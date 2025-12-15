@@ -3,6 +3,7 @@ const { open } = require('sqlite');
 
 const Player = require('./Player.js');
 
+
 class Team {
 
     constructor(id,teamName,primaryColour,secondaryColour,discordUsername,autoAddPlayers,balance){
@@ -130,6 +131,7 @@ class Team {
             }
             else{
                 console.error('Unable to find team');
+                return null;
             }
         }
         catch(err){
@@ -150,6 +152,15 @@ class Team {
                 if(rows[row].Positions){
                     correspondingPlayer.addPosition(rows[row].Positions);
                 }
+                if(rows[row].Team){
+                    correspondingPlayer.mTeam = rows[row].Team;
+                }
+                if(rows[row].League){
+                    correspondingPlayer.mLeague = rows[row].League;
+                }
+                if(rows[row].CardType){
+                    correspondingPlayer.mCardTypeID = rows[row].CardType;
+                }
                 players.push(correspondingPlayer);
             }
 
@@ -161,6 +172,41 @@ class Team {
         }
     
     }
+
+    static async RetrieveTeamPlayer(id){
+        let db = await ConnectToDB();
+        var player;
+
+        try{
+            const rows = await db.all("SELECT * FROM TeamPlayers WHERE ID = ? ;", [id]);
+
+            for(let row in rows){
+                var correspondingPlayer = await Player.RetrievePlayerByID(rows[row].PlayerID);
+                correspondingPlayer.upgrade(rows[row].Upgrade);
+                if(rows[row].Positions){
+                    correspondingPlayer.addPosition(rows[row].Positions);
+                }
+                if(rows[row].Team){
+                    correspondingPlayer.mTeam = rows[row].Team;
+                }
+                if(rows[row].League){
+                    correspondingPlayer.mLeague = rows[row].League;
+                }
+                if(rows[row].CardType){
+                    correspondingPlayer.mCardTypeID = rows[row].CardType;
+                }
+                player = correspondingPlayer;
+            }
+
+            return player;
+
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    
+    }
+
 
     static async AddPlayers(teamID,players){
 
@@ -218,6 +264,48 @@ class Team {
                 if(row){
                     playerFound.upgrade(upgrade);
                     const result = await db.run('UPDATE TeamPlayers SET Upgrade = ? WHERE teamID = ? AND PlayerID = ?;',[playerFound.mUpgrade,team.mID,playerFound.mID]);
+                    team.mPlayers[playerFoundIndex] = playerFound;
+                    return playerFound;
+                }
+            }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    }
+
+    static async EditPlayerTeamOrLeague(team,playerName,parameterName,newValue){
+        let db = await ConnectToDB();
+        try{
+
+            let playerFound = null;
+            let playerFoundIndex = -1;
+            for(var player in team.mPlayers){
+                    playerFoundIndex++;
+                    if(team.mPlayers[player].mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
+                        playerFound = team.mPlayers[player];
+                       
+                        playerFoundIndex=player;
+                        break;
+                    }
+            }
+            if(playerFound){
+                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [team.mID,playerFound.mID]);
+                
+                if(row){
+                    if(parameterName == "Team"){
+                        playerFound.mTeam = newValue;
+                        const result = await db.run('UPDATE TeamPlayers SET Team = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
+                    }
+                    else if(parameterName == "League"){
+                        playerFound.mLeague = newValue;
+                        const result = await db.run('UPDATE TeamPlayers SET League = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
+                    }
+                    else if(parameterName == "CardType"){
+                        playerFound.mCardTypeID = newValue;
+                        const result = await db.run('UPDATE TeamPlayers SET CardType = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
+                    }
+
                     team.mPlayers[playerFoundIndex] = playerFound;
                     return playerFound;
                 }
@@ -371,6 +459,7 @@ class Team {
         }
         
     }
+    
 }
 
 async function ConnectToDB(){

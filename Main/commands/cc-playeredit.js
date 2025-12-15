@@ -3,6 +3,45 @@ const { SlashCommandBuilder } = require('discord.js');
 const Player = require('../modules/Player.js');
 const Team = require('../modules/team.js');
 
+const leagueValues = [
+  { name: 'Premier League', value: 'Premier League' },
+  { name: 'Ligue 1', value: 'Ligue 1' },
+  { name: 'La Liga', value: 'La Liga' },
+  { name: 'Bundesliga', value: 'Bundesliga' },
+  { name: 'Serie A', value: 'Serie A' },
+  { name: 'Süper Lig', value: 'Süper Lig' },
+  { name: 'Liga Portugal', value: 'Liga Portugal' },
+  { name: 'Pro League', value: 'Pro League' },
+  { name: 'Eredivisie', value: 'Eredivisie' },
+  { name: 'Major League Soccer', value: 'Major League Soccer' },
+  { name: 'A-League Men', value: 'A-League Men' },
+  { name: 'Premier Division', value: 'Premier Division' },
+  { name: 'Liga F', value: 'Liga F' },
+  { name: 'Women\'s Super League', value: 'Women\'s Super League' },
+  { name: 'Division 1 Féminine', value: 'Division 1 Féminine' },
+  { name: 'Frauen-Bundesliga', value: 'Frauen-Bundesliga' },
+  { name: 'National Women\'s Soccer League', value: 'National Women\'s Soccer League' },
+  { name: 'Serie A Femminile', value: 'Serie A Femminile' },
+  { name: 'Women\'s Premier League', value: 'Women\'s Premier League' },
+  { name: 'None', value: 'None' },
+  { name: 'Birthday', value: 'Birthday' },
+  { name: 'Icon', value: 'Icon' },
+];
+
+
+cardTypeValues =   [
+  { name: 'Bronze', value: '1' },
+  { name: 'Silver', value: '2' },
+  { name: 'Gold', value: '3' },
+  { name: 'Hero', value: '4' },
+  { name: 'Icon', value: '5' },
+  { name: 'Silver Star', value: '6' },
+  { name: 'POTW', value: '7' },
+  { name: 'FutureStars', value: '8' },
+  { name: 'Speed Demons', value: '9' },
+  { name: 'Birthday', value: '10' },
+  { name: 'RTTK', value: '11' }];
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('player-edit')
@@ -23,16 +62,36 @@ module.exports = {
             .setDescription('1 to add random adjacent position, 2 to remove all positions, or provide a specific one to be added')
             .setRequired(false)
             .setMaxLength(3)
-        )        
+        )
+        .addStringOption(
+            option => option.setName('team')
+            .setDescription('Switch the Team of the player (please use the same teams as other players)')
+            .setRequired(false)
+        )
+        .addStringOption(
+            option => option.setName('league')
+            .setDescription('Switch the League of the player (please use the same leagues as other players)')
+            .setRequired(false)
+            .addChoices(leagueValues)
+        )
+        .addStringOption(
+            option => option.setName('cardtype')
+            .setDescription('Switch the Card Type of the player')
+            .setRequired(false)
+            .addChoices(cardTypeValues)
+        )                     
 ,
     async execute(interaction) {
         let upgrade = interaction.options.getInteger("upgrade");
         let name = interaction.options.getString("name");
         let position = interaction.options.getString("position");
+        let teamToChangeTo = interaction.options.getString("team");
+        let league = interaction.options.getString("league");
+        let cardType = interaction.options.getString("cardtype");
         let username = interaction.user.username;
         let player;
         team = await Team.RetrieveTeamByUser(username);
-        if(!upgrade && !position){
+        if(!upgrade && !position && !teamToChangeTo && !league && !cardType){
             return interaction.reply('You must provide at least an upgrade or a position to edit for ' + name);
         }
         if(upgrade){
@@ -40,6 +99,18 @@ module.exports = {
         }
         if(position){
             player = await Team.EditPlayerPosition(team,name,position);
+        }
+
+        if(teamToChangeTo){
+            player = await Team.EditPlayerTeamOrLeague(team,name,"Team",teamToChangeTo);
+        }
+
+        if(league){
+            player = await Team.EditPlayerTeamOrLeague(team,name,"League",league);
+        }
+
+        if(cardType){
+            player = await Team.EditPlayerTeamOrLeague(team,name,"CardType",cardType);
         }
 
         if(player){

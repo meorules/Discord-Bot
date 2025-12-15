@@ -48,11 +48,25 @@ module.exports = {
             .setName("owner")
             .setRequired(false)
             .setDescription("Show only players that are owned by a user") 
+        )
+        .addStringOption((option) =>
+            option
+            .setName("league")
+            .setRequired(false)
+            .setDescription("Show only players that are from a league") 
+        )
+        .addStringOption((option) =>
+            option
+            .setName("position")
+            .setRequired(false)
+            .setDescription("Show only players that have a specific position") 
         ),       
     async execute(interaction) {
         let page = interaction.options.getInteger("page");
         let clubFilter = interaction.options.getString("club");
         let nationFilter = interaction.options.getString("nation");
+        let leagueFilter = interaction.options.getString("league");
+        let positionFilter = interaction.options.getString("position");
         let maxRatingFilter = interaction.options.getInteger("maxrating");
         let minRatingFilter = interaction.options.getInteger("minrating");
         let genderFilter = interaction.options.getBoolean("gender");
@@ -114,6 +128,33 @@ module.exports = {
                         addPlayer = true;
                     }
                     else if(genderFilter != null && !genderFilter && player.mGender == "Female"){
+                        addPlayer = true;
+                    }
+                    else{
+                        addPlayer = false;
+                    }
+                }
+
+                if(addPlayer){
+                    if(!leagueFilter){
+                        addPlayer = true;
+                    }
+                    else if(leagueFilter && !player.mLeague){
+                        addPlayer = false;
+                    }
+                    else if(leagueFilter && player.mLeague && player.mLeague.toLowerCase().trim().includes(leagueFilter.toLowerCase().trim())){
+                        addPlayer = true;
+                    }
+                    else{
+                        addPlayer = false;
+                    }
+                }
+
+                if(addPlayer){
+                    if(!positionFilter){
+                        addPlayer = true;
+                    }
+                    else if(positionFilter && player.mPosition.includes(positionFilter.toUpperCase().trim())){
                         addPlayer = true;
                     }
                     else{
