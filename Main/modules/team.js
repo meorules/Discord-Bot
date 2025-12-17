@@ -161,6 +161,9 @@ class Team {
                 if(rows[row].CardType){
                     correspondingPlayer.mCardTypeID = rows[row].CardType;
                 }
+                if(rows[row].Notes){
+                    correspondingPlayer.Notes = rows[row].Notes;
+                }
                 players.push(correspondingPlayer);
             }
 
@@ -194,6 +197,9 @@ class Team {
                 }
                 if(rows[row].CardType){
                     correspondingPlayer.mCardTypeID = rows[row].CardType;
+                }
+                if(rows[row].Notes){
+                    correspondingPlayer.Notes = rows[row].Notes;
                 }
                 player = correspondingPlayer;
             }
@@ -274,7 +280,7 @@ class Team {
         }
     }
 
-    static async EditPlayerTeamOrLeague(team,playerName,parameterName,newValue){
+    static async EditPlayerTeamOrLeagueOrNote(team,playerName,parameterName,newValue){
         let db = await ConnectToDB();
         try{
 
@@ -304,6 +310,10 @@ class Team {
                     else if(parameterName == "CardType"){
                         playerFound.mCardTypeID = newValue;
                         const result = await db.run('UPDATE TeamPlayers SET CardType = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
+                    }
+                    else if(parameterName == "Notes"){
+                        playerFound.Notes = newValue;
+                        const result = await db.run('UPDATE TeamPlayers SET Notes = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
                     }
 
                     team.mPlayers[playerFoundIndex] = playerFound;

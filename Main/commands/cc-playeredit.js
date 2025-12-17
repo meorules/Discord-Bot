@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 const Player = require('../modules/Player.js');
 const Team = require('../modules/team.js');
+const CardType = require('../modules/cardType.js');
 
 const leagueValues = [
   { name: 'Premier League', value: 'Premier League' },
@@ -28,19 +29,6 @@ const leagueValues = [
   { name: 'Icon', value: 'Icon' },
 ];
 
-
-cardTypeValues =   [
-  { name: 'Bronze', value: '1' },
-  { name: 'Silver', value: '2' },
-  { name: 'Gold', value: '3' },
-  { name: 'Hero', value: '4' },
-  { name: 'Icon', value: '5' },
-  { name: 'Silver Star', value: '6' },
-  { name: 'POTW', value: '7' },
-  { name: 'FutureStars', value: '8' },
-  { name: 'Speed Demons', value: '9' },
-  { name: 'Birthday', value: '10' },
-  { name: 'RTTK', value: '11' }];
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -78,8 +66,13 @@ module.exports = {
             option => option.setName('cardtype')
             .setDescription('Switch the Card Type of the player')
             .setRequired(false)
-            .addChoices(cardTypeValues)
-        )                     
+            .addChoices(CardType.CARD_TYPE_VALUES)
+        )
+        .addStringOption(
+            option => option.setName('notes')
+            .setDescription('A note to put onto the player')
+            .setRequired(false)
+        )        
 ,
     async execute(interaction) {
         let upgrade = interaction.options.getInteger("upgrade");
@@ -88,10 +81,11 @@ module.exports = {
         let teamToChangeTo = interaction.options.getString("team");
         let league = interaction.options.getString("league");
         let cardType = interaction.options.getString("cardtype");
+        let notes = interaction.options.getString("notes");
         let username = interaction.user.username;
         let player;
         team = await Team.RetrieveTeamByUser(username);
-        if(!upgrade && !position && !teamToChangeTo && !league && !cardType){
+        if(!upgrade && !position && !teamToChangeTo && !league && !cardType && !notes){
             return interaction.reply('You must provide at least an upgrade or a position to edit for ' + name);
         }
         if(upgrade){
@@ -102,15 +96,19 @@ module.exports = {
         }
 
         if(teamToChangeTo){
-            player = await Team.EditPlayerTeamOrLeague(team,name,"Team",teamToChangeTo);
+            player = await Team.EditPlayerTeamOrLeagueOrNote(team,name,"Team",teamToChangeTo);
         }
 
         if(league){
-            player = await Team.EditPlayerTeamOrLeague(team,name,"League",league);
+            player = await Team.EditPlayerTeamOrLeagueOrNote(team,name,"League",league);
         }
 
         if(cardType){
-            player = await Team.EditPlayerTeamOrLeague(team,name,"CardType",cardType);
+            player = await Team.EditPlayerTeamOrLeagueOrNote(team,name,"CardType",cardType);
+        }
+
+        if(notes){
+            player = await Team.EditPlayerTeamOrLeagueOrNote(team,name,"Notes",notes);
         }
 
         if(player){

@@ -103,7 +103,7 @@ async function ReadPlayersFromCSV(filePath) {
             row.Age,
             row.Rating,
             row.Team,
-            "",
+            row.League,
             row.Height,
             row.Weight,
             row.Crossing,
@@ -160,7 +160,7 @@ async function main(){
 
     //retrievedCardType = await CardType.RetrieveCardTypeByName("Gold");
     //console.log(retrievedCardType);
-    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players10.csv';
+    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players11.csv';
     await AddNewPromoPlayers(fileName);
     //console.log(retrievedPlayer);
 

@@ -214,6 +214,11 @@ class Player{
             toReturn += "- *" + this.mOwner.mDiscordUsername + "*";
         }
 
+                //Add note if there is one
+        if(this.Notes){
+            toReturn += " *" + this.Notes + "*";
+        }
+
         return toReturn;
     }
 
@@ -424,9 +429,9 @@ class Player{
     static async InsertPlayer(player){
 
         let db = await ConnectToDB();
-        let params = [player.mPlayerName,player.mCardTypeID,player.mPosition,player.mAge,player.mRating, player.mTeam, player.mHeight,player.mWeight,player.mCrossing,player.mFinishing,player.mHeading,player.mJumping,player.mPenalties,player.mWeakFoot,player.mSkillMoves,player.mPassing,player.mDefending,player.mAttacking,player.mCountry,player.mURL,player.mGender,player.mBoost]
+        let params = [player.mPlayerName,player.mCardTypeID,player.mPosition,player.mAge,player.mRating, player.mTeam,player.mLeague, player.mHeight,player.mWeight,player.mCrossing,player.mFinishing,player.mHeading,player.mJumping,player.mPenalties,player.mWeakFoot,player.mSkillMoves,player.mPassing,player.mDefending,player.mAttacking,player.mCountry,player.mURL,player.mGender,player.mBoost]
         try{
-            const result = await db.run("INSERT INTO Players(PlayerName,CardTypeID,Position,Age,Rating,Team,Height,Weight,Crossing,Finishing,Heading,Jumping,Penalties,WeakFoot,SkillMoves,Passing,Defending,Attacking,Country,URL,Gender,Boost) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?, ?, ?, ?, ?)",params);
+            const result = await db.run("INSERT INTO Players(PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Crossing,Finishing,Heading,Jumping,Penalties,WeakFoot,SkillMoves,Passing,Defending,Attacking,Country,URL,Gender,Boost) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?,?,?,?,?, ?, ?, ?, ?, ?, ?)",params);
             return result.lastID;
         }
         catch(err){

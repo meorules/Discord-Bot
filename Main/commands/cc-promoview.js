@@ -2,20 +2,15 @@ const { SlashCommandBuilder } = require('discord.js');
 
 const Player = require('../modules/Player.js');
 const Team = require('../modules/team.js');
-const { CardType } = require('../modules/cardType.js');
+const CardType = require('../modules/cardType.js');
 
-values =   [{ name: 'Silver Star', value: '6' },
-  { name: 'POTW', value: '7' },
-  { name: 'FutureStars', value: '8' },
-  { name: 'Speed Demons', value: '9' },
-  { name: 'Birthday', value: '10' },
-  { name: 'RTTK', value: '11' }];
+
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('promo-view')
         .setDescription('View Players by Promo')
-        .addStringOption(option => option.setName('name').setDescription('Name of the promo').setRequired(false).addChoices(values)),
+        .addStringOption(option => option.setName('name').setDescription('Name of the promo').setRequired(false).addChoices(CardType.CARD_TYPE_VALUES)),
     async execute(interaction) {
         let cardTypeID = interaction.options.getString("name") || -1;
 

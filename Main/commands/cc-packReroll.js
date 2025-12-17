@@ -16,6 +16,12 @@ async function openPack(packName) {
     let players = []
 
     switch (packName) {
+        case "Provisions Pack(35k)":
+            players = await Packs.openGoldPack(1);
+            break;
+        case "Mini Provisions Pack(25k)":
+            players = await Packs.openGoldPack(1);
+            break;
         case "Elite Hunter Pack(75k)":
             players = await Packs.openEliteHunterPack(1);
             break;
@@ -102,7 +108,7 @@ async function generateString(pack,players,count){
     return generatedString;
 }
 
-basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }, { name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" }];
+basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }, { name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{ name: "Mini Provisions Pack(25k)", value: "Mini Provisions Pack(25k)" }];
 extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"}]
 
 module.exports = {

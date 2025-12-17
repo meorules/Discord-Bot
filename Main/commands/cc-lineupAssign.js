@@ -6,13 +6,13 @@ const Lineup = require('../modules/Lineup.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('lineup-edit')
-        .setDescription('Assign a player to your lineup')
+        .setName('lineup-assign')
+        .setDescription('Edit the position of a player in your lineup')
         .addStringOption(option => option.setName('player').setDescription('Player Name').setRequired(true))
-        .addIntegerOption(option => option.setName('position').setDescription('Lineup Position Number (1-18)').setRequired(true)),
+        .addStringOption(option => option.setName('position').setDescription('Position').setRequired(true)),
     async execute(interaction) {
         let player = interaction.options.getString("player");
-        let position = interaction.options.getInteger("position");
+        let position = interaction.options.getString("position");
         let username = interaction.user.username;
 
         let team = await Team.RetrieveTeamByUser(username);
@@ -26,7 +26,7 @@ module.exports = {
         else{
             var changesMade;
             changesMade = {result: false};
-            lineup = await Lineup.EditLineupPlayer(team.mID,player,position,changesMade);
+            lineup = await Lineup.EditLineupPlayerPosition(team.mID,player,position,changesMade);
             if(!changesMade.result){
                 return interaction.reply(`Could not find player ${player} on your team.`);
             }

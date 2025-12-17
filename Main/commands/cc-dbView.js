@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 const Player = require('../modules/Player.js');
 const Team = require('../modules/team.js');
+const CardType = require('../modules/cardType.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -60,6 +61,12 @@ module.exports = {
             .setName("position")
             .setRequired(false)
             .setDescription("Show only players that have a specific position") 
+        )
+        .addStringOption(
+            option => option.setName('cardtype')
+            .setDescription('Switch the Card Type of the player')
+            .setRequired(false)
+            .addChoices(CardType.CARD_TYPE_VALUES)
         ),       
     async execute(interaction) {
         let page = interaction.options.getInteger("page");
@@ -67,6 +74,7 @@ module.exports = {
         let nationFilter = interaction.options.getString("nation");
         let leagueFilter = interaction.options.getString("league");
         let positionFilter = interaction.options.getString("position");
+        let cardTypeFilter = interaction.options.getString("cardtype");
         let maxRatingFilter = interaction.options.getInteger("maxrating");
         let minRatingFilter = interaction.options.getInteger("minrating");
         let genderFilter = interaction.options.getBoolean("gender");
@@ -155,6 +163,18 @@ module.exports = {
                         addPlayer = true;
                     }
                     else if(positionFilter && player.mPosition.includes(positionFilter.toUpperCase().trim())){
+                        addPlayer = true;
+                    }
+                    else{
+                        addPlayer = false;
+                    }
+                }
+
+                if(addPlayer){
+                    if(!cardTypeFilter){
+                        addPlayer = true;
+                    }
+                    else if(cardTypeFilter && player.mCardTypeID == cardTypeFilter){
                         addPlayer = true;
                     }
                     else{

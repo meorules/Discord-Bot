@@ -29,10 +29,12 @@ class TeamLineupPlayer {
     async stringify(){
         if(this.mID != -1){
             if(this.mPlayer){
-                let playerString = await this.mPlayer.stringify(true);
+                let playerString;
                 if(!this.mPosition.includes("SUB")){
+                    playerString = await this.mPlayer.stringify(true);
                     return this.mLineupPositionNumber + ". **" + this.mPosition + "**: " + playerString + " | :test_tube: +" + this.mChemistry;
                 }else{
+                    playerString = await this.mPlayer.stringify(true);
                     return this.mLineupPositionNumber + ". **" + this.mPosition + "**: " + playerString;
                 }
             }

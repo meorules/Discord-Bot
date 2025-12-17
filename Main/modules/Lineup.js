@@ -7,60 +7,60 @@ const countryCodeArrays = require('../countrycodes.js')
 
 const Formations = {
   // -------------------- 3 DEF --------------------
-  "3142": ["GK","CB","CB","CB","CDM","LM","CM","CM","RM","ST","ST"],
+  "3142": ["GK","CB","CB","CB","CDM","RM","CM","CM","LM","ST","ST"],
 
-  "3241": ["GK","CB","CB","CB","CDM","CDM","LW","CAM","CAM","RW","ST"],
+  "3241": ["GK","CB","CB","CB","CDM","CDM","RW","CAM","CAM","LW","ST"],
 
-  "3412": ["GK","CB","CB","CB","LM","CM","CM","RM","CAM","ST","ST"],
-  "3421": ["GK","CB","CB","CB","LM","CM","CM","RM","CAM","CAM","ST"],
+  "3412": ["GK","CB","CB","CB","RM","CM","CM","LM","CAM","ST","ST"],
+  "3421": ["GK","CB","CB","CB","RM","CM","CM","LM","CAM","CAM","ST"],
 
-  "343(1)": ["GK","CB","CB","CB","CDM","LM","CAM","RM","LW","RW","ST"], 
-  "343(2)": ["GK","CB","CB","CB","LM","CM","CM","RM","LW","ST","RW"],   
+  "343(1)": ["GK","CB","CB","CB","CDM","RM","CAM","LM","RW","LW","ST"], 
+  "343(2)": ["GK","CB","CB","CB","RM","CM","CM","LM","RW","ST","LW"],   
 
-  "3511": ["GK","CB","CB","CB","CDM","CDM","LM","CM","RM","CAM","ST"],
-  "352":  ["GK","CB","CB","CB","CDM","CDM","LM","RM","CAM","ST","ST"],
+  "3511": ["GK","CB","CB","CB","CDM","CDM","RM","CM","LM","CAM","ST"],
+  "352":  ["GK","CB","CB","CB","CDM","CDM","RM","LM","CAM","ST","ST"],
 
   // -------------------- 4 DEF --------------------
-  "41212(1)": ["GK","LB","CB","CB","RB","CDM","CM","CM","CAM","ST","ST"],
-  "41212(2)": ["GK","LB","CB","CB","RB","CDM","LM","RM","CAM","ST","ST"],   
+  "41212(1)": ["GK","RB","CB","CB","LB","CDM","CM","CM","CAM","ST","ST"],
+  "41212(2)": ["GK","RB","CB","CB","LB","CDM","RM","LM","CAM","ST","ST"],   
 
-  "4132(1)": ["GK","LB","CB","CB","RB","CDM","LM","RM","CM","ST","ST"],
-  "4132(2)": ["GK","LB","CB","CB","RB","CDM","CAM","CAM","CAM","ST","ST"],  
+  "4132(1)": ["GK","RB","CB","CB","LB","CDM","RM","LM","CM","ST","ST"],
+  "4132(2)": ["GK","RB","CB","CB","LB","CDM","CAM","CAM","CAM","ST","ST"],  
 
-  "4141": ["GK","LB","CB","CB","RB","CDM","LM","CM","CM","RM","ST"],
+  "4141": ["GK","RB","CB","CB","LB","CDM","RM","CM","CM","LM","ST"],
 
-  "4222": ["GK","LB","CB","CB","RB","CDM","CDM","CAM","CAM","ST","ST"],
+  "4222": ["GK","RB","CB","CB","LB","CDM","CDM","CAM","CAM","ST","ST"],
 
-  "4213": ["GK","LB","CB","CB","RB","CDM","CDM","CAM","LW","ST","RW"],     
-  "4231(1)": ["GK","LB","CB","CB","RB","CDM","CDM","CAM","CAM","CAM","ST"],   
-  "4231(2)": ["GK","LB","CB","CB","RB","CDM","CDM","LM","CAM","RM","ST"],   
-  "424": ["GK","LB","CB","CB","RB","CM","CM","LW","RW","ST","ST"],
+  "4213": ["GK","RB","CB","CB","LB","CDM","CDM","CAM","RW","ST","LW"],     
+  "4231(1)": ["GK","RB","CB","CB","LB","CDM","CDM","CAM","CAM","CAM","ST"],   
+  "4231(2)": ["GK","RB","CB","CB","LB","CDM","CDM","RM","CAM","LM","ST"],   
+  "424": ["GK","RB","CB","CB","LB","CM","CM","RW","LW","ST","ST"],
 
-  "4312": ["GK","LB","CB","CB","RB","CM","CM","CM","CAM","ST","ST"],
-  "4321": ["GK","LB","CB","CB","RB","CM","CM","CM","CAM","CAM","ST"],
+  "4312": ["GK","RB","CB","CB","LB","CM","CM","CM","CAM","ST","ST"],
+  "4321": ["GK","RB","CB","CB","LB","CM","CM","CM","CAM","CAM","ST"],
 
-  "433(1)": ["GK","LB","CB","CB","RB","CM","CM","CM","LW","ST","RW"],  
-  "433(2)": ["GK","LB","CB","CB","RB","CDM","CM","CM","LW","ST","RW"],     
-  "433(3)": ["GK","LB","CB","CB","RB","CDM","CDM","CM","LW","ST","RW"],      
-  "433(4)": ["GK","LB","CB","CB","RB","CM","CM","CAM","LW","ST","RW"],     
-  "433(5)": ["GK","LB","CB","CB","RB","CDM","CM","CM","LW","CAM","RW"],     
+  "433(1)": ["GK","RB","CB","CB","LB","CM","CM","CM","RW","ST","LW"],  
+  "433(2)": ["GK","RB","CB","CB","LB","CDM","CM","CM","RW","ST","LW"],     
+  "433(3)": ["GK","RB","CB","CB","LB","CDM","CDM","CM","RW","ST","LW"],      
+  "433(4)": ["GK","RB","CB","CB","LB","CM","CM","CAM","RW","ST","LW"],     
+  "433(5)": ["GK","RB","CB","CB","LB","CDM","CM","CM","RW","CAM","LW"],     
 
-  "4411": ["GK","LB","CB","CB","RB","LM","CM","CM","RM","CAM","ST"],     
+  "4411": ["GK","RB","CB","CB","LB","RM","CM","CM","LM","CAM","ST"],     
 
-  "442(1)": ["GK","LB","CB","CB","RB","LM","CM","CM","RM","ST","ST"],     
-  "442(2)": ["GK","LB","CB","CB","RB","CDM","CDM","LM","RM","ST","ST"],      
+  "442(1)": ["GK","RB","CB","CB","LB","RM","CM","CM","LM","ST","ST"],     
+  "442(2)": ["GK","RB","CB","CB","LB","CDM","CDM","RM","LM","ST","ST"],      
 
-  "451(1)": ["GK","LB","CB","CB","RB","LM","CM","RM","CAM","CAM","ST"],      
-  "451(2)": ["GK","LB","CB","CB","RB","LM","CM","CM","CM","RM","ST"],      
+  "451(1)": ["GK","RB","CB","CB","LB","RM","CM","LM","CAM","CAM","ST"],      
+  "451(2)": ["GK","RB","CB","CB","LB","RM","CM","CM","CM","LM","ST"],      
 
   // -------------------- 5 DEF --------------------
-  "5212": ["GK","LB","CB","CB","CB","RB","CM","CM","CAM","ST","ST"],
-  "523":  ["GK","LB","CB","CB","CB","RB","CM","CM","LW","ST","RW"],
-  "532(1)":  ["GK","LB","CB","CB","CB","RB","CM","CM","CM","ST","ST"],
-  "532(2)":  ["GK","LB","CB","CB","CB","RB","CDM","CM","CM","ST","ST"],
+  "5212": ["GK","RB","CB","CB","CB","LB","CM","CM","CAM","ST","ST"],
+  "523":  ["GK","RB","CB","CB","CB","LB","CM","CM","RW","ST","LW"],
+  "532(1)":  ["GK","RB","CB","CB","CB","LB","CM","CM","CM","ST","ST"],
+  "532(2)":  ["GK","RB","CB","CB","CB","LB","CDM","CM","CM","ST","ST"],
 
-  "541(1)": ["GK","LB","CB","CB","CB","RB","LM","CM","CM","RM","ST"],   
-  "541(2)": ["GK","LB","CB","CB","CB","RB","LM","CM","CM","RM","ST"],    
+  "541(1)": ["GK","RB","CB","CB","CB","LB","RM","CM","CM","LM","ST"],   
+  "541(2)": ["GK","RB","CB","CB","CB","LB","RM","CM","CM","LM","ST"],    
 };
 
 
@@ -365,7 +365,6 @@ class Lineup {
             if(playerFound){
                 for(let lineupPlayerCheck of lineup.lineupPlayers){
                     if(lineupPlayerCheck.mLineupPositionNumber == newPosition){
-                        console.log('Found lineup position to edit');
                         const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [teamID,playerFound.mID]);
                         if(row){
                             lineupPlayerCheck = await TeamLineupPlayer.EditLineupPlayer(lineupPlayerCheck,"TeamPlayerID",row.ID);
@@ -373,6 +372,53 @@ class Lineup {
                         break;
                     }
                 }
+                lineup.calculateChemistry();
+                changesMade.result = true;
+                return lineup;
+            }
+            else{
+                console.error('Player not found on team');
+                changesMade.result = false;
+                return lineup;
+            }
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+
+       
+
+    }
+
+    
+    static async EditLineupPlayerPosition(teamID,playerName,newPosition,changesMade){
+
+        //Get lineup player by name from team players
+        
+        let db = await ConnectToDB();
+
+        let lineup = await Lineup.RetrieveLineup(teamID);
+        let team = await Team.RetrieveTeamByID(teamID);
+
+        try{
+
+            let playerFound = null;
+            let playerFoundIndex = -1;
+            for(var player in lineup.lineupPlayers){
+                    playerFoundIndex++;
+                    if(lineup.lineupPlayers[player].mPlayer.mPlayerName.toLowerCase().trim().includes(playerName.toLowerCase().trim())){
+                        playerFound = lineup.lineupPlayers[player];
+                       
+                        playerFoundIndex=player;
+                        break;
+                    }
+            }
+            if(playerFound){
+                if(playerFound.mPosition.includes("SUB")){
+                    newPosition = "SUB "+ (playerFoundIndex-10) +" ("+ newPosition+")";
+
+                }
+                playerFound = await TeamLineupPlayer.EditLineupPlayer(playerFound,"Position",newPosition);
                 lineup.calculateChemistry();
                 changesMade.result = true;
                 return lineup;
