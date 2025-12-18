@@ -9337,7 +9337,7 @@ const players = [
   "LATTEIER",           // T. Latteier
   "SYMALLA",            // J. Symalla
   "TOPKEN",             // T. Töpken
-  "NO",                 // C. Noß
+  "NOSS",                 // C. Noß
   "BORKOWSKI",          // D. Borkowski
   "JESSEN",             // N. Jessen
   "CASTELLE",           // N. Castelle
@@ -11778,7 +11778,6 @@ const players = [
   "YUMNAM",             // B. Yumnam
   "LALLAWMAWMA",        // F. Lallawmawma
   "STALIN",             // S. Stalin
-  "K",                  // Sourav K
   "VANMALSAWMA",        // I. Vanmalsawma
   "SHRIVAS",            // P. Shrivas
   "MURGAONKAR",         // D. Murgaonkar

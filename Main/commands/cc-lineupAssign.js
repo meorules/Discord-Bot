@@ -17,21 +17,21 @@ module.exports = {
 
         let team = await Team.RetrieveTeamByUser(username);
         if(!team){
-            return interaction.reply('You do not have a team set up yet, please create one using /team-create');
+            return interaction.followUp('You do not have a team set up yet, please create one using /team-create');
         }
         let lineup = await Lineup.RetrieveLineup(team.mID);
         if(!lineup){
-            return interaction.reply('You do not have a lineup set up yet, please create one using /lineup-set');
+            return interaction.followUp('You do not have a lineup set up yet, please create one using /lineup-set');
         }
         else{
             var changesMade;
             changesMade = {result: false};
             lineup = await Lineup.EditLineupPlayerPosition(team.mID,player,position,changesMade);
             if(!changesMade.result){
-                return interaction.reply(`Could not find player ${player} on your team.`);
+                return interaction.followUp(`Could not find player ${player} on your team.`);
             }
         }
 
-        return interaction.reply(`The lineup was created successfully: \n ${await lineup.stringify()}`);
+        return interaction.followUp(`The lineup was created successfully: \n ${await lineup.stringify()}`);
     },
 };

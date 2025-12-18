@@ -142,6 +142,6 @@ module.exports = {
             console.error(error);
         }
 
-        return interaction.reply(`${rngedString}`);
+        return interaction.followUp(`${rngedString}`);
     },
 };

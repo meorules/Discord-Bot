@@ -23,10 +23,10 @@ module.exports = {
             lineup = await Lineup.CreateLineup(team.mID,formation);
         }
         if(formationSwitched){
-            interaction.reply(`The lineup had the formation changed: \n ${await lineup.stringify()}`);
+            interaction.followUp(`The lineup had the formation changed: \n ${await lineup.stringify()}`);
         }
         else{
-            interaction.reply(`The lineup was created successfully: \n ${await lineup.stringify()}`)
+            interaction.followUp(`The lineup was created successfully: \n ${await lineup.stringify()}`)
         }
 
         return;

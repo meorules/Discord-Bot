@@ -86,7 +86,7 @@ module.exports = {
         let player;
         team = await Team.RetrieveTeamByUser(username);
         if(!upgrade && !position && !teamToChangeTo && !league && !cardType && !notes){
-            return interaction.reply('You must provide at least an upgrade or a position to edit for ' + name);
+            return interaction.followUp('You must provide at least an upgrade or a position to edit for ' + name);
         }
         if(upgrade){
             player = await Team.EditPlayerUpgrade(team,name,upgrade);
@@ -112,8 +112,8 @@ module.exports = {
         }
 
         if(player){
-            return interaction.reply(`The player was edited successfully in your team, these are the new details: \n ${await player.stringify()}`);
+            return interaction.followUp(`The player was edited successfully in your team, these are the new details: \n ${await player.stringify()}`);
         }
-        return interaction.reply('Unable to edit the player upgrade for ' + name);
+        return interaction.followUp('Unable to edit the player upgrade for ' + name);
     },
 };

@@ -215,6 +215,6 @@ module.exports = {
         }
 
 
-        return interaction.reply(generatedString);
+        return interaction.followUp(generatedString);
     },
 };

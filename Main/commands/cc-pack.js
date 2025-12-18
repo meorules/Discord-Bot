@@ -162,7 +162,7 @@ module.exports = {
 
         let messageString = "This is the pack :eyes:"
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
-        await interaction.reply({ content: 'Rolling odds' }); 
+        await interaction.followUp({ content: 'Rolling odds' }); 
 
 
         let username = interaction.user.username;

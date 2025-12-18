@@ -45,7 +45,7 @@ module.exports = {
             order++;
         }
 
-        await interaction.reply({ content: 'Generating Leaderboard', flags: MessageFlags.Ephemeral }); 
+        await interaction.followUp({ content: 'Generating Leaderboard', flags: MessageFlags.Ephemeral }); 
 
 
         await interaction.channel.send({ content: generatedString, fetchReply: false });

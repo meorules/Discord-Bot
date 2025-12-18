@@ -156,7 +156,7 @@ async function LoadNewWordle(interaction) {
     const row = data[userIndex];
 
     if (row[3] === getTodaysDate() && row[7] === 'true') {
-        return interaction.reply("You have already played today. Come back tomorrow!");
+        return interaction.followUp("You have already played today. Come back tomorrow!");
     }
 
     row[1] = getRandomAnswer();
@@ -166,7 +166,6 @@ async function LoadNewWordle(interaction) {
 
     saveCSV(data);
 
-    await interaction.deferReply();
     const attachment = await drawBoard([], row[1]);
     await interaction.editReply({ files: [attachment] });
 }
@@ -176,17 +175,16 @@ async function PlayWordle(interaction) {
     const userIndex = getUserRow(interaction.user.username, data);
     const row = data[userIndex];
 
-    if (row[7] === 'true') return interaction.reply("You have already completed today's game!");
+    if (row[7] === 'true') return interaction.followUp("You have already completed today's game!");
 
     const guess = interaction.options.getString('guess');
     if (!isValidGuess(guess, row[1].length))
-        return interaction.reply(`Invalid guess. Must be a valid player name (${row[1].length} characters).`);
+        return interaction.followUp(`Invalid guess. Must be a valid player name (${row[1].length} characters).`);
 
     let guesses = row[4] ? row[4].split(' ') : [];
     guesses.push(guess.toUpperCase());
     row[4] = guesses.join(' ');
 
-    await interaction.deferReply();
     const attachment = await drawBoard(guesses, row[1]);
 
     // Check win
@@ -224,7 +222,7 @@ function ShowWordleStats(interaction) {
     const games = parseInt(row[5] || 0);
     const winRate = games > 0 ? Math.round((wins / games) * 100) : 0;
 
-    interaction.reply(`Stats for ${interaction.user.username}:\nGames Played: ${games}\nWin Rate: ${winRate}%`);
+    interaction.followUp(`Stats for ${interaction.user.username}:\nGames Played: ${games}\nWin Rate: ${winRate}%`);
 }
 
 // ------------------- Exports -------------------

@@ -25,7 +25,7 @@ module.exports = {
             case "Team Name":
                 fieldName = "TeamName";
                 if(value.length > 35){
-                    return interaction.reply(`The team name was not changed, please enter a team name shorter than 36 characters long.`);
+                    return interaction.followUp(`The team name was not changed, please enter a team name shorter than 36 characters long.`);
                 }
                 break;
             case "Primary Emoji":
@@ -44,10 +44,10 @@ module.exports = {
         if(changes > 0 ){
             team = await Team.RetrieveTeamByUser(username);
 
-            return interaction.reply(`The team was edited successfully, these are the new details: \n ${team.stringify(true)}`);
+            return interaction.followUp(`The team was edited successfully, these are the new details: \n ${team.stringify(true)}`);
         }
         else{
-        return interaction.reply('Unable to edit the team settings');
+        return interaction.followUp('Unable to edit the team settings');
         }
     },
 };

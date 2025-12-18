@@ -49,9 +49,9 @@ module.exports = {
             for(let player of condensedPlayers){
                 generatedString += "ID(" + player.mID + ") " + await player.stringify() + "\n";
             }
-            return interaction.reply(generatedString);
+            return interaction.followUp(generatedString);
         } else {
-            return interaction.reply("No players found with the provided IDs.");
+            return interaction.followUp("No players found with the provided IDs.");
         }
     },
 };

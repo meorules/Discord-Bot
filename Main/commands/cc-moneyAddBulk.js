@@ -16,7 +16,7 @@ module.exports = {
     async execute(interaction) {
         // Check if user has the required role (mod)
         if (!interaction.member.roles.cache.has("1318943571805736975")) {
-            return interaction.reply({
+            return interaction.followUp({
                 content: "You do not have permission to use this command.",
                 ephemeral: true
             });
@@ -54,7 +54,7 @@ module.exports = {
         const row2 = new ActionRowBuilder().addComponents(confirmButton);
 
         // Send the message
-        await interaction.reply({
+        await interaction.followUp({
             content: `Bulk add money: **${amount}**\nSelect the users and confirm:`,
             components: [row1, row2],
             ephemeral: false

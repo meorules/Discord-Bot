@@ -125,7 +125,7 @@ module.exports = {
         }
 
         if (rating == null) {
-            interaction.reply(`Please supply a rating`);
+            interaction.followUp(`Please supply a rating`);
             return;
         }
 
@@ -137,7 +137,7 @@ module.exports = {
 
         //console.log(rngedString);
         interactingUser = null;
-        interaction.reply(`${rngedString}`);
+        interaction.followUp(`${rngedString}`);
         rngedString = "";
         return;
     },

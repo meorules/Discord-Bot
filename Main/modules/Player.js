@@ -192,10 +192,10 @@ class Player{
         //Adding team
 
         if(this.mGender == "Male"){
-            toReturn += ":male_sign: ";
+            toReturn += "♂️ ";
         }
         else{
-            toReturn += ":female_sign: ";
+            toReturn += "♀️ ";
         }
 
         //Add Boost tag if there is one
@@ -204,10 +204,10 @@ class Player{
         }
 
         if(this.mUpgrade > 0 ){
-            toReturn += " :arrow_up: +" + this.mUpgrade;
+            toReturn += " ⬆️ +" + this.mUpgrade;
         }
         else if(this.mUpgrade < 0 ){
-            toReturn += " :arrow_down: " + this.mUpgrade;
+            toReturn += " ⬇️ " + this.mUpgrade;
         }
 
         if(this.mOwner){

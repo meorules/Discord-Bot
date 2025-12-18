@@ -18,7 +18,7 @@ module.exports = {
         if(retrievedUsername){
             if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ))){
 
-            return interaction.reply("You do not have permission to remove players from this team.");
+            return interaction.followUp("You do not have permission to remove players from this team.");
             }
             else{
             username = retrievedUsername.username;
@@ -76,10 +76,10 @@ module.exports = {
                 playerLogChannel.send("``` ``` \n" + Date() + " - **Player Bulk Removal Command** Team (" + team.mTeamName +  "), Removed by "+ commandUsername +", In Channel: " +  interaction.channel.name + " - Players Removed:\n"+ playersgeneratedString);
                 
                 if(removedPlayers.length == names.length){
-                    return interaction.reply(`The following players were removed from the team ${team.mTeamName}:\n${playersgeneratedString}`);
+                    return interaction.followUp(`The following players were removed from the team ${team.mTeamName}:\n${playersgeneratedString}`);
                 }
                 else{
-                    return interaction.reply(`The following players were removed from the team ${team.mTeamName}:\n${playersgeneratedString}\nUnable to remove the following players: ${unableToRemoveString}`);
+                    return interaction.followUp(`The following players were removed from the team ${team.mTeamName}:\n${playersgeneratedString}\nUnable to remove the following players: ${unableToRemoveString}`);
                 }
             }
         }
@@ -87,6 +87,6 @@ module.exports = {
             console.error(err);
         }
 
-        return interaction.reply('Unable to remove the player with name ' + unableToRemoveString + ' from your team,');
+        return interaction.followUp('Unable to remove the player with name ' + unableToRemoveString + ' from your team,');
     },
 };

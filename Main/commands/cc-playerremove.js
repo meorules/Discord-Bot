@@ -42,12 +42,12 @@ module.exports = {
                     catch(err){
                         console.error(err);
                     }
-                    return interaction.reply(`The following player was removed from the team ${team.mTeamName}:\n ${await team.mPlayers[player].stringify()}`);
+                    return interaction.followUp(`The following player was removed from the team ${team.mTeamName}:\n ${await team.mPlayers[player].stringify()}`);
                 }
             }
         }
 
 
-        return interaction.reply('Unable to remove the player with name ' + name + ' from your team,');
+        return interaction.followUp('Unable to remove the player with name ' + name + ' from your team,');
     },
 };
