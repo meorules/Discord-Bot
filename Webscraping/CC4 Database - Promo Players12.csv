@@ -1,0 +1,5 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+G. Rulli,7,GK,33,87,Marseille,Ligue 1,189,84,34,58,17,27,15,87,80,15,3,1,Argentina,https://sofifa.com/player/215316/geronimo-rulli/260004/,Male
+J. Vagnoman,7,RB RM,24,86,Stuttgart,Bundesliga,190,90,82,86,67,42,86,84,96,81,4,3,Germany,https://sofifa.com/player/242602/josha-vagnoman/260004/,Male
+I. Sangare,7,CDM CM CAM,27,87,Nottingham Forest,Premier League,191,77,81,88,74,71,76,85,85,83,4,3,Côte d'Ivoire,https://sofifa.com/player/235173/ibrahim-sangare/260004/,Male
+G. Orban,7,ST CAM,22,86,Hellas Verona,Serie A,178,70,86,42,95,83,72,75,84,71,4,3,Nigeria,https://sofifa.com/player/273564/gift-orban/260004/,Male

@@ -20,7 +20,8 @@ class CardType {
   { name: 'Birthday', value: '10' },
   { name: 'RTTK', value: '11' },
   { name: 'Double Agents', value: '12' },
-  { name: 'Evo', value: '13' }];
+  { name: 'Evo', value: '13' },
+  { name: 'Shapeshifters', value: '14' },];
 
     static mPriorityList = [];
     constructor(cardTypeId,CardTypeName,emoji,priority){

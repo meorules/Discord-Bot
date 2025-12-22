@@ -23,7 +23,7 @@ class Note {
 
     stringify(){
         if(this.mID != -1){
-            let noteString = this.mNotePosition + ". ";
+            let noteString = this.mNotePosition + "- ";
             if(this.mIsCompleted){
                 noteString += "✅ ";
             }

@@ -24,7 +24,7 @@ module.exports = {
 
         currentNote = await Note.RetrieveNoteByPosition(team.mID, positionValue);
 
-        let changes = Note.DeleteNote(currentNote.mID);
+        let changes = await Note.DeleteNoteByID(currentNote.mID);
         if(changes > 0){
             replyString = `✅ Deleted todo item at position ${positionValue}.`;
         }

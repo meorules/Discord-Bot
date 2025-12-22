@@ -39,11 +39,11 @@ module.exports = {
 
         team = await Team.RetrieveTeamByUser(username);
         //console.log(team);
-        playerStart = (page-1)*18;
+        playerStart = (page-1)*15;
         if (page == 1) {
             playerStart = 0;
         }
-        playersEnd = playerStart + 18;
+        playersEnd = playerStart + 15;
         condensedPlayers = team.mPlayers.slice(playerStart,playersEnd);
         condensedPlayers.sort(Player.sort);
         if(playersEnd > team.mPlayers.length){

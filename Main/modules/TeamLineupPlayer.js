@@ -4,7 +4,7 @@ const Team = require('./team.js');
 
 class TeamLineupPlayer {
 
-    constructor(ID,teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber,LastEdited){
+    constructor(ID,teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber,LastEdited,Boost){
         this.mID = ID;
         this.mTeamLineupID = teamLineupID;
         this.mTeamPlayerID = teamPlayerID;
@@ -13,9 +13,10 @@ class TeamLineupPlayer {
         this.mLineupPositionNumber = LineupPositionNumber;
         this.mLastEdited = LastEdited;
         this.mPlayer = null;
+        this.mBoost = Boost;
     }
 
-    setAttributes(ID,teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber,LastEdited,Player){
+    setAttributes(ID,teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber,LastEdited,Player,Boost){
         this.mID = ID;
         this.mTeamLineupID = teamLineupID;
         this.mTeamPlayerID = teamPlayerID;
@@ -24,15 +25,17 @@ class TeamLineupPlayer {
         this.mLineupPositionNumber = LineupPositionNumber;
         this.mLastEdited = LastEdited;
         this.mPlayer = Player;
+        this.mBoost = Boost;
     }
 
     async stringify(){
         if(this.mID != -1){
             if(this.mPlayer){
+                this.mPlayer.mRating = this.mPlayer.mRating + this.mChemistry + (this.mBoost ? this.mBoost : 0);
                 let playerString;
                 if(!this.mPosition.includes("SUB")){
                     playerString = await this.mPlayer.stringify(true);
-                    return this.mLineupPositionNumber + ". **" + this.mPosition + "**: " + playerString + " | :test_tube: +" + this.mChemistry;
+                    return this.mLineupPositionNumber + ". **" + this.mPosition + "**: " + playerString + " | :test_tube: +" + this.mChemistry + (this.mBoost ? " | :rocket: +" + this.mBoost : "");
                 }else{
                     playerString = await this.mPlayer.stringify(true);
                     return this.mLineupPositionNumber + ". **" + this.mPosition + "**: " + playerString;
@@ -51,7 +54,7 @@ class TeamLineupPlayer {
 
         try{
             const row = await db.get("SELECT * FROM TeamLineupPlayers WHERE ID = ? ;", [id]);
-            const lineupPlayerToReturn = new TeamLineupPlayer(row.ID,row.TeamLineupID,row.TeamPlayerID,row.Chemistry,row.Position,row.LineupPositionNumber,row.LastEdited);
+            const lineupPlayerToReturn = new TeamLineupPlayer(row.ID,row.TeamLineupID,row.TeamPlayerID,row.Chemistry,row.Position,row.LineupPositionNumber,row.LastEdited,row.Boost);
 
             return lineupPlayerToReturn;
         }
@@ -68,7 +71,7 @@ class TeamLineupPlayer {
         try{
             const rows = await db.all("SELECT * FROM TeamLineupPlayers WHERE TeamLineupID = ? ;", [lineupID]);
             for(let row of rows){
-                var lineupPlayerToReturn = new TeamLineupPlayer(row.ID,row.TeamLineupID,row.TeamPlayerID,row.CalculatedChemistry,row.LineupPosition,row.LineupPositionNumber,row.LastEdited);
+                var lineupPlayerToReturn = new TeamLineupPlayer(row.ID,row.TeamLineupID,row.TeamPlayerID,row.CalculatedChemistry,row.LineupPosition,row.LineupPositionNumber,row.LastEdited,row.Boost);
                 if(lineupPlayerToReturn.mTeamPlayerID != -1){
                     lineupPlayerToReturn.mPlayer = await Team.RetrieveTeamPlayer(lineupPlayerToReturn.mTeamPlayerID);
                 }
@@ -102,6 +105,11 @@ class TeamLineupPlayer {
                 lineupPlayer.mPlayer = await Team.RetrieveTeamPlayer(newValue);
                 return lineupPlayer;
             }
+            else if(parameterName == "Boost"){
+                lineupPlayer.mBoost = newValue;
+                const result = await db.run('UPDATE TeamLineupPlayers SET Boost = ? WHERE ID = ?;',[newValue, lineupPlayer.mID]);
+                return lineupPlayer;
+            }
         }
         catch(err){
             console.error('❌ Query error:', err);
@@ -113,7 +121,7 @@ class TeamLineupPlayer {
         var newLineupPlayer = null;
 
         try{
-            const result = await db.run('INSERT INTO TeamLineupPlayers (TeamLineupID,TeamPlayerID,CalculatedChemistry,LineupPosition,LineupPositionNumber,LastEdited) VALUES (?,?,?,?,?,datetime("now"));',[teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber]);
+            const result = await db.run('INSERT INTO TeamLineupPlayers (TeamLineupID,TeamPlayerID,CalculatedChemistry,LineupPosition,LineupPositionNumber,LastEdited,Boost) VALUES (?,?,?,?,?,datetime("now"),?);',[teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber,0]);
             newLineupPlayer = new TeamLineupPlayer(result.lastID,teamLineupID,teamPlayerID,Chemistry,Position,LineupPositionNumber,new Date().toISOString());
             if(teamPlayerID != -1){
                 newLineupPlayer.mPlayer = await Team.RetrieveTeamPlayer(teamPlayerID);

@@ -1,0 +1,12 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+O. Giroud,14,GK,38,87,Lille OSC,Ligue 1,193,91,83,69,84,92,68,85,90,92,4,3,France,sofifa.com/player/178509/olivier-giroud/260004/,Male
+D. Szoboszlai,14,RB CDM RM,24,88,Liverpool,Premier League,186,74,85,87,82,86,88,92,82,73,5,4,Hungary,sofifa.com/player/236772/dominik-szoboszlai/260004/,Male
+B. White,14,CB CDM,27,87,Arsenal,Premier League,185,77,63,90,32,26,79,80,90,86,4,2,England,sofifa.com/player/231936/benjamin-white/260004/,Male
+Mingueza,14,CB LB,26,86,RC Celta,La Liga,184,75,81,88,65,58,82,81,92,88,4,2,Spain,sofifa.com/player/259694/oscar-mingueza-garcia/260004/,Male
+E. Camavinga,14,ST RW LW LM RM CAM LB CB RB,22,88,Real Madrid,La Liga,185,77,87,88,85,75,84,88,88,80,4,4,France,sofifa.com/player/248243/eduardo-camavinga/260004/,Male
+J. Endo,14,CDM CM,25,87,Angel City FC,National Women's Soccer League,163,60,80,84,78,74,74,86,85,80,4,4,Japan,sofifa.com/player/247811/jun-endo/260006/,Female
+M. Thuram,14,CM CDM RB CB,27,87,Inter,Serie A,192,80,85,83,86,71,81,86,92,85,4,4,France,sofifa.com/player/228093/marcus-thuram/260004/,Male
+D. da Costa,14,CAM LW CM,31,86,1. FSV Mainz 05,Bundesliga,187,87,84,81,82,46,73,90,90,77,3,4,Germany,sofifa.com/player/202429/danny-da-costa/260004/,Male
+C. Eriksen,14,LM LW,33,86,VfL Wolfsburg,Bundesliga,182,76,86,58,90,93,92,94,54,54,5,5,Denmark,sofifa.com/player/190460/christian-eriksen/260004/,Male
+T. Chawinga,14,RW ST,26,88,Kansas City Current,National Women's Soccer League,168,62,88,47,90,81,84,78,89,78,4,5,Malawi,sofifa.com/player/279799/temwa-chawinga/260006/,Female
+C. Fabregas,4,ST,38,90,Hero,Premier League,179,76,91,69,93,89,89,93,82,80,4,3,Spain,https://www.futbin.com/26/player/20832/cesc-fabregas,Male

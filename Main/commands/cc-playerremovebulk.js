@@ -36,6 +36,9 @@ module.exports = {
         for(let player in team.mPlayers){
             for (let name of names){
                 changes = 0;
+                if(name.trim().length == 0 || name == " " || name == ""){
+                    continue;
+                }
                 if(team.mPlayers[player].mPlayerName.toLowerCase().includes(name.toLowerCase().trim())){
                     changes = await Team.RemovePlayerFromTeamByID(team.mID,team.mPlayers[player].mID);
                     if(changes > 0 ){

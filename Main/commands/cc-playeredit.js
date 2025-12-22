@@ -20,7 +20,7 @@ const leagueValues = [
   { name: 'Liga F', value: 'Liga F' },
   { name: 'Women\'s Super League', value: 'Women\'s Super League' },
   { name: 'Division 1 Féminine', value: 'Division 1 Féminine' },
-  { name: 'Frauen-Bundesliga', value: 'Frauen-Bundesliga' },
+  { name: 'GPFBL', value: 'GPFBL' },
   { name: 'National Women\'s Soccer League', value: 'National Women\'s Soccer League' },
   { name: 'Serie A Femminile', value: 'Serie A Femminile' },
   { name: 'Women\'s Premier League', value: 'Women\'s Premier League' },

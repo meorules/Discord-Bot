@@ -37,7 +37,8 @@ function generateRandomNumbers(amount, min, max) {
 function populateUnshuffledArray(min, max) {
     let numbers = [];
     let counter = min;
-    for (let i = 0; i < max; i++) {
+    let amount = max-min + 1;
+    for (let i = 0; i < amount; i++) {
         numbers[i] = counter++;
     }
     return numbers;

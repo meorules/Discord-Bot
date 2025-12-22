@@ -47,13 +47,13 @@ module.exports = {
         currentNote = await Note.RetrieveNoteByPosition(team.mID, positionValue);
 
         if(noteValue){
-            currentNote = Note.EditNote(currentNote.mID,"Value",noteValue);
+            currentNote = await Note.EditNote(currentNote,"Value",noteValue);
         }
         if(dueDateValue){
-            currentNote = Note.EditNote(currentNote.mID,"DueDate",dueDateValue);
+            currentNote = await Note.EditNote(currentNote,"DueDate",dueDateValue);
         }
         if(isCompletedValue !== null){
-            currentNote = Note.EditNote(currentNote.mID,"IsCompleted",isCompletedValue);
+            currentNote = await Note.EditNote(currentNote,"IsCompleted",isCompletedValue);
         }
         let replyString = `Edit note: "${await currentNote.stringify()}"`;
         interaction.followUp(`${replyString}`)

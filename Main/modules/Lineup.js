@@ -391,7 +391,7 @@ class Lineup {
     }
 
     
-    static async EditLineupPlayerPosition(teamID,playerName,newPosition,changesMade){
+    static async EditLineupPlayerPositionOrBoost(teamID,playerName,parameter,newValue,changesMade){
 
         //Get lineup player by name from team players
         
@@ -414,11 +414,16 @@ class Lineup {
                     }
             }
             if(playerFound){
-                if(playerFound.mPosition.includes("SUB")){
-                    newPosition = "SUB "+ (playerFoundIndex-10) +" ("+ newPosition+")";
+                if(parameter == "Position"){
+                    if(playerFound.mPosition.includes("SUB")){
+                        newValue = "SUB "+ (playerFoundIndex-10) +" ("+ newValue+")";
 
+                    }
+                    playerFound = await TeamLineupPlayer.EditLineupPlayer(playerFound,"Position",newValue);
                 }
-                playerFound = await TeamLineupPlayer.EditLineupPlayer(playerFound,"Position",newPosition);
+                else if(parameter == "Boost"){
+                    playerFound = await TeamLineupPlayer.EditLineupPlayer(playerFound,"Boost",newValue);
+                }
                 lineup.calculateChemistry();
                 changesMade.result = true;
                 return lineup;

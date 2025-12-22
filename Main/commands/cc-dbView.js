@@ -50,6 +50,12 @@ module.exports = {
             .setRequired(false)
             .setDescription("Show only players that are owned by a user") 
         )
+        .addUserOption((option) =>
+            option
+            .setName("ownertoexclude")
+            .setRequired(false)
+            .setDescription("Show only players that are not owned by a user") 
+        )
         .addStringOption((option) =>
             option
             .setName("league")
@@ -79,6 +85,7 @@ module.exports = {
         let minRatingFilter = interaction.options.getInteger("minrating");
         let genderFilter = interaction.options.getBoolean("gender");
         let ownerFilter = interaction.options.getUser("owner");
+        let ownerToExcludeFilter = interaction.options.getUser("ownertoexclude");
 
         if (page == null) {
             page = 1;
@@ -88,6 +95,11 @@ module.exports = {
         if(ownerFilter){
             currentTeam = await Team.RetrieveTeamByUser(ownerFilter.username);
             teams = [currentTeam];
+        }
+
+        if(ownerToExcludeFilter){
+            currentTeam = await Team.RetrieveTeamByUser(ownerToExcludeFilter.username);
+            teams = teams.filter(team => team.mID != currentTeam.mID);
         }
         let totalPlayers = [];
 
