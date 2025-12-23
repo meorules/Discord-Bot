@@ -30,7 +30,7 @@ module.exports = {
         if(retrievedUsername){
             if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ))){
 
-            return interaction.reply("You do not have permission to remove money from this user.");
+            return interaction.followUp("You do not have permission to remove money from this user.");
             }
             else{
             username = retrievedUsername.username;
@@ -41,7 +41,7 @@ module.exports = {
         }
         team = await Team.RetrieveTeamByUser(username);
         if(amount <= 0){
-            return interaction.reply("You think you're sly, you are not adding money like this lil bro.");
+            return interaction.followUp("You think you're sly, you are not adding money like this lil bro.");
         }
         team.updateBalance(-amount);
 
@@ -60,6 +60,6 @@ module.exports = {
         generatedString = "Amount removed: " + amount + " \n";
         generatedString = generatedString + team.stringify(false,true);
 
-        return interaction.reply(generatedString);
+        return interaction.followUp(generatedString);
     },
 };

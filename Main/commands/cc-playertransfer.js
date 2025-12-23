@@ -33,11 +33,11 @@ module.exports = {
 
         if(fromUsername){
             if(fromUsername == toUsername){
-                return interaction.reply("You think you're sly, you are not actually doing anything lol");
+                return interaction.followUp("You think you're sly, you are not actually doing anything lol");
             }
             if(fromUsername.username != commandUsername){
                 if((!commandUsername.toLowerCase().trim().includes("meo_rules") && !commandUsername.toLowerCase().trim().includes("mun25")  && !commandUsername.toLowerCase().trim().includes("a.h.m.e.d.") && !commandUsername.toLowerCase().trim().includes("billygilmour") && !commandUsername.toLowerCase().trim().includes("witzbold_1704")) && fromUsername != commandUsername){
-                    return interaction.reply("Only mods can transfer players which are not on their team. Please do not attempt to move a player from someone else's team.");
+                    return interaction.followUp("Only mods can transfer players which are not on their team. Please do not attempt to move a player from someone else's team.");
                 }
                 else{
                     username = fromUsername.username;
@@ -65,11 +65,11 @@ module.exports = {
             catch(err){
                 console.error(err);
             }
-            return interaction.reply(`The following player was removed from ${teamToRemove.mTeamName} and added to ${teamToAdd.mTeamName}: \n ${await playerFound.stringify()}`);
+            return interaction.followUp(`The following player was removed from ${teamToRemove.mTeamName} and added to ${teamToAdd.mTeamName}: \n ${await playerFound.stringify()}`);
 
         }
         else{
-            return interaction.reply('Unable to complete player transfer. Either the player is not on the team or the name passed in is incorrect.');
+            return interaction.followUp('Unable to complete player transfer. Either the player is not on the team or the name passed in is incorrect.');
         }
     },
 };

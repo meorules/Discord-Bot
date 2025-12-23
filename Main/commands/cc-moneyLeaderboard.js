@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder,MessageFlags } = require('discord.js');
 
 const Player = require('../modules/Player.js');
 const Team = require('../modules/team.js');
@@ -45,7 +45,7 @@ module.exports = {
             order++;
         }
 
-        await interaction.reply({ content: 'Generating Leaderboard', flags: MessageFlags.Ephemeral }); 
+        await interaction.followUp({ content: 'Generating Leaderboard', flags: MessageFlags.Ephemeral }); 
 
 
         await interaction.channel.send({ content: generatedString, fetchReply: false });

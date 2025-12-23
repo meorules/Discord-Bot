@@ -5,6 +5,20 @@ const countryCodeArrays = require('../countrycodes.js')
 
 const CardType = require('./cardType.js');
 
+//Adjacent Positions Map
+// 
+positionMap = [{"CB": ["LB","RB","CDM"]},
+{"LB": ["CB","LM","CDM"]},
+{"RB": ["CB","RM","CDM"]},
+{"CDM": ["CB","CM","LB","RB"]},
+{"CM": ["LM","RM","CDM","CAM"]},
+{"CAM": ["LM","RM","CM","ST","LW","RW"]},
+{"LM": ["LW","LB","CM"]},
+{"RM": ["RW","RB","CM"]},
+{"LW": ["LM","ST","CAM"]},
+{"RW": ["RM","ST","CAM"]},
+{"ST": ["LW","CAM","RW"]}];
+
 class Player{
 
     constructor(id, name, cardTypeId, position,age, rating, team, league, height, weight, crossing, finishing, heading, jumping, penalties, weakFoot, skillMoves, passing, defending, attacking,country, url, gender,boost){
@@ -33,6 +47,7 @@ class Player{
         this.mGender = gender;
         this.mBoost = boost;
         this.mUpgrade = 0;
+        this.mOwner = null;
     }
 
     setAttributes(id, name, cardTypeId, position,age, rating, team, league, height, weight, crossing, finishing, heading, jumping, penalties, weakFoot, skillMoves, passing, defending, attacking,country, url, gender,boost){
@@ -70,7 +85,7 @@ class Player{
     }
 
     upgrade(amount){
-        this.mUpgrade = amount;
+        this.mUpgrade += amount;
         this.mRating += amount;
         this.mCrossing += amount;
         this.mFinishing += amount;
@@ -82,7 +97,54 @@ class Player{
         this.mAttacking += amount;
     }
 
-    async stringify(){
+    downgrade(amount){
+        this.upgrade(-amount);
+    }
+
+    setOwner(owner){
+        this.mOwner = owner;
+    }
+
+    addPosition(position){
+        this.mPosition = this.mPosition + " " + position;
+    }
+
+    resetPosition(positionsToRemove){
+        let correctPosition = "";
+        let splitPosition = this.mPosition.split(" ");
+        for(let pos of splitPosition){
+            if(positionsToRemove.includes(pos)){
+                continue;
+            }
+            else{
+                correctPosition = correctPosition + " " + pos;
+            }
+        }
+        this.mPosition = correctPosition.trim();
+    }
+
+    addRandomAdjacentPosition(){
+        let potentialPositions = [];
+        let splitPosition = this.mPosition.split(" ");
+        for(let pos of splitPosition){
+            let adjacentPositions = positionMap.find(o => Object.keys(o)[0] == pos);
+            if(adjacentPositions){
+                for(let adjPos of adjacentPositions[pos]){
+                    if(!splitPosition.includes(adjPos) && !potentialPositions.includes(adjPos)){
+                        potentialPositions.push(adjPos);
+                    }
+                }
+            }
+        }
+        if(potentialPositions.length > 0){
+            let randomIndex = Math.floor(Math.random() * potentialPositions.length);
+            let positionAdded = potentialPositions[randomIndex];
+            this.addPosition(positionAdded);
+            return positionAdded;
+        }
+    }
+
+    async stringify(lineupPlayer=false){
         let toReturn = "";
         if(this.mID == -1){
             throw new Error('Some invalid player was stringified.');
@@ -92,7 +154,7 @@ class Player{
         //Adding Emoji
         toReturn += retrievedCardType.mEmoji + " ";
         //Adding extra card type for specials
-        if(this.mCardTypeID != '1' || this.mCardTypeID != '2'|| this.mCardTypeID != '3'){
+        if(this.mCardTypeID != '1' && this.mCardTypeID != '2' && this.mCardTypeID != '3' && lineupPlayer==false){
             toReturn += "**" + retrievedCardType.mCardType + "** ";
         }
         //Adding league if it is a hero
@@ -102,22 +164,38 @@ class Player{
         //Adding rating
         toReturn += this.mRating + " ";
         //Adding flag
-        let country = ":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": ";
-
-
-        if(country == ":nir: "){
-            country = "<:nir:1439364606974758952> ";
+        let country = "";
+        try{
+            country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
+            if(country == "nir"){
+                toReturn += "<:nir:1439364606974758952> ";
+            }
+            else{
+                toReturn += ":" + country + ": ";
+            }
         }
-        toReturn += country;
+        catch(err){
+            console.error('❌ Country code not found for country: ' + this.mCountry);
+            console.error('PlayerJS::stringify()');
+            country = ":flag_white: ";
+        }
+
         //Adding name & position
-        toReturn += "**"+ this.mPlayerName + " " + this.mPosition + "** ";
-        //Adding team
-        toReturn += this.mTeam + " ";
-        if(this.mGender == "Male"){
-            toReturn += ":male_sign: ";
+        toReturn += "**"+ this.mPlayerName + " ";
+        if(lineupPlayer){
+            toReturn += "** ";
         }
         else{
-            toReturn += ":female_sign: ";
+            toReturn += this.mPosition + "** ";
+            toReturn += this.mTeam + " ";
+        }
+        //Adding team
+
+        if(this.mGender == "Male"){
+            toReturn += "♂️ ";
+        }
+        else{
+            toReturn += "♀️ ";
         }
 
         //Add Boost tag if there is one
@@ -126,10 +204,19 @@ class Player{
         }
 
         if(this.mUpgrade > 0 ){
-            toReturn += " :arrow_up: +" + this.mUpgrade;
+            toReturn += " ⬆️ +" + this.mUpgrade;
         }
         else if(this.mUpgrade < 0 ){
-            toReturn += " :arrow_down: " + this.mUpgrade;
+            toReturn += " ⬇️ " + this.mUpgrade;
+        }
+
+        if(this.mOwner){
+            toReturn += "- *" + this.mOwner.mDiscordUsername + "*";
+        }
+
+                //Add note if there is one
+        if(this.Notes){
+            toReturn += " *" + this.Notes + "*";
         }
 
         return toReturn;
@@ -270,6 +357,26 @@ class Player{
 
         let players = [];
         try{
+            const rows = await db.all("SELECT * FROM Players WHERE Rating = ? AND CardTypeID < 4 ;", [rating]);
+
+            rows.forEach(row => {
+                let player = new Player(row.ID,row.PlayerName,row.CardTypeID,row.Position,row.Age, row.Rating, row.Team, row.League, row.Height, row.Weight, row.Crossing, row.Finishing, row.Heading, row.Jumping, row.Penalties, row.WeakFoot, row.SkillMoves,row.Passing, row.Defending, row.Attacking, row.Country, row.URL, row.Gender,row.Boost);
+                players.push(player);
+            });
+
+            return players;
+        }
+        catch(err){
+            console.error('❌ Query error:', err);
+        }
+    }
+
+    static async RetrievePlayersByRatingBroken(rating){
+    
+        let db = await ConnectToDB();
+
+        let players = [];
+        try{
             const rows = await db.all("SELECT * FROM Players WHERE Rating = ? ;", [rating]);
 
             rows.forEach(row => {
@@ -322,9 +429,9 @@ class Player{
     static async InsertPlayer(player){
 
         let db = await ConnectToDB();
-        let params = [player.mPlayerName,player.mCardTypeID,player.mPosition,player.mAge,player.mRating, player.mTeam, player.mHeight,player.mWeight,player.mCrossing,player.mFinishing,player.mHeading,player.mJumping,player.mPenalties,player.mWeakFoot,player.mSkillMoves,player.mPassing,player.mDefending,player.mAttacking,player.mCountry,player.mURL,player.mGender,player.mBoost]
+        let params = [player.mPlayerName,player.mCardTypeID,player.mPosition,player.mAge,player.mRating, player.mTeam,player.mLeague, player.mHeight,player.mWeight,player.mCrossing,player.mFinishing,player.mHeading,player.mJumping,player.mPenalties,player.mWeakFoot,player.mSkillMoves,player.mPassing,player.mDefending,player.mAttacking,player.mCountry,player.mURL,player.mGender,player.mBoost]
         try{
-            const result = await db.run("INSERT INTO Players(PlayerName,CardTypeID,Position,Age,Rating,Team,Height,Weight,Crossing,Finishing,Heading,Jumping,Penalties,WeakFoot,SkillMoves,Passing,Defending,Attacking,Country,URL,Gender,Boost) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?, ?, ?, ?, ?)",params);
+            const result = await db.run("INSERT INTO Players(PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Crossing,Finishing,Heading,Jumping,Penalties,WeakFoot,SkillMoves,Passing,Defending,Attacking,Country,URL,Gender,Boost) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?,?,?,?,?, ?, ?, ?, ?, ?, ?)",params);
             return result.lastID;
         }
         catch(err){

@@ -65,7 +65,7 @@ static async openRarePlayersPack(count) {
         } else if (numbers[i] > 88 && numbers[i] <= 92) {
             players.push(await PackOpening.GenerateRandomPlayerByRating(84));
         } else if (numbers[i] > 92 && numbers[i] <= 95) {
-            players.push(await PackOpening.GenerateNonEliteSpecial());
+            players.push(await PackOpening.GenerateRandomPlayerByRating(85));
         } else if (numbers[i] > 95 && numbers[i] <= 100) {
             players.push(await PackOpening.GenerateElite());
         }

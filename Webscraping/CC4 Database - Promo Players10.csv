@@ -1,0 +1,5 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+C. Brosnan,7,GK,29,86,Everton,WSL,175,73,32,48,11,31,20,81,80,15,3,1,Ireland,https://sofifa.com/player/265331/courtney-brosnan/260004/,Female
+Héctor Fort,7,RB/RM/LB/LM,18,86,Elche CF,La Liga,185,78,75,84,51,55,89,83,86,81,4,3,Spain,https://sofifa.com/player/278923/hector-fort-garcia/260004/,Male
+D. Frattesi,7,CM/CAM,25,87,Inter,Serie A,178,74,85,78,85,69,75,87,87,78,4,3,Italy,https://sofifa.com/player/239807/davide-frattesi/260004/,Male
+Y. Diomande,7,RW/RM/ST/LW,18,86,RB Leipzig,Bundesliga,181,76,85,36,85,81,81,83,82,81,4,4,Côte d'Ivoire,https://sofifa.com/player/78012/yan-diomande/260004/,Male

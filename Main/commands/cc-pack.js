@@ -15,11 +15,17 @@ async function openPack(packName) {
     let players = []
 
     switch (packName) {
+        case "Provisions Pack(35k)":
+            players = await Packs.openGoldPack(15);
+            break;
+        case "Mini Provisions Pack(25k)":
+            players = await Packs.openGoldPack(10);
+            break;
         case "Elite Hunter Pack(75k)":
             players = await Packs.openEliteHunterPack(8);
             break;
         case "Rare Players Pack(50k)":
-            players = await Packs.openRarePlayersPack(6);
+            players = await Packs.openRarePlayersPack(7);
             break;
         case "Rarer Players Pack(60k)":
             players = await Packs.openRarerPlayersPack(6);
@@ -56,12 +62,6 @@ async function openPack(packName) {
 async function openPacks(pack, count) {
     packPlayers = [];
     //console.log("In the function now");
-
-
-    if (pack == "Provisions Pack(35k)") {
-        pack = "Gold Pack(15k)";
-        count = count * 5;
-    }
 
     if (count == 1) {
         packPlayers = await openPack(pack);
@@ -122,8 +122,8 @@ function calcPackBalance(pack,count){
     }
 }
 
-basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }];
-extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"}]
+basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }, { name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{ name: "Mini Provisions Pack(25k)", value: "Mini Provisions Pack(25k)"},{name:"Rarer Players Pack(60k)",value: "Rarer Players Pack(60k)"}];
+extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"}];
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -162,7 +162,7 @@ module.exports = {
 
         let messageString = "This is the pack :eyes:"
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
-        await interaction.reply({ content: 'Rolling odds', flags: MessageFlags.Ephemeral }); 
+        await interaction.followUp({ content: 'Rolling odds' }); 
 
 
         let username = interaction.user.username;
@@ -257,7 +257,7 @@ module.exports = {
             walkout = null;
         }
 
-
+        rngedString = "";
         return;
     },
 };

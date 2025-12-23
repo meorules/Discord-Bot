@@ -24,6 +24,28 @@ class PackOpening{
 
     }
 
+    static async GenerateRandomPlayerByRatingBroken(rating){
+
+        let players = await Player.RetrievePlayersByRatingBroken(rating);
+
+        if(players.length == 1){
+            return await Player.ReplaceIfPromo(players[0]);
+        }
+        else if(players.length > 0){
+            let playerNumber = generateRandomNumber(0,players.length-1)
+            let playerToReturn = players[playerNumber];
+            playerToReturn = await Player.ReplaceIfPromo(playerToReturn);
+
+            return playerToReturn;
+        }
+        else{
+            console.error('No players available for request of rating' + rating)
+            console.error('packOpeningjs::GenerateRandomPlayerByRating')
+            return null;
+        }
+
+    }
+
     static async GenerateNonEliteSpecial(){
         let players = await Player.RetrievePackablePromoPlayers(75,84);
 

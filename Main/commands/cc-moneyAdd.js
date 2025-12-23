@@ -51,6 +51,6 @@ module.exports = {
         generatedString = "Amount added: " + amount + " \n";
         generatedString = generatedString + team.stringify(false,true);
 
-        return interaction.reply(generatedString);
+        return interaction.followUp(generatedString);
     },
 };

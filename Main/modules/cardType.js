@@ -1,9 +1,27 @@
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 
+
+
 mPriorityList = []
 mPromoValues = []
 class CardType {
+
+    static CARD_TYPE_VALUES = [
+  { name: 'Bronze', value: '1' },
+  { name: 'Silver', value: '2' },
+  { name: 'Gold', value: '3' },
+  { name: 'Hero', value: '4' },
+  { name: 'Icon', value: '5' },
+  { name: 'Silver Star', value: '6' },
+  { name: 'POTW', value: '7' },
+  { name: 'FutureStars', value: '8' },
+  { name: 'Speed Demons', value: '9' },
+  { name: 'Birthday', value: '10' },
+  { name: 'RTTK', value: '11' },
+  { name: 'Double Agents', value: '12' },
+  { name: 'Evo', value: '13' },
+  { name: 'Shapeshifters', value: '14' },];
 
     static mPriorityList = [];
     constructor(cardTypeId,CardTypeName,emoji,priority){

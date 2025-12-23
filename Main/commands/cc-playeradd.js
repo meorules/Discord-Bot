@@ -42,10 +42,10 @@ module.exports = {
                     console.error(err);
                 }
 
-                return interaction.reply(`The following player was added to the team ${team.mTeamName}:\n ${await playerToAdd.stringify()}`);
+                return interaction.followUp(`The following player was added to the team ${team.mTeamName}:\n ${await playerToAdd.stringify()}`);
             }
         }
 
-        return interaction.reply('Unable to add the player with id ' + id + ' to your team.');
+        return interaction.followUp('Unable to add the player with id ' + id + ' to your team.');
     },
 };

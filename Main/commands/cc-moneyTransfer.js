@@ -43,13 +43,13 @@ module.exports = {
         }
 
         if(fromUsername == toUsername){
-            return interaction.reply("You think you're sly, you are not adding money like this lil bro.");
+            return interaction.followUp("You think you're sly, you are not adding money like this lil bro.");
         }
         if (amount < 0){
-            return interaction.reply("You can't pay negative , I will make you regret trying to exploit me.");
+            return interaction.followUp("You can't pay negative , I will make you regret trying to exploit me.");
         }
         else if (amount == 0){
-            return interaction.reply("You can't pay 0 either, that's just dumb.");
+            return interaction.followUp("You can't pay 0 either, that's just dumb.");
         }
 
         teamFrom = await Team.RetrieveTeamByUser(username);
@@ -57,11 +57,11 @@ module.exports = {
         teamTo = await Team.RetrieveTeamByUser(toUsername);
 
         if(teamFrom.mBalance < amount){
-            return interaction.reply("There is not enough balance to make this payment. Current balance is: " + teamFrom.mBalance);
+            return interaction.followUp("There is not enough balance to make this payment. Current balance is: " + teamFrom.mBalance);
         }
 
         if(!teamFrom || !teamTo){
-            return interaction.reply("Could not find one of the teams associated with the users provided.");
+            return interaction.followUp("Could not find one of the teams associated with the users provided.");
         }
         teamFrom.updateBalance(-amount);
         teamTo.updateBalance(amount);
@@ -87,6 +87,6 @@ module.exports = {
 
         generatedString = username + " has paid " + amount + " to " + toUsername + ".\nBalance updated for both teams:\n" + teamFrom.stringify(false,true) + "\n" + teamTo.stringify(false,true);
 
-        return interaction.reply(generatedString);
+        return interaction.followUp(generatedString);
     },
 };

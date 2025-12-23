@@ -17,12 +17,12 @@ module.exports = {
         let username = interaction.user.username;
 
         if(teamName.length > 35){
-            return interaction.reply(`The team has not been created, please enter a team name shorter than 36 characters long.`);
+            return interaction.followUp(`The team has not been created, please enter a team name shorter than 36 characters long.`);
         }
 
         let teamID = await Team.CreateTeam(teamName,primaryEmoji,secondaryEmoji,username);
         team = await Team.RetrieveTeamByID(teamID);
 
-        return interaction.reply(`The team was created succesfully: \n ${team.stringify(true)}`);
+        return interaction.followUp(`The team was created succesfully: \n ${team.stringify(true)}`);
     },
 };

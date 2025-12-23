@@ -103,7 +103,7 @@ async function ReadPlayersFromCSV(filePath) {
             row.Age,
             row.Rating,
             row.Team,
-            "",
+            row.League,
             row.Height,
             row.Weight,
             row.Crossing,
@@ -136,7 +136,14 @@ async function AddNewPromoPlayers(fileName){
         let returnedPlayerID = await Player.InsertPlayer(player);
         //Retrieve the base player ID
         let correspondingPlayer = await Player.RetrievePlayerByName(player.mPlayerName,returnedPlayerID);
-        let params = [correspondingPlayer.mID,returnedPlayerID,1];
+        let correspondingID = -1;
+        if(!correspondingPlayer){
+            console.log("Could not find corresponding player for " + player.mPlayerName);
+        }
+        else{
+             correspondingID = correspondingPlayer.mID
+        }
+        let params = [correspondingID,returnedPlayerID,1];
 
         await db.run("INSERT INTO PromoPlayers(BasePlayerID,PromoPlayerID,Packable) VALUES(?, ?, ?)",params,function(err){
             if (err) {
@@ -153,9 +160,8 @@ async function main(){
 
     //retrievedCardType = await CardType.RetrieveCardTypeByName("Gold");
     //console.log(retrievedCardType);
-    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players5.csv';
+    fileName = 'C:/Users/Mezor/Documents/Discord Bot/Discord-Bot/Webscraping/CC4 Database - Promo Players13.csv';
     await AddNewPromoPlayers(fileName);
-    //retrievedPlayer = await Player.RetrievePlayerByName("Wirt");
     //console.log(retrievedPlayer);
 
     // retrievedPlayers = await Player.RetrievePlayersByRating("90");

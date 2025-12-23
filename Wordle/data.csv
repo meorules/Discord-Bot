@@ -1,15 +1,18 @@
 data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,user,wordOfTheDay,canGuess,lastGuessDate,guesses,wins,games,hasCompletedToday
-meo_rules,JAGIELLO,true,11/15/2025,OZTUNALI ASPRILLA JAGIELLO,2,2,true
-billygilmour,REED,true,11/15/2025,CASH ROEF REED,2,2,true
-a.h.m.e.d.,GRAHL,true,11/15/2025,DANEK ALIMI UYSAL GRAHL,1,1,true
-aaaadit,CRNOVRSANIN,true,11/16/2025,LEWANDOWSKI VARESANOVIC CRNOVRSANIN,2,2,true
-cfchugh,ARIDANE,true,11/15/2025,RONALDO ANDRICH ARNSTAD ARIDANE,1,1,true
-batuhan065610,TWINE,true,11/15/2025,VELHO ZUZEK BAENA TWINE,1,1,true
-jumpingfrans,HOLES,true,11/15/2025,MESSI SMETS NUNES LOPES ROLES HOLES,1,1,true
-redpanda4,HOLOHAN,true,11/15/2025,MAKOUTA HONOHAN HOLOHAN,1,1,true
-mun25,SANDRA,true,11/15/2025,KONATE DUNCAN SANDRA,1,1,true
+meo_rules,LOVITZ,true,12/22/2025,STOIAN TOVIDE LOVITZ,10,10,true
+billygilmour,DEVLIN,true,12/21/2025,TRAORE SENESI MELING DEVLIN,10,10,true
+a.h.m.e.d.,MAKAMA,true,12/09/2025,OUNAHI CHESSA AKBABA TANAKA SAKALA MAKAMA,5,5,true
+aaaadit,MIRETTI,true,12/22/2025,RONALDO WIEFFER HIBBERT MIRETTI,10,10,true
+cfchugh,HOUGHTON,true,12/21/2025,CHALOBAH HARRISON ANDERSON SVENSSON,4,3,false
+batuhan065610,LOVELACE,true,12/21/2025,OTAMENDI,3,3,false
+jumpingfrans,SCHAFER,true,11/27/2025,SANCHEZ SCHAFER,2,2,true
+redpanda4,ZHONGGUO,true,12/02/2025,COURTOIS VALVERDE MARMOUSH NKOUNKOU,1,1,false
+mun25,FLINT,true,12/21/2025,ASERI COLIN BLIND FLINT,8,8,true
 simonepadoin_,UNE,true,11/15/2025,TEL AYE ONE UNE,1,1,true
-lolfattenski,CERRILLO,true,11/15/2025,CASEMIRO CERRILLO,1,1,true
-zachtbl,MYLES,true,11/16/2025,GOMEZ MAJER MILEY MYLES,1,1,true
+lolfattenski,DOWNES,true,12/21/2025,OUREGA STONES DOWNES,9,9,true
+zachtbl,EMENTA,true,12/22/2025,GARCIA MBEMBA EMENTA,9,9,true
 henm.,ENEME,true,11/16/2025,JAMES ENEME,1,1,true
-theamazingsushi,GURD,true,11/17/2025,KANE ORSI RUPP DURU GURD,1,1,true
+theamazingsushi,WALTERS,true,12/21/2025,SEBAOUI HARNESS WALTERS,8,8,true
+dan25z,BRAUNE,true,11/28/2025,MEDINA GALENO STACEY EMEGHA PFANNE BRAUNE,2,2,true
+dm.lfc,SHENGLONG,true,12/05/2025,FERNANDES DOMINGUEZ,0,0,false
+shakbold,SISSOKO,true,12/21/2025,LAPORTE BUDIMIR JACKSON KOSIDIS SISSOKO,5,5,true

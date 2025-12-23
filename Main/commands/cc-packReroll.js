@@ -16,6 +16,12 @@ async function openPack(packName) {
     let players = []
 
     switch (packName) {
+        case "Provisions Pack(35k)":
+            players = await Packs.openGoldPack(1);
+            break;
+        case "Mini Provisions Pack(25k)":
+            players = await Packs.openGoldPack(1);
+            break;
         case "Elite Hunter Pack(75k)":
             players = await Packs.openEliteHunterPack(1);
             break;
@@ -102,8 +108,8 @@ async function generateString(pack,players,count){
     return generatedString;
 }
 
-basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }];
-extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{ name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"}]
+basePacks = [{ name: "Bronze Pack(2k)", value: "Bronze Pack(2k)" },{ name: "Silver Pack(7.5k)", value: "Silver Pack(7.5k)" },{ name: "Premium Silver Pack(10k)", value: "Premium Silver Pack(10k)" },{ name: "Gold Pack(15k)", value: "Gold Pack(15k)" }, { name: "Premium Gold Pack(25k)", value: "Premium Gold Pack(25k)" }, { name: "Jumbo Premium Gold Pack(40k)", value: "Jumbo Premium Gold Pack(40k)" }, { name: "Gold Upgrade Pack(78+ x2)", value: "Gold Upgrade Pack(78+ x2)" }, { name: "Rare Players Pack(50k)", value: "Rare Players Pack(50k)" },{ name: "Mini Provisions Pack(25k)", value: "Mini Provisions Pack(25k)"},{name:"Rarer Players Pack(60k)",value: "Rarer Players Pack(60k)"}];
+extraPacks = [{ name: "Provisions Pack(35k)", value: "Provisions Pack(35k)" },{name:"Elite Hunter Pack(75k)",value: "Elite Hunter Pack(75k)"}]
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -136,24 +142,32 @@ module.exports = {
 
         messageString = "This is the pack :eyes:"
         const message = await interaction.channel.send({ content: messageString, fetchReply: true });
-        await interaction.reply({ content: 'Rolling odds', flags: MessageFlags.Ephemeral }); 
+        await interaction.followUp({ content: 'Rolling odds' }); 
 
 
         try {
             players = await packOpen(packName, count);
             rngedString = await generateString(packName,players,count);
             let currentTeam = await Team.RetrieveTeamByUser(username);
+            const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
             if(currentTeam){
                 if(currentTeam.mAutoAddPlayers==1){
                     await Team.AddPlayers(currentTeam.mID,players);
+                    let playersgeneratedString = "";
+                    for (let i = 0; i < size; i++) {
+                        playerString = await players[i].stringify();
+                        playersgeneratedString = playersgeneratedString + playerString + "\n";
+                    }
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players Added:\n"+ playersgeneratedString);
                 }
-                const playerLogChannel = interaction.client.channels.cache.get("1437279237370548234");
-                let playersgeneratedString = "";
-                for (let i = 0; i < size; i++) {
-                    playerString = await players[i].stringify();
-                    playersgeneratedString = playersgeneratedString + playerString + "\n";
+                else{
+                    let playersgeneratedString = "";
+                    for (let i = 0; i < size; i++) {
+                        playerString = await players[i].stringify();
+                        playersgeneratedString = playersgeneratedString + playerString + "\n";
+                    }
+                    playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players NOT Added:\n"+ playersgeneratedString);
                 }
-                playerLogChannel.send("``` ``` \n" + Date() + " - **Pack Opened** Team (" + currentTeam.mTeamName +  "), In Channel: " +  interaction.channel.name + " - Players Added:\n"+ playersgeneratedString);
             }
             else{
                 rngedString = rngedString + "**You do not have a team linked to your account, please create one to auto-add players from these packs.**\n"
@@ -186,6 +200,7 @@ module.exports = {
         }
 
         walkout = null;
+        rngedString = "";
         return;
     },
 };

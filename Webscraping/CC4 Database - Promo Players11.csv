@@ -1,0 +1,12 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+O. Baumann,12,GK,35,86,Hamburg,Bundesliga,187,82,30,41,13,24,14,90,72,24,2,1,Germany,sofifa.com/player/193698/oliver-baumann/260004/,Male
+S. Reguilon,12,LB LM,28,86,Burnley,Premier League,178,68,84,86,67,54,87,86,87,81,3,3,Spain,https://sofifa.com/player/245279/sergio-reguilon-rodriguez/250044,Male
+M. Moore,12,CB RB,29,87,Hero,National Women's Soccer League,175,67,64,90,55,83,68,79,88,83,3,2,United States,https://sofifa.com/player/233351/meikayla-moore/250001/?hl=en-US,Female
+Hermoso,12,CB LB,30,87,Leganes,La Liga,184,76,69,90,50,54,73,87,95,90,3,2,Spain,sofifa.com/player/229668/mario-hermoso-canseco/260004/,Male
+R. Araujo,12,CB RB,26,87,PSG,Ligue 1,188,79,74,89,58,45,64,72,90,85,3,2,Uruguay,sofifa.com/player/253163/ronald-araujo/260004/,Male
+M. Arambarri,12,CM CDM,29,86,Real Madrid,La Liga,175,74,83,86,88,68,70,84,84,68,3,3,Uruguay,sofifa.com/player/232665/mauro-arambarri/260004/,Male
+C. Ordoñez,12,CDM CM,20,87,Bologna,Serie A,177,65,82,88,57,55,75,90,87,77,3,2,Argentina,sofifa.com/player/273884/christian-ordonez/260004/,Male
+E. Fernandez,12,CM CDM CAM,24,88,Chelsea,EPL,178,76,86,81,80,77,85,89,75,72,4,3,Argentina,sofifa.com/player/247090/enzo-fernandez/260004/,Male
+Ferran Torres,12,LW RW ST LM,25,88,Inter,Serie A,184,77,89,34,92,79,86,89,87,81,4,4,Spain,sofifa.com/player/241461/ferran-torres-garcia/260004/,Male
+A. Isak,12,ST LW,25,89,PSV,Eredivisie,192,77,90,39,94,87,68,77,90,83,4,4,Sweden,sofifa.com/player/233731/alexander-isak/260004/,Male
+Vini Jr.,12,LW ST LM,24,90,Gladbach,Bundesliga,176,73,87,29,90,75,83,83,74,50,4,5,Brazil,sofifa.com/player/238794/vinicius-jose-de-oliveira-junior/260004/,Male

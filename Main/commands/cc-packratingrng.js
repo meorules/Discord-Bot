@@ -132,6 +132,6 @@ module.exports = {
 
         //console.log(rngedString);
         interactingUser = null;
-        return interaction.reply(`${rngedString}`);
+        return interaction.followUp(`${rngedString}`);
     },
 };
