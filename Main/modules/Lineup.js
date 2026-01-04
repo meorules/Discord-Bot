@@ -119,7 +119,10 @@ class Lineup {
             if(this.lineupPlayers[lineupPlayer].mTeamPlayerID != -1 && this.lineupPlayers[lineupPlayer].mPlayer.mPosition.includes(this.lineupPlayers[lineupPlayer].mPosition)){
                 let player = this.lineupPlayers[lineupPlayer].mPlayer;
                 Lineup.addToChemistryArray(player.mTeam,chemistryArray,"Team");
-                let nationGroup = countryCodeArrays.nationGroups.get(player.mCountry);
+                let nationGroup;
+                if(player.mCardTypeID != 16 && player.mCardTypeID != 17){
+                    nationGroup = countryCodeArrays.nationGroups.get(player.mCountry);
+                }
 
 
                 if(player.mCardTypeID == 4){
@@ -150,6 +153,50 @@ class Lineup {
                 }
                 else if(player.mCardTypeID == 10){
                     BirthdayCount++;
+                }
+                else if(player.mCardTypeID == 16){
+                    countryArray = player.mCountry.split("/");
+                    Lineup.addToChemistryArray(player.mLeague,chemistryArray,"League");
+                    for(let i=0;i<5;i++){
+                        Lineup.addToChemistryArray(countryArray[0],chemistryArray,"Country");
+                        Lineup.addToChemistryArray(countryArray[1],chemistryArray,"Country");
+                    }
+                    nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
+                    nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
+
+                    if(nationGroup1){
+                        for(let i=0;i<4;i++){
+                            Lineup.addToChemistryArray(nationGroup1,chemistryArray,"Nation Group");
+                        }
+                    }
+                    if(nationGroup2){
+                        for(let i=0;i<4;i++){
+                            Lineup.addToChemistryArray(nationGroup2,chemistryArray,"Nation Group");
+                        }
+                    }
+
+                }
+                else if(player.mCardTypeID == 17){
+                    iconCount++;
+                    countryArray = player.mCountry.split("/");
+                    Lineup.addToChemistryArray(player.mLeague,chemistryArray,"League");
+                    for(let i=0;i<6;i++){
+                        Lineup.addToChemistryArray(countryArray[0],chemistryArray,"Country");
+                        Lineup.addToChemistryArray(countryArray[1],chemistryArray,"Country");
+                    }
+                    nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
+                    nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
+
+                    if(nationGroup1){
+                        for(let i=0;i<5;i++){
+                            Lineup.addToChemistryArray(nationGroup1,chemistryArray,"Nation Group");
+                        }
+                    }
+                    if(nationGroup2){
+                        for(let i=0;i<5;i++){
+                            Lineup.addToChemistryArray(nationGroup2,chemistryArray,"Nation Group");
+                        }
+                    }
                 }
                 else{
                     Lineup.addToChemistryArray(player.mLeague,chemistryArray,"League");

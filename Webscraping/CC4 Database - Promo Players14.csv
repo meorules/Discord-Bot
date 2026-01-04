@@ -1,0 +1,5 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+B. Verbruggen,7,GK,22,88,Brighton & Hove Albion,Premier League,193,89,42,68,20,40,12,88,86,24,1,1,Netherlands,sofifa.com/player/258498/bart-verbruggen/260004/,Male
+F. Lejeune,7,CB,34,89,Rayo Vallecano,La Liga,190,81,78,89,60,55,65,80,92,89,3,2,France,sofifa.com/player/197948/florian-lejeune/260004/,Male
+David Neres,7,LW LM,28,87,Napoli,Serie A,175,69,82,54,85,78,82,83,74,50,3,5,Brazil,sofifa.com/player/236632/david-neres-campos/260004/,Male
+N. Jackson,3,ST,24,87,FC Bayern München,Bundesliga,187,78,87,50,90,70,70,77,96,84,3,3,Senegal,sofifa.com/player/259197/nicolas-jackson/260004/,Male

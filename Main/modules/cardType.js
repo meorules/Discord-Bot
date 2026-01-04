@@ -21,7 +21,10 @@ class CardType {
   { name: 'RTTK', value: '11' },
   { name: 'Double Agents', value: '12' },
   { name: 'Evo', value: '13' },
-  { name: 'Shapeshifters', value: '14' },];
+  { name: 'Shapeshifters', value: '14' },
+  { name: 'Transfer Titans', value: '15' },
+  { name: 'Nation Mutation', value: '16' },
+  { name: 'Nation Mutation Icon', value: '17' }];
 
     static mPriorityList = [];
     constructor(cardTypeId,CardTypeName,emoji,priority){

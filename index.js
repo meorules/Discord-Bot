@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 require('log-timestamp');
 
-const Team = require('../Discord-Bot/Main/modules/team.js');
+const Team = require('./Main/modules/team.js');
 
 //const keepAlive = require("./server.js")
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
