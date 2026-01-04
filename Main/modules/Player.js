@@ -144,6 +144,35 @@ class Player{
         }
     }
 
+    getCountryFlagString(){
+        let country = "";
+        let toReturn = "";
+        try{
+            if(this.mCardTypeID != 16 && this.mCardTypeID != 17){
+                country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
+                if(country == "nir"){
+                    toReturn += "<:nir:1439364606974758952> ";
+                }
+                else{
+                    toReturn += ":" + country + ": ";
+                }
+            }
+            else{
+                let countryArray = this.mCountry.split(",");
+                for(let countryCode of countryArray){
+                     country+= ":" + countryCodeArrays.countryAlphaCodeDictionary[countryCode].toLowerCase() + ": " ;
+                }
+                toReturn += country;
+            }
+        }
+        catch(err){
+            console.error('❌ Country code not found for country: ' + this.mCountry);
+            console.error('PlayerJS::stringify()');
+            country = ":flag_white: ";
+        }
+        return toReturn;
+    }
+
     async stringify(lineupPlayer=false){
         let toReturn = "";
         if(this.mID == -1){
@@ -164,21 +193,7 @@ class Player{
         //Adding rating
         toReturn += this.mRating + " ";
         //Adding flag
-        let country = "";
-        try{
-            country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
-            if(country == "nir"){
-                toReturn += "<:nir:1439364606974758952> ";
-            }
-            else{
-                toReturn += ":" + country + ": ";
-            }
-        }
-        catch(err){
-            console.error('❌ Country code not found for country: ' + this.mCountry);
-            console.error('PlayerJS::stringify()');
-            country = ":flag_white: ";
-        }
+        toReturn += this.getCountryFlagString();
 
         //Adding name & position
         toReturn += "**"+ this.mPlayerName + " ";
@@ -256,7 +271,7 @@ class Player{
         }
 
         //Adding flag
-        toReturn.push(":" + countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase() + ": \n");
+        toReturn.push(this.getCountryFlagString() + " \n");
 
         //Adding team
         if(this.mCardTypeID != '4' && this.mCardTypeID != '5'){

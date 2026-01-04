@@ -1,0 +1,12 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+R. Baldi,15,GK,30,87,Roma,,175,70,32,52,12,19,18,93,90,48,3,1,Italy,sofifa.com/player/253741/rachele-baldi/260006/,Female
+Álvaro Carreras,15,LB CB,22,89,Real Madrid,,186,78,86,89,75,52,90,88,88,79,4,4,Spain,sofifa.com/player/268889/alvaro-fernandez-carreras/260004/,Male
+K. Itakura,15,CB CM,28,87,Ajax,,188,80,81,90,66,44,36,87,92,90,5,3,Japan,sofifa.com/player/233152/ko-itakura/260004/,Male
+Laia Aleixandri,15,CB CM CDM,24,88,FC Barcelona,,170,53,79,88,40,40,60,79,88,85,4,3,Spain,sofifa.com/player/253435/laia-aleixandri-lopez/260006/,Female
+Wesley,15,RB RM LB,21,88,Roma,,178,75,87,85,71,60,86,85,87,75,4,4,Brazil,sofifa.com/player/80170/wesley-vinicius-franca-lima/260004/,Male
+G. Xhaka,15,CM CDM,32,89,Sunderland,,186,80,84,86,71,69,81,91,71,71,4,4,Switzerland,sofifa.com/player/199503/granit-xhaka/260004/,Male
+V. Rongier,15,CM CDM,30,87,Stade Rennais FC,,174,67,82,85,70,73,76,83,79,61,5,3,France,sofifa.com/player/223874/valentin-rongier/260004/,Male
+J. Howell,15,CM CDM CAM LW,25,87,Gotham FC,,172,64,86,84,83,60,74,85,76,65,5,5,USA,sofifa.com/player/266401/jaelin-howell/260006/,Female
+Antony,15,RW RM,25,88,Real Betis Balompié,,172,63,87,45,91,74,91,91,70,47,3,5,Brazil,sofifa.com/player/255475/antony-matheus-dos-santos/260004/,Male
+L. Díaz,15,LM LW ST,28,90,FC Bayern München,,180,73,90,48,90,70,84,87,85,73,5,4,Colombia,sofifa.com/player/241084/luis-diaz/260004/,Male
+R. Cherki,15,RW RM CAM,21,88,Manchester City,,177,71,87,22,87,73,91,91,60,30,5,5,France,sofifa.com/player/251570/rayan-cherki/260004/,Male

@@ -17,7 +17,7 @@ module.exports = {
         let boost = interaction.options.getInteger("boost");
         let username = interaction.user.username;
 
-        if(!position && !boost){
+        if(!position && boost == null){
             return interaction.followUp('You must provide at least a new position or a boost value to assign.');
         }
         let team = await Team.RetrieveTeamByUser(username);
@@ -34,7 +34,7 @@ module.exports = {
             if(position){
                 lineup = await Lineup.EditLineupPlayerPositionOrBoost(team.mID,player,"Position",position,changesMade);
             }
-            if(boost){
+            if(boost !=null ){
                 lineup = await Lineup.EditLineupPlayerPositionOrBoost(team.mID,player,"Boost",boost,changesMade);
             }
             if(!changesMade.result){
