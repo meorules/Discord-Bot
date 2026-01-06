@@ -155,14 +155,14 @@ class Lineup {
                     BirthdayCount++;
                 }
                 else if(player.mCardTypeID == 16){
-                    countryArray = player.mCountry.split("/");
+                    let countryArray = player.mCountry.split("/");
                     Lineup.addToChemistryArray(player.mLeague,chemistryArray,"League");
                     for(let i=0;i<5;i++){
                         Lineup.addToChemistryArray(countryArray[0],chemistryArray,"Country");
                         Lineup.addToChemistryArray(countryArray[1],chemistryArray,"Country");
                     }
-                    nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
-                    nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
+                    let nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
+                    let nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
 
                     if(nationGroup1){
                         for(let i=0;i<4;i++){
@@ -178,14 +178,14 @@ class Lineup {
                 }
                 else if(player.mCardTypeID == 17){
                     iconCount++;
-                    countryArray = player.mCountry.split("/");
+                    let countryArray = player.mCountry.split("/");
                     Lineup.addToChemistryArray(player.mLeague,chemistryArray,"League");
                     for(let i=0;i<6;i++){
                         Lineup.addToChemistryArray(countryArray[0],chemistryArray,"Country");
                         Lineup.addToChemistryArray(countryArray[1],chemistryArray,"Country");
                     }
-                    nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
-                    nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
+                    let nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
+                    let nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
 
                     if(nationGroup1){
                         for(let i=0;i<5;i++){
@@ -225,15 +225,33 @@ class Lineup {
                 let player = this.lineupPlayers[lineupPlayer];
                 player.mChemistry =0;
                 for(let chemistryCounter of chemistryArray){
-                    if(chemistryCounter.type == "Country" && chemistryCounter.name == player.mPlayer.mCountry){
-                        if(chemistryCounter.count >=9){
-                            player.mChemistry +=3;
+                    if(chemistryCounter.type == "Country"){
+                        if(player.mPlayer.mCardTypeID != 16 && player.mPlayer.mCardTypeID != 17){
+                            if(chemistryCounter.name == player.mPlayer.mCountry){
+                                if(chemistryCounter.count >=9){
+                                    player.mChemistry +=3;
+                                }
+                                else if(chemistryCounter.count >=7 && chemistryCounter.count >5){
+                                    player.mChemistry +=2;
+                                }
+                                else if(chemistryCounter.count  <7 && chemistryCounter.count >=5){
+                                    player.mChemistry +=1;
+                                }
+                            }
                         }
-                        else if(chemistryCounter.count >=7 && chemistryCounter.count >5){
-                            player.mChemistry +=2;
-                        }
-                        else if(chemistryCounter.count  <7 && chemistryCounter.count >=5){
-                            player.mChemistry +=1;
+                        else{
+                            let countryArray = player.mPlayer.mCountry.split("/");
+                            if(chemistryCounter.name == countryArray[0] || chemistryCounter.name == countryArray[1]){
+                                if(chemistryCounter.count >=9){
+                                    player.mChemistry +=3;
+                                }
+                                else if(chemistryCounter.count >=7 && chemistryCounter.count >5){
+                                    player.mChemistry +=2;
+                                }
+                                else if(chemistryCounter.count  <7 && chemistryCounter.count >=5){
+                                    player.mChemistry +=1;
+                                }
+                            }
                         }
                     }
 
@@ -262,10 +280,22 @@ class Lineup {
                     }
 
                     if(chemistryCounter.type == "Nation Group"){
-                        let nationGroup = countryCodeArrays.nationGroups.get(player.mPlayer.mCountry);
-                        if(chemistryCounter.name == nationGroup){
-                            if(chemistryCounter.count >=7){
-                                player.mChemistry +=1;
+                        if(player.mPlayer.mCardTypeID != 16 && player.mPlayer.mCardTypeID != 17){
+                            let nationGroup = countryCodeArrays.nationGroups.get(player.mPlayer.mCountry);
+                            if(chemistryCounter.name == nationGroup){
+                                if(chemistryCounter.count >=7){
+                                    player.mChemistry +=1;
+                                }
+                            }
+                        }
+                        else{
+                            let countryArray = player.mPlayer.mCountry.split("/");
+                            let nationGroup1 = countryCodeArrays.nationGroups.get(countryArray[0]);
+                            let nationGroup2 = countryCodeArrays.nationGroups.get(countryArray[1]);
+                            if(chemistryCounter.name == nationGroup1 || chemistryCounter.name == nationGroup2){
+                                if(chemistryCounter.count >=7){
+                                    player.mChemistry +=1;
+                                }
                             }
                         }
                     }

@@ -146,7 +146,7 @@ class Player{
 
     getCountryFlagString(){
         let country = "";
-        let toReturn = "";
+        var toReturn = "";
         try{
             if(this.mCardTypeID != 16 && this.mCardTypeID != 17){
                 country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
@@ -158,7 +158,7 @@ class Player{
                 }
             }
             else{
-                let countryArray = this.mCountry.split(",");
+                let countryArray = this.mCountry.split("/");
                 for(let countryCode of countryArray){
                      country+= ":" + countryCodeArrays.countryAlphaCodeDictionary[countryCode].toLowerCase() + ": " ;
                 }
@@ -508,8 +508,8 @@ class Player{
             return -1;
         }
         else{
-            let cardTypeAPriority = mPriorityList.find(o => o.cardTypeID == playerA.mCardTypeID);
-            let cardTypeBPriority = mPriorityList.find(o => o.cardTypeID == playerB.mCardTypeID);
+            let cardTypeAPriority = CardType.mPriorityList.find(o => o.cardTypeID == playerA.mCardTypeID);
+            let cardTypeBPriority = CardType.mPriorityList.find(o => o.cardTypeID == playerB.mCardTypeID);
 
             if (cardTypeAPriority < cardTypeBPriority){
                 return -1;
