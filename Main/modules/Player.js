@@ -105,6 +105,15 @@ class Player{
         this.mOwner = owner;
     }
 
+    addOwner(owner){
+        if(this.mOwner == null){
+            this.mOwner = owner;
+        }
+        else{
+            this.mOwner = this.mOwner + ", " + owner;
+        }
+    }
+
     addPosition(position){
         this.mPosition = this.mPosition + " " + position;
     }
@@ -226,7 +235,7 @@ class Player{
         }
 
         if(this.mOwner){
-            toReturn += "- *" + this.mOwner.mDiscordUsername + "*";
+            toReturn += "- *" + this.mOwner + "*";
         }
 
                 //Add note if there is one
@@ -520,6 +529,28 @@ class Player{
             else{
                 return 0;
             }
+        }
+    }
+
+    static MergePlayers(players,newPlayer){
+        let playerAdded = false;
+        if(!newPlayer){
+            return;
+        }
+        if(!players || players.length == 0){
+            players.push(newPlayer);
+            return;
+        }
+        console.log(newPlayer);
+        for(let player of players){
+            if(player.mID == newPlayer.mID && player.mRating == newPlayer.mRating){
+                player.addOwner(newPlayer.mOwner);
+                playerAdded = true;
+                break;
+            }
+        }
+        if(!playerAdded){
+            players.push(newPlayer);
         }
     }
 
