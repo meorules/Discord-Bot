@@ -416,26 +416,6 @@ class Team {
         return false;
     }
 
-    static async RemovePlayerFromTeam(teamID,playerName){
-        let db = await ConnectToDB();
-
-        try{
-            let correspondingPlayer = await Player.RetrievePlayerByName(playerName); 
-            if(correspondingPlayer){
-                const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [teamID,correspondingPlayer.mID]);
-                if(row){
-                    const result = await db.run('DELETE FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;',[teamID,correspondingPlayer.mID]);
-                    return result.changes;
-                }
-
-            }
-        }
-        catch(err){
-            console.error('❌ Query error:', err);
-        }
-    
-
-    }
     static async RemovePlayerFromTeamByID(teamID,id){
         let db = await ConnectToDB();
 
@@ -445,6 +425,7 @@ class Team {
                 const row = await db.get("SELECT * FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? ;", [teamID,correspondingPlayer.mID]);
                 if(row){
                     const result = await db.run('DELETE FROM TeamPlayers WHERE ID = (SELECT ID FROM TeamPlayers WHERE TeamID = ? AND PlayerID = ? LIMIT 1);',[teamID,correspondingPlayer.mID]);
+                    await db.run('UPDATE TeamLineupPlayers Set TeamPlayerID = -1 WHERE ID IN (SELECT ID FROM TeamLineupPlayers Where TeamLineupPlayers.TeamPlayerID NOT IN (Select ID FROM TeamPlayers) AND TeamLineupPlayers.TeamPlayerID != -1)');
                     return result.changes;
                 }
 

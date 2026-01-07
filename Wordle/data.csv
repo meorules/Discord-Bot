@@ -1,18 +1,18 @@
 data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,data:text/csv;charset=utf-8,user,wordOfTheDay,canGuess,lastGuessDate,guesses,wins,games,hasCompletedToday
-meo_rules,BAK,true,01/03/2026,,12,12,false
+meo_rules,STRAND,true,01/06/2026,STOIAN STANCU STRAND,14,14,true
 billygilmour,GUBOGLO,true,01/03/2026,RONALDO BELLOMO GUBOGLO,13,13,true
 a.h.m.e.d.,MAKAMA,true,12/09/2025,OUNAHI CHESSA AKBABA TANAKA SAKALA MAKAMA,5,5,true
 aaaadit,LOBATO,true,01/03/2026,LARSEN LUKAKU LOVATO LOBATO,12,12,true
-cfchugh,CAMACHO,true,12/25/2025,CAICEDO CAPRILE CAMACHO,5,4,true
+cfchugh,VANRAFELGHEM,true,01/06/2026,,5,4,false
 batuhan065610,LOVELACE,true,12/21/2025,OTAMENDI,3,3,false
 jumpingfrans,SCHAFER,true,11/27/2025,SANCHEZ SCHAFER,2,2,true
 redpanda4,ZHONGGUO,true,12/02/2025,COURTOIS VALVERDE MARMOUSH NKOUNKOU,1,1,false
-mun25,STYLES,true,01/02/2026,ACERBI SEMEDO SUSSEK STYLES,11,11,true
+mun25,VIDIGAL,true,01/06/2026,SOUMARE CHAPLIN VIDIGAL,12,12,true
 simonepadoin_,UNE,true,11/15/2025,TEL AYE ONE UNE,1,1,true
 lolfattenski,FINOTTO,true,01/03/2026,BASTONI METINHO METINHO FINOTTO,12,12,true
-zachtbl,CHUMI,true,12/29/2025,SINGH WHITE CHUMI,11,11,true
+zachtbl,HARRES,true,01/06/2026,GARCIA LARSEN HARKES HARRES,13,13,true
 henm.,ENEME,true,11/16/2025,JAMES ENEME,1,1,true
-theamazingsushi,BRDAR,true,01/03/2026,EVANS MAGRI RODAK BRDAR,11,11,true
+theamazingsushi,LOLLO,true,01/06/2026,MENDY LOUIS LOCKO LOGBO LOLLO,12,12,true
 dan25z,BRAUNE,true,11/28/2025,MEDINA GALENO STACEY EMEGHA PFANNE BRAUNE,2,2,true
 dm.lfc,BLIND,true,12/29/2025,GAKPO PRICE,0,0,false
 shakbold,NEIVA,true,12/29/2025,SOLET MAREC ABENA PENNA NEIVA,6,6,true

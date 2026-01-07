@@ -105,6 +105,15 @@ class Player{
         this.mOwner = owner;
     }
 
+    addOwner(owner){
+        if(this.mOwner == null){
+            this.mOwner = owner;
+        }
+        else{
+            this.mOwner = this.mOwner + ", " + owner;
+        }
+    }
+
     addPosition(position){
         this.mPosition = this.mPosition + " " + position;
     }
@@ -146,7 +155,7 @@ class Player{
 
     getCountryFlagString(){
         let country = "";
-        let toReturn = "";
+        var toReturn = "";
         try{
             if(this.mCardTypeID != 16 && this.mCardTypeID != 17){
                 country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
@@ -158,7 +167,7 @@ class Player{
                 }
             }
             else{
-                let countryArray = this.mCountry.split(",");
+                let countryArray = this.mCountry.split("/");
                 for(let countryCode of countryArray){
                      country+= ":" + countryCodeArrays.countryAlphaCodeDictionary[countryCode].toLowerCase() + ": " ;
                 }
@@ -226,7 +235,7 @@ class Player{
         }
 
         if(this.mOwner){
-            toReturn += "- *" + this.mOwner.mDiscordUsername + "*";
+            toReturn += "- *" + this.mOwner + "*";
         }
 
                 //Add note if there is one
@@ -508,8 +517,8 @@ class Player{
             return -1;
         }
         else{
-            let cardTypeAPriority = mPriorityList.find(o => o.cardTypeID == playerA.mCardTypeID);
-            let cardTypeBPriority = mPriorityList.find(o => o.cardTypeID == playerB.mCardTypeID);
+            let cardTypeAPriority = CardType.mPriorityList.find(o => o.cardTypeID == playerA.mCardTypeID);
+            let cardTypeBPriority = CardType.mPriorityList.find(o => o.cardTypeID == playerB.mCardTypeID);
 
             if (cardTypeAPriority < cardTypeBPriority){
                 return -1;
@@ -520,6 +529,28 @@ class Player{
             else{
                 return 0;
             }
+        }
+    }
+
+    static MergePlayers(players,newPlayer){
+        let playerAdded = false;
+        if(!newPlayer){
+            return;
+        }
+        if(!players || players.length == 0){
+            players.push(newPlayer);
+            return;
+        }
+        console.log(newPlayer);
+        for(let player of players){
+            if(player.mID == newPlayer.mID && player.mRating == newPlayer.mRating){
+                player.addOwner(newPlayer.mOwner);
+                playerAdded = true;
+                break;
+            }
+        }
+        if(!playerAdded){
+            players.push(newPlayer);
         }
     }
 

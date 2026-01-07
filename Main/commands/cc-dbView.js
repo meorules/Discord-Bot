@@ -195,14 +195,15 @@ module.exports = {
                 }
 
                 if(addPlayer){
-                    player.setOwner(team);
-                    totalPlayers.push(player);
+                    player.setOwner(team.mDiscordUsername);
+                    Player.MergePlayers(totalPlayers,player);
                 }
             }
         }
 
         //Add way to merge players from different teams and put their owners on the player string
 
+        Player.MergePlayers(totalPlayers);
         totalPlayers.sort(Player.sort);
         playerStart = (page-1)*15;
         if (page == 1) {
