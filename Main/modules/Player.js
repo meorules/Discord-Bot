@@ -157,7 +157,7 @@ class Player{
         let country = "";
         var toReturn = "";
         try{
-            if(this.mCardTypeID != 16 && this.mCardTypeID != 17){
+            if(this.mCountry.includes("/") == false){
                 country = countryCodeArrays.countryAlphaCodeDictionary[this.mCountry].toLowerCase();
                 if(country == "nir"){
                     toReturn += "<:nir:1439364606974758952> ";
@@ -541,7 +541,7 @@ class Player{
             players.push(newPlayer);
             return;
         }
-        console.log(newPlayer);
+        //console.log(newPlayer);
         for(let player of players){
             if(player.mID == newPlayer.mID && player.mRating == newPlayer.mRating){
                 player.addOwner(newPlayer.mOwner);

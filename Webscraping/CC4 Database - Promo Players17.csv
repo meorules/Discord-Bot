@@ -1,0 +1,17 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+M. Ryan,7,GK,33,90,Levante UD,La Liga,184,82,35,74,17,38,27,92,86,54,4,1,Australia,sofifa.com/player/199005/mathew-ryan/260004/,Male
+I. Ganiou,7,RB RM CB,20,89,RC Lens,Ligue 1,185,78,87,88,82,78,91,89,84,76,3,2,Burkina Faso,sofifa.com/player/75320/ismaelo-ganiou/260004/,Male
+A. Lookman,7,ST CAM,27,90,Atalanta,Serie A,174,71,91,33,93,73,74,79,86,79,4,4,Nigeria,sofifa.com/player/230899/ademola-lookman/260004/,Male
+Igor Thiago,7,ST,24,88,Brentford,Premier League,191,88,90,40,93,92,32,86,96,94,3,2,Brazil,sofifa.com/player/275771/igor-thiago-rodrigues/260004/,Male
+van der Sar,19,GK,54,91,Icon,Icon,197,83,9,42,6,20,10,82,78,25,4,1,Netherlands,https://futbin.com/26/player/18780/van-der-sar,Male
+Ferdinand,19,CB,46,91,Icon,Icon,189,87,64,94,43,59,52,82,85,88,4,3,England,https://futbin.com/26/player/18772/ferdinand,Male
+Marquinhos,18,CB RB CDM,31,89,Paris Saint-Germain,Ligue 1,183,75,72,92,59,52,68,86,92,91,4,4,Brazil,sofifa.com/player/207865/marcos-aoas-correa/260004/,Male
+T. Silva,18,CB,40,91,Paris Saint-Germain,Ligue 1,183,82,73,93,42,64,66,83,95,89,5,3,Brazil,,Male
+L. Pellegrini,18,CAM CM CDM,29,90,Roma,Serie A,186,77,89,85,86,90,84,94,91,84,4,5,Italy,sofifa.com/player/228251/lorenzo-pellegrini/260004/,Male
+B. Cristante,18,CM CDM CB CAM,30,90,Roma,Serie A,186,80,86,89,83,78,80,90,88,86,5,4,Italy,sofifa.com/player/208268/bryan-cristante/260004/,Male
+M. Hasebe,18,CDM CB CM RB RM,43,90,Eintracht Frankfurt,Bundesliga,180,72,80,92,60,83,82,91,84,89,5,3,Japan,,Male
+D. Kamada,18,CM CAM LM,28,90,Eintracht Frankfurt,Bundesliga,184,72,89,80,90,93,93,96,72,61,5,5,Japan,sofifa.com/player/232730/daichi-kamada/260004/,Male
+H. Son,18,LW ST LM RW,32,89,Tottenham Hotspur,Premier League,183,78,90,43,88,85,86,90,83,73,5,5,South Korea,sofifa.com/player/200104/heung-min-son/260004/,Male
+H. Kane,18,ST CAM,31,91,Tottenham Hotspur,Premier League,188,86,92,48,95,95,80,90,90,92,5,4,England,sofifa.com/player/202126/harry-kane/260004/,Male
+L. Suárez,18,ST LW RW,38,89,FC Barcelona,La Liga,182,86,91,45,97,97,77,88,86,92,5,4,Uruguay,sofifa.com/player/176580/luis-suarez/260004/,Male
+L. Messi,18,RW ST CAM RM,38,91,FC Barcelona,La Liga,169,67,92,34,95,86,89,94,70,60,4,5,Argentina,sofifa.com/player/158023/lionel-messi/260004/,Male

@@ -24,7 +24,9 @@ class CardType {
   { name: 'Shapeshifters', value: '14' },
   { name: 'Transfer Titans', value: '15' },
   { name: 'Nation Mutation', value: '16' },
-  { name: 'Nation Mutation Icon', value: '17' }];
+  { name: 'Nation Mutation Icon', value: '17' },
+  { name: 'Deadly Duos', value: '18' },
+  { name: 'Deadly Duos Icon', value: '19' }];
 
     static mPriorityList = [];
     constructor(cardTypeId,CardTypeName,emoji,priority){

@@ -16373,3 +16373,7 @@ Username: meo_rules,Command Used: db-view,Options passed in[object Object],Optio
 Username: meo_rules,Command Used: db-view,Options passed in[object Object],Option page:3,
 Username: meo_rules,Command Used: db-view,Options passed in[object Object],Option page:4,
 Username: meo_rules,Command Used: db-view,Options passed in[object Object],Option owner:159699384592760832,
+Username: meo_rules,Command Used: player-edit,Options passed in[object Object],Option name:Ferdinand,Option nation:Egypt,
+Username: meo_rules,Command Used: player-edit,Options passed in[object Object],Option name:Ferdinand,Option nation:Egypt,
+Username: meo_rules,Command Used: player-edit,Options passed in[object Object],Option name:Ferdinand,Option nation:Egypt/France,
+Username: meo_rules,Command Used: player-edit,Options passed in[object Object],Option name:Ferdinand,Option nation:Egypt,

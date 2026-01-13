@@ -6,12 +6,13 @@ let mPriorityList = CardType.mPriorityList;
 
 class TeamPlayer {
 
-    constructor(ID,teamID,playerID,upgrade,positions,team,league,cardType, notes){
+    constructor(ID,teamID,playerID,upgrade,positions,nation,team,league,cardType, notes){
         this.mID = ID;
         this.mTeamID = teamID;
         this.mPlayerID = playerID;
         this.mUpgrade = upgrade;
         this.mPositions = positions;
+        this.mNation = nation;
         this.mTeam = team;
         this.mLeague = league;
         this.mCardType = cardType;
@@ -19,12 +20,13 @@ class TeamPlayer {
         this.mPlayer = null;
     }
 
-    setAttributes(ID,teamID,playerID,upgrade,positions,team,league,cardType, notes){
+    setAttributes(ID,teamID,playerID,upgrade,positions,nation,team,league,cardType, notes){
         this.mID = ID;
         this.mTeamID = teamID;
         this.mPlayerID = playerID;
         this.mUpgrade = upgrade;
         this.mPositions = positions;
+        this.mNation = nation;
         this.mTeam = team;
         this.mLeague = league;
         this.mCardType = cardType;
@@ -50,7 +52,7 @@ class TeamPlayer {
             if(!row){
                 return null;
             }
-            var teamPlayer = new TeamPlayer(row.ID,row.TeamID,row.PlayerID,row.Upgrade,row.Positions,row.Team,row.League,row.CardType,row.Notes);
+            var teamPlayer = new TeamPlayer(row.ID,row.TeamID,row.PlayerID,row.Upgrade,row.Positions,row.Nation,row.Team,row.League,row.CardType,row.Notes);
 
             var correspondingPlayer = await Player.RetrievePlayerByID(row.PlayerID);
             correspondingPlayer.upgrade(row.Upgrade);
@@ -68,6 +70,9 @@ class TeamPlayer {
             }
             if(row.Notes){
                 correspondingPlayer.Notes = row.Notes;
+            }
+            if(row.Nation){
+                correspondingPlayer.mCountry = row.Nation;
             }
             teamPlayer.mPlayer = correspondingPlayer;
             return teamPlayer;

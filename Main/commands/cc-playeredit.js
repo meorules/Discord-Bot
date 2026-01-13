@@ -63,6 +63,11 @@ module.exports = {
             .addChoices(leagueValues)
         )
         .addStringOption(
+            option => option.setName('nation')
+            .setDescription('Switch the Nation of the player (please use the same nations as shown in #bot-guide')
+            .setRequired(false)
+        )
+        .addStringOption(
             option => option.setName('cardtype')
             .setDescription('Switch the Card Type of the player')
             .setRequired(false)
@@ -80,12 +85,13 @@ module.exports = {
         let position = interaction.options.getString("position");
         let teamToChangeTo = interaction.options.getString("team");
         let league = interaction.options.getString("league");
+        let nation = interaction.options.getString("nation");
         let cardType = interaction.options.getString("cardtype");
         let notes = interaction.options.getString("notes");
         let username = interaction.user.username;
         let player;
         team = await Team.RetrieveTeamByUser(username);
-        if(!upgrade && !position && !teamToChangeTo && !league && !cardType && !notes){
+        if(!upgrade && !position && !teamToChangeTo && !league && !cardType && !notes && !nation){
             return interaction.followUp('You must provide at least an upgrade or a position to edit for ' + name);
         }
         if(upgrade){
@@ -101,6 +107,10 @@ module.exports = {
 
         if(league){
             player = await Team.EditPlayerTeamOrLeagueOrNote(team,name,"League",league);
+        }
+
+        if(nation){
+            player = await Team.EditPlayerTeamOrLeagueOrNote(team,name,"Nation",nation);
         }
 
         if(cardType){

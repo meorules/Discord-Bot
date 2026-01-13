@@ -164,6 +164,9 @@ class Team {
                 if(rows[row].Notes){
                     correspondingPlayer.Notes = rows[row].Notes;
                 }
+                if(rows[row].Nation){
+                    correspondingPlayer.mCountry = rows[row].Nation;
+                }
                 players.push(correspondingPlayer);
             }
 
@@ -200,6 +203,9 @@ class Team {
                 }
                 if(rows[row].Notes){
                     correspondingPlayer.Notes = rows[row].Notes;
+                }
+                if(rows[row].Nation){
+                    correspondingPlayer.mCountry = rows[row].Nation;
                 }
                 player = correspondingPlayer;
             }
@@ -314,6 +320,10 @@ class Team {
                     else if(parameterName == "Notes"){
                         playerFound.Notes = newValue;
                         const result = await db.run('UPDATE TeamPlayers SET Notes = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
+                    }
+                    else if(parameterName == "Nation"){
+                        playerFound.mCountry = newValue;
+                        const result = await db.run('UPDATE TeamPlayers SET Nation = ? WHERE teamID = ? AND PlayerID = ?;',[newValue, team.mID, playerFound.mID]);
                     }
 
                     team.mPlayers[playerFoundIndex] = playerFound;
