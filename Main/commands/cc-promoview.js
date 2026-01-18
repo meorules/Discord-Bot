@@ -10,7 +10,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('promo-view')
         .setDescription('View Players by Promo')
-        .addStringOption(option => option.setName('name').setDescription('Name of the promo').setRequired(false).addChoices(CardType.CARD_TYPE_VALUES)),
+        .addStringOption(option => option.setName('name').setDescription('Name of the promo').setRequired(true).addChoices(CardType.CARD_TYPE_VALUES)),
     async execute(interaction) {
         let cardTypeID = interaction.options.getString("name") || -1;
 

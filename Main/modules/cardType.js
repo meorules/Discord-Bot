@@ -26,7 +26,11 @@ class CardType {
   { name: 'Nation Mutation', value: '16' },
   { name: 'Nation Mutation Icon', value: '17' },
   { name: 'Deadly Duos', value: '18' },
-  { name: 'Deadly Duos Icon', value: '19' }];
+  { name: 'Deadly Duos Icon', value: '19' },
+  { name: 'League Conquerer', value: '20' },
+  { name: 'League Conquerer Icon', value: '22' },
+  { name: 'League Conquerer Hero', value: '21' },
+];
 
     static mPriorityList = [];
     constructor(cardTypeId,CardTypeName,emoji,priority){

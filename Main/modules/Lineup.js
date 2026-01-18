@@ -120,7 +120,7 @@ class Lineup {
                 let player = this.lineupPlayers[lineupPlayer].mPlayer;
                 Lineup.addToChemistryArray(player.mTeam,chemistryArray,"Team");
                 let nationGroup;
-                if(player.mCardTypeID != 16 && player.mCardTypeID != 17){
+                if(player.mCountry.includes("/")==false){
                     nationGroup = countryCodeArrays.nationGroups.get(player.mCountry);
                 }
 
@@ -138,7 +138,22 @@ class Lineup {
                     }
 
                 }
-                else if(player.mCardTypeID == 5){
+                else if(player.mCardTypeID == 22){
+                    let leagueArray = player.mLeague.split("/");
+                    for(let i=0;i<leagueArray.length;i++){
+                        for(let j=0;j<6;j++){
+                            Lineup.addToChemistryArray(leagueArray[i],chemistryArray,"League");
+                        }
+                    }
+                    Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
+                    Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
+                    if(nationGroup){
+                        Lineup.addToChemistryArray(nationGroup,chemistryArray,"Nation Group");
+                        Lineup.addToChemistryArray(nationGroup,chemistryArray,"Nation Group");
+                    }
+
+                }
+                else if(player.mCardTypeID == 5 || player.mCardTypeID == 17 || player.mCardTypeID == 19 || player.mCardTypeID == 21){
                     Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
                     Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
                     Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
@@ -149,6 +164,9 @@ class Lineup {
                         Lineup.addToChemistryArray(nationGroup,chemistryArray,"Nation Group");
                     }
                     iconCount++;
+                    if(player.mCardTypeID == 21){
+                        iconCount++;
+                    }
 
                 }
                 else if(player.mCardTypeID == 10){
@@ -198,9 +216,29 @@ class Lineup {
                         }
                     }
                 }
+                else if(player.mCardTypeID == 20){
+                    let leagueArray = player.mLeague.split("/");
+                    for(let i=0;i<leagueArray.length;i++){
+                        for(let j=0;j<4;j++){
+                            Lineup.addToChemistryArray(leagueArray[i],chemistryArray,"League");
+                        }
+                    }
+                    Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
+                    if(nationGroup){
+                        Lineup.addToChemistryArray(nationGroup,chemistryArray,"Nation Group");
+                    }
+
+                }
                 else{
                     Lineup.addToChemistryArray(player.mLeague,chemistryArray,"League");
-                    Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
+                    if(player.mCountry.includes("/")==false){
+                        Lineup.addToChemistryArray(player.mCountry,chemistryArray,"Country");
+                    }
+                    else{
+                        let countryArray = player.mCountry.split("/");
+                        Lineup.addToChemistryArray(countryArray[0],chemistryArray,"Country");
+                        Lineup.addToChemistryArray(countryArray[1],chemistryArray,"Country");
+                    }
                     if(nationGroup){
                         Lineup.addToChemistryArray(nationGroup,chemistryArray,"Nation Group");
                     }
@@ -226,7 +264,7 @@ class Lineup {
                 player.mChemistry =0;
                 for(let chemistryCounter of chemistryArray){
                     if(chemistryCounter.type == "Country"){
-                        if(player.mPlayer.mCardTypeID != 16 && player.mPlayer.mCardTypeID != 17){
+                        if(player.mPlayer.mCountry.includes("/")==false){
                             if(chemistryCounter.name == player.mPlayer.mCountry){
                                 if(chemistryCounter.count >=9){
                                     player.mChemistry +=3;
@@ -301,7 +339,9 @@ class Lineup {
                     }
 
                 }
-                if(player.mPlayer.mCardTypeID == 4 || player.mPlayer.mCardTypeID == 5 || player.mPlayer.mCardTypeID == 10){
+                if(player.mPlayer.mCardTypeID == 4 || player.mPlayer.mCardTypeID == 5 || player.mPlayer.mCardTypeID == 10 || player.mPlayer.mCardTypeID == 17 || player.mPlayer.mCardTypeID == 19
+                    || player.mPlayer.mCardTypeID == 21 || player.mPlayer.mCardTypeID == 22
+                ){
                     player.mChemistry =3;
                 }
 

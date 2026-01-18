@@ -196,7 +196,7 @@ class Player{
             toReturn += "**" + retrievedCardType.mCardType + "** ";
         }
         //Adding league if it is a hero
-        if(this.mCardTypeID == '4'){
+        if(this.mCardTypeID == '4' || this.mCardTypeID == '20' || this.mCardTypeID == '22' || this.mCardTypeID == '21'){
             toReturn += this.mLeague + " ";
         }
         //Adding rating
@@ -275,7 +275,7 @@ class Player{
             toReturn.push(retrievedCardType.mEmoji + " \n");
         }
 
-        if(this.mCardTypeID == '4'){
+        if(this.mCardTypeID == '4' || this.mCardTypeID == '20' || this.mCardTypeID == '22' || this.mCardTypeID == '21'){
             toReturn.push(this.mLeague + " \n");
         }
 
@@ -478,8 +478,10 @@ class Player{
 
             for(const row of rows){
                 let correspondingPlayer = await Player.RetrievePlayerByID(row.PromoPlayerID);
-                if(correspondingPlayer.mRating <= maxRating && correspondingPlayer.mRating >= minRating){
-                    players.push(correspondingPlayer);
+                if(correspondingPlayer){
+                    if(correspondingPlayer.mRating <= maxRating && correspondingPlayer.mRating >= minRating){
+                        players.push(correspondingPlayer);
+                    }
                 }
             };
 
