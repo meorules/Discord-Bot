@@ -1,0 +1,13 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+M. Baum,23,GK,,92,FC Augsburg,Bundesliga,,,18,60,14,45,24,84,90,32,,,Germany,,Male
+A. Arbeloa,23,RB LB,,93,Real Madrid,La Liga,,,85,93,76,69,91,88,75,78,,,Spain,,Male
+V. Kompany,23,CB CDM,,93,Bayern Munich,Bundesliga,,,78,94,56,79,68,94,83,94,,,Belgium,,Male
+M. Pellegrini,23,CB,,91,Real Betis,La Liga,,,76,92,45,53,68,89,94,86,,,Chile,,Male
+P. Vanoli,23,LB LM,,93,Fiorentina,Serie A,,,87,92,67,82,88,93,94,84,,,Italy,,Male
+M. Arteta,23,CM CDM CAM,,93,Arsenal,Premier League,,,92,90,87,92,91,96,76,75,,,Spain,,Male
+P. Guardiola,23,CDM,,92,Manchester City,Premier League,,,82,92,64,90,83,92,90,86,,,Spain,,Male
+R. Amorim,25,RM CM RB LM,,93,Hero,Premier League,,,89,92,79,84,89,95,86,78,,,Portugal,,Male
+H. Flick,23,CDM RM CB,,92,FC Barcelona,La Liga,,,83,91,56,65,80,91,94,90,,,Germany,,Male
+L. Enrique,23,RW RM CAM LW,,93,Paris Saint-Germain,Ligue 1,,,93,70,94,86,95,90,74,70,,,Spain,,Male
+S. Baumgart,23,ST RW CAM,,91,1. FC Union Berlin,Bundesliga,,,91,69,94,92,69,83,88,91,,,Germany,,Male
+K. Honda,26,CAM RW LW,,94,Icon,Icon,,,93,67,91,93,90,94,90,83,,,Japan,,Male

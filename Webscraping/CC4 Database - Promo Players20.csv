@@ -1,0 +1,5 @@
+PlayerName,CardTypeID,Position,Age,Rating,Team,League,Height,Weight,Attacking,Defending,Finishing,Penalties,Crossing,Passing,Jumping,Heading,WeakFoot,SkillMoves,Country,URL,Gender
+M. Nicolas,7,GK,27,91,Borussia Mönchengladbach,Bundesliga,193,89,36,50,22,33,25,91,77,40,2,1,Germany,sofifa.com/player/235018/moritz-nicolas/260004/,Male
+M. Sarr,7,CB,26,90,RC Lens,Ligue 1,183,85,67,92,50,63,72,93,98,96,2,2,France,sofifa.com/player/235454/malang-sarr/260004/,Male
+W. Odobert,7,RM LW RW LM,20,91,Tottenham Hotspur,Premier League,182,75,89,38,91,90,93,94,63,50,4,3,France,sofifa.com/player/270579/wilson-odobert/260004/,Male
+V. Muriqi,7,ST,31,92,RCD Mallorca,La Liga,194,92,92,35,97,97,40,88,99,99,3,3,Kosovo,sofifa.com/player/223710/vedat-muriqi/260004/,Male

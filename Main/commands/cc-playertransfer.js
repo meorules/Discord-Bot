@@ -36,7 +36,7 @@ module.exports = {
                 return interaction.followUp("You think you're sly, you are not actually doing anything lol");
             }
             if(fromUsername.username != commandUsername){
-                if((!commandUsername.toLowerCase().trim().includes("meo_rules") && !commandUsername.toLowerCase().trim().includes("mun25")  && !commandUsername.toLowerCase().trim().includes("a.h.m.e.d.") && !commandUsername.toLowerCase().trim().includes("billygilmour") && !commandUsername.toLowerCase().trim().includes("witzbold_1704")) && fromUsername != commandUsername){
+                if((!interaction.member.roles.cache.has("1318943571805736975") && (fromUsername.username != commandUsername ) && !interaction.member.roles.cache.has("1459593499182891038"))){
                     return interaction.followUp("Only mods can transfer players which are not on their team. Please do not attempt to move a player from someone else's team.");
                 }
                 else{

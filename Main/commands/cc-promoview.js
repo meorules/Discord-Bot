@@ -20,6 +20,9 @@ module.exports = {
         if(players.length > 0 ){
             generatedString = "The following players were found:\n";
             for(let player of players){
+                if(generatedString.length > 2000){
+                    generatedString = "The following players were found: \n...\n";
+                }
                 generatedString += "ID(" + player.mID + ") " + await player.stringify() + "\n";
             }
             return interaction.followUp(generatedString);

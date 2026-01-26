@@ -60,7 +60,6 @@ module.exports = {
             option => option.setName('league')
             .setDescription('Switch the League of the player (please use the same leagues as other players)')
             .setRequired(false)
-            .addChoices(leagueValues)
         )
         .addStringOption(
             option => option.setName('nation')

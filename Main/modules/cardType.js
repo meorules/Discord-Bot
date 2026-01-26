@@ -8,12 +8,12 @@ mPromoValues = []
 class CardType {
 
     static CARD_TYPE_VALUES = [
-  { name: 'Bronze', value: '1' },
-  { name: 'Silver', value: '2' },
+//  { name: 'Bronze', value: '1' },
+//  { name: 'Silver', value: '2' },
   { name: 'Gold', value: '3' },
   { name: 'Hero', value: '4' },
   { name: 'Icon', value: '5' },
-  { name: 'Silver Star', value: '6' },
+//  { name: 'Silver Star', value: '6' },
   { name: 'POTW', value: '7' },
   { name: 'FutureStars', value: '8' },
   { name: 'Speed Demons', value: '9' },
@@ -22,6 +22,7 @@ class CardType {
   { name: 'Double Agents', value: '12' },
   { name: 'Evo', value: '13' },
   { name: 'Shapeshifters', value: '14' },
+  { name: 'Shapeshifters Hero', value: '24' },
   { name: 'Transfer Titans', value: '15' },
   { name: 'Nation Mutation', value: '16' },
   { name: 'Nation Mutation Icon', value: '17' },
@@ -30,6 +31,9 @@ class CardType {
   { name: 'League Conquerer', value: '20' },
   { name: 'League Conquerer Icon', value: '22' },
   { name: 'League Conquerer Hero', value: '21' },
+  { name: 'Guiding Hand', value: '23' },
+  { name: 'Guiding Hand Hero', value: '25' },
+  { name: 'Guiding Hand Icon', value: '26' },
 ];
 
     static mPriorityList = [];

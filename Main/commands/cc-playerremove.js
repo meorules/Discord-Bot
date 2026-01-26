@@ -16,7 +16,7 @@ module.exports = {
         let username = "";
 
         if(retrievedUsername){
-            if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ))){
+            if((!interaction.member.roles.cache.has("1318943571805736975") && (retrievedUsername.username != commandUsername ) && !interaction.member.roles.cache.has("1459593499182891038"))){
 
             return interaction.reply("You do not have permission to remove players from this team.");
             }

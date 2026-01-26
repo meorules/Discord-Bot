@@ -15,7 +15,7 @@ module.exports = {
         ),
     async execute(interaction) {
         // Check if user has the required role (mod)
-        if (!interaction.member.roles.cache.has("1318943571805736975")) {
+        if (!interaction.member.roles.cache.has("1318943571805736975") && !interaction.member.roles.cache.has("1459593499182891038")) {
             return interaction.followUp({
                 content: "You do not have permission to use this command.",
                 ephemeral: true

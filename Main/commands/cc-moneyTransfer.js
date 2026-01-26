@@ -45,6 +45,9 @@ module.exports = {
         if(fromUsername == toUsername){
             return interaction.followUp("You think you're sly, you are not adding money like this lil bro.");
         }
+        if(!interaction.member.roles.cache.has("1318943571805736975") && (username != commandUsername ) && !interaction.member.roles.cache.has("1459593499182891038")){
+            return interaction.followUp("You do not have permission to transfer money from this user.");
+        }
         if (amount < 0){
             return interaction.followUp("You can't pay negative , I will make you regret trying to exploit me.");
         }
